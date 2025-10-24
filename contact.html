@@ -1,0 +1,1215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact Us - Mex Taco House</title>
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="assets/css/libraries.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  
+  <style>
+    /* Contact Page Specific Styles */
+    .contact-hero {
+      background: linear-gradient(135deg, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.4)), url('assets/images/backgrounds/1.jpg');
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+      padding: 100px 0 60px;
+      color: white;
+      text-align: center;
+      position: relative;
+    }
+    
+    .contact-hero::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: linear-gradient(135deg, rgba(220, 38, 38, 0.1), rgba(199, 162, 84, 0.1));
+      z-index: 1;
+    }
+    
+    .contact-hero .container {
+      position: relative;
+      z-index: 2;
+    }
+    
+    .contact-hero h1 {
+      font-size: 2.8rem;
+      font-weight: 600;
+      margin-bottom: 15px;
+      color: white;
+      text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
+    }
+    
+    .contact-hero p {
+      font-size: 1.1rem;
+      margin-bottom: 0;
+      color: #f0f0f0;
+      text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+      max-width: 600px;
+      margin: 0 auto;
+    }
+    
+    .contact-section {
+      padding: 80px 0;
+      background: #f8f9fa;
+    }
+    
+    .contact-info-card {
+      background: white;
+      border-radius: 15px;
+      padding: 40px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+      margin-bottom: 30px;
+      transition: transform 0.3s ease;
+    }
+    
+    .contact-info-card:hover {
+      transform: translateY(-5px);
+    }
+    
+    .contact-info-card h3 {
+      color: #dc2626;
+      font-size: 1.5rem;
+      font-weight: 600;
+      margin-bottom: 25px;
+      display: flex;
+      align-items: center;
+    }
+    
+    .contact-info-card h3 i {
+      margin-right: 15px;
+      font-size: 1.8rem;
+    }
+    
+    .contact-detail {
+      display: flex;
+      align-items: center;
+      margin-bottom: 20px;
+      padding: 15px;
+      background: #f8f9fa;
+      border-radius: 10px;
+      transition: all 0.3s ease;
+    }
+    
+    .contact-detail:hover {
+      background: #dc2626;
+      color: white;
+      transform: translateX(10px);
+    }
+    
+    .contact-detail i {
+      color: #dc2626;
+      font-size: 1.5rem;
+      margin-right: 15px;
+      width: 30px;
+      text-align: center;
+    }
+    
+    .contact-detail:hover i {
+      color: white;
+    }
+    
+    .contact-detail a {
+      color: inherit;
+      text-decoration: none;
+      font-size: 1.1rem;
+      font-weight: 500;
+    }
+    
+    .contact-detail a:hover {
+      color: inherit;
+    }
+    
+    .map-container {
+      background: white;
+      border-radius: 15px;
+      padding: 40px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+      margin-bottom: 30px;
+    }
+    
+    .map-container h3 {
+      color: #dc2626;
+      font-size: 1.5rem;
+      font-weight: 600;
+      margin-bottom: 25px;
+      display: flex;
+      align-items: center;
+    }
+    
+    .map-container h3 i {
+      margin-right: 15px;
+      font-size: 1.8rem;
+    }
+    
+    .map-embed {
+      width: 100%;
+      height: 400px;
+      border: none;
+      border-radius: 10px;
+    }
+    
+    .contact-form {
+      background: white;
+      border-radius: 15px;
+      padding: 40px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    }
+    
+    .contact-form h3 {
+      color: #dc2626;
+      font-size: 1.5rem;
+      font-weight: 600;
+      margin-bottom: 30px;
+      display: flex;
+      align-items: center;
+    }
+    
+    .contact-form h3 i {
+      margin-right: 15px;
+      font-size: 1.8rem;
+    }
+    
+    .form-group {
+      margin-bottom: 25px;
+    }
+    
+    .form-group label {
+      color: #333;
+      font-weight: 600;
+      margin-bottom: 8px;
+      display: block;
+    }
+    
+    .form-group input,
+    .form-group textarea {
+      width: 100%;
+      padding: 15px;
+      border: 2px solid #e9ecef;
+      border-radius: 10px;
+      font-size: 1rem;
+      transition: all 0.3s ease;
+    }
+    
+    .form-group input:focus,
+    .form-group textarea:focus {
+      outline: none;
+      border-color: #dc2626;
+      box-shadow: 0 0 0 3px rgba(220, 38, 38, 0.1);
+    }
+    
+    .form-group textarea {
+      height: 120px;
+      resize: vertical;
+    }
+    
+    .submit-btn {
+      background: linear-gradient(135deg, #dc2626, #b91c1c);
+      color: white;
+      padding: 15px 40px;
+      border: none;
+      border-radius: 10px;
+      font-size: 1.1rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+    
+    .submit-btn:hover {
+      background: linear-gradient(135deg, #b91c1c, #991b1b);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 25px rgba(220, 38, 38, 0.3);
+    }
+    
+    .hours-info {
+      background: linear-gradient(135deg, #dc2626, #b91c1c);
+      color: white;
+      border-radius: 15px;
+      padding: 30px;
+      margin-top: 30px;
+    }
+    
+    .hours-info h4 {
+      font-size: 1.8rem;
+      font-weight: 800;
+      margin-bottom: 25px;
+      display: flex;
+      align-items: center;
+      text-shadow: 3px 3px 6px rgba(0,0,0,0.5);
+      position: relative;
+      padding-bottom: 15px;
+      color: #ffffff;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      opacity: 0;
+      transform: translateX(-50px);
+      transition: all 0.8s ease-out;
+    }
+    
+    .hours-info h4.animate-in {
+      opacity: 1;
+      transform: translateX(0);
+    }
+    
+    .hours-info h4::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 80px;
+      height: 4px;
+      background: linear-gradient(90deg, #ffffff, #f8f9fa, #ffffff);
+      border-radius: 3px;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.3);
+    }
+    
+    .hours-info h4 i {
+      margin-right: 15px;
+      font-size: 1.8rem;
+      color: #ffffff;
+      text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+    }
+    
+    .hours-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+    
+    .hours-list li {
+      padding: 12px 0;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      transition: all 0.3s ease;
+    }
+    
+    .hours-list li:hover {
+      background: rgba(255, 255, 255, 0.1);
+      padding-left: 10px;
+      border-radius: 5px;
+    }
+    
+    .hours-list li:last-child {
+      border-bottom: none;
+    }
+    
+    .hours-list li span:first-child {
+      font-weight: 600;
+      font-size: 1rem;
+      color: #f8f9fa;
+      text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+    }
+    
+    .hours-list li span:last-child {
+      font-weight: 500;
+      font-size: 0.95rem;
+      color: #e5e7eb;
+      text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+    }
+    
+    .hours-list li span:last-child:contains("Closed") {
+      color: #fca5a5;
+      font-weight: 600;
+    }
+    
+    /* Responsive Design */
+    @media (max-width: 768px) {
+      .contact-hero {
+        padding: 80px 0 50px;
+      }
+      
+      .contact-hero h1 {
+        font-size: 2.2rem;
+      }
+      
+      .contact-hero p {
+        font-size: 1rem;
+      }
+      
+      .contact-info-card,
+      .map-container,
+      .contact-form {
+        padding: 25px;
+      }
+      
+      .map-embed {
+        height: 300px;
+      }
+    }
+    
+    @media (max-width: 480px) {
+      .contact-hero {
+        padding: 70px 0 40px;
+      }
+      
+      .contact-hero h1 {
+        font-size: 1.8rem;
+      }
+      
+      .contact-hero p {
+        font-size: 0.95rem;
+      }
+      
+      .contact-info-card,
+      .map-container,
+      .contact-form {
+        padding: 20px;
+      }
+    }
+    
+    /* Navbar logo sizing - matching other pages */
+    .navbar-brand {
+      margin-top: 10px !important;
+      margin-left: -20px !important;
+    }
+    .navbar-brand img {
+      max-height: 50px !important;
+    }
+    
+    /* Navigation link styling - black text for contact page */
+    .nav__item-link {
+      color: #333 !important;
+    }
+    .nav__item-link.active {
+      color: #333 !important;
+    }
+    .nav__item-link:hover {
+      color: #333 !important;
+    }
+    
+    /* Interactive underline animation - red underlines only */
+    .nav__item-link {
+      position: relative;
+      overflow: hidden;
+      text-decoration: none !important;
+      border-bottom: none !important;
+    }
+    
+    .nav__item-link::before {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background-color: #dc2626 !important;
+      transition: width 0.3s ease;
+    }
+    
+    .nav__item-link:hover::before {
+      width: 100%;
+      background-color: #dc2626 !important;
+    }
+    
+    .nav__item-link.active::before {
+      width: 100%;
+      background-color: #dc2626 !important;
+    }
+    
+    /* Remove any default underlines and ensure red color */
+    .nav__item-link::after {
+      display: none !important;
+    }
+    
+    /* Force red color for all underline states */
+    .navbar .nav__item .nav__item-link:before {
+      background-color: #dc2626 !important;
+    }
+    .navbar .nav__item .nav__item-link:hover:before {
+      background-color: #dc2626 !important;
+    }
+    .navbar .nav__item .nav__item-link.active:before {
+      background-color: #dc2626 !important;
+    }
+    
+    /* Navigation text black for contact page */
+    .navbar .nav__item-link {
+      color: #333 !important;
+    }
+    .navbar .nav__item-link:hover {
+      color: #333 !important;
+    }
+    .navbar .nav__item-link.active {
+      color: #333 !important;
+    }
+    
+    /* Red underlines for all states */
+    .navbar .nav__item-link::after {
+      background-color: #dc2626 !important;
+    }
+    .navbar .nav__item-link:hover::after {
+      background-color: #dc2626 !important;
+    }
+    .navbar .nav__item-link.active::after {
+      background-color: #dc2626 !important;
+    }
+    
+    /* Responsive logo sizing */
+    @media only screen and (min-width: 1024px) and (max-width: 1200px) {
+      .navbar-brand img {
+        max-height: 60px;
+      }
+    }
+    
+    @media only screen and (min-width: 768px) and (max-width: 1023px) {
+      .navbar-brand img {
+        max-height: 50px;
+      }
+    }
+    
+    @media only screen and (max-width: 767px) {
+      .navbar-brand img {
+        max-height: 45px;
+      }
+    }
+    
+    @media only screen and (max-width: 480px) {
+      .navbar-brand img {
+        max-height: 40px;
+      }
+    }
+    
+    /* Footer link hover effects - matching other pages */
+    .footer a[href] {
+      position: relative;
+      overflow: hidden;
+    }
+    
+    /* Animated underline effect */
+    .footer a[href]:before {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: linear-gradient(90deg, #dc2626, #c7a254);
+      transition: width 0.3s ease;
+    }
+    
+    .footer a[href]:hover:before {
+      width: 100%;
+    }
+    
+    /* Text color change on hover */
+    .footer a[href]:hover {
+      color: #dc2626 !important;
+      transform: translateX(5px);
+    }
+    
+    /* Left border animation */
+    .footer a[href]:hover {
+      border-left-color: #dc2626 !important;
+    }
+    
+    /* Glow effect for menu category links */
+    .footer a[href*="menu.html"]:hover {
+      text-shadow: 0 0 8px rgba(220, 38, 38, 0.5);
+    }
+    
+    /* Special effect for contact info links */
+    .footer a[href*="tel:"], 
+    .footer a[href*="mailto:"], 
+    .footer a[href*="maps.google.com"] {
+      transition: all 0.3s ease;
+    }
+    
+    .footer a[href*="tel:"]:hover,
+    .footer a[href*="mailto:"]:hover,
+    .footer a[href*="maps.google.com"]:hover {
+      color: #c7a254 !important;
+      transform: scale(1.05);
+    }
+    
+    /* Reviews Banner Animations */
+    .review-item {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: all 0.8s ease-in-out;
+    }
+    
+    .review-item.active {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    
+    .reviews-banner {
+      position: relative;
+    }
+    
+    .reviews-banner::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: linear-gradient(135deg, rgba(220, 38, 38, 0.1), rgba(199, 162, 84, 0.1));
+      z-index: 1;
+    }
+    
+    .reviews-banner .container {
+      position: relative;
+      z-index: 2;
+    }
+    
+    .reviews-banner {
+      padding: 30px 0 !important;
+      margin: 50px 0 !important;
+    }
+    
+    .reviews-banner .review-item {
+      padding: 20px 0;
+    }
+    
+    .reviews-banner blockquote {
+      font-size: 1.1rem !important;
+      line-height: 1.5 !important;
+      color: white !important;
+    }
+    
+    .reviews-banner cite {
+      color: white !important;
+    }
+    
+    .reviews-banner .review-source {
+      color: white !important;
+    }
+    
+    .reviews-banner .reviews-slider {
+      color: white !important;
+    }
+    
+    .reviews-banner .reviews-slider * {
+      color: white !important;
+    }
+    
+    .reviews-banner .reviews-slider .fas.fa-star {
+      color: #fbbf24 !important;
+    }
+  </style>
+</head>
+<body>
+  <div class="wrapper">
+    <!-- =========================
+        Header
+    =========================== -->
+    <header id="header" class="header header-transparent header-layout1">
+      <nav class="navbar navbar-expand-lg sticky-navbar">
+    <div class="container">
+      <a class="navbar-brand" href="index.html">
+        <img src="assets/max-taco-logo.png" class="logo-light" alt="Mex Taco House">
+        <img src="assets/max-taco-logo.png" class="logo-dark" alt="Mex Taco House">
+      </a>
+      <button class="navbar-toggler" type="button">
+        <span class="menu-lines"><span></span></span>
+      </button>
+      <div class="collapse navbar-collapse" id="mainNavigation">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav__item">
+            <a href="index.html#home" class="nav__item-link">Home</a>
+          </li>
+          <li class="nav__item">
+            <a href="index.html#about" class="nav__item-link">About</a>
+          </li>
+          <li class="nav__item">
+            <a href="menu.html" class="nav__item-link">Menu</a>
+          </li>
+          <li class="nav__item">
+            <a href="index.html#gallery" class="nav__item-link">Gallery</a>
+          </li>
+          <li class="nav__item">
+            <a href="contact.html" class="nav__item-link active">Contact</a>
+          </li>
+        </ul><!-- /.navbar-nav -->
+      </div><!-- /.navbar-collapse -->
+      <div class="navbar-actions-wrap">
+        <div class="navbar-actions d-flex align-items-center">
+          <a href="#" class="navbar__action-btn search-popup-trigger"><i class="fa fa-search"></i></a>
+          <div class="dropdown" style="position: relative; display: inline-block;">
+            <button class="navbar__action-btn navbar__action-btn-reserve btn btn__primary" type="button" id="orderDropdown" data-bs-toggle="dropdown" aria-expanded="false" style="border: none; background: #dc2626; color: white; padding: 12px 15px; border-radius: 5px; font-weight: 600; cursor: pointer; transition: all 0.3s ease; text-align: center; display: flex; align-items: center; justify-content: center; width: auto;">
+              Order Now
+            </button>
+            <ul class="dropdown-menu" aria-labelledby="orderDropdown" style="position: absolute; top: 100%; left: 0; background: white; border: 1px solid #ddd; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.15); min-width: 200px; z-index: 1000; padding: 10px 0; margin-top: 5px;">
+              <li style="list-style: none; margin: 0;">
+                <a href="https://www.grubhub.com/restaurant/mex-taco-house-25410-northwest-fwy-cypress/5807624" target="_blank" rel="noopener noreferrer" style="display: block; padding: 12px 20px; color: #333; text-decoration: none; transition: all 0.3s ease; border-bottom: 1px solid #f0f0f0;">
+                  <div style="display: flex; align-items: center; gap: 10px;">
+                    <div style="width: 30px; height: 20px; background: #f63d05; border-radius: 4px; display: flex; align-items: center; justify-content: center;">
+                      <span style="color: white; font-size: 0.7rem; font-weight: 700;">GH</span>
+                    </div>
+                    <span style="font-weight: 600;">Grubhub</span>
+                  </div>
+                </a>
+              </li>
+              <li style="list-style: none; margin: 0;">
+                <a href="https://www.ubereats.com/store/mex-taco-house/zlftufBFXgm9JhQGyOfpvw?srsltid=AfmBOoqivy_I4JNqrygE9zN80BMQ_FV4BwOt5K2ErLL7PPXNNJVsIAgy" target="_blank" rel="noopener noreferrer" style="display: block; padding: 12px 20px; color: #333; text-decoration: none; transition: all 0.3s ease;">
+                  <div style="display: flex; align-items: center; gap: 10px;">
+                    <div style="width: 30px; height: 20px; background: #06c167; border-radius: 4px; display: flex; align-items: center; justify-content: center;">
+                      <span style="color: white; font-size: 0.7rem; font-weight: 700;">UE</span>
+                    </div>
+                    <span style="font-weight: 600;">Uber Eats</span>
+                  </div>
+                </a>
+              </li>
+            </ul>
+          </div>
+          <ul class="social__icons">
+            <li><a href="https://www.instagram.com/mextacohouse/reels/?hl=en" target="_blank" rel="noopener noreferrer"><i class="fab fa-instagram"></i></a></li>
+            <li><a href="https://www.facebook.com/mextacohouse" target="_blank" rel="noopener noreferrer"><i class="fab fa-facebook"></i></a></li>
+          </ul><!-- /.social__icons -->
+        </div><!-- /.navbar-actions -->
+      </div><!-- /.navbar-actions-wrap -->
+    </div><!-- /.container -->
+  </nav><!-- /.navbar -->
+</header><!-- /.header -->
+
+  <!-- Contact Hero Section -->
+  <section class="contact-hero">
+    <div class="container">
+      <div class="row">
+        <div class="col-12">
+          <h1>Contact Us</h1>
+          <p>We'd love to hear from you! Get in touch with us today.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Information Section -->
+  <section class="contact-section">
+    <div class="container">
+      <div class="row">
+        <!-- Contact Information -->
+        <div class="col-lg-4 col-md-6 mb-4">
+          <div class="contact-info-card">
+            <h3><i class="fas fa-phone"></i> Phone & Hours</h3>
+            <div class="contact-detail">
+              <i class="fas fa-phone"></i>
+              <a href="tel:+12812132844">(281) 213-2844</a>
+            </div>
+            <div class="contact-detail">
+              <i class="fas fa-clock"></i>
+              <span>Tue-Sat: 6:00 AM - 2:00 PM<br>Sun: 7:00 AM - 2:00 PM<br>Mon: Closed</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Email Information -->
+        <div class="col-lg-4 col-md-6 mb-4">
+          <div class="contact-info-card">
+            <h3><i class="fas fa-envelope"></i> Email</h3>
+            <div class="contact-detail">
+              <i class="fas fa-envelope"></i>
+              <a href="mailto:Mextacohouse@gmail.com">Mextacohouse@gmail.com</a>
+            </div>
+            <div class="contact-detail">
+              <i class="fas fa-reply"></i>
+              <span>We respond within 24 hours</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Address Information -->
+        <div class="col-lg-4 col-md-6 mb-4">
+          <div class="contact-info-card">
+            <h3><i class="fas fa-map-marker-alt"></i> Location</h3>
+            <div class="contact-detail">
+              <i class="fas fa-location-dot"></i>
+              <a href="https://www.google.com/maps/place/MEX+Taco+House/@29.9652533,-95.6907761,17z/data=!4m15!1m8!3m7!1s0x8640d5cac97f20b5:0xe4d80e4c7b3abb15!2s25410+Northwest+Fwy,+Cypress,+TX+77429!3b1!8m2!3d29.9652533!4d-95.6882012!16s%2Fg%2F11hc_40bmz!3m5!1s0x8640d5b7418fd501:0x148309e883ded154!8m2!3d29.9654522!4d-95.688223!16s%2Fg%2F11h1087675?entry=ttu&g_ep=EgoyMDI1MTAyMC4wIKXMDSoASAFQAw%3D%3D" target="_blank" rel="noopener noreferrer">
+                25410 Northwest Fwy<br>
+                Cypress, TX 77429
+              </a>
+            </div>
+            <div class="contact-detail">
+              <i class="fas fa-car"></i>
+              <span>Free parking available</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Map Section -->
+      <div class="row">
+        <div class="col-12">
+          <div class="map-container">
+            <h3><i class="fas fa-map"></i> Find Us on the Map</h3>
+            <iframe 
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3456.7890123456789!2d-95.6882012!3d29.9652533!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8640d5b7418fd501%3A0x148309e883ded154!2sMEX%20Taco%20House!5e0!3m2!1sen!2sus!4v1234567890123!5m2!1sen!2sus"
+              class="map-embed"
+              allowfullscreen=""
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade">
+            </iframe>
+          </div>
+        </div>
+      </div>
+
+      <!-- Contact Form -->
+      <div class="row">
+        <div class="col-lg-8 mx-auto">
+          <div class="contact-form">
+            <h3><i class="fas fa-paper-plane"></i> Send us a Message</h3>
+            <form id="contactForm">
+              <div class="row">
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <label for="firstName">First Name *</label>
+                    <input type="text" id="firstName" name="firstName" required>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <label for="lastName">Last Name *</label>
+                    <input type="text" id="lastName" name="lastName" required>
+                  </div>
+                </div>
+              </div>
+              
+              <div class="row">
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <label for="email">Email Address *</label>
+                    <input type="email" id="email" name="email" required>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <label for="phone">Phone Number</label>
+                    <input type="tel" id="phone" name="phone">
+                  </div>
+                </div>
+              </div>
+              
+              <div class="form-group">
+                <label for="subject">Subject *</label>
+                <input type="text" id="subject" name="subject" required>
+              </div>
+              
+              <div class="form-group">
+                <label for="message">Message *</label>
+                <textarea id="message" name="message" required placeholder="Tell us how we can help you..."></textarea>
+              </div>
+              
+              <div class="text-center">
+                <button type="submit" class="submit-btn">
+                  <i class="fas fa-paper-plane"></i> Send Message
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+
+      <!-- Business Hours -->
+      <div class="row">
+        <div class="col-lg-6 mx-auto">
+          <div class="hours-info">
+            <h4><i class="fas fa-clock"></i> Business Hours</h4>
+            <ul class="hours-list">
+              <li><span>Monday</span><span>Closed</span></li>
+              <li><span>Tuesday</span><span>6:00 AM - 2:00 PM</span></li>
+              <li><span>Wednesday</span><span>6:00 AM - 2:00 PM</span></li>
+              <li><span>Thursday</span><span>6:00 AM - 2:00 PM</span></li>
+              <li><span>Friday</span><span>6:00 AM - 2:00 PM</span></li>
+              <li><span>Saturday</span><span>6:00 AM - 2:00 PM</span></li>
+              <li><span>Sunday</span><span>7:00 AM - 2:00 PM</span></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =============================
+       Reviews Banner
+       ============================= -->
+  <section class="reviews-banner py-40" style="background: linear-gradient(135deg, rgba(220, 38, 38, 0.8), rgba(185, 28, 28, 0.8)); position: relative; overflow: hidden; margin: 40px 0;">
+    <div class="container">
+      <div class="row">
+        <div class="col-12">
+          <div class="reviews-slider" style="text-align: center; color: white;">
+            <div class="review-item active" style="display: block;">
+              <div class="stars" style="margin-bottom: 15px;">
+                  <span style="font-size: 1.5rem; margin: 0 3px;">⭐</span>
+                  <span style="font-size: 1.5rem; margin: 0 3px;">⭐</span>
+                  <span style="font-size: 1.5rem; margin: 0 3px;">⭐</span>
+                  <span style="font-size: 1.5rem; margin: 0 3px;">⭐</span>
+                  <span style="font-size: 1.5rem; margin: 0 3px;">⭐</span>
+              </div>
+              <blockquote style="font-size: 1.2rem; font-style: italic; margin-bottom: 15px; max-width: 800px; margin-left: auto; margin-right: auto; color: white;">
+                "What great food and always good service"
+              </blockquote>
+              <cite style="font-size: 1rem; font-weight: 600; color: white;">- Richard Edward Mundine</cite>
+              <div class="review-source" style="font-size: 0.9rem; color: white; margin-top: 5px;">Facebook</div>
+            </div>
+            
+            <div class="review-item" style="display: none;">
+              <div class="stars" style="margin-bottom: 15px;">
+                  <span style="font-size: 1.5rem; margin: 0 3px;">⭐</span>
+                  <span style="font-size: 1.5rem; margin: 0 3px;">⭐</span>
+                  <span style="font-size: 1.5rem; margin: 0 3px;">⭐</span>
+                  <span style="font-size: 1.5rem; margin: 0 3px;">⭐</span>
+                  <span style="font-size: 1.5rem; margin: 0 3px;">⭐</span>
+              </div>
+              <blockquote style="font-size: 1.2rem; font-style: italic; margin-bottom: 15px; max-width: 800px; margin-left: auto; margin-right: auto; color: white;">
+                "Stopped in for the first time for breakfast and definitely won't be the last time! Friendly staff and great food!!"
+              </blockquote>
+              <cite style="font-size: 1rem; font-weight: 600; color: white;">- Jennifer LeBlanc</cite>
+              <div class="review-source" style="font-size: 0.9rem; color: white; margin-top: 5px;">Facebook</div>
+            </div>
+            
+            <div class="review-item" style="display: none;">
+              <div class="stars" style="margin-bottom: 15px;">
+                  <span style="font-size: 1.5rem; margin: 0 3px;">⭐</span>
+                  <span style="font-size: 1.5rem; margin: 0 3px;">⭐</span>
+                  <span style="font-size: 1.5rem; margin: 0 3px;">⭐</span>
+                  <span style="font-size: 1.5rem; margin: 0 3px;">⭐</span>
+                  <span style="font-size: 1.5rem; margin: 0 3px;">⭐</span>
+              </div>
+              <blockquote style="font-size: 1.2rem; font-style: italic; margin-bottom: 15px; max-width: 800px; margin-left: auto; margin-right: auto; color: white;">
+                "Jessicia is very nice and so is her husband Able love their tacos 😍"
+              </blockquote>
+              <cite style="font-size: 1rem; font-weight: 600; color: white;">- Diana Bielamowicz</cite>
+              <div class="review-source" style="font-size: 0.9rem; color: white; margin-top: 5px;">Facebook</div>
+            </div>
+            
+            <div class="review-item" style="display: none;">
+              <div class="stars" style="margin-bottom: 15px;">
+                  <span style="font-size: 1.5rem; margin: 0 3px;">⭐</span>
+                  <span style="font-size: 1.5rem; margin: 0 3px;">⭐</span>
+                  <span style="font-size: 1.5rem; margin: 0 3px;">⭐</span>
+                  <span style="font-size: 1.5rem; margin: 0 3px;">⭐</span>
+                  <span style="font-size: 1.5rem; margin: 0 3px;">⭐</span>
+              </div>
+              <blockquote style="font-size: 1.2rem; font-style: italic; margin-bottom: 15px; max-width: 800px; margin-left: auto; margin-right: auto; color: white;">
+                "Always fresh tacos, kind service and a great environment"
+              </blockquote>
+              <cite style="font-size: 1rem; font-weight: 600; color: white;">- Anthony Smith</cite>
+              <div class="review-source" style="font-size: 0.9rem; color: white; margin-top: 5px;">Facebook</div>
+            </div>
+            
+            <div class="review-item" style="display: none;">
+              <div class="stars" style="margin-bottom: 15px;">
+                  <span style="font-size: 1.5rem; margin: 0 3px;">⭐</span>
+                  <span style="font-size: 1.5rem; margin: 0 3px;">⭐</span>
+                  <span style="font-size: 1.5rem; margin: 0 3px;">⭐</span>
+                  <span style="font-size: 1.5rem; margin: 0 3px;">⭐</span>
+                  <span style="font-size: 1.5rem; margin: 0 3px;">⭐</span>
+              </div>
+              <blockquote style="font-size: 1.2rem; font-style: italic; margin-bottom: 15px; max-width: 800px; margin-left: auto; margin-right: auto; color: white;">
+                "This place is SO POPULAR!!! The food is fresh and delicious EVERY time!"
+              </blockquote>
+              <cite style="font-size: 1rem; font-weight: 600; color: white;">- Tee S.</cite>
+              <div class="review-source" style="font-size: 0.9rem; color: white; margin-top: 5px;">Yelp</div>
+            </div>
+            
+            <div class="review-item" style="display: none;">
+              <div class="stars" style="margin-bottom: 15px;">
+                  <span style="font-size: 1.5rem; margin: 0 3px;">⭐</span>
+                  <span style="font-size: 1.5rem; margin: 0 3px;">⭐</span>
+                  <span style="font-size: 1.5rem; margin: 0 3px;">⭐</span>
+                  <span style="font-size: 1.5rem; margin: 0 3px;">⭐</span>
+                  <span style="font-size: 1.5rem; margin: 0 3px;">⭐</span>
+              </div>
+              <blockquote style="font-size: 1.2rem; font-style: italic; margin-bottom: 15px; max-width: 800px; margin-left: auto; margin-right: auto; color: white;">
+                "Love this place and LOVE the new expansion!! Such a great place with amazing hospitality"
+              </blockquote>
+              <cite style="font-size: 1rem; font-weight: 600; color: white;">- Tee S.</cite>
+              <div class="review-source" style="font-size: 0.9rem; color: white; margin-top: 5px;">Yelp</div>
+            </div>
+            
+            <div class="review-item" style="display: none;">
+              <div class="stars" style="margin-bottom: 15px;">
+                  <span style="font-size: 1.5rem; margin: 0 3px;">⭐</span>
+                  <span style="font-size: 1.5rem; margin: 0 3px;">⭐</span>
+                  <span style="font-size: 1.5rem; margin: 0 3px;">⭐</span>
+                  <span style="font-size: 1.5rem; margin: 0 3px;">⭐</span>
+                  <span style="font-size: 1.5rem; margin: 0 3px;">⭐</span>
+              </div>
+              <blockquote style="font-size: 1.2rem; font-style: italic; margin-bottom: 15px; max-width: 800px; margin-left: auto; margin-right: auto; color: white;">
+                "Really love the food. This is a Cypress and Houston must go and we love taking friends and family to enjoy"
+              </blockquote>
+              <cite style="font-size: 1rem; font-weight: 600; color: white;">- Haley M.</cite>
+              <div class="review-source" style="font-size: 0.9rem; color: white; margin-top: 5px;">Yelp</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer" style="background: linear-gradient(135deg, #0f0f0f 0%, #1a1a1a 50%, #2d2d2d 100%); position: relative; overflow: hidden;">
+    <!-- Decorative Top Border -->
+    <div style="height: 4px; background: linear-gradient(90deg, #dc2626, #c7a254, #dc2626); width: 100%;"></div>
+    
+    <div class="footer-primary" style="padding: 60px 0; position: relative;">
+      <!-- Background Pattern Removed -->
+      
+      <div class="container" style="position: relative; z-index: 2;">
+        <!-- Main Footer Content -->
+        <div class="row" style="margin: 0 -15px;">
+          <!-- Brand Section - Full Width -->
+          <div class="col-12" style="padding: 0 15px; margin-bottom: 50px;">
+            <div style="text-align: center; padding: 40px 0; background: rgba(220, 38, 38, 0.1); border-radius: 15px; border: 1px solid rgba(220, 38, 38, 0.2);">
+              <img src="assets/max-taco-logo.png" alt="Mex Taco House Logo" style="max-height: 80px; margin-bottom: 20px; filter: drop-shadow(0 4px 8px rgba(0,0,0,0.3));">
+              <h3 style="color: #fff; font-size: 1.8rem; font-weight: 700; margin-bottom: 15px; text-shadow: 2px 2px 4px rgba(0,0,0,0.5);">Mex Taco House</h3>
+              <p style="color: #ccc; font-size: 1.1rem; line-height: 1.6; max-width: 600px; margin: 0 auto 30px; font-style: italic;">"Where authentic Mexican flavors meet modern dining experience"</p>
+              
+              <!-- Social Media Icons -->
+              <div style="display: flex; justify-content: center; gap: 20px; margin-top: 25px;">
+                <a href="https://www.facebook.com/mextacohouse" target="_blank" rel="noopener noreferrer" style="display: inline-flex; align-items: center; justify-content: center; width: 50px; height: 50px; background: linear-gradient(135deg, #dc2626, #b91c1c); color: white; border-radius: 50%; text-decoration: none; transition: all 0.3s ease; font-size: 20px; box-shadow: 0 4px 15px rgba(220, 38, 38, 0.3);">
+                  <i class="fab fa-facebook"></i>
+                </a>
+                <a href="https://www.instagram.com/mextacohouse/reels/?hl=en" target="_blank" rel="noopener noreferrer" style="display: inline-flex; align-items: center; justify-content: center; width: 50px; height: 50px; background: linear-gradient(135deg, #dc2626, #b91c1c); color: white; border-radius: 50%; text-decoration: none; transition: all 0.3s ease; font-size: 20px; box-shadow: 0 4px 15px rgba(220, 38, 38, 0.3);">
+                  <i class="fab fa-instagram"></i>
+                </a>
+                <a href="https://www.yelp.com/biz/mex-taco-house-cypress-2?utm_campaign=www_business_share_popup&utm_medium=copy_link&utm_source=(direct)" target="_blank" rel="noopener noreferrer" style="display: inline-flex; align-items: center; justify-content: center; width: 50px; height: 50px; background: linear-gradient(135deg, #dc2626, #b91c1c); color: white; border-radius: 50%; text-decoration: none; transition: all 0.3s ease; font-size: 20px; box-shadow: 0 4px 15px rgba(220, 38, 38, 0.3);">
+                  <i class="fab fa-yelp"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Three Column Layout -->
+          <div class="col-md-4" style="padding: 0 15px; margin-bottom: 40px;">
+            <div style="background: rgba(255, 255, 255, 0.05); padding: 30px; border-radius: 10px; border: 1px solid rgba(255, 255, 255, 0.1); height: 100%;">
+              <h5 style="color: #dc2626; font-size: 1.3rem; font-weight: 600; margin-bottom: 25px; text-transform: uppercase; letter-spacing: 1px; position: relative; padding-bottom: 10px;">
+                Quick Links
+                <div style="position: absolute; bottom: 0; left: 0; width: 40px; height: 2px; background: #dc2626;"></div>
+              </h5>
+              <ul style="list-style: none; padding: 0; margin: 0;">
+                <li style="margin-bottom: 12px;"><a href="index.html" style="color: #ccc; text-decoration: none; font-size: 1rem; transition: all 0.3s ease; display: block; padding: 8px 0; border-left: 3px solid transparent; padding-left: 15px; position: relative; overflow: hidden;">Home</a></li>
+                <li style="margin-bottom: 12px;"><a href="menu.html" style="color: #ccc; text-decoration: none; font-size: 1rem; transition: all 0.3s ease; display: block; padding: 8px 0; border-left: 3px solid transparent; padding-left: 15px; position: relative; overflow: hidden;">Menu</a></li>
+                <li style="margin-bottom: 12px;"><a href="index.html#gallery" style="color: #ccc; text-decoration: none; font-size: 1rem; transition: all 0.3s ease; display: block; padding: 8px 0; border-left: 3px solid transparent; padding-left: 15px; position: relative; overflow: hidden;">Gallery</a></li>
+                <li style="margin-bottom: 12px;"><a href="contact.html" style="color: #ccc; text-decoration: none; font-size: 1rem; transition: all 0.3s ease; display: block; padding: 8px 0; border-left: 3px solid transparent; padding-left: 15px; position: relative; overflow: hidden;">Contact</a></li>
+                </ul>
+            </div>
+          </div>
+          
+          <div class="col-md-4" style="padding: 0 15px; margin-bottom: 40px;">
+            <div style="background: rgba(255, 255, 255, 0.05); padding: 30px; border-radius: 10px; border: 1px solid rgba(255, 255, 255, 0.1); height: 100%;">
+              <h5 style="color: #dc2626; font-size: 1.3rem; font-weight: 600; margin-bottom: 25px; text-transform: uppercase; letter-spacing: 1px; position: relative; padding-bottom: 10px;">
+                Menu Categories
+                <div style="position: absolute; bottom: 0; left: 0; width: 40px; height: 2px; background: #dc2626;"></div>
+              </h5>
+              <ul style="list-style: none; padding: 0; margin: 0;">
+                <li style="margin-bottom: 12px;"><a href="menu.html#tab1" style="color: #ccc; text-decoration: none; font-size: 1rem; transition: all 0.3s ease; display: block; padding: 8px 0; border-left: 3px solid transparent; padding-left: 15px; position: relative; overflow: hidden;">Specialty Tacos</a></li>
+                <li style="margin-bottom: 12px;"><a href="menu.html#tab2" style="color: #ccc; text-decoration: none; font-size: 1rem; transition: all 0.3s ease; display: block; padding: 8px 0; border-left: 3px solid transparent; padding-left: 15px; position: relative; overflow: hidden;">Breakfast</a></li>
+                <li style="margin-bottom: 12px;"><a href="menu.html#tab3" style="color: #ccc; text-decoration: none; font-size: 1rem; transition: all 0.3s ease; display: block; padding: 8px 0; border-left: 3px solid transparent; padding-left: 15px; position: relative; overflow: hidden;">Lunch</a></li>
+                <li style="margin-bottom: 12px;"><a href="menu.html#tab4" style="color: #ccc; text-decoration: none; font-size: 1rem; transition: all 0.3s ease; display: block; padding: 8px 0; border-left: 3px solid transparent; padding-left: 15px; position: relative; overflow: hidden;">Combos</a></li>
+                <li style="margin-bottom: 12px;"><a href="menu.html#tab5" style="color: #ccc; text-decoration: none; font-size: 1rem; transition: all 0.3s ease; display: block; padding: 8px 0; border-left: 3px solid transparent; padding-left: 15px; position: relative; overflow: hidden;">Weekend Cravings</a></li>
+                <li style="margin-bottom: 12px;"><a href="menu.html#tab6" style="color: #ccc; text-decoration: none; font-size: 1rem; transition: all 0.3s ease; display: block; padding: 8px 0; border-left: 3px solid transparent; padding-left: 15px; position: relative; overflow: hidden;">Drinks + Sides</a></li>
+                </ul>
+            </div>
+          </div>
+          
+          <div class="col-md-4" style="padding: 0 15px; margin-bottom: 40px;">
+            <div style="background: rgba(255, 255, 255, 0.05); padding: 30px; border-radius: 10px; border: 1px solid rgba(255, 255, 255, 0.1); height: 100%;">
+              <h5 style="color: #dc2626; font-size: 1.3rem; font-weight: 600; margin-bottom: 25px; text-transform: uppercase; letter-spacing: 1px; position: relative; padding-bottom: 10px;">
+                Contact Info
+                <div style="position: absolute; bottom: 0; left: 0; width: 40px; height: 2px; background: #dc2626;"></div>
+              </h5>
+              <div style="color: #ccc;">
+                    <div style="margin-bottom: 15px; display: flex; align-items: center;">
+                      <i class="fa-solid fa-phone" style="color: #dc2626; margin-right: 12px; font-size: 16px; width: 20px;"></i>
+                      <span style="font-size: 1rem;">(281) 213-2844</span>
+                    </div>
+                    <div style="margin-bottom: 15px; display: flex; align-items: flex-start;">
+                      <i class="fa-solid fa-location-dot" style="color: #dc2626; margin-right: 12px; margin-top: 3px; font-size: 16px; width: 20px;"></i>
+                      <div>
+                        <a href="https://www.google.com/maps/place/MEX+Taco+House/@29.9652533,-95.6907761,17z/data=!4m15!1m8!3m7!1s0x8640d5cac97f20b5:0xe4d80e4c7b3abb15!2s25410+Northwest+Fwy,+Cypress,+TX+77429!3b1!8m2!3d29.9652533!4d-95.6882012!16s%2Fg%2F11hc_40bmz!3m5!1s0x8640d5b7418fd501:0x148309e883ded154!8m2!3d29.9654522!4d-95.688223!16s%2Fg%2F11h1087675?entry=ttu&g_ep=EgoyMDI1MTAyMC4wIKXMDSoASAFQAw%3D%3D" target="_blank" rel="noopener noreferrer" style="color: #ccc; text-decoration: none; font-size: 1rem; line-height: 1.4;">25410 Northwest Fwy<br>Cypress, TX 77429</a>
+                      </div>
+                    </div>
+                    <div style="margin-bottom: 15px; display: flex; align-items: center;">
+                      <i class="fa-solid fa-envelope" style="color: #dc2626; margin-right: 12px; font-size: 16px; width: 20px;"></i>
+                      <span style="font-size: 1rem;">Mextacohouse@gmail.com</span>
+                    </div>
+                    <div style="display: flex; align-items: flex-start;">
+                      <i class="fa-solid fa-clock" style="color: #dc2626; margin-right: 12px; margin-top: 3px; font-size: 16px; width: 20px;"></i>
+                  <div style="font-size: 1rem; line-height: 1.4;">
+                    <div><strong>Mon:</strong> Closed</div>
+                    <div><strong>Tue-Sat:</strong> 6am-2pm</div>
+                    <div><strong>Sun:</strong> 7am-2pm</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Footer Bottom -->
+    <div style="background: rgba(0, 0, 0, 0.8); padding: 25px 0; border-top: 1px solid rgba(220, 38, 38, 0.3);">
+        <div class="container">
+        <div class="row align-items-center">
+          <div class="col-md-6">
+            <p style="color: #999; font-size: 0.9rem; margin: 0;">&copy; 2024 Mex Taco House. All Rights Reserved.</p>
+              </div>
+          <div class="col-md-6" style="text-align: right;">
+            <div style="display: flex; justify-content: flex-end; gap: 20px; align-items: center;">
+              <a href="#contact" style="color: #999; text-decoration: none; font-size: 0.9rem; transition: color 0.3s ease;">Privacy Policy</a>
+              <span style="color: #666;">|</span>
+              <a href="#contact" style="color: #999; text-decoration: none; font-size: 0.9rem; transition: color 0.3s ease;">Terms of Use</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer><!-- /.Footer -->
+  </div><!-- /.wrapper -->
+
+  <!-- Scripts -->
+  <script src="assets/js/jquery-3.3.1.min.js"></script>
+  <script src="assets/js/plugins.js"></script>
+  <script src="assets/js/main.js"></script>
+  
+  <script>
+    // Contact form handling (placeholder functionality)
+    document.getElementById('contactForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      
+      // Get form data
+      const formData = new FormData(this);
+      const data = Object.fromEntries(formData);
+      
+      // Show success message (placeholder)
+      alert('Thank you for your message! We will get back to you within 24 hours.\n\nNote: This is a placeholder form. Please contact us directly at (281) 213-2844 or Mextacohouse@gmail.com');
+      
+      // Reset form
+      this.reset();
+    });
+    
+    // Order Now Dropdown Functionality
+    const orderDropdown = document.getElementById('orderDropdown');
+    const dropdownMenu = document.querySelector('.dropdown-menu');
+    
+    if (orderDropdown && dropdownMenu) {
+      // Show dropdown on click
+      orderDropdown.addEventListener('click', function(e) {
+        e.preventDefault();
+        e.stopPropagation();
+        
+        // Toggle dropdown visibility
+        if (dropdownMenu.style.display === 'block') {
+          dropdownMenu.style.display = 'none';
+        } else {
+          dropdownMenu.style.display = 'block';
+        }
+      });
+      
+      // Hide dropdown when clicking outside
+      document.addEventListener('click', function(e) {
+        if (!orderDropdown.contains(e.target) && !dropdownMenu.contains(e.target)) {
+          dropdownMenu.style.display = 'none';
+        }
+      });
+      
+      // Add hover effects to dropdown items
+      const dropdownItems = dropdownMenu.querySelectorAll('a');
+      dropdownItems.forEach(function(item) {
+        item.addEventListener('mouseenter', function() {
+          this.style.backgroundColor = '#f8f9fa';
+          this.style.color = '#dc2626';
+        });
+        
+        item.addEventListener('mouseleave', function() {
+          this.style.backgroundColor = 'transparent';
+          this.style.color = '#333';
+        });
+      });
+    }
+    
+    // Business Hours Animation
+    const businessHoursHeading = document.querySelector('.hours-info h4');
+    
+    if (businessHoursHeading) {
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('animate-in');
+          }
+        });
+      }, {
+        threshold: 0.3,
+        rootMargin: '0px 0px -50px 0px'
+      });
+      
+      observer.observe(businessHoursHeading);
+    }
+    
+    // Smooth scrolling for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          target.scrollIntoView({
+            behavior: 'smooth',
+            block: 'start'
+          });
+        }
+      });
+    });
+  </script>
+  
+  <!-- Reviews Banner Rotation Script -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const reviewItems = document.querySelectorAll('.review-item');
+      let currentIndex = 0;
+      let rotationInterval;
+      
+      function showReview(index) {
+        // Hide all reviews
+        reviewItems.forEach(item => {
+          item.style.display = 'none';
+          item.classList.remove('active');
+        });
+        
+        // Show current review
+        if (reviewItems[index]) {
+          reviewItems[index].style.display = 'block';
+          setTimeout(() => {
+            reviewItems[index].classList.add('active');
+          }, 50);
+        }
+      }
+      
+      function nextReview() {
+        currentIndex = (currentIndex + 1) % reviewItems.length;
+        showReview(currentIndex);
+      }
+      
+      function startRotation() {
+        rotationInterval = setInterval(nextReview, 3000); // 3 seconds
+      }
+      
+      function stopRotation() {
+        clearInterval(rotationInterval);
+      }
+      
+      // Initialize
+      showReview(0);
+      startRotation();
+      
+      // Pause on hover
+      const reviewsBanner = document.querySelector('.reviews-banner');
+      if (reviewsBanner) {
+        reviewsBanner.addEventListener('mouseenter', stopRotation);
+        reviewsBanner.addEventListener('mouseleave', startRotation);
+      }
+    });
+  </script>
+</body>
+</html>
