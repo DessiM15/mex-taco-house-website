@@ -1,0 +1,753 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes" />
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="theme-color" content="#dc2626">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <meta name="description" content="Mex Taco House News - Latest Updates, New Menu Items, and Exciting Expansion">
+  <link href="assets/images/favicon/favicon.png" rel="icon">
+  <title>News - Mex Taco House</title>
+  <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css?family=Rubik:400,500,700%7cShadows+Into+Light&display=swap">
+  <link rel="stylesheet" href="assets/css/libraries.css" />
+  <link rel="stylesheet" href="assets/css/style.css?v=2" />
+  <!-- FontAwesome CDN -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  
+  <style>
+    /* Logo Consistency */
+    .navbar-brand img {
+      max-height: 60px;
+    }
+    
+    /* Tablets */
+    @media only screen and (min-width: 768px) and (max-width: 1023px) {
+      .navbar-brand img {
+        max-height: 50px;
+      }
+    }
+    
+    /* Mobile */
+    @media only screen and (max-width: 767px) {
+      .navbar-brand img {
+        max-height: 45px;
+      }
+    }
+    
+    /* Small Mobile */
+    @media only screen and (max-width: 480px) {
+      .navbar-brand img {
+        max-height: 40px;
+      }
+    }
+    
+    /* High DPI Displays */
+    @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+      .navbar-brand img {
+        image-rendering: -webkit-optimize-contrast;
+        image-rendering: crisp-edges;
+      }
+    }
+    
+    /* Navbar Text Color Consistency */
+    .navbar-nav .nav__item-link {
+      color: #dc2626 !important;
+      font-weight: 500;
+    }
+    
+    .navbar-nav .nav__item-link:hover,
+    .navbar-nav .nav__item-link.active {
+      color: #b91c1c !important;
+    }
+    
+    .navbar-nav .nav__item-link.active {
+      font-weight: 600;
+    }
+    
+    /* Navbar Underline Styling - Match Other Pages */
+    .nav__item-link::after {
+      background-color: #dc2626 !important;
+    }
+    
+    .nav__item-link:hover::after {
+      background-color: #dc2626 !important;
+    }
+    
+    .nav__item-link.active::after {
+      background-color: #dc2626 !important;
+    }
+    
+    /* Red underlines for all states */
+    .navbar .nav__item-link::after {
+      background-color: #dc2626 !important;
+    }
+    
+    .navbar .nav__item-link:hover::after {
+      background-color: #dc2626 !important;
+    }
+    
+    .navbar .nav__item-link.active::after {
+      background-color: #dc2626 !important;
+    }
+
+    /* Red underlines for :before pseudo-elements */
+    .navbar .nav__item .nav__item-link:before {
+      background-color: #dc2626 !important;
+    }
+    
+    .navbar .nav__item .nav__item-link:hover:before {
+      background-color: #dc2626 !important;
+    }
+    
+    /* Order Now Button Styling - Match Homepage Exactly */
+    .btn__primary {
+      border: none !important;
+      background: #dc2626 !important;
+      color: white !important;
+      padding: 12px 15px !important;
+      border-radius: 5px !important;
+      font-weight: 600 !important;
+      cursor: pointer !important;
+      transition: all 0.3s ease !important;
+      text-align: center !important;
+      display: flex !important;
+      align-items: center !important;
+      justify-content: center !important;
+      width: auto !important;
+      font-size: 0.9rem !important;
+    }
+    
+    .btn__primary:hover {
+      background: #b91c1c !important;
+      color: white !important;
+      transform: scale(1.05) !important;
+    }
+    
+    .btn__primary span {
+      margin-right: 8px !important;
+    }
+    
+    /* News Page Specific Styles */
+    .news-hero {
+      background: linear-gradient(135deg, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.5)), url('assets/images/backgrounds/1.jpg');
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+      padding: 120px 0 80px;
+      color: white;
+      text-align: center;
+      position: relative;
+    }
+    
+    .news-hero::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: linear-gradient(135deg, rgba(220, 38, 38, 0.1), rgba(199, 162, 84, 0.1));
+      z-index: 1;
+    }
+    
+    .news-hero .container {
+      position: relative;
+      z-index: 2;
+    }
+    
+    .news-hero h1 {
+      font-size: 3.5rem;
+      font-weight: 700;
+      margin-bottom: 20px;
+      color: white;
+      text-shadow: 2px 2px 4px rgba(0,0,0,0.7);
+    }
+    
+    .news-hero p {
+      font-size: 1.3rem;
+      margin-bottom: 0;
+      color: rgba(255, 255, 255, 0.9);
+      text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+    }
+    
+    .news-content {
+      padding: 80px 0;
+      background-color: #f8f9fa;
+    }
+    
+    .news-article {
+      background: white;
+      border-radius: 15px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+      margin-bottom: 40px;
+      overflow: hidden;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    
+    .news-article:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+    }
+    
+    .news-article.featured {
+      border: 3px solid #dc2626;
+      position: relative;
+    }
+    
+    .news-article.featured::before {
+      content: 'FEATURED';
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      background: #dc2626;
+      color: white;
+      padding: 8px 15px;
+      border-radius: 20px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      z-index: 2;
+    }
+    
+    .news-article-image {
+      height: 250px;
+      background-size: cover;
+      background-position: center;
+      position: relative;
+    }
+    
+    .news-article-content {
+      padding: 30px;
+    }
+    
+    .news-article h3 {
+      color: #dc2626;
+      font-size: 1.8rem;
+      font-weight: 600;
+      margin-bottom: 15px;
+      line-height: 1.3;
+    }
+    
+    .news-article .date {
+      color: #6c757d;
+      font-size: 0.9rem;
+      margin-bottom: 15px;
+      font-weight: 500;
+    }
+    
+    .news-article p {
+      color: #495057;
+      line-height: 1.6;
+      margin-bottom: 20px;
+    }
+    
+    .news-article .read-more {
+      color: #dc2626;
+      text-decoration: none;
+      font-weight: 600;
+      display: inline-flex;
+      align-items: center;
+      transition: color 0.3s ease;
+    }
+    
+    .news-article .read-more:hover {
+      color: #b91c1c;
+    }
+    
+    .news-article .read-more i {
+      margin-left: 8px;
+      transition: transform 0.3s ease;
+    }
+    
+    .news-article .read-more:hover i {
+      transform: translateX(5px);
+    }
+    
+    .expansion-highlight {
+      background: linear-gradient(135deg, #dc2626, #b91c1c);
+      color: white;
+      padding: 60px 0;
+      margin: 60px 0;
+      border-radius: 20px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .expansion-highlight::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+      animation: shimmer 3s ease-in-out infinite;
+    }
+    
+    @keyframes shimmer {
+      0%, 100% { transform: translateX(-100%) translateY(-100%) rotate(0deg); }
+      50% { transform: translateX(100%) translateY(100%) rotate(180deg); }
+    }
+    
+    .expansion-highlight .container {
+      position: relative;
+      z-index: 2;
+    }
+    
+    .expansion-highlight h2 {
+      font-size: 2.5rem;
+      font-weight: 700;
+      margin-bottom: 20px;
+    }
+    
+    .expansion-highlight p {
+      font-size: 1.2rem;
+      margin-bottom: 30px;
+      opacity: 0.95;
+    }
+    
+    .btn-expansion {
+      background: white;
+      color: #dc2626;
+      padding: 15px 30px;
+      border-radius: 50px;
+      text-decoration: none;
+      font-weight: 600;
+      display: inline-block;
+      transition: all 0.3s ease;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    }
+    
+    .btn-expansion:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+      color: #dc2626;
+      text-decoration: none;
+    }
+    
+    /* Mobile Responsive */
+    @media (max-width: 768px) {
+      .news-hero h1 {
+        font-size: 2.5rem;
+      }
+      
+      .news-hero p {
+        font-size: 1.1rem;
+      }
+      
+      .news-article-content {
+        padding: 20px;
+      }
+      
+      .news-article h3 {
+        font-size: 1.5rem;
+      }
+      
+      .expansion-highlight h2 {
+        font-size: 2rem;
+      }
+      
+      .expansion-highlight p {
+        font-size: 1.1rem;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Header -->
+  <header id="header" class="header header-transparent header-layout1">
+    <nav class="navbar navbar-expand-lg sticky-navbar">
+      <div class="container">
+        <a class="navbar-brand" href="index.html">
+          <img src="assets/max-taco-logo.png" class="logo-light" alt="Mex Taco House">
+          <img src="assets/max-taco-logo.png" class="logo-dark" alt="Mex Taco House">
+        </a>
+        <button class="navbar-toggler" type="button">
+          <span class="menu-lines"><span></span></span>
+        </button>
+        <div class="collapse navbar-collapse" id="mainNavigation">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav__item">
+              <a href="index.html" class="nav__item-link">Home</a>
+            </li>
+            <li class="nav__item">
+              <a href="index.html#about" class="nav__item-link">About</a>
+            </li>
+            <li class="nav__item">
+              <a href="menu.html" class="nav__item-link">Menu</a>
+            </li>
+            <li class="nav__item">
+              <a href="index.html#gallery" class="nav__item-link">Gallery</a>
+            </li>
+            <li class="nav__item">
+              <a href="news.html" class="nav__item-link active">News</a>
+            </li>
+            <li class="nav__item">
+              <a href="contact.html" class="nav__item-link">Contact</a>
+            </li>
+          </ul><!-- /.navbar-nav -->
+        </div><!-- /.navbar-collapse -->
+        <div class="navbar-actions-wrap">
+          <div class="navbar-actions d-flex align-items-center">
+            <div class="dropdown" style="position: relative; display: inline-block;">
+              <button class="navbar__action-btn navbar__action-btn-reserve btn btn__primary" type="button" id="orderDropdown" data-bs-toggle="dropdown" aria-expanded="false" style="border: none; background: #dc2626; color: white; padding: 12px 15px; border-radius: 5px; font-weight: 600; cursor: pointer; transition: all 0.3s ease; text-align: center; display: flex; align-items: center; justify-content: center; width: auto;">
+                Order Now
+              </button>
+              <ul class="dropdown-menu" aria-labelledby="orderDropdown" style="position: absolute; top: 100%; left: 0; background: white; border: 1px solid #ddd; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.15); min-width: 200px; z-index: 1000; padding: 10px 0; margin-top: 5px;">
+                <li style="list-style: none; margin: 0;">
+                  <a href="https://www.grubhub.com/restaurant/mex-taco-house-25410-northwest-fwy-cypress/5807624" target="_blank" rel="noopener noreferrer" style="display: block; padding: 12px 20px; color: #333; text-decoration: none; transition: all 0.3s ease; border-bottom: 1px solid #f0f0f0;">
+                    <div style="display: flex; align-items: center; gap: 10px;">
+                      <div style="width: 30px; height: 20px; background: #f63d05; border-radius: 4px; display: flex; align-items: center; justify-content: center;">
+                        <span style="color: white; font-size: 0.7rem; font-weight: 700;">GH</span>
+                      </div>
+                      <span style="font-weight: 600;">Grubhub</span>
+                    </div>
+                  </a>
+                </li>
+                <li style="list-style: none; margin: 0;">
+                  <a href="https://www.ubereats.com/store/mex-taco-house/zlftufBFXgm9JhQGyOfpvw?srsltid=AfmBOoqivy_I4JNqrygE9zN80BMQ_FV4BwOt5K2ErLL7PPXNNJVsIAgy" target="_blank" rel="noopener noreferrer" style="display: block; padding: 12px 20px; color: #333; text-decoration: none; transition: all 0.3s ease;">
+                    <div style="display: flex; align-items: center; gap: 10px;">
+                      <div style="width: 30px; height: 20px; background: #06c167; border-radius: 4px; display: flex; align-items: center; justify-content: center;">
+                        <span style="color: white; font-size: 0.7rem; font-weight: 700;">UE</span>
+                      </div>
+                      <span style="font-weight: 600;">Uber Eats</span>
+                    </div>
+                  </a>
+                </li>
+              </ul>
+            </div>
+            <ul class="social__icons" style="margin-left: 40px;">
+              <li><a href="https://www.instagram.com/mextacohouse/reels/?hl=en" target="_blank" rel="noopener noreferrer" style="color: #dc2626; transition: all 0.3s ease;"><i class="fab fa-instagram"></i></a></li>
+              <li><a href="https://www.facebook.com/mextacohouse" target="_blank" rel="noopener noreferrer" style="color: #dc2626; transition: all 0.3s ease;"><i class="fab fa-facebook"></i></a></li>
+            </ul><!-- /.social__icons -->
+          </div><!-- /.navbar-actions -->
+        </div><!-- /.navbar-actions-wrap -->
+      </div><!-- /.container -->
+    </nav><!-- /.navbar -->
+  </header><!-- /.header -->
+
+  <!-- News Hero Section -->
+  <section class="news-hero">
+    <div class="container">
+      <div class="row">
+        <div class="col-12">
+          <h1 style="font-family: 'Shadows Into Light', cursive;">Latest News & Updates</h1>
+          <p>Stay updated with our latest menu additions, special events, and exciting news!</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- News Content -->
+  <section class="news-content">
+    <div class="container">
+      <!-- Featured Expansion Article -->
+      <div class="row">
+        <div class="col-12">
+          <div class="news-article featured">
+            <div class="news-article-image" style="background-image: url('assets/mex-taco-expansion.webp');"></div>
+            <div class="news-article-content">
+              <h3 style="font-family: 'Shadows Into Light', cursive;">🎉 MAJOR EXPANSION ANNOUNCEMENT! 🎉</h3>
+              <div class="date"><i class="fas fa-calendar-alt"></i> December 15, 2024</div>
+              <p>We're thrilled to announce that Mex Taco House has expanded! After years of serving our community with authentic Mexican cuisine, we've made our current location larger to serve even more customers while maintaining the same quality and authentic flavors that you love.</p>
+              <p>Our expanded space now features a larger dining area, more seating capacity, and an improved kitchen layout. We're also excited to introduce some exciting new menu items that showcase our commitment to authentic Mexican flavors!</p>
+              <a href="#expansion-details" class="read-more">
+                Read More <i class="fas fa-arrow-right"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Expansion Highlight Section -->
+      <div class="expansion-highlight">
+        <div class="container">
+          <h2 style="color: white; font-family: 'Shadows Into Light', cursive;">Expanded Space Now Open!</h2>
+          <p>Join us in celebrating this exciting milestone as we now have more space to serve our community with authentic Mexican flavors. Come experience our larger dining area and new menu items!</p>
+          <a href="contact.html" class="btn-expansion">Visit Us</a>
+        </div>
+      </div>
+
+      <!-- Other News Articles -->
+      <div class="row">
+        <div class="col-lg-6 col-md-6">
+          <div class="news-article">
+            <div class="news-article-image" style="background-image: url('assets/trucks-tacos-event-oct.jpg'); background-position: center 30%;"></div>
+            <div class="news-article-content">
+              <h3 style="font-family: 'Shadows Into Light', cursive;">Trucks & Tacos Special Event</h3>
+              <div class="date"><i class="fas fa-calendar-alt"></i> October 26, 2024</div>
+              <p>Join us for our special "Trucks & Tacos" event on October 26th from 8am-noon! It's a "Truck or Treat" Toy Drive for Texas Children's Hospital. There will be a costume contest for kids with giveaways and prizes!</p>
+              <a href="contact.html" class="read-more">
+                Learn More <i class="fas fa-arrow-right"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+        
+        <div class="col-lg-6 col-md-6">
+          <div class="news-article">
+            <div class="news-article-image" style="background-image: url('assets/gallery-images/street-tacos.jpeg');"></div>
+            <div class="news-article-content">
+              <h3 style="font-family: 'Shadows Into Light', cursive;">Holiday Special Events</h3>
+              <div class="date"><i class="fas fa-calendar-alt"></i> December 8, 2024</div>
+              <p>Join us for our special holiday events! We're hosting a Christmas Eve dinner with traditional Mexican dishes and a New Year's celebration with live mariachi music. Reservations are filling up fast!</p>
+              <a href="contact.html" class="read-more">
+                Make Reservation <i class="fas fa-arrow-right"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-lg-6 col-md-6">
+          <div class="news-article">
+            <div class="news-article-image" style="background-image: url('assets/gallery-images/breakfast-taco-with-streetmeat.webp');"></div>
+            <div class="news-article-content">
+              <h3 style="font-family: 'Shadows Into Light', cursive;">New Breakfast Menu Items</h3>
+              <div class="date"><i class="fas fa-calendar-alt"></i> December 10, 2024</div>
+              <p>Start your day right with our new breakfast offerings! We've added authentic Mexican breakfast tacos, chilaquiles, and our famous huevos rancheros. Available every morning from 7 AM to 11 AM.</p>
+              <a href="menu.html" class="read-more">
+                View Menu <i class="fas fa-arrow-right"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+        
+        <div class="col-lg-6 col-md-6">
+          <div class="news-article">
+            <div class="news-article-image" style="background-image: url('assets/gallery-images/taco-plate-1.webp');"></div>
+            <div class="news-article-content">
+              <h3 style="font-family: 'Shadows Into Light', cursive;">Community Support Program</h3>
+              <div class="date"><i class="fas fa-calendar-alt"></i> December 1, 2024</div>
+              <p>We're proud to announce our new community support program! Every Tuesday, we donate 10% of our profits to local food banks and community organizations. Thank you for helping us give back!</p>
+              <a href="contact.html" class="read-more">
+                Learn More <i class="fas fa-arrow-right"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-primary">
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-12 col-md-6 col-lg-3">
+            <div class="footer-widget">
+              <div class="footer-widget__content">
+                <img src="assets/max-taco-logo.png" alt="Mex Taco House" class="footer-widget__logo">
+                <p class="footer-widget__text">Authentic Mexican cuisine made with love and traditional recipes passed down through generations.</p>
+                <ul class="social__icons list-unstyled mb-0">
+                  <li><a href="#"><i class="fab fa-facebook"></i></a></li>
+                  <li><a href="#"><i class="fab fa-instagram"></i></a></li>
+                  <li><a href="#"><i class="fab fa-twitter"></i></a></li>
+                  <li><a href="#"><i class="fab fa-youtube"></i></a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-6 col-md-6 col-lg-3">
+            <div class="footer-widget">
+              <h6 class="footer-widget__title">Quick Links</h6>
+              <div class="footer-widget__content">
+                <ul class="list-unstyled">
+                  <li><a href="index.html">Home</a></li>
+                  <li><a href="index.html#about">About Us</a></li>
+                  <li><a href="menu.html">Menu</a></li>
+                  <li><a href="news.html">News</a></li>
+                  <li><a href="contact.html">Contact</a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-6 col-md-6 col-lg-3">
+            <div class="footer-widget">
+              <h6 class="footer-widget__title">Contact Info</h6>
+              <div class="footer-widget__content">
+                <ul class="list-unstyled">
+                  <li><i class="fas fa-map-marker-alt"></i> 123 Main Street, City, State</li>
+                  <li><i class="fas fa-phone"></i> (555) 123-4567</li>
+                  <li><i class="fas fa-envelope"></i> info@mextacohouse.com</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-12 col-md-6 col-lg-3">
+            <div class="footer-widget">
+              <h6 class="footer-widget__title">Hours</h6>
+              <div class="footer-widget__content">
+                <ul class="list-unstyled">
+                  <li>Mon - Thu: 11:00 AM - 10:00 PM</li>
+                  <li>Fri - Sat: 11:00 AM - 11:00 PM</li>
+                  <li>Sunday: 12:00 PM - 9:00 PM</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="footer-secondary">
+      <div class="container">
+        <div class="row align-items-center">
+          <div class="col-sm-12 col-md-6 col-lg-6">
+            <span class="fz-14">&copy; 2024 Mex Taco House, All Rights Reserved.</span>
+          </div>
+          <div class="col-sm-12 col-md-6 col-lg-6">
+            <div class="footer-widget__content d-flex align-items-center justify-content-end">
+              <span class="fz-14">Made with <i class="fas fa-heart text-danger"></i> for our community</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="assets/js/jquery-3.3.1.min.js"></script>
+  <script src="assets/js/plugins.js"></script>
+  <script src="assets/js/main.js"></script>
+  
+  <script>
+    // Order Now Dropdown Functionality
+    const orderDropdown = document.getElementById('orderDropdown');
+    const dropdownMenu = document.querySelector('.dropdown-menu');
+    
+    if (orderDropdown && dropdownMenu) {
+      orderDropdown.addEventListener('click', function(e) {
+        e.preventDefault();
+        e.stopPropagation();
+        dropdownMenu.style.display = dropdownMenu.style.display === 'block' ? 'none' : 'block';
+      });
+      
+      // Close dropdown when clicking outside
+      document.addEventListener('click', function(e) {
+        if (!orderDropdown.contains(e.target) && !dropdownMenu.contains(e.target)) {
+          dropdownMenu.style.display = 'none';
+        }
+      });
+    }
+
+    // Search Functionality
+    document.addEventListener('DOMContentLoaded', function() {
+      const searchTrigger = document.querySelector('.search-popup-trigger');
+      
+      if (searchTrigger) {
+        searchTrigger.addEventListener('click', function(e) {
+          e.preventDefault();
+          
+          // Create search popup
+          const searchPopup = document.createElement('div');
+          searchPopup.id = 'search-popup';
+          searchPopup.style.cssText = `
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.8);
+            z-index: 9999;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+          `;
+          
+          const searchForm = document.createElement('div');
+          searchForm.style.cssText = `
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            width: 90%;
+            max-width: 500px;
+            position: relative;
+          `;
+          
+          searchForm.innerHTML = `
+            <button id="close-search" style="position: absolute; top: 10px; right: 15px; background: none; border: none; font-size: 24px; cursor: pointer;">&times;</button>
+            <h3 style="margin-bottom: 20px; color: #333;">Search Our Website</h3>
+            <form id="search-form">
+              <input type="text" id="search-input" placeholder="Search for menu items, news, or information..." style="width: 100%; padding: 12px; border: 2px solid #ddd; border-radius: 5px; font-size: 16px; margin-bottom: 15px;">
+              <button type="submit" style="background: #dc2626; color: white; padding: 12px 25px; border: none; border-radius: 5px; cursor: pointer; font-size: 16px;">Search</button>
+            </form>
+            <div id="search-results" style="margin-top: 20px;"></div>
+          `;
+          
+          searchPopup.appendChild(searchForm);
+          document.body.appendChild(searchPopup);
+          
+          // Focus on input
+          document.getElementById('search-input').focus();
+          
+          // Close popup functionality
+          document.getElementById('close-search').addEventListener('click', function() {
+            document.body.removeChild(searchPopup);
+          });
+          
+          // Close on background click
+          searchPopup.addEventListener('click', function(e) {
+            if (e.target === searchPopup) {
+              document.body.removeChild(searchPopup);
+            }
+          });
+          
+          // Search functionality
+          document.getElementById('search-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const searchTerm = document.getElementById('search-input').value.toLowerCase();
+            const resultsDiv = document.getElementById('search-results');
+            
+            if (searchTerm === 'menu') {
+              resultsDiv.innerHTML = `
+                <div style="background: #f8f9fa; padding: 15px; border-radius: 5px; border-left: 4px solid #dc2626;">
+                  <h4 style="color: #dc2626; margin-bottom: 10px;">Menu Found!</h4>
+                  <p>Check out our delicious Mexican menu with authentic tacos, burritos, and more!</p>
+                  <a href="menu.html" style="color: #dc2626; text-decoration: none; font-weight: bold;">View Full Menu →</a>
+                </div>
+              `;
+            } else if (searchTerm.includes('taco') || searchTerm.includes('burrito')) {
+              resultsDiv.innerHTML = `
+                <div style="background: #f8f9fa; padding: 15px; border-radius: 5px; border-left: 4px solid #dc2626;">
+                  <h4 style="color: #dc2626; margin-bottom: 10px;">Food Items Found!</h4>
+                  <p>We have amazing tacos, burritos, and authentic Mexican dishes!</p>
+                  <a href="menu.html" style="color: #dc2626; text-decoration: none; font-weight: bold;">View Menu →</a>
+                </div>
+              `;
+            } else if (searchTerm.includes('news') || searchTerm.includes('event')) {
+              resultsDiv.innerHTML = `
+                <div style="background: #f8f9fa; padding: 15px; border-radius: 5px; border-left: 4px solid #dc2626;">
+                  <h4 style="color: #dc2626; margin-bottom: 10px;">News & Events Found!</h4>
+                  <p>Check out our latest news and special events!</p>
+                  <a href="news.html" style="color: #dc2626; text-decoration: none; font-weight: bold;">View News →</a>
+                </div>
+              `;
+            } else {
+              resultsDiv.innerHTML = `
+                <div style="background: #f8f9fa; padding: 15px; border-radius: 5px; border-left: 4px solid #dc2626;">
+                  <h4 style="color: #dc2626; margin-bottom: 10px;">Search Results</h4>
+                  <p>Try searching for: menu, tacos, news, events, or contact information.</p>
+                  <div style="margin-top: 10px;">
+                    <a href="menu.html" style="color: #dc2626; text-decoration: none; margin-right: 15px;">Menu</a>
+                    <a href="news.html" style="color: #dc2626; text-decoration: none; margin-right: 15px;">News</a>
+                    <a href="contact.html" style="color: #dc2626; text-decoration: none;">Contact</a>
+                  </div>
+                </div>
+              `;
+            }
+          });
+        });
+      }
+    });
+  </script>
+</body>
+
+</html>

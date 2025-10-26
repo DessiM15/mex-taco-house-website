@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>News Admin - Mex Taco House</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Rubik', sans-serif;
+            background: #f8f9fa;
+            padding: 20px;
+        }
+        .admin-container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+        .admin-header {
+            text-align: center;
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+            border-bottom: 2px solid #dc2626;
+        }
+        .admin-header h1 {
+            color: #dc2626;
+            margin-bottom: 10px;
+        }
+        .form-group {
+            margin-bottom: 20px;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: 600;
+            color: #495057;
+        }
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid #e9ecef;
+            border-radius: 8px;
+            font-size: 14px;
+            transition: border-color 0.3s ease;
+        }
+        .form-group input:focus,
+        .form-group textarea:focus,
+        .form-group select:focus {
+            outline: none;
+            border-color: #dc2626;
+        }
+        .form-row {
+            display: flex;
+            gap: 15px;
+        }
+        .form-row .form-group {
+            flex: 1;
+        }
+        .btn {
+            background: linear-gradient(135deg, #dc2626, #b91c1c);
+            color: white;
+            padding: 12px 30px;
+            border: none;
+            border-radius: 25px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+        }
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(220, 38, 38, 0.3);
+        }
+        .btn-secondary {
+            background: linear-gradient(135deg, #6c757d, #495057);
+        }
+        .btn-secondary:hover {
+            box-shadow: 0 5px 15px rgba(108, 117, 125, 0.3);
+        }
+        .preview-section {
+            margin-top: 30px;
+            padding: 20px;
+            background: #f8f9fa;
+            border-radius: 10px;
+            border: 2px dashed #dc2626;
+        }
+        .preview-section h3 {
+            color: #dc2626;
+            margin-bottom: 15px;
+        }
+        .feature-input {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 10px;
+        }
+        .feature-input input {
+            flex: 1;
+        }
+        .add-feature {
+            background: #28a745;
+            color: white;
+            border: none;
+            padding: 8px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .remove-feature {
+            background: #dc3545;
+            color: white;
+            border: none;
+            padding: 8px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="admin-container">
+        <div class="admin-header">
+            <h1><i class="fas fa-newspaper"></i> News & Social Media Admin</h1>
+            <p>Add new social media posts and announcements to the homepage rotation</p>
+        </div>
+
+        <form id="newsForm">
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="title">Title *</label>
+                    <input type="text" id="title" name="title" required placeholder="e.g., New Instagram Post!">
+                </div>
+                <div class="form-group">
+                    <label for="type">Type</label>
+                    <select id="type" name="type">
+                        <option value="social">Social Media Post</option>
+                        <option value="announcement">Announcement</option>
+                        <option value="event">Event</option>
+                        <option value="menu">Menu Update</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="description">Description *</label>
+                <textarea id="description" name="description" rows="3" required placeholder="Describe the post or announcement..."></textarea>
+            </div>
+
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="badge">Badge Text</label>
+                    <input type="text" id="badge" name="badge" placeholder="e.g., 📱 NEW POST! 📱">
+                </div>
+                <div class="form-group">
+                    <label for="badgeColor">Badge Color</label>
+                    <input type="color" id="badgeColor" name="badgeColor" value="#dc2626">
+                </div>
+            </div>
+
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="buttonText">Button Text</label>
+                    <input type="text" id="buttonText" name="buttonText" placeholder="e.g., View Post">
+                </div>
+                <div class="form-group">
+                    <label for="buttonLink">Button Link</label>
+                    <input type="url" id="buttonLink" name="buttonLink" placeholder="https://facebook.com/...">
+                </div>
+            </div>
+
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="image">Image URL</label>
+                    <input type="text" id="image" name="image" placeholder="assets/gallery-images/...">
+                </div>
+                <div class="form-group">
+                    <label for="priority">Priority (1 = highest)</label>
+                    <input type="number" id="priority" name="priority" value="999" min="1" max="999">
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label>Features (optional)</label>
+                <div id="featuresContainer">
+                    <div class="feature-input">
+                        <input type="text" placeholder="Icon class (e.g., fas fa-coffee)" name="featureIcon[]">
+                        <input type="text" placeholder="Feature text" name="featureText[]">
+                        <button type="button" class="remove-feature" onclick="removeFeature(this)">Remove</button>
+                    </div>
+                </div>
+                <button type="button" class="add-feature" onclick="addFeature()">Add Feature</button>
+            </div>
+
+            <div class="form-group">
+                <button type="submit" class="btn">
+                    <i class="fas fa-plus"></i> Add to News Rotation
+                </button>
+                <button type="button" class="btn btn-secondary" onclick="previewPost()">
+                    <i class="fas fa-eye"></i> Preview
+                </button>
+            </div>
+        </form>
+
+        <div class="preview-section" id="previewSection" style="display: none;">
+            <h3><i class="fas fa-eye"></i> Preview</h3>
+            <div id="previewContent"></div>
+        </div>
+
+        <div style="margin-top: 30px; padding: 20px; background: #e9ecef; border-radius: 10px;">
+            <h3><i class="fas fa-info-circle"></i> How to Use</h3>
+            <ol>
+                <li><strong>Fill out the form</strong> with your social media post details</li>
+                <li><strong>Click "Preview"</strong> to see how it will look</li>
+                <li><strong>Click "Add to News Rotation"</strong> to add it to the homepage</li>
+                <li><strong>Priority 1-3</strong> will show first, higher numbers show later</li>
+                <li><strong>Social media posts</strong> will automatically link to your platforms</li>
+            </ol>
+        </div>
+    </div>
+
+    <script>
+        function addFeature() {
+            const container = document.getElementById('featuresContainer');
+            const featureDiv = document.createElement('div');
+            featureDiv.className = 'feature-input';
+            featureDiv.innerHTML = `
+                <input type="text" placeholder="Icon class (e.g., fas fa-coffee)" name="featureIcon[]">
+                <input type="text" placeholder="Feature text" name="featureText[]">
+                <button type="button" class="remove-feature" onclick="removeFeature(this)">Remove</button>
+            `;
+            container.appendChild(featureDiv);
+        }
+
+        function removeFeature(button) {
+            button.parentElement.remove();
+        }
+
+        function previewPost() {
+            const form = document.getElementById('newsForm');
+            const formData = new FormData(form);
+            
+            const title = formData.get('title');
+            const description = formData.get('description');
+            const badge = formData.get('badge') || '📱 NEW POST! 📱';
+            const badgeColor = formData.get('badgeColor');
+            const buttonText = formData.get('buttonText') || 'View Post';
+            const buttonLink = formData.get('buttonLink') || '#';
+            const image = formData.get('image') || 'assets/gallery-images/street-tacos.jpeg';
+            
+            const previewContent = `
+                <div style="border: 2px solid ${badgeColor}; border-radius: 15px; padding: 20px; background: white;">
+                    <div style="background: linear-gradient(135deg, ${badgeColor}, ${badgeColor}dd); color: white; padding: 8px 20px; border-radius: 25px; display: inline-block; margin-bottom: 20px; font-size: 0.9rem; font-weight: 600;">
+                        ${badge}
+                    </div>
+                    <h2 style="color: ${badgeColor}; font-size: 1.8rem; margin-bottom: 15px;">${title}</h2>
+                    <p style="color: #495057; line-height: 1.6; margin-bottom: 20px;">${description}</p>
+                    <a href="${buttonLink}" style="background: linear-gradient(135deg, ${badgeColor}, ${badgeColor}dd); color: white; padding: 10px 20px; border-radius: 25px; text-decoration: none; font-weight: 600; display: inline-block;">
+                        ${buttonText} <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+            `;
+            
+            document.getElementById('previewContent').innerHTML = previewContent;
+            document.getElementById('previewSection').style.display = 'block';
+        }
+
+        document.getElementById('newsForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const formData = new FormData(this);
+            const post = {
+                title: formData.get('title'),
+                description: formData.get('description'),
+                badge: formData.get('badge') || '📱 NEW POST! 📱',
+                badgeColor: formData.get('badgeColor'),
+                titleColor: formData.get('badgeColor'),
+                buttonText: formData.get('buttonText') || 'View Post',
+                buttonLink: formData.get('buttonLink') || '#',
+                buttonIcon: 'fas fa-external-link-alt',
+                image: formData.get('image') || 'assets/gallery-images/street-tacos.jpeg',
+                priority: parseInt(formData.get('priority')),
+                type: formData.get('type'),
+                features: []
+            };
+
+            // Collect features
+            const featureIcons = formData.getAll('featureIcon[]');
+            const featureTexts = formData.getAll('featureText[]');
+            for (let i = 0; i < featureIcons.length; i++) {
+                if (featureIcons[i] && featureTexts[i]) {
+                    post.features.push({
+                        icon: featureIcons[i],
+                        text: featureTexts[i]
+                    });
+                }
+            }
+
+            // Here you would typically send this to your backend
+            // For now, we'll show a success message
+            alert('Post added successfully! (In a real implementation, this would update your database)');
+            
+            // Reset form
+            this.reset();
+            document.getElementById('previewSection').style.display = 'none';
+        });
+    </script>
+</body>
+</html>
+

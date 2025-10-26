@@ -1974,6 +1974,40 @@
           }
         }
       </style>
+      
+      <!-- Expansion Preview Styles -->
+      <style>
+        @keyframes shimmer {
+          0%, 100% { transform: translateX(-100%) translateY(-100%) rotate(0deg); }
+          50% { transform: translateX(100%) translateY(100%) rotate(180deg); }
+        }
+        
+        .expansion-preview {
+          position: relative;
+          overflow: hidden;
+        }
+        
+        .expansion-preview a:hover {
+          transform: translateY(-2px);
+          box-shadow: 0 8px 25px rgba(220, 38, 38, 0.4) !important;
+          text-decoration: none;
+        }
+        
+        @media (max-width: 768px) {
+          .expansion-preview h2 {
+            font-size: 2rem !important;
+          }
+          
+          .expansion-preview p {
+            font-size: 1.1rem !important;
+          }
+          
+          .expansion-features {
+            flex-direction: column !important;
+            gap: 15px !important;
+          }
+        }
+      </style>
 </head>
 
 <body>
@@ -2006,13 +2040,15 @@
                 <a href="#gallery" class="nav__item-link">Gallery</a>
               </li>
               <li class="nav__item">
+                <a href="news.html" class="nav__item-link">News</a>
+              </li>
+              <li class="nav__item">
                 <a href="contact.html" class="nav__item-link">Contact</a>
               </li>
             </ul><!-- /.navbar-nav -->
           </div><!-- /.navbar-collapse -->
           <div class="navbar-actions-wrap">
             <div class="navbar-actions d-flex align-items-center">
-              <a href="#" class="navbar__action-btn search-popup-trigger"><i class="fa fa-search"></i></a>
               <div class="dropdown" style="position: relative; display: inline-block;">
                 <button class="navbar__action-btn navbar__action-btn-reserve btn btn__primary" type="button" id="orderDropdown" data-bs-toggle="dropdown" aria-expanded="false" style="border: none; background: #dc2626; color: white; padding: 12px 15px; border-radius: 5px; font-weight: 600; cursor: pointer; transition: all 0.3s ease; text-align: center; display: flex; align-items: center; justify-content: center; width: auto;">
                   Order Now
@@ -2106,7 +2142,7 @@
               </div>
               <h3 class="order-card__title" style="color: #333; font-size: 1.4rem; font-weight: 600; margin-bottom: 15px;">Grubhub</h3>
               <p class="order-card__desc" style="color: #666; font-size: 0.95rem; margin-bottom: 25px; line-height: 1.5;">Order through Grubhub for fast delivery and great service.</p>
-              <a href="https://www.grubhub.com/restaurant/mex-taco-house-25410-northwest-fwy-cypress/5807624" target="_blank" rel="noopener noreferrer" class="order-btn" style="display: inline-block; background: #f63d05; color: white; padding: 12px 25px; border-radius: 6px; text-decoration: none; font-weight: 600; font-size: 0.9rem; transition: all 0.3s ease;">
+              <a href="https://www.grubhub.com/restaurant/mex-taco-house-25410-northwest-fwy-cypress/5807624" target="_blank" rel="noopener noreferrer" class="order-btn" style="display: inline-block; background: #f63d05; color: white; padding: 15px 35px; border-radius: 6px; text-decoration: none; font-weight: 600; font-size: 0.9rem; transition: all 0.3s ease;">
                 Order on Grubhub
               </a>
             </div>
@@ -2142,6 +2178,182 @@
         </div>
       </div>
     </section><!-- /.Order Online -->
+
+    <!-- =====================
+     Expansion Announcement
+     ======================== -->
+    <section class="news-rotator" style="background: linear-gradient(135deg, rgba(220, 38, 38, 0.08), rgba(185, 28, 28, 0.06)); padding: 80px 0; position: relative; overflow: hidden; border-top: 3px solid #dc2626; border-bottom: 3px solid #dc2626; backdrop-filter: blur(10px);">
+      
+      <!-- Smooth Transition Styles -->
+      <style>
+        .news-item {
+          opacity: 0;
+          transform: translateY(20px);
+          transition: all 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+          position: absolute;
+          top: 0;
+          left: 0;
+          right: 0;
+          width: 100%;
+        }
+        
+        .news-item.active {
+          opacity: 1;
+          transform: translateY(0);
+          position: relative;
+        }
+        
+        .news-content {
+          position: relative;
+          min-height: 400px;
+        }
+        
+        #rotating-image {
+          transition: all 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+          transform: scale(1);
+        }
+        
+        #rotating-image.fade-transition {
+          opacity: 0;
+          transform: scale(0.95);
+        }
+        
+        .rotation-indicators .indicator {
+          transition: all 0.3s ease;
+        }
+        
+        .rotation-indicators .indicator:hover {
+          transform: scale(1.1);
+        }
+      </style>
+      <div class="container">
+        <div class="row align-items-center">
+          <div class="col-lg-7">
+            <div class="news-content" style="color: #2c3e50; position: relative; z-index: 2;">
+              
+              <!-- News Item 1: Expansion -->
+              <div class="news-item active">
+                <div class="news-badge" style="background: linear-gradient(135deg, #dc2626, #b91c1c); color: white !important; padding: 12px 24px; border-radius: 6px; display: inline-block; margin-bottom: 20px; font-size: 0.85rem; font-weight: 700; box-shadow: 0 8px 25px rgba(220, 38, 38, 0.4); letter-spacing: 2px; text-transform: uppercase; position: relative; border: 2px solid rgba(255, 255, 255, 0.2); backdrop-filter: blur(10px);">
+                  <span style="position: relative; z-index: 2;">BIG NEWS</span>
+                  <div style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: linear-gradient(45deg, transparent 30%, rgba(255, 255, 255, 0.1) 50%, transparent 70%); border-radius: 4px;"></div>
+                </div>
+                <h2 style="font-family: 'Shadows Into Light', cursive; font-size: 2.5rem; font-weight: 700; margin-bottom: 20px; color: #dc2626; text-shadow: 1px 1px 2px rgba(0,0,0,0.1);">
+                  We've Expanded!
+                </h2>
+                <p style="font-size: 1.2rem; margin-bottom: 30px; color: #495057; line-height: 1.6;">
+                  After years of serving our amazing community, we're excited to announce that we've expanded our current location! 
+                  We've made our space larger to serve more customers with the same authentic Mexican flavors you love.
+                </p>
+                <div class="news-features" style="display: flex; gap: 30px; margin-bottom: 30px; flex-wrap: wrap;">
+                  <div style="display: flex; align-items: center; gap: 10px;">
+                    <i class="fas fa-expand-arrows-alt" style="color: #dc2626; font-size: 1.2rem;"></i>
+                    <span style="color: #495057; font-weight: 500;">Larger Dining Space</span>
+                  </div>
+                  <div style="display: flex; align-items: center; gap: 10px;">
+                    <i class="fas fa-users" style="color: #dc2626; font-size: 1.2rem;"></i>
+                    <span style="color: #495057; font-weight: 500;">More Seating</span>
+                  </div>
+                </div>
+                <a href="news.html" style="background: linear-gradient(135deg, #dc2626, #b91c1c); color: white !important; padding: 15px 30px; border-radius: 50px; text-decoration: none; font-weight: 600; display: inline-block; transition: all 0.3s ease; box-shadow: 0 5px 15px rgba(220, 38, 38, 0.3);">
+                  Learn More <i class="fas fa-arrow-right" style="margin-left: 8px; color: white !important;"></i>
+                </a>
+              </div>
+
+              <!-- News Item 2: Trucks and Tacos Event -->
+              <div class="news-item">
+                <div class="news-badge" style="background: linear-gradient(135deg, #8b5cf6, #7c3aed); color: white !important; padding: 12px 24px; border-radius: 6px; display: inline-block; margin-bottom: 20px; font-size: 0.85rem; font-weight: 700; box-shadow: 0 8px 25px rgba(139, 92, 246, 0.4); letter-spacing: 2px; text-transform: uppercase; position: relative; border: 2px solid rgba(255, 255, 255, 0.2); backdrop-filter: blur(10px);">
+                  <span style="position: relative; z-index: 2;">SPECIAL EVENT</span>
+                  <div style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: linear-gradient(45deg, transparent 30%, rgba(255, 255, 255, 0.1) 50%, transparent 70%); border-radius: 4px;"></div>
+                </div>
+                <h2 style="font-family: 'Shadows Into Light', cursive; font-size: 2.5rem; font-weight: 700; margin-bottom: 20px; color: #8b5cf6; text-shadow: 1px 1px 2px rgba(0,0,0,0.1);">
+                  Trucks & Tacos Event!
+                </h2>
+                <p style="font-size: 1.2rem; margin-bottom: 30px; color: #495057; line-height: 1.6;">
+                  Join us for our special "Trucks & Tacos" event on October 26th from 8am-noon! It's a "Truck or Treat" Toy Drive for Texas Children's Hospital. 
+                  Bring the kids in costume for our costume contest with giveaways and prizes!
+                </p>
+                <div class="news-features" style="display: flex; gap: 30px; margin-bottom: 30px; flex-wrap: wrap;">
+                  <div style="display: flex; align-items: center; gap: 10px;">
+                    <i class="fas fa-calendar" style="color: #8b5cf6; font-size: 1.2rem;"></i>
+                    <span style="color: #495057; font-weight: 500;">October 26th, 8am-noon</span>
+                  </div>
+                  <div style="display: flex; align-items: center; gap: 10px;">
+                    <i class="fas fa-gift" style="color: #8b5cf6; font-size: 1.2rem;"></i>
+                    <span style="color: #495057; font-weight: 500;">Toy Drive for Texas Children's Hospital</span>
+                  </div>
+                  <div style="display: flex; align-items: center; gap: 10px;">
+                    <i class="fas fa-mask" style="color: #8b5cf6; font-size: 1.2rem;"></i>
+                    <span style="color: #495057; font-weight: 500;">Kids Costume Contest</span>
+                  </div>
+                  <div style="display: flex; align-items: center; gap: 10px;">
+                    <i class="fas fa-trophy" style="color: #8b5cf6; font-size: 1.2rem;"></i>
+                    <span style="color: #495057; font-weight: 500;">Giveaways & Prizes</span>
+                  </div>
+                </div>
+                <a href="https://www.facebook.com/reel/1345833399813666/?s=single_unit&__cft__[0]=AZXc4uX-UHNMVMQFl4l2kPcLXsr_2NvERBwQ89ORfoHJ1EpH1tyme2XpmE3P3RwVLrhHFpSZ5cRZEfpzwsDg-I63Ci84uUKH9RfMrTDf_lR4e3mORLhEn4nvD3pDCArA9K28F2lvmVYxcmAFmAQLo8UohjnuNSl5aKzn3OJFXnI4coCg56ZJFivXtcpFC2LHyKkQGbGsv3gwjq6YDxSqHh74&__tn__=H-R" target="_blank" style="background: linear-gradient(135deg, #8b5cf6, #7c3aed); color: white !important; padding: 15px 30px; border-radius: 50px; text-decoration: none; font-weight: 600; display: inline-block; transition: all 0.3s ease; box-shadow: 0 5px 15px rgba(139, 92, 246, 0.3);">
+                  Learn More <i class="fas fa-external-link-alt" style="margin-left: 8px; color: white !important;"></i>
+                </a>
+              </div>
+
+              <!-- News Item 3: New Menu Items -->
+              <div class="news-item">
+                <div class="news-badge" style="background: linear-gradient(135deg, #dc2626, #b91c1c); color: white !important; padding: 12px 24px; border-radius: 6px; display: inline-block; margin-bottom: 20px; font-size: 0.85rem; font-weight: 700; box-shadow: 0 8px 25px rgba(220, 38, 38, 0.4); letter-spacing: 2px; text-transform: uppercase; position: relative; border: 2px solid rgba(255, 255, 255, 0.2); backdrop-filter: blur(10px);">
+                  <span style="position: relative; z-index: 2;">MENU UPDATE</span>
+                  <div style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: linear-gradient(45deg, transparent 30%, rgba(255, 255, 255, 0.1) 50%, transparent 70%); border-radius: 4px;"></div>
+                </div>
+                <h2 style="font-family: 'Shadows Into Light', cursive; font-size: 2.5rem; font-weight: 700; margin-bottom: 20px; color: #dc2626; text-shadow: 1px 1px 2px rgba(0,0,0,0.1);">
+                  New Breakfast Items!
+                </h2>
+                <p style="font-size: 1.2rem; margin-bottom: 30px; color: #495057; line-height: 1.6;">
+                  Start your day right with our new breakfast offerings! We've added authentic Mexican breakfast tacos, 
+                  chilaquiles, and our famous huevos rancheros. Available every morning from 7 AM to 11 AM.
+                </p>
+                <div class="news-features" style="display: flex; gap: 30px; margin-bottom: 30px; flex-wrap: wrap;">
+                  <div style="display: flex; align-items: center; gap: 10px;">
+                    <i class="fas fa-sun" style="color: #dc2626; font-size: 1.2rem;"></i>
+                    <span style="color: #495057; font-weight: 500;">Morning Hours</span>
+                  </div>
+                  <div style="display: flex; align-items: center; gap: 10px;">
+                    <i class="fas fa-utensils" style="color: #dc2626; font-size: 1.2rem;"></i>
+                    <span style="color: #495057; font-weight: 500;">Authentic Flavors</span>
+                  </div>
+                </div>
+                <a href="menu.html" style="background: linear-gradient(135deg, #dc2626, #b91c1c); color: white !important; padding: 15px 30px; border-radius: 50px; text-decoration: none; font-weight: 600; display: inline-block; transition: all 0.3s ease; box-shadow: 0 5px 15px rgba(220, 38, 38, 0.3);">
+                  View Menu <i class="fas fa-arrow-right" style="margin-left: 8px; color: white !important;"></i>
+                </a>
+              </div>
+
+
+            </div>
+          </div>
+          <div class="col-lg-5">
+            <div class="news-image" style="text-align: center; position: relative; z-index: 2;">
+              <img id="rotating-image" src="assets/mex-taco-expansion.webp" alt="Mex Taco House News" style="border-radius: 15px; box-shadow: 0 10px 30px rgba(0,0,0,0.3); max-width: 120%; height: auto; transform: scale(1.1);">
+            </div>
+          </div>
+        </div>
+        
+        <!-- Navigation Controls -->
+        <div style="display: flex; justify-content: center; align-items: center; margin-top: 30px; gap: 20px;">
+          <!-- Left Arrow -->
+          <button id="prev-news" style="background: linear-gradient(135deg, #dc2626, #b91c1c); color: white; border: none; border-radius: 50%; width: 50px; height: 50px; cursor: pointer; display: flex; align-items: center; justify-content: center; font-size: 1.2rem; transition: all 0.3s ease; box-shadow: 0 4px 15px rgba(220, 38, 38, 0.3);" onmouseover="this.style.transform='scale(1.1)'" onmouseout="this.style.transform='scale(1)'">
+            <i class="fas fa-chevron-left"></i>
+          </button>
+          
+          <!-- Rotation Indicators -->
+          <div class="rotation-indicators" style="display: flex; align-items: center; gap: 8px;">
+            <span class="indicator active" style="display: inline-block; width: 40px; height: 4px; border-radius: 2px; background: #dc2626; cursor: pointer; transition: all 0.3s ease;"></span>
+            <span class="indicator" style="display: inline-block; width: 40px; height: 4px; border-radius: 2px; background: #e5e7eb; cursor: pointer; transition: all 0.3s ease;"></span>
+            <span class="indicator" style="display: inline-block; width: 40px; height: 4px; border-radius: 2px; background: #e5e7eb; cursor: pointer; transition: all 0.3s ease;"></span>
+          </div>
+          
+          <!-- Right Arrow -->
+          <button id="next-news" style="background: linear-gradient(135deg, #dc2626, #b91c1c); color: white; border: none; border-radius: 50%; width: 50px; height: 50px; cursor: pointer; display: flex; align-items: center; justify-content: center; font-size: 1.2rem; transition: all 0.3s ease; box-shadow: 0 4px 15px rgba(220, 38, 38, 0.3);" onmouseover="this.style.transform='scale(1.1)'" onmouseout="this.style.transform='scale(1)'">
+            <i class="fas fa-chevron-right"></i>
+          </button>
+        </div>
+      </div>
+    </section>
 
     <section class="pt-0">
       <div class="bg-img"><img src="assets/images/backgrounds/pattern/2.png" alt="background"></div>
@@ -2208,7 +2420,34 @@
       <!-- =====================
        Why Dine Here
        ======================== -->
-      <section class="py-70 bg-light">
+      <style>
+        .why-dine-here .feature-item {
+          min-height: 350px !important;
+          padding: 25px 20px !important;
+          display: flex !important;
+          flex-direction: column !important;
+          justify-content: flex-start !important;
+          box-sizing: border-box !important;
+        }
+        .why-dine-here .feature__desc {
+          padding: 0 !important;
+          margin: 0 !important;
+          line-height: 1.6 !important;
+          font-size: 15px !important;
+          overflow: visible !important;
+          white-space: normal !important;
+          word-wrap: break-word !important;
+          height: auto !important;
+          max-height: none !important;
+        }
+        .why-dine-here .feature__title {
+          margin-bottom: 20px !important;
+        }
+        .why-dine-here .feature__icon {
+          margin-bottom: 20px !important;
+        }
+      </style>
+      <section class="py-70 bg-light why-dine-here">
         <div class="container">
           <div class="row">
             <div class="col-sm-12 col-md-12 col-lg-8 offset-lg-2">
@@ -2226,7 +2465,7 @@
                   <i class="fa fa-heart"></i>
                 </div>
                 <h4 class="feature__title">Authentic Mexican Dining</h4>
-                <p class="feature__desc">Experience genuine Mexican flavors with every bite. Our menu celebrates time-honored recipes crafted with passion and skill.</p>
+                <p class="feature__desc">Experience genuine Mexican flavors with every bite. Our menu celebrates time-honored recipes.</p>
               </div><!-- /.feature-item -->
             </div><!-- /.col-lg-3 -->
             <div class="col-sm-12 col-md-6 col-lg-3">
@@ -2235,7 +2474,7 @@
                   <i class="fa fa-leaf"></i>
                 </div>
                 <h4 class="feature__title">Fresh, Locally Sourced Ingredients</h4>
-                <p class="feature__desc">We prioritize quality and freshness by sourcing ingredients from local suppliers, ensuring each dish is packed with flavor.</p>
+                <p class="feature__desc">We prioritize quality and freshness by sourcing ingredients from local suppliers.</p>
               </div><!-- /.feature-item -->
             </div><!-- /.col-lg-3 -->
             <div class="col-sm-12 col-md-6 col-lg-3">
@@ -2244,7 +2483,7 @@
                   <i class="fa fa-users"></i>
                 </div>
                 <h4 class="feature__title">Exceptional Customer Service</h4>
-                <p class="feature__desc">Our friendly, attentive staff goes above and beyond to make your visit memorable, providing a warm, welcoming atmosphere for every guest.</p>
+                <p class="feature__desc">Our friendly, attentive staff goes above and beyond to make your visit memorable.</p>
               </div><!-- /.feature-item -->
             </div><!-- /.col-lg-3 -->
             <div class="col-sm-12 col-md-6 col-lg-3">
@@ -2253,7 +2492,7 @@
                   <i class="fa fa-star"></i>
                 </div>
                 <h4 class="feature__title">Standout Breakfast and Lunch Tacos</h4>
-                <p class="feature__desc">Enjoy our signature tacos, made-to-order with carefully selected ingredients, for a meal that's both delicious and satisfying.</p>
+                <p class="feature__desc">Enjoy our signature tacos, made-to-order with carefully selected ingredients.</p>
               </div><!-- /.feature-item -->
             </div><!-- /.col-lg-3 -->
           </div><!-- /.row -->
@@ -3000,6 +3239,153 @@
         reviewsBanner.addEventListener('mouseenter', stopRotation);
         reviewsBanner.addEventListener('mouseleave', startRotation);
       }
+    });
+  </script>
+  
+  <!-- News Carousel Script -->
+  <script>
+    // News Rotator Functionality
+    $(document).ready(function() {
+      let currentNewsIndex = 0;
+      const newsItems = $('.news-item');
+      const indicators = $('.rotation-indicators .indicator');
+      const rotatingImage = $('#rotating-image');
+      let autoRotateInterval;
+
+      // News content and images - Enhanced with carousel data structure
+      const newsData = [
+        {
+          id: 1,
+          title: "We've Expanded!",
+          description: "After years of serving our amazing community, we're excited to announce that we've expanded our current location! We've made our space larger to serve more customers with the same authentic Mexican flavors you love.",
+          image: "assets/mex-taco-expansion.webp",
+          badge: "BIG NEWS",
+          badgeColor: "#dc2626",
+          link: "news.html",
+          linkText: "Learn More",
+          features: [
+            { icon: "fa-expand-arrows-alt", text: "Larger Dining Space" },
+            { icon: "fa-users", text: "More Seating" }
+          ],
+          external: false
+        },
+        {
+          id: 2,
+          title: "Trucks & Tacos Event!",
+          description: "Join us for our special 'Trucks & Tacos' event on October 26th from 8am-noon! It's a 'Truck or Treat' Toy Drive for Texas Children's Hospital. Bring the kids in costume for our costume contest with giveaways and prizes!",
+          image: "assets/trucks-tacos-event-oct.jpg",
+          badge: "SPECIAL EVENT",
+          badgeColor: "#8b5cf6",
+          link: "https://www.facebook.com/reel/1345833399813666/?s=single_unit&__cft__[0]=AZXc4uX-UHNMVMQFl4l2kPcLXsr_2NvERBwQ89ORfoHJ1EpH1tyme2XpmE3P3RwVLrhHFpSZ5cRZEfpzwsDg-I63Ci84uUKH9RfMrTDf_lR4e3mORLhEn4nvD3pDCArA9K28F2lvmVYxcmAFmAQLo8UohjnuNSl5aKzn3OJFXnI4coCg56ZJFivXtcpFC2LHyKkQGbGsv3gwjq6YDxSqHh74&__tn__=H-R",
+          linkText: "Learn More",
+          features: [
+            { icon: "fa-calendar", text: "October 26th, 8am-noon" },
+            { icon: "fa-gift", text: "Toy Drive for Texas Children's Hospital" },
+            { icon: "fa-mask", text: "Kids Costume Contest" },
+            { icon: "fa-trophy", text: "Giveaways & Prizes" }
+          ],
+          external: true
+        },
+        {
+          id: 3,
+          title: "New Breakfast Items!",
+          description: "Start your day right with our new breakfast offerings! We've added authentic Mexican breakfast tacos, chilaquiles, and our famous huevos rancheros. Available every morning from 7 AM to 11 AM.",
+          image: "assets/gallery-images/street-tacos.jpeg",
+          badge: "MENU UPDATE",
+          badgeColor: "#dc2626",
+          link: "menu.html",
+          linkText: "View Menu",
+          features: [
+            { icon: "fa-sun", text: "Morning Hours" },
+            { icon: "fa-utensils", text: "Authentic Flavors" }
+          ],
+          external: false
+        }
+      ];
+
+      // Function to update news content with smooth transitions
+      function updateNewsContent(index) {
+        const news = newsData[index];
+        const activeItem = newsItems.eq(index);
+        
+        // Remove active class from all items
+        newsItems.removeClass('active');
+        
+        // Add fade transition to image
+        rotatingImage.addClass('fade-transition');
+        
+        // Wait for image transition, then update content
+        setTimeout(() => {
+          // Update image source
+          rotatingImage.attr('src', news.image);
+          
+          // Remove fade transition class to show new image
+          rotatingImage.removeClass('fade-transition');
+          
+          // Add active class to current item with slight delay for smooth content transition
+          setTimeout(() => {
+            activeItem.addClass('active');
+          }, 100);
+        }, 300);
+        
+        // Update indicators - line style
+        indicators.css({
+          'background': '#e5e7eb',
+          'width': '40px',
+          'height': '4px',
+          'border-radius': '2px'
+        });
+        indicators.eq(index).css({
+          'background': '#dc2626',
+          'width': '40px',
+          'height': '4px',
+          'border-radius': '2px'
+        });
+      }
+
+      // Function to rotate to next news item
+      function rotateNews() {
+        currentNewsIndex = (currentNewsIndex + 1) % newsData.length;
+        updateNewsContent(currentNewsIndex);
+      }
+
+      // Auto-rotation
+      function startAutoRotate() {
+        autoRotateInterval = setInterval(rotateNews, 4000); // 4 seconds
+      }
+
+      function stopAutoRotate() {
+        clearInterval(autoRotateInterval);
+      }
+
+      // Arrow button handlers
+      $('#prev-news').on('click', function() {
+        currentNewsIndex = (currentNewsIndex - 1 + newsData.length) % newsData.length;
+        updateNewsContent(currentNewsIndex);
+        // Don't restart auto-rotation, let it continue at its own pace
+      });
+
+      $('#next-news').on('click', function() {
+        currentNewsIndex = (currentNewsIndex + 1) % newsData.length;
+        updateNewsContent(currentNewsIndex);
+        // Don't restart auto-rotation, let it continue at its own pace
+      });
+
+      // Indicator click handlers
+      indicators.on('click', function() {
+        const index = $(this).index();
+        currentNewsIndex = index;
+        updateNewsContent(currentNewsIndex);
+        // Don't restart auto-rotation, let it continue at its own pace
+      });
+
+      // Pause on hover
+      $('.news-rotator').on('mouseenter', stopAutoRotate);
+      $('.news-rotator').on('mouseleave', startAutoRotate);
+
+      // Initialize
+      updateNewsContent(0);
+      startAutoRotate();
     });
   </script>
   </div><!-- /.wrapper -->
