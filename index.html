@@ -218,6 +218,7 @@
       @supports (-webkit-touch-callout: none) {
         .slide-content .btn.btn__primary {
           -webkit-appearance: none !important;
+          appearance: none !important;
           border-radius: 3px !important;
           text-align: center !important;
           display: inline-block !important;
@@ -2740,6 +2741,44 @@
           
           .video-modal-title {
             font-size: 1.5rem;
+          }
+        }
+        
+        /* Mobile Scrolling Optimizations */
+        @media (max-width: 768px) {
+          /* Smooth scrolling for mobile */
+          html {
+            scroll-behavior: smooth;
+            -webkit-overflow-scrolling: touch;
+          }
+          
+          body {
+            overflow-x: hidden;
+            -webkit-overflow-scrolling: touch;
+          }
+          
+          /* Optimize performance for mobile scrolling */
+          .slide,
+          .slide__content,
+          .bg-parallax,
+          .bg-overlay {
+            -webkit-transform: translateZ(0);
+            transform: translateZ(0);
+            -webkit-backface-visibility: hidden;
+            backface-visibility: hidden;
+            will-change: transform;
+          }
+          
+          /* Prevent jumpy scrolling on mobile */
+          .hero-video,
+          .slide__bg,
+          .bg-parallax {
+            background-attachment: scroll !important;
+          }
+          
+          /* Optimize touch scrolling */
+          * {
+            -webkit-overflow-scrolling: touch;
           }
         }
       </style>

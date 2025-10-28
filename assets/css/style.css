@@ -1023,6 +1023,37 @@ select {
   background-attachment: fixed;
 }
 
+/* Fix for mobile scrolling issues - disable fixed background attachment on mobile */
+@media only screen and (max-width: 768px) {
+  .bg-parallax {
+    background-attachment: scroll !important;
+  }
+}
+
+/* Additional mobile scrolling optimizations */
+@media only screen and (max-width: 768px) {
+  /* Improve scrolling performance on mobile */
+  * {
+    -webkit-overflow-scrolling: touch;
+  }
+  
+  /* Prevent horizontal scrolling issues */
+  body {
+    overflow-x: hidden;
+  }
+  
+  /* Optimize transform performance */
+  .bg-parallax,
+  .bg-overlay,
+  .slide,
+  .slide__content {
+    -webkit-transform: translateZ(0);
+    transform: translateZ(0);
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+  }
+}
+
 /*-------------------------
    Typography
 --------------------------*/
