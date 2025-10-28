@@ -20,49 +20,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
   
   <style>
-    /* Logo Consistency */
-    .navbar-brand img {
-      max-height: 60px;
-    }
-    
-    /* Tablets */
-    @media only screen and (min-width: 768px) and (max-width: 1023px) {
-      .navbar-brand img {
-        max-height: 50px;
-      }
-    }
-    
-    /* Mobile */
-    @media only screen and (max-width: 767px) {
-      .navbar-brand img {
-        max-height: 45px;
-      }
-      
-      /* Social icons gap fix for mobile */
-      .navbar-actions .social__icons {
-        gap: 4px !important;
-      }
-    }
-    
-    /* Small Mobile */
-    @media only screen and (max-width: 480px) {
-      .navbar-brand img {
-        max-height: 40px;
-      }
-      
-      /* Social icons gap fix for smaller mobile */
-      .navbar-actions .social__icons {
-        gap: 3px !important;
-      }
-    }
-    
-    /* High DPI Displays */
-    @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
-      .navbar-brand img {
-        image-rendering: -webkit-optimize-contrast;
-        image-rendering: crisp-edges;
-      }
-    }
+    /* News-specific styles only */
     
     /* Navbar Text Color Consistency */
     .navbar-nav .nav__item-link {
@@ -530,7 +488,7 @@
                 </li>
               </ul>
             </div>
-            <ul class="social__icons" style="margin-left: 40px;">
+            <ul class="social__icons">
               <li><a href="https://www.instagram.com/mextacohouse/reels/?hl=en" target="_blank" rel="noopener noreferrer" style="color: #dc2626; transition: all 0.3s ease;"><i class="fab fa-instagram"></i></a></li>
               <li><a href="https://www.facebook.com/mextacohouse" target="_blank" rel="noopener noreferrer" style="color: #dc2626; transition: all 0.3s ease;"><i class="fab fa-facebook"></i></a></li>
             </ul><!-- /.social__icons -->

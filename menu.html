@@ -36,9 +36,6 @@
     
     /* Large Tablets (iPad Pro, etc.) */
     @media only screen and (min-width: 1024px) and (max-width: 1200px) {
-      .navbar-brand img {
-        max-height: 60px;
-      }
       .footer-primary {
         padding: 40px 0;
       }
@@ -46,17 +43,6 @@
     
     /* Tablets (iPad, Android Tablets) */
     @media only screen and (min-width: 768px) and (max-width: 1023px) {
-      /* Navigation */
-      .navbar-brand img {
-        max-height: 50px;
-      }
-      .navbar .social__icons {
-        margin-left: 20px;
-      }
-      .navbar .social__icons a {
-        font-size: 16px;
-        padding: 8px;
-      }
       
       /* Menu Navigation */
       .nav-tabs {
@@ -97,26 +83,6 @@
     
     /* Mobile Phones (iPhone, Android) */
     @media only screen and (max-width: 767px) {
-      /* Navigation */
-      .navbar-brand {
-        margin-left: 0;
-        margin-top: 5px;
-      }
-      .navbar-brand img {
-        max-height: 45px;
-      }
-      
-      /* Social icons gap fix for mobile */
-      .navbar-actions .social__icons {
-        gap: 4px !important;
-      }
-      .navbar .social__icons {
-        margin-left: 10px;
-        gap: 4px;
-      }
-      .navbar .social__icons a {
-        font-size: 14px;
-        padding: 6px;
       }
       .navbar__action-btn-reserve {
         padding: 8px 12px;
@@ -604,13 +570,7 @@
     }
   </style>
   <style>
-    .navbar-brand {
-      margin-top: 10px !important;
-      margin-left: -20px !important;
-    }
-    .navbar-brand img {
-      max-height: 50px !important;
-    }
+    /* Menu-specific styles only */
     
     /* Replace gold buttons with red color from logo */
     .btn__primary {
