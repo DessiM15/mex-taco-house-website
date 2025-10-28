@@ -470,11 +470,21 @@
       .navbar-brand img {
         max-height: 45px;
       }
+      
+      /* Social icons gap fix for mobile */
+      .navbar-actions .social__icons {
+        gap: 4px !important;
+      }
     }
     
     @media only screen and (max-width: 480px) {
       .navbar-brand img {
         max-height: 40px;
+      }
+      
+      /* Social icons gap fix for smaller mobile */
+      .navbar-actions .social__icons {
+        gap: 3px !important;
       }
     }
     

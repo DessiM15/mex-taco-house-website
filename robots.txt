@@ -17,3 +17,4 @@ Allow: /menu.html
 Allow: /contact.html
 Allow: /news.html
 Allow: /assets/
+
