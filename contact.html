@@ -371,6 +371,22 @@
       margin-top: 10px !important;
       margin-left: -20px !important;
     }
+    
+    /* Override margin-left for mobile devices */
+    @media only screen and (max-width: 767px) {
+      .navbar-brand {
+        margin-left: 0 !important;
+        padding-left: 15px !important;
+      }
+    }
+    
+    @media only screen and (max-width: 480px) {
+      .navbar-brand {
+        margin-left: 0 !important;
+        padding-left: 20px !important;
+      }
+    }
+    
     .navbar-brand img {
       max-height: 50px !important;
     }
@@ -485,6 +501,40 @@
       /* Social icons gap fix for smaller mobile */
       .navbar-actions .social__icons {
         gap: 3px !important;
+      }
+    }
+    
+    /* Mobile navbar dropdown styling - matching other pages */
+    @media only screen and (max-width: 767px) {
+      .navbar-collapse {
+        background: white !important;
+        box-shadow: 0 2px 10px rgba(0,0,0,0.1) !important;
+      }
+      
+      /* Navbar dropdown text color - make it black */
+      .navbar-collapse .navbar-nav .nav__item .nav__item-link {
+        color: #333333 !important;
+      }
+      
+      .navbar-collapse .navbar-nav .nav__item .nav__item-link:hover {
+        color: #dc2626 !important;
+      }
+      
+      .navbar-collapse .navbar-nav .nav__item .nav__item-link.active {
+        color: #dc2626 !important;
+      }
+      
+      /* Additional specificity for mobile dropdown */
+      .navbar-collapse .nav__item .nav__item-link {
+        color: #333333 !important;
+      }
+      
+      .navbar-collapse .nav__item .nav__item-link:hover {
+        color: #dc2626 !important;
+      }
+      
+      .navbar-collapse .nav__item .nav__item-link.active {
+        color: #dc2626 !important;
       }
     }
     
