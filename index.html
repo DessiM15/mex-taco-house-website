@@ -177,11 +177,7 @@
         font-size: 0.9rem;
       }
       
-      /* Hero Section */
-      .hero-video {
-        height: 100vh;
-        min-height: 100vh;
-      }
+      /* Hero Section - Mobile optimized */
       .slide-content {
         padding: 20px;
         text-align: center;
@@ -350,11 +346,7 @@
         font-size: 0.8rem;
       }
       
-      /* Hero Section */
-      .hero-video {
-        height: 100vh;
-        min-height: 100vh;
-      }
+      /* Hero Section - Mobile optimized */
       .slide-content h2 {
         font-size: 1.8rem;
       }
@@ -1890,10 +1882,18 @@
 
         /* Mobile video optimization */
         @media (max-width: 768px) {
+          .hero-video-container {
+            height: 100vh;
+            width: 100%;
+            overflow: hidden;
+          }
+          
           .hero-video {
+            width: 100%;
+            height: 100%;
             object-fit: cover;
             object-position: center center;
-            transform: scale(1.0);
+            transform: none;
           }
           
           /* Adjust slider height for mobile */
@@ -1910,10 +1910,18 @@
 
         /* Smaller mobile video optimization */
         @media (max-width: 480px) {
+          .hero-video-container {
+            height: 100vh;
+            width: 100%;
+            overflow: hidden;
+          }
+          
           .hero-video {
+            width: 100%;
+            height: 100%;
             object-fit: cover;
             object-position: center center;
-            transform: scale(1.0);
+            transform: none;
           }
           
           /* Further adjust slider height for smaller mobile */
