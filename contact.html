@@ -6,9 +6,44 @@
   <title>Contact Us - Mex Taco House</title>
   <link rel="stylesheet" href="assets/css/style.css">
   <link rel="stylesheet" href="assets/css/libraries.css">
+  <link rel="stylesheet" href="assets/css/mobile-navbar-fix.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
   
   <style>
+    /* Hide desktop navbar on mobile */
+    @media (max-width: 991px) {
+      .header,
+      .navbar {
+        display: none !important;
+      }
+      
+      /* Add top padding to body for mobile navbar */
+      body {
+        padding-top: 70px;
+      }
+      
+      /* Ensure mobile navbar is visible */
+      .mobile-navbar-container {
+        display: flex !important;
+      }
+    }
+    
+    /* Show desktop navbar on larger screens */
+    @media (min-width: 992px) {
+      .header,
+      .navbar {
+        display: block !important;
+      }
+      
+      body {
+        padding-top: 0;
+      }
+      
+      .mobile-navbar-container {
+        display: none !important;
+      }
+    }
+
     /* Contact Page Specific Styles */
     .contact-hero {
       background: linear-gradient(135deg, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.4)), url('assets/images/backgrounds/1.jpg');
@@ -1175,6 +1210,7 @@
   <script src="assets/js/jquery-3.3.1.min.js"></script>
   <script src="assets/js/plugins.js"></script>
   <script src="assets/js/main.js"></script>
+  <script src="assets/js/mobile-navbar-fix.js"></script>
   
   <script>
     // Contact form handling (placeholder functionality)

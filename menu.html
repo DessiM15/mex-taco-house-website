@@ -16,11 +16,46 @@
     href="https://fonts.googleapis.com/css?family=Rubik:400,500,700%7cShadows+Into+Light&display=swap">
   <link rel="stylesheet" href="assets/css/libraries.css" />
   <link rel="stylesheet" href="assets/css/style.css?v=2" />
+  <link rel="stylesheet" href="assets/css/mobile-navbar-fix.css" />
   <!-- FontAwesome CDN -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
   
   <!-- Comprehensive Mobile Optimization -->
   <style>
+    /* Hide desktop navbar on mobile */
+    @media (max-width: 991px) {
+      .header,
+      .navbar {
+        display: none !important;
+      }
+      
+      /* Add top padding to body for mobile navbar */
+      body {
+        padding-top: 70px;
+      }
+      
+      /* Ensure mobile navbar is visible */
+      .mobile-navbar-container {
+        display: flex !important;
+      }
+    }
+    
+    /* Show desktop navbar on larger screens */
+    @media (min-width: 992px) {
+      .header,
+      .navbar {
+        display: block !important;
+      }
+      
+      body {
+        padding-top: 0;
+      }
+      
+      .mobile-navbar-container {
+        display: none !important;
+      }
+    }
+
     /* ===========================
         MOBILE OPTIMIZATION
         iPhone, Android, Tablets
@@ -2485,6 +2520,7 @@
     <script src="assets/js/jquery-3.3.1.min.js"></script>
     <script src="assets/js/plugins.js"></script>
     <script src="assets/js/main.js"></script>
+    <script src="assets/js/mobile-navbar-fix.js"></script>
     
     <script>
       // Ultra-stable scroll handler with conflict prevention
