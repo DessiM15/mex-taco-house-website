@@ -469,7 +469,7 @@
       background-color: #dc2626 !important;
     }
     
-    /* Responsive logo sizing */
+    /* Responsive logo sizing - matching index page exactly */
     @media only screen and (min-width: 1024px) and (max-width: 1200px) {
       .navbar-brand img {
         max-height: 60px;
@@ -501,6 +501,13 @@
       /* Social icons gap fix for smaller mobile */
       .navbar-actions .social__icons {
         gap: 3px !important;
+      }
+    }
+    
+    /* Additional mobile navbar positioning - matching index page */
+    @media only screen and (max-width: 767px) {
+      .navbar-brand {
+        margin-top: 5px !important;
       }
     }
     
