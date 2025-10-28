@@ -3766,6 +3766,7 @@ textarea.form-control {
     min-width: 120px;
     height: 35px;
     line-height: 33px;
+    text-align: center;
   }
   .slider .carousel-arrows .owl-nav .owl-prev,
   .slider .carousel-arrows .owl-nav .owl-next {
