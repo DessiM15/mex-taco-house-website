@@ -52,6 +52,8 @@ class MobileNavbar {
       this.menuOverlay = existingOverlay;
       this.menuPanel = existingMenuPanel;
       this.toggleButton = this.navbarContainer.querySelector(this.options.toggleSelector);
+      this.menuOverlay.setAttribute('aria-hidden', 'true');
+      this.menuPanel.setAttribute('aria-hidden', 'true');
       return;
     }
 
@@ -78,6 +80,8 @@ class MobileNavbar {
     document.body.appendChild(this.menuPanel);
 
     this.toggleButton = this.navbarContainer.querySelector(this.options.toggleSelector);
+    this.menuPanel.setAttribute('aria-hidden', 'true');
+    this.menuOverlay.setAttribute('aria-hidden', 'true');
   }
 
   generateMenuContent() {
@@ -256,10 +260,14 @@ class MobileNavbar {
     // Update ARIA attributes
     this.toggleButton.setAttribute('aria-expanded', 'true');
     this.toggleButton.classList.add('active');
-    
-    // Show overlay and menu
-    this.menuOverlay.classList.add('active');
-    this.menuPanel.classList.add('active');
+    if (this.menuPanel) {
+      this.menuPanel.classList.add('active');
+      this.menuPanel.setAttribute('aria-hidden', 'false');
+    }
+    if (this.menuOverlay) {
+      this.menuOverlay.classList.add('active');
+      this.menuOverlay.setAttribute('aria-hidden', 'false');
+    }
     
     // Prevent body scroll
     document.body.style.overflow = 'hidden';
@@ -283,10 +291,14 @@ class MobileNavbar {
     // Update ARIA attributes
     this.toggleButton.setAttribute('aria-expanded', 'false');
     this.toggleButton.classList.remove('active');
-    
-    // Hide overlay and menu
-    this.menuOverlay.classList.remove('active');
-    this.menuPanel.classList.remove('active');
+    if (this.menuOverlay) {
+      this.menuOverlay.classList.remove('active');
+      this.menuOverlay.setAttribute('aria-hidden', 'true');
+    }
+    if (this.menuPanel) {
+      this.menuPanel.classList.remove('active');
+      this.menuPanel.setAttribute('aria-hidden', 'true');
+    }
     
     // Restore body scroll
     document.body.style.overflow = '';
@@ -329,17 +341,28 @@ class MobileNavbar {
 
   updateActiveLink() {
     const currentPath = window.location.pathname;
+    const currentHash = window.location.hash;
+    const currentPage = currentPath.split('/').pop() || 'index.html';
     const navLinks = this.menuPanel.querySelectorAll('.mobile-nav-link');
     
     navLinks.forEach(link => {
       link.classList.remove('active');
       const href = link.getAttribute('href');
       
-      if (href === currentPath || 
-          (currentPath === '/' && href === 'index.html') ||
-          (currentPath.includes('news') && href === 'news.html') ||
-          (currentPath.includes('menu') && href === 'menu.html') ||
-          (currentPath.includes('contact') && href === 'contact.html')) {
+      const normalizedHref = href.replace('./', '');
+      const baseHref = normalizedHref.split('#')[0] || normalizedHref;
+      const hashHref = normalizedHref.includes('#') ? `#${normalizedHref.split('#')[1]}` : '';
+
+      const matchesBasePage = baseHref === currentPage ||
+        (currentPage === 'index.html' && baseHref === 'index.html') ||
+        (currentPath === '/' && baseHref === 'index.html');
+
+      const matchesSection = hashHref && currentPage === 'index.html' && currentHash === hashHref;
+
+      if (matchesBasePage || matchesSection ||
+          (currentPath.includes('news') && baseHref === 'news.html') ||
+          (currentPath.includes('menu') && baseHref === 'menu.html') ||
+          (currentPath.includes('contact') && baseHref === 'contact.html')) {
         link.classList.add('active');
       }
     });

@@ -675,6 +675,53 @@
 </head>
 
 <body>
+  <!-- Mobile Navigation -->
+  <div class="mobile-navbar-container" role="navigation" aria-label="Mobile Navigation">
+    <a href="index.html" class="mobile-navbar-logo-link">
+      <img src="assets/max-taco-logo.png" alt="Mex Taco House" class="mobile-navbar-logo">
+    </a>
+    <button class="mobile-navbar-toggle" type="button" aria-label="Toggle navigation" aria-expanded="false">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+  </div>
+  <div class="mobile-menu-overlay" aria-hidden="true"></div>
+  <div class="mobile-menu-panel" role="dialog" aria-modal="true" aria-hidden="true">
+    <div class="mobile-menu-content">
+      <ul class="mobile-nav-list">
+        <li class="mobile-nav-item"><a href="index.html" class="mobile-nav-link">Home</a></li>
+        <li class="mobile-nav-item"><a href="index.html#about" class="mobile-nav-link">About</a></li>
+        <li class="mobile-nav-item"><a href="menu.html" class="mobile-nav-link">Menu</a></li>
+        <li class="mobile-nav-item"><a href="index.html#gallery" class="mobile-nav-link">Gallery</a></li>
+        <li class="mobile-nav-item"><a href="news.html" class="mobile-nav-link">News</a></li>
+        <li class="mobile-nav-item"><a href="contact.html" class="mobile-nav-link">Contact</a></li>
+      </ul>
+      <div class="mobile-actions">
+        <div class="mobile-order-dropdown">
+          <button class="mobile-dropdown-toggle" type="button" aria-expanded="false">Order Now</button>
+          <div class="mobile-order-dropdown-menu" role="menu">
+            <div class="mobile-order-dropdown-item">
+              <a class="mobile-order-dropdown-link" href="https://www.grubhub.com/restaurant/mex-taco-house-25410-northwest-fwy-cypress/5807624" target="_blank" rel="noopener noreferrer">
+                <span class="mobile-order-dropdown-icon grubhub">GH</span>
+                <span class="mobile-order-dropdown-text">Grubhub</span>
+              </a>
+            </div>
+            <div class="mobile-order-dropdown-item">
+              <a class="mobile-order-dropdown-link" href="https://www.ubereats.com/store/mex-taco-house/zlftufBFXgm9JhQGyOfpvw?srsltid=AfmBOoqivy_I4JNqrygE9zN80BMQ_FV4BwOt5K2ErLL7PPXNNJVsIAgy" target="_blank" rel="noopener noreferrer">
+                <span class="mobile-order-dropdown-icon ubereats">UE</span>
+                <span class="mobile-order-dropdown-text">Uber Eats</span>
+              </a>
+            </div>
+          </div>
+        </div>
+        <div class="mobile-social-icons">
+          <a href="https://www.instagram.com/mextacohouse/reels/?hl=en" class="mobile-social-link" aria-label="Instagram" target="_blank" rel="noopener noreferrer"><i class="fab fa-instagram"></i></a>
+          <a href="https://www.facebook.com/mextacohouse" class="mobile-social-link" aria-label="Facebook" target="_blank" rel="noopener noreferrer"><i class="fab fa-facebook"></i></a>
+        </div>
+      </div>
+    </div>
+  </div>
   <!-- Header -->
   <header id="header" class="header header-transparent header-layout1">
     <nav class="navbar navbar-expand-lg sticky-navbar">
