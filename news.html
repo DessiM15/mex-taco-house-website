@@ -23,6 +23,25 @@
   <style>
     /* News-specific styles only */
     
+    @media (max-width: 991px) {
+      .mobile-navbar-container {
+        display: none !important;
+      }
+
+      body.mobile-nav-ready .header,
+      body.mobile-nav-ready .navbar {
+        display: none !important;
+      }
+
+      body.mobile-nav-ready {
+        padding-top: 70px;
+      }
+
+      body.mobile-nav-ready .mobile-navbar-container {
+        display: flex !important;
+      }
+    }
+
     /* Navbar Text Color Consistency */
     .navbar-nav .nav__item-link {
       color: #000000 !important;

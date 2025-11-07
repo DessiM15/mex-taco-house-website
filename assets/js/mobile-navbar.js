@@ -40,6 +40,7 @@ class MobileNavbar {
     this.setupIntersectionObserver();
     this.setupResizeHandler();
     this.setupAccessibility();
+    this.markBodyReady();
   }
 
   createElements() {
@@ -438,6 +439,12 @@ class MobileNavbar {
     document.body.insertBefore(skipLink, document.body.firstChild);
   }
 
+  markBodyReady() {
+    if (typeof document !== 'undefined' && document.body) {
+      document.body.classList.add('mobile-nav-ready');
+    }
+  }
+
   emit(eventName, data = {}) {
     const event = new CustomEvent(`mobileNavbar:${eventName}`, {
       detail: { ...data, instance: this }
@@ -458,6 +465,10 @@ class MobileNavbar {
     }
     
     document.body.style.overflow = '';
+
+    if (document.body) {
+      document.body.classList.remove('mobile-nav-ready');
+    }
   }
 }
 

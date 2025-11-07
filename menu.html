@@ -24,18 +24,22 @@
   <style>
     /* Hide desktop navbar on mobile */
     @media (max-width: 991px) {
-      .header,
-      .navbar {
+      .mobile-navbar-container {
+        display: none !important;
+      }
+      
+      body.mobile-nav-ready .header,
+      body.mobile-nav-ready .navbar {
         display: none !important;
       }
       
       /* Add top padding to body for mobile navbar */
-      body {
+      body.mobile-nav-ready {
         padding-top: 70px;
       }
       
       /* Ensure mobile navbar is visible */
-      .mobile-navbar-container {
+      body.mobile-nav-ready .mobile-navbar-container {
         display: flex !important;
       }
     }
@@ -382,7 +386,7 @@
       border: 2px solid #dc2626 !important;
       border-radius: 5px !important;
       padding: 8px 15px !important;
-      margin-left: 10px !important;
+      margin-left: 0 !important;
       text-decoration: none !important;
       font-weight: 600 !important;
       transition: all 0.3s ease !important;
@@ -1431,7 +1435,10 @@
     }
 
     .menu-tabs .nav__order {
-      margin-left: auto !important;
+      margin-left: 0 !important;
+      display: flex !important;
+      align-items: center !important;
+      justify-content: center !important;
     }
 
     .menu-tabs .order-now-btn {
@@ -1439,12 +1446,12 @@
       color: #ffffff !important;
       border: none !important;
       border-radius: 6px !important;
-      padding: 10px 24px !important;
+      padding: 10px 14px 10px 18px !important;
       font-weight: 700 !important;
       display: inline-flex !important;
       align-items: center !important;
       justify-content: center !important;
-      gap: 8px !important;
+      gap: 6px !important;
       box-shadow: 0 6px 20px rgba(220, 38, 38, 0.25) !important;
       cursor: pointer !important;
     }

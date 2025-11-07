@@ -912,18 +912,22 @@
     
     /* Hide desktop navbar on mobile */
     @media (max-width: 991px) {
-      .header,
-      .navbar {
+      .mobile-navbar-container {
+        display: none !important;
+      }
+      
+      body.mobile-nav-ready .header,
+      body.mobile-nav-ready .navbar {
         display: none !important;
       }
       
       /* Add top padding to body for mobile navbar */
-      body {
+      body.mobile-nav-ready {
         padding-top: 70px;
       }
       
       /* Ensure mobile navbar is visible */
-      .mobile-navbar-container {
+      body.mobile-nav-ready .mobile-navbar-container {
         display: flex !important;
       }
     }
