@@ -43,7 +43,18 @@ class MobileNavbar {
   }
 
   createElements() {
-    // Create mobile navbar container
+    const existingNavbar = document.querySelector(this.options.navbarSelector);
+    const existingOverlay = document.querySelector(this.options.overlaySelector);
+    const existingMenuPanel = document.querySelector(this.options.menuSelector);
+
+    if (existingNavbar && existingOverlay && existingMenuPanel) {
+      this.navbarContainer = existingNavbar;
+      this.menuOverlay = existingOverlay;
+      this.menuPanel = existingMenuPanel;
+      this.toggleButton = this.navbarContainer.querySelector(this.options.toggleSelector);
+      return;
+    }
+
     this.navbarContainer = document.createElement('div');
     this.navbarContainer.className = 'mobile-navbar-container';
     this.navbarContainer.innerHTML = `
@@ -55,24 +66,18 @@ class MobileNavbar {
       </button>
     `;
 
-    // Create mobile menu overlay
     this.menuOverlay = document.createElement('div');
     this.menuOverlay.className = 'mobile-menu-overlay';
 
-    // Create mobile menu panel
     this.menuPanel = document.createElement('div');
     this.menuPanel.className = 'mobile-menu-panel';
     this.menuPanel.innerHTML = this.generateMenuContent();
 
-    // Insert elements into DOM
     document.body.appendChild(this.navbarContainer);
     document.body.appendChild(this.menuOverlay);
     document.body.appendChild(this.menuPanel);
 
-    // Cache DOM elements
     this.toggleButton = this.navbarContainer.querySelector(this.options.toggleSelector);
-    this.menuPanel = document.querySelector(this.options.menuSelector);
-    this.menuOverlay = document.querySelector(this.options.overlaySelector);
   }
 
   generateMenuContent() {
@@ -375,9 +380,10 @@ class MobileNavbar {
     window.addEventListener('resize', () => {
       clearTimeout(resizeTimeout);
       resizeTimeout = setTimeout(() => {
-        if (window.innerWidth >= this.options.breakpoint) {
+        if (window.innerWidth >= this.options.breakpoint && this.isOpen) {
           this.closeMenu();
         }
+        this.updateActiveLink();
       }, 100);
     });
   }
@@ -434,23 +440,24 @@ class MobileNavbar {
 
 // Auto-initialize on mobile devices
 document.addEventListener('DOMContentLoaded', () => {
-  if (window.innerWidth < 992) {
+  if (!window.mobileNavbar) {
     window.mobileNavbar = new MobileNavbar();
   }
 });
 
-// Re-initialize on resize
 let resizeTimeout;
 window.addEventListener('resize', () => {
   clearTimeout(resizeTimeout);
   resizeTimeout = setTimeout(() => {
-    if (window.innerWidth < 992 && !window.mobileNavbar) {
+    if (!window.mobileNavbar) {
       window.mobileNavbar = new MobileNavbar();
-    } else if (window.innerWidth >= 992 && window.mobileNavbar) {
-      window.mobileNavbar.destroy();
-      window.mobileNavbar = null;
+    } else {
+      if (window.innerWidth >= window.mobileNavbar.options.breakpoint && window.mobileNavbar.isOpen) {
+        window.mobileNavbar.closeMenu();
+      }
+      window.mobileNavbar.updateActiveLink();
     }
-  }, 100);
+  }, 150);
 });
 
 // Export for manual initialization
@@ -459,4 +466,5 @@ if (typeof module !== 'undefined' && module.exports) {
 } else if (typeof window !== 'undefined') {
   window.MobileNavbar = MobileNavbar;
 }
+
 
