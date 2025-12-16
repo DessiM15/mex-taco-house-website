@@ -2,48 +2,116 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Contact Us - Mex Taco House</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="theme-color" content="#dc2626">
+  <meta name="description" content="Contact Mex Taco House in Cypress, TX. Call (281) 213-2844, visit us at 25410 Northwest Fwy. Hours: Tue-Sat 6am-2pm, Sun 7am-2pm. Best Mexican restaurant in Cypress.">
+  <meta name="keywords" content="Mex Taco House contact, Mexican restaurant Cypress TX phone number, Mexican restaurant hours, Cypress TX directions">
+  <meta name="robots" content="index, follow">
+  <meta name="author" content="Mex Taco House">
+  <link rel="canonical" href="https://mextacohouse.com/contact.html">
+
+  <!-- Open Graph Meta Tags -->
+  <meta property="og:type" content="restaurant">
+  <meta property="og:title" content="Contact Us | Mex Taco House - Best Mexican Restaurant in Cypress TX">
+  <meta property="og:description" content="Contact Mex Taco House in Cypress, TX. Call (281) 213-2844. Located at 25410 Northwest Fwy. Best authentic Mexican food in Cypress.">
+  <meta property="og:url" content="https://mextacohouse.com/contact.html">
+  <meta property="og:site_name" content="Mex Taco House">
+  <meta property="og:image" content="https://mextacohouse.com/assets/mex-taco-plate-with-sides.webp">
+  <meta property="og:locale" content="en_US">
+
+  <!-- Twitter Card Meta Tags -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Contact Us | Mex Taco House - Best Mexican Restaurant in Cypress TX">
+  <meta name="twitter:description" content="Contact Mex Taco House in Cypress, TX. Call (281) 213-2844 for reservations or questions.">
+  <meta name="twitter:image" content="https://mextacohouse.com/assets/mex-taco-plate-with-sides.webp">
+
+  <!-- Local Business Tags -->
+  <meta name="geo.region" content="US-TX">
+  <meta name="geo.placename" content="Cypress">
+  <meta name="geo.position" content="29.9689;-95.6969">
+
+  <link href="assets/images/favicon/favicon.png" rel="icon">
+  <link rel="apple-touch-icon" href="assets/images/favicon/favicon.png">
+  <title>Contact Us | Mex Taco House - Best Mexican Restaurant in Cypress TX</title>
   <link rel="stylesheet" href="assets/css/style.css">
   <link rel="stylesheet" href="assets/css/libraries.css">
   <link rel="stylesheet" href="assets/css/mobile-navbar.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
   
   <style>
-    /* Hide desktop navbar on mobile */
+    /* Mobile navbar visibility */
     @media (max-width: 991px) {
+      /* Show mobile navbar on mobile */
       .mobile-navbar-container {
-        display: none !important;
+        display: flex !important;
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 70px;
+        background: #ffffff;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        z-index: 9999;
+        align-items: center;
+        padding: 0 15px;
       }
 
-      body.mobile-nav-ready .header,
-      body.mobile-nav-ready .navbar {
+      /* Hide desktop navbar on mobile */
+      .header,
+      .header .navbar {
         display: none !important;
       }
 
       /* Add top padding to body for mobile navbar */
-      body.mobile-nav-ready {
+      body {
         padding-top: 70px;
       }
 
-      /* Ensure mobile navbar is visible */
-      body.mobile-nav-ready .mobile-navbar-container {
-        display: flex !important;
+      /* Mobile navbar toggle styling */
+      .mobile-navbar-toggle {
+        position: absolute;
+        right: 15px;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 44px;
+        height: 44px;
+        background: transparent;
+        border: none;
+        cursor: pointer;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 5px;
+        padding: 8px;
+      }
+
+      .mobile-navbar-toggle span {
+        display: block;
+        width: 24px;
+        height: 3px;
+        background-color: #333333;
+        border-radius: 2px;
+        transition: all 0.3s ease;
       }
     }
-    
+
     /* Show desktop navbar on larger screens */
     @media (min-width: 992px) {
       .header,
       .navbar {
         display: block !important;
       }
-      
+
       body {
         padding-top: 0;
       }
-      
-      .mobile-navbar-container {
+
+      .mobile-navbar-container,
+      .mobile-menu-overlay,
+      .mobile-menu-panel {
         display: none !important;
       }
     }
@@ -127,41 +195,41 @@
     
     .contact-detail {
       display: flex;
-      align-items: center;
-      margin-bottom: 20px;
-      padding: 15px;
-      background: #f8f9fa;
-      border-radius: 10px;
+      align-items: flex-start;
+      margin-bottom: 15px;
+      padding: 8px 0;
       transition: all 0.3s ease;
     }
-    
+
     .contact-detail:hover {
-      background: #dc2626;
-      color: white;
-      transform: translateX(10px);
+      transform: translateX(5px);
     }
-    
+
     .contact-detail i {
       color: #dc2626;
-      font-size: 1.5rem;
+      font-size: 1.2rem;
       margin-right: 15px;
-      width: 30px;
+      width: 25px;
       text-align: center;
+      flex-shrink: 0;
+      margin-top: 3px;
     }
-    
-    .contact-detail:hover i {
-      color: white;
-    }
-    
+
     .contact-detail a {
-      color: inherit;
+      color: #333;
       text-decoration: none;
-      font-size: 1.1rem;
+      font-size: 1rem;
       font-weight: 500;
+      transition: color 0.3s ease;
     }
-    
+
     .contact-detail a:hover {
-      color: inherit;
+      color: #dc2626;
+    }
+
+    .contact-detail span {
+      color: #555;
+      font-size: 1rem;
     }
     
     .map-container {
@@ -456,18 +524,18 @@
       left: 0;
       width: 0;
       height: 2px;
-      background-color: #dc2626 !important;
+      background: linear-gradient(90deg, #dc2626, #ff4444) !important;
       transition: width 0.3s ease;
     }
-    
+
     .nav__item-link:hover::before {
       width: 100%;
-      background-color: #dc2626 !important;
+      background: linear-gradient(90deg, #dc2626, #ff4444) !important;
     }
-    
+
     .nav__item-link.active::before {
       width: 100%;
-      background-color: #dc2626 !important;
+      background: linear-gradient(90deg, #dc2626, #ff4444) !important;
     }
     
     /* Remove any default underlines and ensure red color */
@@ -741,7 +809,7 @@
   <!-- Mobile Navigation -->
   <div class="mobile-navbar-container" role="navigation" aria-label="Mobile Navigation">
     <a href="index.html" class="mobile-navbar-logo-link">
-      <img src="assets/max-taco-logo.png" alt="Mex Taco House" class="mobile-navbar-logo">
+      <img src="assets/max-taco-logo.png" alt="Mex Taco House - Contact Best Mexican Restaurant in Cypress TX" class="mobile-navbar-logo">
     </a>
     <button class="mobile-navbar-toggle" type="button" aria-label="Toggle navigation" aria-expanded="false">
       <span></span>
@@ -793,8 +861,8 @@
       <nav class="navbar navbar-expand-lg sticky-navbar">
     <div class="container">
       <a class="navbar-brand" href="index.html">
-        <img src="assets/max-taco-logo.png" class="logo-light" alt="Mex Taco House">
-        <img src="assets/max-taco-logo.png" class="logo-dark" alt="Mex Taco House">
+        <img src="assets/max-taco-logo.png" class="logo-light" alt="Mex Taco House - Contact Authentic Mexican Restaurant Cypress TX">
+        <img src="assets/max-taco-logo.png" class="logo-dark" alt="Mex Taco House - Contact Authentic Mexican Restaurant Cypress TX">
       </a>
       <button class="navbar-toggler" type="button">
         <span class="menu-lines"><span></span></span>
@@ -853,6 +921,7 @@
           <ul class="social__icons">
             <li><a href="https://www.instagram.com/mextacohouse/reels/?hl=en" target="_blank" rel="noopener noreferrer"><i class="fab fa-instagram"></i></a></li>
             <li><a href="https://www.facebook.com/mextacohouse" target="_blank" rel="noopener noreferrer"><i class="fab fa-facebook"></i></a></li>
+            <li><a href="https://www.yelp.com/biz/mex-taco-house-cypress-2" target="_blank" rel="noopener noreferrer"><i class="fab fa-yelp"></i></a></li>
           </ul><!-- /.social__icons -->
         </div><!-- /.navbar-actions -->
       </div><!-- /.navbar-actions-wrap -->
@@ -1149,7 +1218,7 @@
           <!-- Brand Section - Full Width -->
           <div class="col-12" style="padding: 0 15px; margin-bottom: 50px;">
             <div style="text-align: center; padding: 40px 0; background: rgba(220, 38, 38, 0.1); border-radius: 15px; border: 1px solid rgba(220, 38, 38, 0.2);">
-              <img src="assets/max-taco-logo.png" alt="Mex Taco House Logo" style="max-height: 80px; margin-bottom: 20px; filter: drop-shadow(0 4px 8px rgba(0,0,0,0.3));">
+              <img src="assets/max-taco-logo.png" alt="Mex Taco House - Best Mexican Restaurant in Cypress Texas" style="max-height: 80px; margin-bottom: 20px; filter: drop-shadow(0 4px 8px rgba(0,0,0,0.3));">
               <h3 style="color: #fff; font-size: 1.8rem; font-weight: 700; margin-bottom: 15px; text-shadow: 2px 2px 4px rgba(0,0,0,0.5);">Mex Taco House</h3>
               <p style="color: #ccc; font-size: 1.1rem; line-height: 1.6; max-width: 600px; margin: 0 auto 30px; font-style: italic;">"Where authentic Mexican flavors meet modern dining experience"</p>
               
