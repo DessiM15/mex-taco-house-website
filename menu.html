@@ -48,15 +48,43 @@
   <!-- Navbar Styles -->
   <style>
     /* Navbar - Red text on hover only, no underline */
-    .navbar .nav__item .nav__item-link:before {
+    .navbar .nav__item .nav__item-link:before,
+    .navbar .nav__item .nav__item-link:after,
+    .navbar .nav__item .nav__item-link.active:before,
+    .navbar .nav__item .nav__item-link.active:after {
       display: none !important;
       width: 0 !important;
       height: 0 !important;
+      content: none !important;
+      background: none !important;
     }
 
     .navbar .nav__item .nav__item-link:hover,
     .navbar .nav__item .nav__item-link:focus {
       color: #dc2626 !important;
+    }
+
+    /* Order Now button styling */
+    .navbar__action-btn-reserve {
+      background: #dc2626 !important;
+      border: none !important;
+      padding: 12px 20px !important;
+      border-radius: 5px !important;
+      font-weight: 600 !important;
+      color: white !important;
+    }
+
+    .navbar__action-btn-reserve:hover {
+      background: #b91c1c !important;
+    }
+
+    /* Social icons styling */
+    .navbar .social__icons a {
+      color: #dc2626 !important;
+    }
+
+    .navbar .social__icons a:hover {
+      color: #b91c1c !important;
     }
   </style>
 
