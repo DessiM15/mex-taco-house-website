@@ -9,9 +9,34 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="theme-color" content="#dc2626">
   <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-  <meta name="description" content="Mex Taco House News - Latest Updates, New Menu Items, and Exciting Expansion">
+  <meta name="description" content="Latest news from Mex Taco House in Cypress, TX. New menu items, restaurant expansion updates, special events, and exciting announcements from the best Mexican restaurant in Cypress.">
+  <meta name="keywords" content="Mex Taco House news, Mexican restaurant Cypress TX updates, new menu items, restaurant expansion, Cypress TX events">
+  <meta name="robots" content="index, follow">
+  <meta name="author" content="Mex Taco House">
+  <link rel="canonical" href="https://mextacohouse.com/news.html">
+
+  <!-- Open Graph Meta Tags -->
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="News | Mex Taco House - Best Mexican Restaurant in Cypress TX">
+  <meta property="og:description" content="Latest news and updates from Mex Taco House. New menu items, expansion updates, and special announcements.">
+  <meta property="og:url" content="https://mextacohouse.com/news.html">
+  <meta property="og:site_name" content="Mex Taco House">
+  <meta property="og:image" content="https://mextacohouse.com/assets/mex-taco-expansion.webp">
+  <meta property="og:locale" content="en_US">
+
+  <!-- Twitter Card Meta Tags -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="News | Mex Taco House - Best Mexican Restaurant in Cypress TX">
+  <meta name="twitter:description" content="Latest news and updates from Mex Taco House in Cypress, TX.">
+  <meta name="twitter:image" content="https://mextacohouse.com/assets/mex-taco-expansion.webp">
+
+  <!-- Local Business Tags -->
+  <meta name="geo.region" content="US-TX">
+  <meta name="geo.placename" content="Cypress">
+
   <link href="assets/images/favicon/favicon.png" rel="icon">
-  <title>News - Mex Taco House</title>
+  <link rel="apple-touch-icon" href="assets/images/favicon/favicon.png">
+  <title>News | Mex Taco House - Best Mexican Restaurant in Cypress TX</title>
   <link rel="stylesheet"
     href="https://fonts.googleapis.com/css?family=Rubik:400,500,700%7cShadows+Into+Light&display=swap">
   <link rel="stylesheet" href="assets/css/libraries.css" />
@@ -21,24 +46,92 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
   
   <style>
+    /* Navbar - Red text on hover only, no underline */
+    .navbar .nav__item .nav__item-link:before {
+      display: none !important;
+      width: 0 !important;
+      height: 0 !important;
+    }
+
+    .navbar .nav__item .nav__item-link:hover,
+    .navbar .nav__item .nav__item-link:focus {
+      color: #dc2626 !important;
+    }
+
     /* News-specific styles only */
-    
+
+    /* Mobile navbar visibility */
     @media (max-width: 991px) {
+      /* Show mobile navbar on mobile */
       .mobile-navbar-container {
+        display: flex !important;
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 70px;
+        background: #ffffff;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        z-index: 9999;
+        align-items: center;
+        padding: 0 15px;
+      }
+
+      /* Hide desktop navbar on mobile */
+      .header,
+      .header .navbar {
         display: none !important;
       }
 
-      body.mobile-nav-ready .header,
-      body.mobile-nav-ready .navbar {
-        display: none !important;
-      }
-
-      body.mobile-nav-ready {
+      /* Add top padding to body for mobile navbar */
+      body {
         padding-top: 70px;
       }
 
-      body.mobile-nav-ready .mobile-navbar-container {
-        display: flex !important;
+      /* Mobile navbar toggle styling */
+      .mobile-navbar-toggle {
+        position: absolute;
+        right: 15px;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 44px;
+        height: 44px;
+        background: transparent;
+        border: none;
+        cursor: pointer;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 5px;
+        padding: 8px;
+      }
+
+      .mobile-navbar-toggle span {
+        display: block;
+        width: 24px;
+        height: 3px;
+        background-color: #333333;
+        border-radius: 2px;
+        transition: all 0.3s ease;
+      }
+    }
+
+    /* Show desktop navbar on larger screens */
+    @media (min-width: 992px) {
+      .header,
+      .navbar {
+        display: block !important;
+      }
+
+      body {
+        padding-top: 0;
+      }
+
+      .mobile-navbar-container,
+      .mobile-menu-overlay,
+      .mobile-menu-panel {
+        display: none !important;
       }
     }
 
@@ -46,48 +139,46 @@
     .navbar-nav .nav__item-link {
       color: #000000 !important;
       font-weight: 500;
+      position: relative !important;
     }
-    
+
     .navbar-nav .nav__item-link:hover,
     .navbar-nav .nav__item-link.active {
       color: #dc2626 !important;
     }
-    
+
     .navbar-nav .nav__item-link.active {
       font-weight: 600;
     }
-    
-    /* Navbar Underline Styling - Match Other Pages */
-    .nav__item-link::after {
-      background-color: #dc2626 !important;
-    }
-    
-    .nav__item-link:hover::after {
-      background-color: #dc2626 !important;
-    }
-    
-    .nav__item-link.active::after {
-      background-color: #dc2626 !important;
-    }
-    
-    /* Red underlines for all states */
+
+    /* Animated underline effect - like footer */
+    .nav__item-link::after,
     .navbar .nav__item-link::after {
-      background-color: #dc2626 !important;
+      content: '' !important;
+      position: absolute !important;
+      bottom: 0 !important;
+      left: 0 !important;
+      width: 0 !important;
+      height: 2px !important;
+      background: linear-gradient(90deg, #dc2626, #ff4444) !important;
+      transition: width 0.3s ease !important;
     }
-    
+
+    .nav__item-link:hover::after,
     .navbar .nav__item-link:hover::after {
-      background-color: #dc2626 !important;
+      width: 100% !important;
     }
-    
+
+    .nav__item-link.active::after,
     .navbar .nav__item-link.active::after {
-      background-color: #dc2626 !important;
+      width: 100% !important;
     }
 
     /* Red underlines for :before pseudo-elements */
     .navbar .nav__item .nav__item-link:before {
       background-color: #dc2626 !important;
     }
-    
+
     .navbar .nav__item .nav__item-link:hover:before {
       background-color: #dc2626 !important;
     }
@@ -690,6 +781,40 @@
     .footer ul li a:hover {
       border-left-color: #dc2626 !important;
     }
+
+    /* Navbar Logo Sizing - Consistent with all pages */
+    .navbar-brand img {
+      max-height: 50px !important;
+    }
+
+    @media only screen and (min-width: 1024px) {
+      .navbar-brand img {
+        max-height: 60px;
+      }
+    }
+
+    @media only screen and (min-width: 768px) and (max-width: 1023px) {
+      .navbar-brand img {
+        max-height: 50px;
+      }
+    }
+
+    @media only screen and (max-width: 767px) {
+      .navbar-brand {
+        margin-left: 0;
+        margin-top: 5px;
+        padding-left: 15px;
+      }
+      .navbar-brand img {
+        max-height: 45px;
+      }
+    }
+
+    @media only screen and (max-width: 480px) {
+      .navbar-brand img {
+        max-height: 40px;
+      }
+    }
   </style>
 </head>
 
@@ -697,7 +822,7 @@
   <!-- Mobile Navigation -->
   <div class="mobile-navbar-container" role="navigation" aria-label="Mobile Navigation">
     <a href="index.html" class="mobile-navbar-logo-link">
-      <img src="assets/max-taco-logo.png" alt="Mex Taco House" class="mobile-navbar-logo">
+      <img src="assets/max-taco-logo.png" alt="Mex Taco House - Best Mexican Restaurant News in Cypress TX" class="mobile-navbar-logo">
     </a>
     <button class="mobile-navbar-toggle" type="button" aria-label="Toggle navigation" aria-expanded="false">
       <span></span>
@@ -746,8 +871,8 @@
     <nav class="navbar navbar-expand-lg sticky-navbar">
       <div class="container">
         <a class="navbar-brand" href="index.html">
-          <img src="assets/max-taco-logo.png" class="logo-light" alt="Mex Taco House">
-          <img src="assets/max-taco-logo.png" class="logo-dark" alt="Mex Taco House">
+          <img src="assets/max-taco-logo.png" class="logo-light" alt="Mex Taco House - Authentic Mexican Restaurant News Cypress TX">
+          <img src="assets/max-taco-logo.png" class="logo-dark" alt="Mex Taco House - Authentic Mexican Restaurant News Cypress TX">
         </a>
         <button class="navbar-toggler" type="button">
           <span class="menu-lines"><span></span></span>
@@ -806,6 +931,7 @@
             <ul class="social__icons">
               <li><a href="https://www.instagram.com/mextacohouse/reels/?hl=en" target="_blank" rel="noopener noreferrer" style="color: #dc2626; transition: all 0.3s ease;"><i class="fab fa-instagram"></i></a></li>
               <li><a href="https://www.facebook.com/mextacohouse" target="_blank" rel="noopener noreferrer" style="color: #dc2626; transition: all 0.3s ease;"><i class="fab fa-facebook"></i></a></li>
+              <li><a href="https://www.yelp.com/biz/mex-taco-house-cypress-2" target="_blank" rel="noopener noreferrer" style="color: #dc2626; transition: all 0.3s ease;"><i class="fab fa-yelp"></i></a></li>
             </ul><!-- /.social__icons -->
           </div><!-- /.navbar-actions -->
         </div><!-- /.navbar-actions-wrap -->
@@ -875,11 +1001,13 @@
           <div class="news-article">
             <div class="news-article-image" style="background-image: url('assets/gallery-images/street-tacos.jpeg');"></div>
             <div class="news-article-content">
-              <h3 style="font-family: 'Shadows Into Light', cursive;">Holiday Special Events</h3>
-              <div class="date"><i class="fas fa-calendar-alt"></i> December 8, 2024</div>
-              <p>Join us for our special holiday events! We're hosting a Christmas Eve dinner with traditional Mexican dishes and a New Year's celebration with live mariachi music. Reservations are filling up fast!</p>
+              <h3 style="font-family: 'Shadows Into Light', cursive;">Holiday Catering</h3>
+              <div class="date"><i class="fas fa-calendar-alt"></i> December 12, 2024</div>
+              <p>Make your holiday gatherings special with authentic Mexican catering from Mex Taco House! We offer full-service catering for parties, corporate events, and family celebrations. Contact us today to discuss your catering needs.</p>
+              <p style="margin-top: 10px; font-weight: 600;"><i class="fas fa-phone" style="color: #dc2626; margin-right: 8px;"></i>(281) 213-2844</p>
+              <p style="font-size: 0.9rem; color: #666;"><i class="fas fa-map-marker-alt" style="color: #dc2626; margin-right: 8px;"></i>25410 Northwest Fwy, Cypress, TX</p>
               <a href="contact.html" class="read-more">
-                Make Reservation <i class="fas fa-arrow-right"></i>
+                Get Quote <i class="fas fa-arrow-right"></i>
               </a>
             </div>
           </div>
@@ -889,28 +1017,16 @@
       <div class="row">
         <div class="col-lg-6 col-md-6">
           <div class="news-article">
-            <div class="news-article-image" style="background-image: url('assets/gallery-images/breakfast-taco-with-streetmeat.webp');"></div>
-            <div class="news-article-content">
-              <h3 style="font-family: 'Shadows Into Light', cursive;">New Breakfast Menu Items</h3>
-              <div class="date"><i class="fas fa-calendar-alt"></i> December 10, 2024</div>
-              <p>Start your day right with our new breakfast offerings! We've added authentic Mexican breakfast tacos, chilaquiles, and our famous huevos rancheros. Available every morning from 7 AM to 11 AM.</p>
-              <a href="menu.html" class="read-more">
-                View Menu <i class="fas fa-arrow-right"></i>
-              </a>
-            </div>
-          </div>
-        </div>
-        
-        <div class="col-lg-6 col-md-6">
-          <div class="news-article">
             <div class="news-article-image" style="background-image: url('assets/gallery-images/taco-plate-1.webp');"></div>
             <div class="news-article-content">
-              <h3 style="font-family: 'Shadows Into Light', cursive;">Community Support Program</h3>
-              <div class="date"><i class="fas fa-calendar-alt"></i> December 1, 2024</div>
-              <p>We're proud to announce our new community support program! Every Tuesday, we donate 10% of our profits to local food banks and community organizations. Thank you for helping us give back!</p>
-              <a href="contact.html" class="read-more">
-                Learn More <i class="fas fa-arrow-right"></i>
-              </a>
+              <h3 style="font-family: 'Shadows Into Light', cursive; color: #dc2626;">Holiday Closures</h3>
+              <div class="date"><i class="fas fa-calendar-alt"></i> December 12, 2024</div>
+              <p>We will be closed on the following days to celebrate the holidays with our families:</p>
+              <ul style="list-style: none; padding: 0; margin: 15px 0;">
+                <li style="margin-bottom: 10px;"><i class="fas fa-tree" style="color: #059669; margin-right: 10px;"></i><strong>Christmas Day:</strong> December 25th, 2025 (Reopen Dec 26th)</li>
+                <li><i class="fas fa-glass-cheers" style="color: #d97706; margin-right: 10px;"></i><strong>New Year's Day:</strong> January 1st, 2026 (Reopen Jan 2nd)</li>
+              </ul>
+              <p style="font-style: italic; color: #dc2626; font-weight: 600;">Feliz Navidad y Prospero Ano Nuevo!</p>
             </div>
           </div>
         </div>
@@ -1050,7 +1166,7 @@
           <!-- Brand Section - Full Width -->
           <div class="col-12" style="padding: 0 15px; margin-bottom: 50px;">
             <div style="text-align: center; padding: 40px 0; background: rgba(220, 38, 38, 0.1); border-radius: 15px; border: 1px solid rgba(220, 38, 38, 0.2);">
-              <img src="assets/max-taco-logo.png" alt="Mex Taco House Logo" style="max-height: 80px; margin-bottom: 20px; filter: drop-shadow(0 4px 8px rgba(0,0,0,0.3));">
+              <img src="assets/max-taco-logo.png" alt="Mex Taco House - Best Mexican Restaurant in Cypress Texas" style="max-height: 80px; margin-bottom: 20px; filter: drop-shadow(0 4px 8px rgba(0,0,0,0.3));">
               <h3 style="color: #fff; font-size: 1.8rem; font-weight: 700; margin-bottom: 15px; text-shadow: 2px 2px 4px rgba(0,0,0,0.5);">Mex Taco House</h3>
               <p style="color: #ccc; font-size: 1.1rem; line-height: 1.6; max-width: 600px; margin: 0 auto 30px; font-style: italic;">"Where authentic Mexican flavors meet modern dining experience"</p>
               

@@ -41,6 +41,18 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
   
   <style>
+    /* Navbar - Red text on hover only, no underline */
+    .navbar .nav__item .nav__item-link:before {
+      display: none !important;
+      width: 0 !important;
+      height: 0 !important;
+    }
+
+    .navbar .nav__item .nav__item-link:hover,
+    .navbar .nav__item .nav__item-link:focus {
+      color: #dc2626 !important;
+    }
+
     /* Mobile navbar visibility */
     @media (max-width: 991px) {
       /* Show mobile navbar on mobile */
