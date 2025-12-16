@@ -910,41 +910,86 @@
       }
     }
     
-    /* Hide desktop navbar on mobile */
+    /* Mobile navbar visibility - hide desktop navbar, show mobile navbar */
     @media (max-width: 991px) {
+      /* Hide desktop navbar on mobile */
+      .header,
+      .header .navbar {
+        display: none !important;
+      }
+
+      /* Show mobile navbar */
       .mobile-navbar-container {
-        display: none !important;
+        display: flex !important;
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 70px;
+        background: #ffffff;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        z-index: 9999;
+        align-items: center;
+        padding: 0 15px;
       }
-      
-      body.mobile-nav-ready .header,
-      body.mobile-nav-ready .navbar {
-        display: none !important;
+
+      /* Mobile navbar toggle styling */
+      .mobile-navbar-toggle {
+        position: absolute;
+        right: 15px;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 44px;
+        height: 44px;
+        background: transparent !important;
+        border: none !important;
+        cursor: pointer;
+        display: flex !important;
+        flex-direction: column !important;
+        justify-content: center !important;
+        align-items: center !important;
+        gap: 5px !important;
+        padding: 8px !important;
       }
-      
+
+      .mobile-navbar-toggle span {
+        display: block !important;
+        width: 24px !important;
+        height: 3px !important;
+        background-color: #333333 !important;
+        border-radius: 2px !important;
+        transition: all 0.3s ease !important;
+      }
+
       /* Add top padding to body for mobile navbar */
-      body.mobile-nav-ready {
+      body {
         padding-top: 70px;
       }
-      
-      /* Ensure mobile navbar is visible */
-      body.mobile-nav-ready .mobile-navbar-container {
-        display: flex !important;
+
+      /* Ensure sections account for mobile navbar */
+      section {
+        scroll-margin-top: 70px;
       }
     }
     
-    /* Show desktop navbar on larger screens */
+    /* Desktop - hide mobile navbar, show desktop navbar */
     @media (min-width: 992px) {
+      /* Show desktop navbar */
       .header,
-      .navbar {
+      .header .navbar {
         display: block !important;
       }
       
-      body {
-        padding-top: 0;
+      /* Hide mobile navbar */
+      .mobile-navbar-container,
+      .mobile-menu-overlay,
+      .mobile-menu-panel {
+        display: none !important;
       }
       
-      .mobile-navbar-container {
-        display: none !important;
+      /* Remove mobile navbar padding */
+      body {
+        padding-top: 0;
       }
     }
     
@@ -1228,6 +1273,7 @@
     /* Keep navigation text white, but make lines red */
     .nav__item-link {
       color: white !important;
+      position: relative !important;
     }
     .nav__item-link.active {
       color: white !important;
@@ -1235,16 +1281,25 @@
     .nav__item-link:hover {
       color: white !important;
     }
-    
-    /* Update navigation hover lines to red */
+
+    /* Animated underline effect - like footer */
     .nav__item-link::after {
-      background-color: #dc2626 !important;
+      content: '' !important;
+      position: absolute !important;
+      bottom: 0 !important;
+      left: 0 !important;
+      width: 0 !important;
+      height: 2px !important;
+      background: linear-gradient(90deg, #dc2626, #ff4444) !important;
+      transition: width 0.3s ease !important;
     }
     .nav__item-link:hover::after {
-      background-color: #dc2626 !important;
+      width: 100% !important;
+      background: linear-gradient(90deg, #dc2626, #ff4444) !important;
     }
     .nav__item-link.active::after {
-      background-color: #dc2626 !important;
+      width: 100% !important;
+      background: linear-gradient(90deg, #dc2626, #ff4444) !important;
     }
     
     /* Update dropdown hover effects - keep text white, lines red */
@@ -1325,9 +1380,11 @@
       color: white !important;
     }
     
-    /* Increase hero subtitle font size */
-    .slide__content .slide__subtitle {
-      font-size: 6rem !important;
+    /* Increase hero subtitle font size - Desktop only */
+    @media (min-width: 992px) {
+      .slide__content .slide__subtitle {
+        font-size: 6rem !important;
+      }
     }
     
     /* Ensure hero button text is white */
@@ -2415,6 +2472,623 @@
           }
         }
       </style>
+      
+      <!-- Comprehensive Mobile Optimization -->
+      <style>
+        /* ===========================
+           ENHANCED MOBILE OPTIMIZATIONS
+           =========================== */
+        
+        /* Responsive Images & Videos */
+        @media (max-width: 991px) {
+          /* Ensure all images are responsive */
+          img {
+            max-width: 100% !important;
+            height: auto !important;
+            display: block;
+          }
+          
+          /* Responsive video containers */
+          .hero-video-container,
+          .hero-video {
+            width: 100% !important;
+            height: 100% !important;
+            object-fit: cover;
+          }
+          
+          .video-container {
+            position: relative;
+            width: 100%;
+            padding-bottom: 56.25%; /* 16:9 aspect ratio */
+            height: 0;
+            overflow: hidden;
+          }
+          
+          .video-container iframe,
+          .video-container video {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+          }
+          
+          /* Gallery images */
+          .gallery-item img,
+          .carousel-slide-content img,
+          .swiper-slide img,
+          .banner__content-img img {
+            width: 100% !important;
+            height: auto !important;
+            object-fit: cover;
+          }
+        }
+        
+        /* Touch Target Optimization */
+        @media (max-width: 991px) {
+          /* Minimum touch target size: 44x44px */
+          a, button, input[type="button"], input[type="submit"],
+          .btn, .nav__item-link, .mobile-nav-link,
+          .order-btn, .navbar-toggler {
+            min-height: 44px !important;
+            min-width: 44px !important;
+            display: inline-flex !important;
+            align-items: center !important;
+            justify-content: center !important;
+            padding: 12px 20px !important;
+          }
+
+          /* Mobile navbar toggle - preserve hamburger icon layout */
+          .mobile-navbar-toggle {
+            min-height: 44px !important;
+            min-width: 44px !important;
+            display: flex !important;
+            flex-direction: column !important;
+            align-items: center !important;
+            justify-content: center !important;
+            padding: 8px !important;
+            gap: 5px !important;
+            background: transparent !important;
+            border: none !important;
+          }
+
+          .mobile-navbar-toggle span {
+            display: block !important;
+            width: 24px !important;
+            height: 3px !important;
+            background-color: #333 !important;
+            border-radius: 2px !important;
+            transition: all 0.3s ease !important;
+          }
+          
+          /* Links without buttons need padding */
+          a:not(.btn):not(.mobile-nav-link):not(.nav__item-link) {
+            padding: 8px 4px;
+            display: inline-block;
+          }
+          
+          /* Dropdown items */
+          .dropdown-item,
+          .mobile-dropdown-link {
+            min-height: 44px !important;
+            padding: 12px 15px !important;
+          }
+        }
+        
+        /* Improved Section Spacing for Mobile */
+        @media (max-width: 767px) {
+          section {
+            padding-top: 50px !important;
+            padding-bottom: 50px !important;
+          }
+          
+          .order-online {
+            padding: 50px 0 !important;
+          }
+          
+          .news-rotator {
+            padding: 50px 0 !important;
+          }
+          
+          .banner {
+            padding: 40px 0 !important;
+          }
+          
+          /* Gallery section */
+          .gallery-3d-section {
+            padding: 40px 0 !important;
+          }
+          
+          /* About section spacing */
+          .banner-layout1,
+          .banner-layout2 {
+            padding-bottom: 40px !important;
+          }
+          
+          .why-dine-here {
+            padding: 50px 0 !important;
+          }
+        }
+        
+        /* Text Readability on Mobile */
+        @media (max-width: 767px) {
+          /* Base font size should be readable */
+          body {
+            font-size: 16px !important;
+            line-height: 1.6 !important;
+          }
+          
+          /* Heading sizes */
+          h1, .h1 {
+            font-size: 2rem !important;
+            line-height: 1.2 !important;
+          }
+          
+          h2, .h2, .heading__title {
+            font-size: 1.75rem !important;
+            line-height: 1.3 !important;
+          }
+          
+          h3, .h3 {
+            font-size: 1.5rem !important;
+            line-height: 1.3 !important;
+          }
+          
+          h4, .h4 {
+            font-size: 1.25rem !important;
+            line-height: 1.4 !important;
+          }
+          
+          /* Paragraph spacing */
+          p {
+            margin-bottom: 1rem !important;
+            line-height: 1.6 !important;
+          }
+          
+          /* Container padding */
+          .container {
+            padding-left: 15px !important;
+            padding-right: 15px !important;
+            width: 100% !important;
+            max-width: 100% !important;
+            box-sizing: border-box !important;
+          }
+          
+          /* Fix row negative margins on mobile */
+          .row {
+            margin-left: 0 !important;
+            margin-right: 0 !important;
+            width: 100% !important;
+          }
+          
+          [class*="col-"] {
+            padding-left: 15px !important;
+            padding-right: 15px !important;
+          }
+        }
+        
+        /* Form Optimization for Mobile */
+        @media (max-width: 991px) {
+          input[type="text"],
+          input[type="email"],
+          input[type="tel"],
+          input[type="password"],
+          textarea,
+          select,
+          .form-control {
+            font-size: 16px !important; /* Prevents zoom on iOS */
+            padding: 12px 15px !important;
+            min-height: 44px !important;
+            width: 100% !important;
+            box-sizing: border-box !important;
+          }
+          
+          textarea {
+            min-height: 120px !important;
+            resize: vertical;
+          }
+          
+          label {
+            font-size: 16px !important;
+            margin-bottom: 8px !important;
+            display: block;
+          }
+        }
+        
+        /* Gallery & Carousel Mobile Optimization */
+        @media (max-width: 767px) {
+          /* Gallery carousel */
+          .swiper-container,
+          .carousel,
+          .owl-carousel {
+            overflow: hidden;
+          }
+          
+          .swiper-slide,
+          .carousel-item,
+          .owl-item {
+            width: 100% !important;
+          }
+          
+          /* Gallery images in mobile */
+          .gallery-item {
+            margin-bottom: 15px;
+          }
+          
+          .gallery-item img {
+            width: 100%;
+            height: auto;
+            max-height: 300px;
+            object-fit: cover;
+          }
+          
+          /* Carousel controls */
+          .swiper-button-next,
+          .swiper-button-prev,
+          .carousel-control-prev,
+          .carousel-control-next {
+            width: 44px !important;
+            height: 44px !important;
+          }
+        }
+        
+        /* Order Cards Mobile Optimization */
+        @media (max-width: 767px) {
+          .order-cards {
+            flex-direction: column !important;
+            gap: 20px !important;
+          }
+          
+          .order-card {
+            width: 100% !important;
+            margin: 0 auto 20px !important;
+            padding: 25px 20px !important;
+          }
+          
+          .order-btn {
+            width: 100% !important;
+            padding: 14px 20px !important;
+            font-size: 1rem !important;
+          }
+        }
+        
+        /* Banner Sections Mobile */
+        @media (max-width: 767px) {
+          .banner__content {
+            flex-direction: column !important;
+            text-align: center !important;
+          }
+          
+          .banner__content-text,
+          .banner__content-img {
+            width: 100% !important;
+            margin-bottom: 30px !important;
+          }
+          
+          .banner__content-img {
+            order: -1; /* Image first on mobile */
+          }
+          
+          .banner__content-img img {
+            width: 100% !important;
+            height: auto !important;
+            border-radius: 8px !important;
+          }
+        }
+        
+        /* Why Dine Here Section Mobile */
+        @media (max-width: 767px) {
+          .why-dine-here .feature-item {
+            margin-bottom: 30px !important;
+            padding: 25px 20px !important;
+          }
+          
+          .why-dine-here .row {
+            margin: 0 -15px;
+          }
+          
+          .why-dine-here .col-sm-12,
+          .why-dine-here .col-md-6,
+          .why-dine-here .col-lg-3 {
+            padding: 0 15px;
+          }
+        }
+        
+        /* News Rotator Mobile */
+        @media (max-width: 767px) {
+          .news-content {
+            min-height: 300px !important;
+            padding: 20px 15px !important;
+          }
+          
+          #rotating-image {
+            max-height: 250px !important;
+            width: 100% !important;
+            height: auto !important;
+          }
+          
+          .rotation-indicators {
+            margin-top: 20px !important;
+          }
+        }
+        
+        /* Hero Section Mobile Improvements */
+        @media (max-width: 767px) {
+          .hero-video-container {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+          }
+          
+          .hero-video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+          }
+          
+          /* Fix container overflow on mobile */
+          .slider .container {
+            width: 100% !important;
+            max-width: 100% !important;
+            padding-left: 15px !important;
+            padding-right: 15px !important;
+            margin-left: auto !important;
+            margin-right: auto !important;
+            box-sizing: border-box !important;
+          }
+          
+          .slider .row {
+            margin-left: 0 !important;
+            margin-right: 0 !important;
+            width: 100% !important;
+            max-width: 100% !important;
+          }
+          
+          .slider .col-sm-12,
+          .slider .col-md-12,
+          .slider .col-lg-12 {
+            padding-left: 0 !important;
+            padding-right: 0 !important;
+            width: 100% !important;
+            max-width: 100% !important;
+          }
+          
+          .slide__content {
+            padding: 30px 15px !important;
+            position: relative;
+            z-index: 2;
+            width: 100% !important;
+            max-width: 100% !important;
+            box-sizing: border-box !important;
+            margin: 0 auto !important;
+            text-align: center !important;
+          }
+          
+          .slide__subtitle {
+            font-size: 2.5rem !important;
+            margin-bottom: 15px !important;
+            line-height: 1.2 !important;
+            word-wrap: break-word !important;
+            overflow-wrap: break-word !important;
+            width: 100% !important;
+            display: block !important;
+            box-sizing: border-box !important;
+          }
+          
+          .slide__title {
+            font-size: 1.5rem !important;
+            line-height: 1.2 !important;
+            margin-bottom: 20px !important;
+            word-wrap: break-word !important;
+            overflow-wrap: break-word !important;
+            width: 100% !important;
+            display: block !important;
+            box-sizing: border-box !important;
+          }
+          
+          .slide__desc {
+            font-size: 0.95rem !important;
+            line-height: 1.5 !important;
+            margin-bottom: 25px !important;
+            word-wrap: break-word !important;
+            overflow-wrap: break-word !important;
+            width: 100% !important;
+            display: block !important;
+            box-sizing: border-box !important;
+          }
+        }
+        
+        /* Footer Mobile Optimization */
+        @media (max-width: 767px) {
+          .footer-primary {
+            padding: 40px 0 !important;
+          }
+          
+          .footer-widget {
+            margin-bottom: 30px !important;
+            text-align: center;
+          }
+          
+          .footer-widget:last-child {
+            margin-bottom: 0;
+          }
+          
+          .footer .social-link {
+            margin: 0 8px;
+          }
+        }
+        
+        /* Prevent horizontal scrolling - CRITICAL FIX */
+        @media (max-width: 991px) {
+          * {
+            box-sizing: border-box !important;
+          }
+          
+          body,
+          html {
+            overflow-x: hidden !important;
+            width: 100% !important;
+            max-width: 100vw !important;
+            position: relative !important;
+          }
+          
+          .wrapper {
+            width: 100% !important;
+            max-width: 100vw !important;
+            overflow-x: hidden !important;
+          }
+          
+          section {
+            width: 100% !important;
+            max-width: 100vw !important;
+            overflow-x: hidden !important;
+          }
+          
+          .container {
+            width: 100% !important;
+            max-width: 100% !important;
+            padding-left: 15px !important;
+            padding-right: 15px !important;
+            margin-left: auto !important;
+            margin-right: auto !important;
+            box-sizing: border-box !important;
+            overflow-x: hidden !important;
+          }
+          
+          .row {
+            margin-left: -15px !important;
+            margin-right: -15px !important;
+            width: calc(100% + 30px) !important;
+            max-width: 100% !important;
+            box-sizing: border-box !important;
+          }
+          
+          [class*="col-"] {
+            padding-left: 15px !important;
+            padding-right: 15px !important;
+            box-sizing: border-box !important;
+          }
+          
+          img, video, iframe {
+            max-width: 100% !important;
+            height: auto !important;
+          }
+          
+          /* Ensure slide-item doesn't overflow */
+          .slide-item {
+            width: 100% !important;
+            max-width: 100vw !important;
+            overflow-x: hidden !important;
+          }
+          
+          /* Fix slider/carousel overflow */
+          .slider,
+          .carousel,
+          .owl-carousel {
+            width: 100% !important;
+            max-width: 100vw !important;
+            overflow-x: hidden !important;
+          }
+        }
+        
+        /* iOS Safari specific fixes */
+        @supports (-webkit-touch-callout: none) {
+          @media (max-width: 991px) {
+            /* Fix viewport height on iOS */
+            .slide,
+            .hero-video-container {
+              height: -webkit-fill-available;
+            }
+            
+            /* Fix input zoom */
+            input[type="text"],
+            input[type="email"],
+            input[type="tel"],
+            input[type="password"],
+            textarea,
+            select {
+              font-size: 16px !important;
+            }
+            
+            /* Smooth scrolling */
+            * {
+              -webkit-overflow-scrolling: touch;
+            }
+            
+            /* Additional overflow prevention for iOS */
+            body, html {
+              position: relative !important;
+              overflow-x: hidden !important;
+              -webkit-overflow-scrolling: touch;
+            }
+          }
+        }
+        
+        /* Additional Mobile Padding & Overflow Fixes */
+        @media (max-width: 767px) {
+          /* Ensure no element causes horizontal overflow */
+          .slide__subtitle,
+          .slide__title,
+          .slide__desc {
+            max-width: 100% !important;
+            word-break: break-word !important;
+            overflow-wrap: break-word !important;
+            hyphens: auto !important;
+          }
+          
+          /* Fix any banner or background elements */
+          .slide__subtitle {
+            padding: 0 15px !important;
+            margin-left: auto !important;
+            margin-right: auto !important;
+          }
+          
+          /* Ensure carousel doesn't overflow */
+          .carousel,
+          .owl-carousel,
+          .owl-stage-outer,
+          .owl-stage,
+          .owl-item {
+            width: 100% !important;
+            max-width: 100vw !important;
+            overflow-x: hidden !important;
+          }
+        }
+        
+        /* Android Chrome fixes */
+        @media (max-width: 991px) {
+          /* Improve scrolling performance */
+          * {
+            -webkit-transform: translateZ(0);
+            transform: translateZ(0);
+          }
+          
+          /* Fix tap highlight */
+          a, button {
+            -webkit-tap-highlight-color: rgba(220, 38, 38, 0.2);
+            tap-highlight-color: rgba(220, 38, 38, 0.2);
+          }
+        }
+        
+        /* Tablet optimizations */
+        @media (min-width: 768px) and (max-width: 991px) {
+          .container {
+            max-width: 720px;
+          }
+          
+          .order-card {
+            margin-bottom: 30px;
+          }
+          
+          .banner__content {
+            gap: 30px;
+          }
+        }
+      </style>
 </head>
 
 <body>
@@ -2444,6 +3118,12 @@
         <div class="mobile-order-dropdown">
           <button class="mobile-dropdown-toggle" type="button" aria-expanded="false">Order Now</button>
           <div class="mobile-order-dropdown-menu" role="menu">
+            <div class="mobile-order-dropdown-item" style="background: linear-gradient(135deg, rgba(220, 38, 38, 0.1), rgba(185, 28, 28, 0.05));">
+              <a class="mobile-order-dropdown-link" href="#" style="font-weight: 700;">
+                <span class="mobile-order-dropdown-icon" style="background: #dc2626;"><i class="fas fa-shopping-bag" style="font-size: 0.7rem;"></i></span>
+                <span class="mobile-order-dropdown-text">Order Online Pickup In Store</span>
+              </a>
+            </div>
             <div class="mobile-order-dropdown-item">
               <a class="mobile-order-dropdown-link" href="https://www.grubhub.com/restaurant/mex-taco-house-25410-northwest-fwy-cypress/5807624" target="_blank" rel="noopener noreferrer">
                 <span class="mobile-order-dropdown-icon grubhub">GH</span>
@@ -2533,6 +3213,7 @@
               <ul class="social__icons">
                 <li><a href="https://www.instagram.com/mextacohouse/reels/?hl=en" target="_blank" rel="noopener noreferrer"><i class="fab fa-instagram"></i></a></li>
                 <li><a href="https://www.facebook.com/mextacohouse" target="_blank" rel="noopener noreferrer"><i class="fab fa-facebook"></i></a></li>
+                <li><a href="https://www.yelp.com/biz/mex-taco-house-cypress-2" target="_blank" rel="noopener noreferrer"><i class="fab fa-yelp"></i></a></li>
               </ul><!-- /.social__icons -->
             </div><!-- /.navbar-actions -->
           </div><!-- /.navbar-actions-wrap -->
@@ -2582,35 +3263,57 @@
             <div class="heading text-center mb-50">
               <span class="heading__subtitle">Order Online</span>
               <h2 class="heading__title">Get Your Favorite Mexican Food Delivered</h2>
-              <p class="heading__desc">Choose your preferred delivery platform and enjoy authentic Mexican cuisine from the comfort of your home.</p>
+              <p class="heading__desc">Choose your preferred ordering platform and enjoy authentic Mexican cuisine from the comfort of your home.</p>
             </div>
           </div>
         </div>
-        <div class="row">
-          <div class="col-sm-12 col-md-6 col-lg-6">
-            <div class="order-card" style="background: white; border-radius: 8px; padding: 40px 30px; text-align: center; box-shadow: 0 5px 15px rgba(0,0,0,0.08); transition: all 0.3s ease; border: 1px solid #e9ecef; margin-bottom: 30px;">
+        <!-- Primary Option: Order Online Pickup In Store -->
+        <div class="row justify-content-center mb-4">
+          <div class="col-sm-12 col-md-10 col-lg-8">
+            <div class="order-card menufy-primary" style="background: linear-gradient(135deg, #dc2626 0%, #b91c1c 100%); border-radius: 12px; padding: 50px 40px; text-align: center; box-shadow: 0 10px 30px rgba(220, 38, 38, 0.3); transition: all 0.3s ease; border: none; margin-bottom: 30px; position: relative; overflow: hidden;">
+              <div style="position: absolute; top: 15px; right: 15px; background: #ffffff; color: #dc2626; padding: 5px 12px; border-radius: 20px; font-size: 0.75rem; font-weight: 700; text-transform: uppercase;">Recommended</div>
               <div class="order-card__icon" style="margin-bottom: 25px;">
-                <div style="width: 80px; height: 50px; background: white; border-radius: 8px; display: flex; align-items: center; justify-content: center; margin: 0 auto; border: 2px solid #f63d05;">
-                  <span style="color: #f63d05; font-size: 1.2rem; font-weight: 700; font-family: Arial, sans-serif;">grubhub</span>
+                <div style="width: 60px; height: 60px; background: rgba(255,255,255,0.15); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto;">
+                  <i class="fas fa-shopping-bag" style="color: #ffffff !important; font-size: 1.8rem;"></i>
                 </div>
               </div>
-              <h3 class="order-card__title" style="color: #333; font-size: 1.4rem; font-weight: 600; margin-bottom: 15px;">Grubhub</h3>
-              <p class="order-card__desc" style="color: #666; font-size: 0.95rem; margin-bottom: 25px; line-height: 1.5;">Order through Grubhub for fast delivery and great service.</p>
-              <a href="https://www.grubhub.com/restaurant/mex-taco-house-25410-northwest-fwy-cypress/5807624" target="_blank" rel="noopener noreferrer" class="order-btn" style="display: inline-block; background: #f63d05; color: white; padding: 15px 35px; border-radius: 6px; text-decoration: none; font-weight: 600; font-size: 0.9rem; transition: all 0.3s ease;">
+              <h3 class="order-card__title" style="color: #ffffff !important; font-size: 1.6rem; font-weight: 700; margin-bottom: 15px;">Order Online Pickup In Store</h3>
+              <p class="order-card__desc" style="color: #ffffff !important; font-size: 1rem; margin-bottom: 25px; line-height: 1.6;">Skip the wait! Order ahead and pick up your fresh, hot food when you arrive.</p>
+              <a href="#" id="menufy-order-btn" class="order-btn" style="display: inline-block; background: #ffffff; color: #dc2626; padding: 18px 50px; border-radius: 8px; text-decoration: none; font-weight: 700; font-size: 1.1rem; transition: all 0.3s ease; box-shadow: 0 4px 15px rgba(0,0,0,0.2);">
+                Order Now
+              </a>
+            </div>
+          </div>
+        </div>
+        <!-- Secondary Options: Grubhub & Uber Eats -->
+        <div class="row justify-content-center">
+          <div class="col-sm-12 col-md-12 col-lg-12">
+            <p class="text-center" style="color: #666; font-size: 1rem; margin-bottom: 25px;">Or order through our delivery partners:</p>
+          </div>
+          <div class="col-sm-12 col-md-5 col-lg-4">
+            <div class="order-card" style="background: white; border-radius: 8px; padding: 30px 25px; text-align: center; box-shadow: 0 5px 15px rgba(0,0,0,0.08); transition: all 0.3s ease; border: 1px solid #e9ecef; margin-bottom: 30px;">
+              <div class="order-card__icon" style="margin-bottom: 20px;">
+                <div style="width: 100px; height: 45px; background: white; border-radius: 8px; display: flex; align-items: center; justify-content: center; margin: 0 auto; border: 2px solid #f63d05; padding: 0 15px;">
+                  <span style="color: #f63d05; font-size: 1rem; font-weight: 700; font-family: Arial, sans-serif;">grubhub</span>
+                </div>
+              </div>
+              <h3 class="order-card__title" style="color: #333; font-size: 1.2rem; font-weight: 600; margin-bottom: 12px;">Grubhub</h3>
+              <p class="order-card__desc" style="color: #666; font-size: 0.9rem; margin-bottom: 20px; line-height: 1.5;">Fast delivery through Grubhub.</p>
+              <a href="https://www.grubhub.com/restaurant/mex-taco-house-25410-northwest-fwy-cypress/5807624" target="_blank" rel="noopener noreferrer" class="order-btn" style="display: inline-block; background: #f63d05; color: white; padding: 12px 30px; border-radius: 6px; text-decoration: none; font-weight: 600; font-size: 0.9rem; transition: all 0.3s ease;">
                 Order on Grubhub
               </a>
             </div>
           </div>
-          <div class="col-sm-12 col-md-6 col-lg-6">
-            <div class="order-card" style="background: white; border-radius: 8px; padding: 40px 30px; text-align: center; box-shadow: 0 5px 15px rgba(0,0,0,0.08); transition: all 0.3s ease; border: 1px solid #e9ecef; margin-bottom: 30px;">
-              <div class="order-card__icon" style="margin-bottom: 25px;">
-                <div style="width: 80px; height: 50px; background: white; border-radius: 8px; display: flex; align-items: center; justify-content: center; margin: 0 auto; border: 2px solid #06c167;">
-                  <span style="color: #06c167; font-size: 1rem; font-weight: 700; font-family: Arial, sans-serif;">Uber Eats</span>
+          <div class="col-sm-12 col-md-5 col-lg-4">
+            <div class="order-card" style="background: white; border-radius: 8px; padding: 30px 25px; text-align: center; box-shadow: 0 5px 15px rgba(0,0,0,0.08); transition: all 0.3s ease; border: 1px solid #e9ecef; margin-bottom: 30px;">
+              <div class="order-card__icon" style="margin-bottom: 20px;">
+                <div style="width: 70px; height: 45px; background: white; border-radius: 8px; display: flex; align-items: center; justify-content: center; margin: 0 auto; border: 2px solid #06c167;">
+                  <span style="color: #06c167; font-size: 0.9rem; font-weight: 700; font-family: Arial, sans-serif;">Uber Eats</span>
                 </div>
               </div>
-              <h3 class="order-card__title" style="color: #333; font-size: 1.4rem; font-weight: 600; margin-bottom: 15px;">Uber Eats</h3>
-              <p class="order-card__desc" style="color: #666; font-size: 0.95rem; margin-bottom: 25px; line-height: 1.5;">Order through Uber Eats for reliable delivery and tracking.</p>
-              <a href="https://www.ubereats.com/store/mex-taco-house/zlftufBFXgm9JhQGyOfpvw?srsltid=AfmBOoqivy_I4JNqrygE9zN80BMQ_FV4BwOt5K2ErLL7PPXNNJVsIAgy" target="_blank" rel="noopener noreferrer" class="order-btn" style="display: inline-block; background: #06c167; color: white; padding: 12px 25px; border-radius: 6px; text-decoration: none; font-weight: 600; font-size: 0.9rem; transition: all 0.3s ease;">
+              <h3 class="order-card__title" style="color: #333; font-size: 1.2rem; font-weight: 600; margin-bottom: 12px;">Uber Eats</h3>
+              <p class="order-card__desc" style="color: #666; font-size: 0.9rem; margin-bottom: 20px; line-height: 1.5;">Reliable delivery with tracking.</p>
+              <a href="https://www.ubereats.com/store/mex-taco-house/zlftufBFXgm9JhQGyOfpvw?srsltid=AfmBOoqivy_I4JNqrygE9zN80BMQ_FV4BwOt5K2ErLL7PPXNNJVsIAgy" target="_blank" rel="noopener noreferrer" class="order-btn" style="display: inline-block; background: #06c167; color: white; padding: 12px 30px; border-radius: 6px; text-decoration: none; font-weight: 600; font-size: 0.9rem; transition: all 0.3s ease;">
                 Order on Uber Eats
               </a>
             </div>
@@ -2938,95 +3641,35 @@
                 </a>
               </div>
 
-              <!-- News Item 3: New Menu Items -->
+              <!-- News Item 3: Holiday Closures -->
               <div class="news-item">
                 <div class="news-badge" style="background: linear-gradient(135deg, #dc2626, #b91c1c); color: white !important; padding: 12px 24px; border-radius: 6px; display: inline-block; margin-bottom: 20px; font-size: 0.85rem; font-weight: 700; box-shadow: 0 8px 25px rgba(220, 38, 38, 0.4); letter-spacing: 2px; text-transform: uppercase; position: relative; border: 2px solid rgba(255, 255, 255, 0.2); backdrop-filter: blur(10px);">
-                  <span style="position: relative; z-index: 2;">MENU UPDATE</span>
+                  <span style="position: relative; z-index: 2;">HOLIDAY NOTICE</span>
                   <div style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: linear-gradient(45deg, transparent 30%, rgba(255, 255, 255, 0.1) 50%, transparent 70%); border-radius: 4px;"></div>
                 </div>
                 <h2 style="font-family: 'Shadows Into Light', cursive; font-size: 2.5rem; font-weight: 700; margin-bottom: 20px; color: #dc2626; text-shadow: 1px 1px 2px rgba(0,0,0,0.1);">
-                  New Breakfast Items!
+                  Holiday Closures
                 </h2>
                 <p style="font-size: 1.2rem; margin-bottom: 30px; color: #495057; line-height: 1.6;">
-                  Start your day right with our new breakfast offerings! We've added authentic Mexican breakfast tacos, 
-                  chilaquiles, and our famous huevos rancheros. Available every morning from 7 AM to 11 AM.
+                  We will be closed December 25th & January 1st to celebrate the holidays with our families.
+                  We will re-open December 26th and January 2nd. <strong style="color: #dc2626;">Feliz Navidad!</strong>
                 </p>
                 <div class="news-features" style="display: flex; gap: 30px; margin-bottom: 30px; flex-wrap: wrap;">
                   <div style="display: flex; align-items: center; gap: 10px;">
-                    <i class="fas fa-sun" style="color: #dc2626; font-size: 1.2rem;"></i>
-                    <span style="color: #495057; font-weight: 500;">Morning Hours</span>
+                    <i class="fas fa-tree" style="color: #059669; font-size: 1.2rem;"></i>
+                    <span style="color: #495057; font-weight: 500;">Closed Dec 25th</span>
                   </div>
                   <div style="display: flex; align-items: center; gap: 10px;">
-                    <i class="fas fa-utensils" style="color: #dc2626; font-size: 1.2rem;"></i>
-                    <span style="color: #495057; font-weight: 500;">Authentic Flavors</span>
+                    <i class="fas fa-glass-cheers" style="color: #d97706; font-size: 1.2rem;"></i>
+                    <span style="color: #495057; font-weight: 500;">Closed Jan 1st</span>
+                  </div>
+                  <div style="display: flex; align-items: center; gap: 10px;">
+                    <i class="fas fa-heart" style="color: #dc2626; font-size: 1.2rem;"></i>
+                    <span style="color: #495057; font-weight: 500;">Family Time</span>
                   </div>
                 </div>
-                <a href="menu.html" style="background: linear-gradient(135deg, #dc2626, #b91c1c); color: white !important; padding: 15px 30px; border-radius: 50px; text-decoration: none; font-weight: 600; display: inline-block; transition: all 0.3s ease; box-shadow: 0 5px 15px rgba(220, 38, 38, 0.3);">
-                  View Menu <i class="fas fa-arrow-right" style="margin-left: 8px; color: white !important;"></i>
-                </a>
-              </div>
-
-              <!-- News Item 4: Cinco de Mayo Celebration -->
-              <div class="news-item">
-                <div class="news-badge" style="background: linear-gradient(135deg, #059669, #047857); color: white !important; padding: 12px 24px; border-radius: 6px; display: inline-block; margin-bottom: 20px; font-size: 0.85rem; font-weight: 700; box-shadow: 0 8px 25px rgba(5, 150, 105, 0.4); letter-spacing: 2px; text-transform: uppercase; position: relative; border: 2px solid rgba(255, 255, 255, 0.2); backdrop-filter: blur(10px);">
-                  <span style="position: relative; z-index: 2;">FESTIVAL</span>
-                  <div style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: linear-gradient(45deg, transparent 30%, rgba(255, 255, 255, 0.1) 50%, transparent 70%); border-radius: 4px;"></div>
-                </div>
-                <h2 style="font-family: 'Shadows Into Light', cursive; font-size: 2.5rem; font-weight: 700; margin-bottom: 20px; color: #059669; text-shadow: 1px 1px 2px rgba(0,0,0,0.1);">
-                  Cinco de Mayo Celebration!
-                </h2>
-                <p style="font-size: 1.2rem; margin-bottom: 30px; color: #495057; line-height: 1.6;">
-                  Join us for our biggest celebration of the year! Special Cinco de Mayo menu, live mariachi music, 
-                  traditional decorations, and authentic Mexican festivities all day long on May 5th!
-                </p>
-                <div class="news-features" style="display: flex; gap: 30px; margin-bottom: 30px; flex-wrap: wrap;">
-                  <div style="display: flex; align-items: center; gap: 10px;">
-                    <i class="fas fa-music" style="color: #059669; font-size: 1.2rem;"></i>
-                    <span style="color: #495057; font-weight: 500;">Live Mariachi Music</span>
-                  </div>
-                  <div style="display: flex; align-items: center; gap: 10px;">
-                    <i class="fas fa-flag" style="color: #059669; font-size: 1.2rem;"></i>
-                    <span style="color: #495057; font-weight: 500;">Traditional Decorations</span>
-                  </div>
-                  <div style="display: flex; align-items: center; gap: 10px;">
-                    <i class="fas fa-calendar-alt" style="color: #059669; font-size: 1.2rem;"></i>
-                    <span style="color: #495057; font-weight: 500;">May 5th All Day</span>
-                  </div>
-                </div>
-                <a href="news.html" style="background: linear-gradient(135deg, #059669, #047857); color: white !important; padding: 15px 30px; border-radius: 50px; text-decoration: none; font-weight: 600; display: inline-block; transition: all 0.3s ease; box-shadow: 0 5px 15px rgba(5, 150, 105, 0.3);">
-                  Learn More <i class="fas fa-arrow-right" style="margin-left: 8px; color: white !important;"></i>
-                </a>
-              </div>
-
-              <!-- News Item 5: Best Mexican Restaurant 2024 -->
-              <div class="news-item">
-                <div class="news-badge" style="background: linear-gradient(135deg, #d97706, #b45309); color: white !important; padding: 12px 24px; border-radius: 6px; display: inline-block; margin-bottom: 20px; font-size: 0.85rem; font-weight: 700; box-shadow: 0 8px 25px rgba(217, 119, 6, 0.4); letter-spacing: 2px; text-transform: uppercase; position: relative; border: 2px solid rgba(255, 255, 255, 0.2); backdrop-filter: blur(10px);">
-                  <span style="position: relative; z-index: 2;">AWARD WINNER</span>
-                  <div style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: linear-gradient(45deg, transparent 30%, rgba(255, 255, 255, 0.1) 50%, transparent 70%); border-radius: 4px;"></div>
-                </div>
-                <h2 style="font-family: 'Shadows Into Light', cursive; font-size: 2.5rem; font-weight: 700; margin-bottom: 20px; color: #d97706; text-shadow: 1px 1px 2px rgba(0,0,0,0.1);">
-                  Best Mexican Restaurant 2024!
-                </h2>
-                <p style="font-size: 1.2rem; margin-bottom: 30px; color: #495057; line-height: 1.6;">
-                  We're honored to announce that Mex Taco House has been voted "Best Mexican Restaurant 2024" by our amazing community! 
-                  Thank you for your continued support and love for authentic Mexican cuisine.
-                </p>
-                <div class="news-features" style="display: flex; gap: 30px; margin-bottom: 30px; flex-wrap: wrap;">
-                  <div style="display: flex; align-items: center; gap: 10px;">
-                    <i class="fas fa-trophy" style="color: #d97706; font-size: 1.2rem;"></i>
-                    <span style="color: #495057; font-weight: 500;">Community Voted</span>
-                  </div>
-                  <div style="display: flex; align-items: center; gap: 10px;">
-                    <i class="fas fa-star" style="color: #d97706; font-size: 1.2rem;"></i>
-                    <span style="color: #495057; font-weight: 500;">2024 Winner</span>
-                  </div>
-                  <div style="display: flex; align-items: center; gap: 10px;">
-                    <i class="fas fa-heart" style="color: #d97706; font-size: 1.2rem;"></i>
-                    <span style="color: #495057; font-weight: 500;">Thank You!</span>
-                  </div>
-                </div>
-                <a href="news.html" style="background: linear-gradient(135deg, #d97706, #b45309); color: white !important; padding: 15px 30px; border-radius: 50px; text-decoration: none; font-weight: 600; display: inline-block; transition: all 0.3s ease; box-shadow: 0 5px 15px rgba(217, 119, 6, 0.3);">
-                  Read More <i class="fas fa-arrow-right" style="margin-left: 8px; color: white !important;"></i>
+                <a href="news.html" style="background: linear-gradient(135deg, #dc2626, #b91c1c); color: white !important; padding: 15px 30px; border-radius: 50px; text-decoration: none; font-weight: 600; display: inline-block; transition: all 0.3s ease; box-shadow: 0 5px 15px rgba(220, 38, 38, 0.3);">
+                  More Info <i class="fas fa-arrow-right" style="margin-left: 8px; color: white !important;"></i>
                 </a>
               </div>
 
@@ -4382,6 +5025,95 @@
     <p>Mex Taco House is the premier Mexican restaurant in Cypress, Texas, serving authentic Mexican cuisine including tacos, burritos, chilaquiles, enchiladas, quesadillas, and traditional Mexican dishes. Our family-owned restaurant offers fresh ingredients, traditional recipes, and exceptional service to the Cypress community. Located in Cypress TX, we are the best choice for Mexican food lovers seeking authentic flavors and quality dining experience.</p>
     <p>Keywords: Mexican restaurant Cypress TX, best tacos Cypress, authentic Mexican food Cypress, burritos Cypress, chilaquiles Cypress, Mexican restaurant near me, family restaurant Cypress, fresh Mexican food, traditional Mexican cuisine Cypress, Mexican food delivery Cypress, Mexican catering Cypress TX</p>
   </div>
+
+  <!-- Now Hiring Popup -->
+  <div id="hiringPopupOverlay" style="display: none; position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: rgba(0,0,0,0.7); z-index: 100000; justify-content: center; align-items: center; padding: 20px;">
+    <div id="hiringPopup" style="position: relative; max-width: 550px; width: 100%; max-height: 90vh;">
+      <!-- Close Button -->
+      <button onclick="closeHiringPopup()" style="position: absolute; top: -15px; right: -15px; background: white; border: 3px solid #dc2626; color: #dc2626; width: 40px; height: 40px; border-radius: 50%; cursor: pointer; font-size: 1.5rem; font-weight: bold; display: flex; align-items: center; justify-content: center; transition: all 0.3s ease; z-index: 10; box-shadow: 0 4px 15px rgba(0,0,0,0.3);" onmouseover="this.style.background='#f5f5f5'" onmouseout="this.style.background='white'">&times;</button>
+
+      <!-- Popup Image - Click to go to Contact page -->
+      <a href="contact.html" style="display: block; cursor: pointer;">
+        <img src="assets/now-hiring-popup.png" alt="Now Hiring - Mex Taco House - Apply Inside" style="width: 100%; height: auto; border-radius: 15px; box-shadow: 0 25px 50px rgba(0,0,0,0.4); transition: transform 0.2s ease;" onmouseover="this.style.transform='scale(1.02)'" onmouseout="this.style.transform='scale(1)'">
+      </a>
+    </div>
+  </div>
+
+  <!-- We're Hiring Badge (Fixed Position) -->
+  <div id="hiringBadge" onclick="openHiringPopup()" style="position: fixed; bottom: 100px; right: 20px; background: linear-gradient(135deg, #8B0000, #dc2626); padding: 12px 18px; border-radius: 30px; cursor: pointer; z-index: 9998; box-shadow: 0 5px 20px rgba(139, 0, 0, 0.4); display: flex; align-items: center; gap: 8px; font-weight: 700; font-size: 0.9rem; transition: all 0.3s ease; animation: hiringPulse 2s infinite;">
+    <i class="fas fa-briefcase" style="color: #ffffff !important;"></i>
+    <span style="color: #ffffff !important;">We're Hiring!</span>
+  </div>
+
+  <style>
+    @keyframes hiringPulse {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.05); }
+    }
+    #hiringBadge:hover {
+      transform: scale(1.1) !important;
+      box-shadow: 0 8px 25px rgba(139, 0, 0, 0.5);
+    }
+    @media (max-width: 768px) {
+      #hiringPopup {
+        margin: 10px;
+        max-width: calc(100% - 20px);
+      }
+      #hiringPopup h2 {
+        font-size: 1.8rem !important;
+      }
+      #hiringPopup h3 {
+        font-size: 1.1rem !important;
+      }
+      #hiringPopup .positions-grid {
+        grid-template-columns: 1fr !important;
+      }
+      #hiringBadge {
+        bottom: 80px;
+        right: 15px;
+        padding: 10px 15px;
+        font-size: 0.85rem;
+      }
+    }
+  </style>
+
+  <script>
+    // Now Hiring Popup Functions
+    function openHiringPopup() {
+      document.getElementById('hiringPopupOverlay').style.display = 'flex';
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeHiringPopup() {
+      document.getElementById('hiringPopupOverlay').style.display = 'none';
+      document.body.style.overflow = '';
+      // Mark as seen in sessionStorage (resets when browser closes)
+      sessionStorage.setItem('hiringPopupSeen', 'true');
+    }
+
+    // Close on overlay click
+    document.getElementById('hiringPopupOverlay').addEventListener('click', function(e) {
+      if (e.target === this) {
+        closeHiringPopup();
+      }
+    });
+
+    // Close on Escape key
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape' && document.getElementById('hiringPopupOverlay').style.display === 'flex') {
+        closeHiringPopup();
+      }
+    });
+
+    // Show popup once per session (resets when browser closes)
+    document.addEventListener('DOMContentLoaded', function() {
+      if (!sessionStorage.getItem('hiringPopupSeen')) {
+        setTimeout(function() {
+          openHiringPopup();
+        }, 2000); // Show after 2 seconds
+      }
+    });
+  </script>
 
   </div><!-- /.wrapper -->
 </body>

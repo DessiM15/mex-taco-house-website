@@ -9,9 +9,34 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="theme-color" content="#dc2626">
   <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-  <meta name="description" content="Mex Taco House - Authentic Mexican Cuisine">
+  <meta name="description" content="View the full menu at Mex Taco House in Cypress, TX. Authentic Mexican tacos, burritos, chilaquiles, breakfast platters, and more. Fresh ingredients, traditional recipes.">
+  <meta name="keywords" content="Mexican restaurant menu Cypress TX, tacos menu, breakfast tacos Cypress, burritos, chilaquiles, Mexican food prices, authentic Mexican cuisine menu">
+  <meta name="robots" content="index, follow">
+  <meta name="author" content="Mex Taco House">
+  <link rel="canonical" href="https://mextacohouse.com/menu.html">
+
+  <!-- Open Graph Meta Tags -->
+  <meta property="og:type" content="restaurant.menu">
+  <meta property="og:title" content="Menu | Mex Taco House - Best Mexican Restaurant in Cypress TX">
+  <meta property="og:description" content="Explore our authentic Mexican menu featuring specialty tacos, breakfast platters, burritos, chilaquiles and more. Fresh ingredients daily.">
+  <meta property="og:url" content="https://mextacohouse.com/menu.html">
+  <meta property="og:site_name" content="Mex Taco House">
+  <meta property="og:image" content="https://mextacohouse.com/assets/mex-taco-plate-with-sides.webp">
+  <meta property="og:locale" content="en_US">
+
+  <!-- Twitter Card Meta Tags -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Menu | Mex Taco House - Best Mexican Restaurant in Cypress TX">
+  <meta name="twitter:description" content="Explore our authentic Mexican menu featuring specialty tacos, breakfast, burritos, chilaquiles and more.">
+  <meta name="twitter:image" content="https://mextacohouse.com/assets/mex-taco-plate-with-sides.webp">
+
+  <!-- Local Business Tags -->
+  <meta name="geo.region" content="US-TX">
+  <meta name="geo.placename" content="Cypress">
+
   <link href="assets/images/favicon/favicon.png" rel="icon">
-  <title>Menu - Mex Taco House</title>
+  <link rel="apple-touch-icon" href="assets/images/favicon/favicon.png">
+  <title>Menu | Mex Taco House - Best Mexican Restaurant in Cypress TX</title>
   <link rel="stylesheet"
     href="https://fonts.googleapis.com/css?family=Rubik:400,500,700%7cShadows+Into+Light&display=swap">
   <link rel="stylesheet" href="assets/css/libraries.css" />
@@ -22,40 +47,77 @@
   
   <!-- Comprehensive Mobile Optimization -->
   <style>
-    /* Hide desktop navbar on mobile */
+    /* Mobile navbar visibility */
     @media (max-width: 991px) {
+      /* Show mobile navbar on mobile */
       .mobile-navbar-container {
+        display: flex !important;
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 70px;
+        background: #ffffff;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        z-index: 9999;
+        align-items: center;
+        padding: 0 15px;
+      }
+
+      /* Hide desktop navbar on mobile */
+      .header,
+      .header .navbar {
         display: none !important;
       }
-      
-      body.mobile-nav-ready .header,
-      body.mobile-nav-ready .navbar {
-        display: none !important;
-      }
-      
+
       /* Add top padding to body for mobile navbar */
-      body.mobile-nav-ready {
+      body {
         padding-top: 70px;
       }
-      
-      /* Ensure mobile navbar is visible */
-      body.mobile-nav-ready .mobile-navbar-container {
-        display: flex !important;
+
+      /* Mobile navbar toggle styling */
+      .mobile-navbar-toggle {
+        position: absolute;
+        right: 15px;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 44px;
+        height: 44px;
+        background: transparent;
+        border: none;
+        cursor: pointer;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 5px;
+        padding: 8px;
+      }
+
+      .mobile-navbar-toggle span {
+        display: block;
+        width: 24px;
+        height: 3px;
+        background-color: #333333;
+        border-radius: 2px;
+        transition: all 0.3s ease;
       }
     }
-    
+
     /* Show desktop navbar on larger screens */
     @media (min-width: 992px) {
       .header,
       .navbar {
         display: block !important;
       }
-      
+
       body {
         padding-top: 0;
       }
-      
-      .mobile-navbar-container {
+
+      .mobile-navbar-container,
+      .mobile-menu-overlay,
+      .mobile-menu-panel {
         display: none !important;
       }
     }
@@ -75,14 +137,19 @@
     
     /* Large Tablets (iPad Pro, etc.) */
     @media only screen and (min-width: 1024px) and (max-width: 1200px) {
+      .navbar-brand img {
+        max-height: 60px;
+      }
       .footer-primary {
         padding: 40px 0;
       }
     }
-    
+
     /* Tablets (iPad, Android Tablets) */
     @media only screen and (min-width: 768px) and (max-width: 1023px) {
-      
+      .navbar-brand img {
+        max-height: 50px;
+      }
       /* Menu Navigation */
       .menu-tabs {
         flex-wrap: wrap;
@@ -124,36 +191,43 @@
     
     /* Mobile Phones (iPhone, Android) */
     @media only screen and (max-width: 767px) {
+      .navbar-brand {
+        margin-left: 0;
+        margin-top: 5px;
+        padding-left: 15px;
+      }
+      .navbar-brand img {
+        max-height: 45px;
       }
       .navbar__action-btn-reserve {
         padding: 8px 12px;
         font-size: 0.9rem;
       }
-      
-      /* Menu Navigation */
+
+      /* Menu Navigation - Horizontal with wrap on mobile */
       .menu-tabs {
-        flex-direction: column;
-        align-items: center;
-        gap: 10px;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 8px;
       }
       .nav__link {
-        padding: 12px 20px;
-        font-size: 0.9rem;
-        width: 100%;
-        max-width: 200px;
+        padding: 10px 15px;
+        font-size: 0.85rem;
+        width: auto;
         text-align: center;
-        margin: 0;
+        margin: 2px;
+        white-space: nowrap;
       }
       .menu-tabs .nav__order {
-        margin-left: 0;
-        width: 100%;
+        margin-left: 5px;
+        width: auto;
         justify-content: center;
       }
       .order-now-btn {
-        padding: 12px 20px;
-        font-size: 0.9rem;
-        width: 100%;
-        max-width: 200px;
+        padding: 10px 18px;
+        font-size: 0.85rem;
+        width: auto;
       }
       
       /* Menu Items */
@@ -413,37 +487,44 @@
       align-items: center !important;
       justify-content: center !important;
       flex-wrap: wrap !important;
+      row-gap: 12px !important;
     }
-    
+
     .menu-tabs .nav__link {
       vertical-align: middle !important;
       display: inline-flex !important;
       align-items: center !important;
+      justify-content: center !important;
+      text-align: center !important;
     }
-    
-    .menu-tabs .dropdown {
+
+    .menu-tabs .dropdown,
+    .menu-tabs .nav__order {
       display: inline-flex !important;
       vertical-align: middle !important;
       align-items: center !important;
+      position: relative !important;
     }
-    
+
     .menu-tabs .dropdown .order-now-btn {
       vertical-align: middle !important;
       line-height: 1.5 !important;
       display: inline-flex !important;
       align-items: center !important;
     }
-    
+
     .order-now-btn i {
       font-size: 14px !important;
     }
-    
+
     /* Menu Order Now Dropdown Styling */
-    ul[aria-labelledby="menuOrderDropdown"] {
+    ul[aria-labelledby="menuOrderDropdown"],
+    .menu-tabs .order-now-dropdown {
       display: none !important;
       position: absolute !important;
       top: 100% !important;
-      left: 0 !important;
+      left: 50% !important;
+      transform: translateX(-50%) !important;
       background: white !important;
       border: 1px solid #ddd !important;
       border-radius: 8px !important;
@@ -453,9 +534,36 @@
       padding: 10px 0 !important;
       margin-top: 5px !important;
     }
-    
-    ul[aria-labelledby="menuOrderDropdown"].show {
+
+    ul[aria-labelledby="menuOrderDropdown"].show,
+    .menu-tabs .order-now-dropdown.show {
       display: block !important;
+    }
+
+    /* Dropdown items styling */
+    ul[aria-labelledby="menuOrderDropdown"] li,
+    .menu-tabs .order-now-dropdown li {
+      list-style: none !important;
+      margin: 0 !important;
+      padding: 0 !important;
+    }
+
+    ul[aria-labelledby="menuOrderDropdown"] a,
+    .menu-tabs .order-now-dropdown a {
+      display: flex !important;
+      align-items: center !important;
+      gap: 10px !important;
+      padding: 12px 18px !important;
+      color: #333 !important;
+      text-decoration: none !important;
+      font-weight: 600 !important;
+      transition: all 0.3s ease !important;
+    }
+
+    ul[aria-labelledby="menuOrderDropdown"] a:hover,
+    .menu-tabs .order-now-dropdown a:hover {
+      background: #f8f9fa !important;
+      color: #dc2626 !important;
     }
     
     /* Footer link hover effects */
@@ -651,17 +759,36 @@
       border-color: #dc2626 !important;
     }
     
-    /* Red underlines for all states */
+    /* Navigation text black on menu page (no hero section) */
+    .navbar .nav__item-link {
+      color: black !important;
+      position: relative !important;
+    }
+    .navbar .nav__item-link:hover {
+      color: black !important;
+    }
+    .navbar .nav__item-link.active {
+      color: black !important;
+    }
+
+    /* Animated underline effect - like footer */
     .navbar .nav__item-link::after {
-      background-color: #dc2626 !important;
+      content: '' !important;
+      position: absolute !important;
+      bottom: 0 !important;
+      left: 0 !important;
+      width: 0 !important;
+      height: 2px !important;
+      background: linear-gradient(90deg, #dc2626, #ff4444) !important;
+      transition: width 0.3s ease !important;
     }
     .navbar .nav__item-link:hover::after {
-      background-color: #dc2626 !important;
+      width: 100% !important;
     }
     .navbar .nav__item-link.active::after {
-      background-color: #dc2626 !important;
+      width: 100% !important;
     }
-    
+
     /* Red underlines for :before pseudo-elements */
     .navbar .nav__item .nav__item-link:before {
       background-color: #dc2626 !important;
@@ -671,36 +798,6 @@
     }
     .navbar .nav__item .nav__item-link.active:before {
       background-color: #dc2626 !important;
-    }
-    
-    /* Red underlines for dropdown menu items */
-    .navbar .dropdown-menu .nav__item .nav__item-link:before {
-      background-color: #dc2626 !important;
-    }
-    .navbar .dropdown-menu .nav__item .nav__item-link:hover:before {
-      background-color: #dc2626 !important;
-    }
-    
-    /* Red underlines for fixed navbar states */
-    .navbar.fixed-navbar .nav__item .nav__item-link:before {
-      background-color: #dc2626 !important;
-    }
-    .navbar.navbar-scrolled .nav__item .nav__item-link:before {
-      background-color: #dc2626 !important;
-    }
-    .navbar.navbar-fixed .nav__item .nav__item-link:before {
-      background-color: #dc2626 !important;
-    }
-
-    /* Navigation text black on menu page (no hero section) */
-    .navbar .nav__item-link {
-      color: black !important;
-    }
-    .navbar .nav__item-link:hover {
-      color: black !important;
-    }
-    .navbar .nav__item-link.active {
-      color: black !important;
     }
     .navbar .navbar-brand {
       color: black !important;
@@ -1441,6 +1538,42 @@
       justify-content: center !important;
     }
 
+    @media (min-width: 768px) {
+      .menu-tabs {
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        flex-wrap: wrap !important;
+        column-gap: 12px !important;
+        row-gap: 12px !important;
+      }
+
+      .menu-tabs .nav__link,
+      .menu-tabs .nav__order,
+      .menu-tabs .dropdown {
+        flex: 1 1 calc(33.333% - 12px) !important;
+        max-width: calc(33.333% - 12px) !important;
+        min-width: 220px !important;
+        display: inline-flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        text-align: center !important;
+      }
+
+      .menu-tabs .nav__order {
+        order: 7 !important;
+      }
+
+      .menu-tabs .dropdown {
+        justify-content: center !important;
+        width: 100% !important;
+      }
+
+      .menu-tabs .dropdown .order-now-btn {
+        width: 100% !important;
+      }
+    }
+
     .menu-tabs .order-now-btn {
       background: #dc2626 !important;
       color: #ffffff !important;
@@ -1452,8 +1585,23 @@
       align-items: center !important;
       justify-content: center !important;
       gap: 6px !important;
-      box-shadow: 0 6px 20px rgba(220, 38, 38, 0.25) !important;
+      box-shadow: 0 4px 15px rgba(220, 38, 38, 0.4), 0 0 20px rgba(220, 38, 38, 0.2) !important;
       cursor: pointer !important;
+      animation: orderGlow 2s ease-in-out infinite !important;
+    }
+
+    @keyframes orderGlow {
+      0%, 100% { box-shadow: 0 4px 15px rgba(220, 38, 38, 0.4), 0 0 20px rgba(220, 38, 38, 0.2); }
+      50% { box-shadow: 0 4px 20px rgba(220, 38, 38, 0.6), 0 0 30px rgba(220, 38, 38, 0.3); }
+    }
+
+    .menu-tabs .order-now-btn span {
+      display: inline-block !important;
+      color: inherit !important;
+      font-size: 1rem !important;
+      font-weight: 700 !important;
+      line-height: 1.2 !important;
+      white-space: nowrap !important;
     }
 
     .menu-tabs .order-now-btn:hover,
@@ -1540,7 +1688,7 @@
   <!-- Mobile Navigation -->
   <div class="mobile-navbar-container" role="navigation" aria-label="Mobile Navigation">
     <a href="index.html" class="mobile-navbar-logo-link">
-      <img src="assets/max-taco-logo.png" alt="Mex Taco House" class="mobile-navbar-logo">
+      <img src="assets/max-taco-logo.png" alt="Mex Taco House - Best Mexican Restaurant in Cypress TX" class="mobile-navbar-logo">
     </a>
     <button class="mobile-navbar-toggle" type="button" aria-label="Toggle navigation" aria-expanded="false">
       <span></span>
@@ -1592,8 +1740,8 @@
       <nav class="navbar navbar-expand-lg sticky-navbar">
         <div class="container">
           <a class="navbar-brand" href="index.html">
-            <img src="assets/max-taco-logo.png" class="logo-light" alt="Mex Taco House">
-            <img src="assets/max-taco-logo.png" class="logo-dark" alt="Mex Taco House">
+            <img src="assets/max-taco-logo.png" class="logo-light" alt="Mex Taco House - Authentic Mexican Restaurant Menu in Cypress TX">
+            <img src="assets/max-taco-logo.png" class="logo-dark" alt="Mex Taco House - Authentic Mexican Restaurant Menu in Cypress TX">
           </a>
           <button class="navbar-toggler" type="button">
             <span class="menu-lines"><span></span></span>
@@ -1652,6 +1800,7 @@
               <ul class="social__icons">
                 <li><a href="https://www.instagram.com/mextacohouse/reels/?hl=en" target="_blank" rel="noopener noreferrer"><i class="fab fa-instagram"></i></a></li>
                 <li><a href="https://www.facebook.com/mextacohouse" target="_blank" rel="noopener noreferrer"><i class="fab fa-facebook"></i></a></li>
+                <li><a href="https://www.yelp.com/biz/mex-taco-house-cypress-2" target="_blank" rel="noopener noreferrer"><i class="fab fa-yelp"></i></a></li>
               </ul><!-- /.social__icons -->
             </div><!-- /.navbar-actions -->
           </div><!-- /.navbar-actions-wrap -->
@@ -1673,31 +1822,53 @@
             </div>
           </div>
         </div>
-        <div class="row">
-          <div class="col-sm-12 col-md-6 col-lg-6">
-            <div class="order-card" style="background: white; border-radius: 8px; padding: 40px 30px; text-align: center; box-shadow: 0 5px 15px rgba(0,0,0,0.08); transition: all 0.3s ease; border: 1px solid #e9ecef; margin-bottom: 30px;">
-              <div class="order-card__icon" style="margin-bottom: 25px;">
-                <div style="width: 80px; height: 50px; background: white; border-radius: 8px; display: flex; align-items: center; justify-content: center; margin: 0 auto; border: 2px solid #f63d05;">
-                  <span style="color: #f63d05; font-size: 1.2rem; font-weight: 700; font-family: Arial, sans-serif;">grubhub</span>
+        <!-- Primary Option: Order Online Pickup In Store -->
+        <div class="row justify-content-center mb-4">
+          <div class="col-sm-12 col-md-10 col-lg-8">
+            <div class="order-card" style="background: linear-gradient(135deg, #dc2626 0%, #b91c1c 100%); border-radius: 12px; padding: 40px 30px; text-align: center; box-shadow: 0 10px 30px rgba(220, 38, 38, 0.3); transition: all 0.3s ease; border: none; margin-bottom: 30px; position: relative; overflow: hidden;">
+              <div style="position: absolute; top: 15px; right: 15px; background: #ffffff; color: #dc2626; padding: 5px 12px; border-radius: 20px; font-size: 0.75rem; font-weight: 700; text-transform: uppercase;">Recommended</div>
+              <div class="order-card__icon" style="margin-bottom: 20px;">
+                <div style="width: 60px; height: 60px; background: rgba(255,255,255,0.15); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto;">
+                  <i class="fas fa-shopping-bag" style="color: #ffffff !important; font-size: 1.8rem;"></i>
                 </div>
               </div>
-              <h3 class="order-card__title" style="color: #333; font-size: 1.4rem; font-weight: 600; margin-bottom: 15px;">Grubhub</h3>
-              <p class="order-card__desc" style="color: #666; font-size: 0.95rem; margin-bottom: 25px; line-height: 1.5;">Order through Grubhub for fast delivery and great service.</p>
-              <a href="https://www.grubhub.com/restaurant/mex-taco-house-25410-northwest-fwy-cypress/5807624" target="_blank" rel="noopener noreferrer" class="order-btn" style="display: inline-block; background: #f63d05; color: white; padding: 12px 25px; border-radius: 6px; text-decoration: none; font-weight: 600; font-size: 0.9rem; transition: all 0.3s ease;">
+              <h3 class="order-card__title" style="color: #ffffff !important; font-size: 1.5rem; font-weight: 700; margin-bottom: 12px;">Order Online Pickup In Store</h3>
+              <p class="order-card__desc" style="color: #ffffff !important; font-size: 0.95rem; margin-bottom: 20px; line-height: 1.5;">Skip the wait! Order ahead and pick up your fresh, hot food when you arrive.</p>
+              <a href="#" class="order-btn" style="display: inline-block; background: #ffffff; color: #dc2626; padding: 14px 40px; border-radius: 8px; text-decoration: none; font-weight: 700; font-size: 1rem; transition: all 0.3s ease; box-shadow: 0 4px 15px rgba(0,0,0,0.2);">
+                Order Now
+              </a>
+            </div>
+          </div>
+        </div>
+        <!-- Secondary Options: Grubhub & Uber Eats -->
+        <div class="row justify-content-center">
+          <div class="col-sm-12 col-md-12 col-lg-12">
+            <p class="text-center" style="color: #666; font-size: 1rem; margin-bottom: 25px;">Or order through our delivery partners:</p>
+          </div>
+          <div class="col-sm-12 col-md-5 col-lg-4">
+            <div class="order-card" style="background: white; border-radius: 8px; padding: 30px 25px; text-align: center; box-shadow: 0 5px 15px rgba(0,0,0,0.08); transition: all 0.3s ease; border: 1px solid #e9ecef; margin-bottom: 30px;">
+              <div class="order-card__icon" style="margin-bottom: 20px;">
+                <div style="width: 100px; height: 45px; background: white; border-radius: 8px; display: flex; align-items: center; justify-content: center; margin: 0 auto; border: 2px solid #f63d05; padding: 0 15px;">
+                  <span style="color: #f63d05; font-size: 1rem; font-weight: 700; font-family: Arial, sans-serif;">grubhub</span>
+                </div>
+              </div>
+              <h3 class="order-card__title" style="color: #333; font-size: 1.2rem; font-weight: 600; margin-bottom: 12px;">Grubhub</h3>
+              <p class="order-card__desc" style="color: #666; font-size: 0.9rem; margin-bottom: 20px; line-height: 1.5;">Fast delivery through Grubhub.</p>
+              <a href="https://www.grubhub.com/restaurant/mex-taco-house-25410-northwest-fwy-cypress/5807624" target="_blank" rel="noopener noreferrer" class="order-btn" style="display: inline-block; background: #f63d05; color: white; padding: 12px 30px; border-radius: 6px; text-decoration: none; font-weight: 600; font-size: 0.9rem; transition: all 0.3s ease;">
                 Order on Grubhub
               </a>
             </div>
           </div>
-          <div class="col-sm-12 col-md-6 col-lg-6">
-            <div class="order-card" style="background: white; border-radius: 8px; padding: 40px 30px; text-align: center; box-shadow: 0 5px 15px rgba(0,0,0,0.08); transition: all 0.3s ease; border: 1px solid #e9ecef; margin-bottom: 30px;">
-              <div class="order-card__icon" style="margin-bottom: 25px;">
-                <div style="width: 80px; height: 50px; background: white; border-radius: 8px; display: flex; align-items: center; justify-content: center; margin: 0 auto; border: 2px solid #06c167;">
-                  <span style="color: #06c167; font-size: 1rem; font-weight: 700; font-family: Arial, sans-serif;">Uber Eats</span>
+          <div class="col-sm-12 col-md-5 col-lg-4">
+            <div class="order-card" style="background: white; border-radius: 8px; padding: 30px 25px; text-align: center; box-shadow: 0 5px 15px rgba(0,0,0,0.08); transition: all 0.3s ease; border: 1px solid #e9ecef; margin-bottom: 30px;">
+              <div class="order-card__icon" style="margin-bottom: 20px;">
+                <div style="width: 80px; height: 45px; background: white; border-radius: 8px; display: flex; align-items: center; justify-content: center; margin: 0 auto; border: 2px solid #06c167;">
+                  <span style="color: #06c167; font-size: 0.9rem; font-weight: 700; font-family: Arial, sans-serif;">Uber Eats</span>
                 </div>
               </div>
-              <h3 class="order-card__title" style="color: #333; font-size: 1.4rem; font-weight: 600; margin-bottom: 15px;">Uber Eats</h3>
-              <p class="order-card__desc" style="color: #666; font-size: 0.95rem; margin-bottom: 25px; line-height: 1.5;">Order through Uber Eats for reliable delivery and tracking.</p>
-              <a href="https://www.ubereats.com/store/mex-taco-house/zlftufBFXgm9JhQGyOfpvw?srsltid=AfmBOoqivy_I4JNqrygE9zN80BMQ_FV4BwOt5K2ErLL7PPXNNJVsIAgy" target="_blank" rel="noopener noreferrer" class="order-btn" style="display: inline-block; background: #06c167; color: white; padding: 12px 25px; border-radius: 6px; text-decoration: none; font-weight: 600; font-size: 0.9rem; transition: all 0.3s ease;">
+              <h3 class="order-card__title" style="color: #333; font-size: 1.2rem; font-weight: 600; margin-bottom: 12px;">Uber Eats</h3>
+              <p class="order-card__desc" style="color: #666; font-size: 0.9rem; margin-bottom: 20px; line-height: 1.5;">Reliable delivery with tracking.</p>
+              <a href="https://www.ubereats.com/store/mex-taco-house/zlftufBFXgm9JhQGyOfpvw?srsltid=AfmBOoqivy_I4JNqrygE9zN80BMQ_FV4BwOt5K2ErLL7PPXNNJVsIAgy" target="_blank" rel="noopener noreferrer" class="order-btn" style="display: inline-block; background: #06c167; color: white; padding: 12px 30px; border-radius: 6px; text-decoration: none; font-weight: 600; font-size: 0.9rem; transition: all 0.3s ease;">
                 Order on Uber Eats
               </a>
             </div>
@@ -1724,7 +1895,7 @@
         Menu layout layout 5
     =========================== -->
     <section id="menu" class="menu-layout5 pb-60 bg-overlay bg-overlay-2 bg-parallax">
-      <div class="bg-img"><img src="assets/images/backgrounds/9.jpg" alt="background"></div>
+      <div class="bg-img"><img src="assets/images/backgrounds/9.jpg" alt="Authentic Mexican cuisine background - Mex Taco House menu"></div>
       <div class="container">
         <div class="row">
           <div class="col-sm-12 col-md-12 col-lg-6 offset-lg-3">
@@ -1750,6 +1921,12 @@
                     <span>Order Now</span>
                   </button>
                   <ul class="dropdown-menu order-now-dropdown" aria-labelledby="menuOrderDropdown" role="menu">
+                    <li style="background: linear-gradient(135deg, rgba(220, 38, 38, 0.1), rgba(185, 28, 28, 0.05));">
+                      <a href="#" style="font-weight: 700;">
+                        <span class="order-now-platform" style="background: #dc2626;">MF</span>
+                        <span class="order-now-platform-label">Menufy <small style="color: #888; font-size: 0.7rem;">(Coming Soon)</small></span>
+                      </a>
+                    </li>
                     <li>
                       <a href="https://www.grubhub.com/restaurant/mex-taco-house-25410-northwest-fwy-cypress/5807624" target="_blank" rel="noopener noreferrer">
                         <span class="order-now-platform grubhub">GH</span>
@@ -2569,7 +2746,7 @@
             <!-- Brand Section - Full Width -->
             <div class="col-12" style="padding: 0 15px; margin-bottom: 50px;">
               <div style="text-align: center; padding: 40px 0; background: rgba(220, 38, 38, 0.1); border-radius: 15px; border: 1px solid rgba(220, 38, 38, 0.2);">
-                <img src="assets/max-taco-logo.png" alt="Mex Taco House Logo" style="max-height: 80px; margin-bottom: 20px; filter: drop-shadow(0 4px 8px rgba(0,0,0,0.3));">
+                <img src="assets/max-taco-logo.png" alt="Mex Taco House - Best Mexican Restaurant in Cypress Texas" style="max-height: 80px; margin-bottom: 20px; filter: drop-shadow(0 4px 8px rgba(0,0,0,0.3));">
                 <h3 style="color: #fff; font-size: 1.8rem; font-weight: 700; margin-bottom: 15px; text-shadow: 2px 2px 4px rgba(0,0,0,0.5);">Mex Taco House</h3>
                 <p style="color: #ccc; font-size: 1.1rem; line-height: 1.6; max-width: 600px; margin: 0 auto 30px; font-style: italic;">"Where authentic Mexican flavors meet modern dining experience"</p>
                 
@@ -2687,7 +2864,7 @@
       </div><!-- /.search-popup__content -->
     </div><!-- /.search-popup -->
 
-    <button id="scrollTopBtn" class="scrollTopBtn" style="position: fixed; right: 30px; bottom: 30px; width: 80px; height: 80px; background-color: #dc2626; border: none; border-radius: 8px; cursor: pointer; z-index: 1000; opacity: 0; transform: translateY(30px); display: flex; align-items: center; justify-content: center;"><img src="assets/scrolltopimage.png" alt="Scroll to top" style="width: 60px; height: 60px;"></button>
+    <button id="scrollTopBtn" class="scrollTopBtn" style="position: fixed; right: 30px; bottom: 30px; width: 80px; height: 80px; background-color: #dc2626; border: none; border-radius: 8px; cursor: pointer; z-index: 1000; opacity: 0; transform: translateY(30px); display: flex; align-items: center; justify-content: center;"><img src="assets/scrolltopimage.png" alt="Return to top of Mex Taco House menu" style="width: 60px; height: 60px;"></button>
 
     <script src="assets/js/jquery-3.3.1.min.js"></script>
     <script src="assets/js/plugins.js"></script>
