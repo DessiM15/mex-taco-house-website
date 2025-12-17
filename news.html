@@ -421,6 +421,208 @@
       background-color: #f8f9fa;
     }
     
+    /* ========== News Carousel Styles ========== */
+    .news-carousel-wrapper {
+      position: relative;
+      padding: 0 60px;
+    }
+
+    .news-carousel {
+      display: flex;
+      gap: 20px;
+      overflow-x: auto;
+      scroll-behavior: smooth;
+      scrollbar-width: none;
+      -ms-overflow-style: none;
+      padding: 20px 0;
+    }
+
+    .news-carousel::-webkit-scrollbar {
+      display: none;
+    }
+
+    .news-card {
+      flex: 0 0 calc(25% - 15px);
+      min-width: 280px;
+      height: 350px;
+      border-radius: 15px;
+      overflow: hidden;
+      position: relative;
+      cursor: pointer;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .news-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.25);
+    }
+
+    .news-card-image {
+      width: 100%;
+      height: 100%;
+      background-size: cover;
+      background-position: center;
+      position: absolute;
+      top: 0;
+      left: 0;
+    }
+
+    .news-card-overlay {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      padding: 30px 20px 20px;
+      background: linear-gradient(to top, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0.7) 50%, transparent 100%);
+    }
+
+    .news-card-badge {
+      display: inline-block;
+      background: #dc2626;
+      color: white;
+      padding: 5px 12px;
+      border-radius: 20px;
+      font-size: 0.7rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 10px;
+    }
+
+    .news-card-title {
+      color: white;
+      font-family: 'Shadows Into Light', cursive;
+      font-size: 1.4rem;
+      font-weight: 600;
+      margin: 0;
+      text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
+    }
+
+    .news-card-date {
+      color: rgba(255,255,255,0.8);
+      font-size: 0.85rem;
+      margin-top: 8px;
+    }
+
+    /* Carousel Navigation Arrows */
+    .carousel-arrow {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 50px;
+      height: 50px;
+      background: linear-gradient(135deg, #dc2626, #b91c1c);
+      color: white;
+      border: none;
+      border-radius: 50%;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.2rem;
+      box-shadow: 0 4px 15px rgba(220, 38, 38, 0.3);
+      transition: all 0.3s ease;
+      z-index: 10;
+    }
+
+    .carousel-arrow:hover {
+      transform: translateY(-50%) scale(1.1);
+      box-shadow: 0 6px 20px rgba(220, 38, 38, 0.4);
+    }
+
+    .carousel-arrow.prev {
+      left: 0;
+    }
+
+    .carousel-arrow.next {
+      right: 0;
+    }
+
+    /* Accordion Content */
+    .news-accordion {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.4s ease, padding 0.4s ease;
+      background: white;
+      border-radius: 0 0 15px 15px;
+      margin-top: -15px;
+    }
+
+    .news-accordion.active {
+      max-height: 1000px;
+      padding: 30px;
+      margin-top: 20px;
+      border-radius: 15px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    }
+
+    .news-accordion-content {
+      padding-top: 20px;
+    }
+
+    .news-accordion h3 {
+      color: #dc2626;
+      font-family: 'Shadows Into Light', cursive;
+      font-size: 2rem;
+      margin-bottom: 15px;
+    }
+
+    .news-accordion .date {
+      color: #6c757d;
+      font-size: 0.9rem;
+      margin-bottom: 20px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .news-accordion p {
+      color: #495057;
+      line-height: 1.8;
+      margin-bottom: 15px;
+    }
+
+    .news-accordion .close-btn {
+      background: #dc2626;
+      color: white;
+      border: none;
+      padding: 10px 25px;
+      border-radius: 25px;
+      cursor: pointer;
+      font-weight: 600;
+      margin-top: 15px;
+      transition: background 0.3s ease;
+    }
+
+    .news-accordion .close-btn:hover {
+      background: #b91c1c;
+    }
+
+    /* Mobile Styles */
+    @media (max-width: 991px) {
+      .news-carousel-wrapper {
+        padding: 0 20px;
+      }
+
+      .news-carousel {
+        flex-direction: column;
+        overflow-x: visible;
+      }
+
+      .news-card {
+        flex: 0 0 auto;
+        width: 100%;
+        min-width: unset;
+        height: 300px;
+      }
+
+      .carousel-arrow {
+        display: none;
+      }
+    }
+
+    /* Legacy styles for compatibility */
     .news-article {
       background: white;
       border-radius: 15px;
@@ -429,17 +631,17 @@
       overflow: hidden;
       transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
-    
+
     .news-article:hover {
       transform: translateY(-5px);
       box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
     }
-    
+
     .news-article.featured {
       border: 3px solid #dc2626;
       position: relative;
     }
-    
+
     .news-article.featured::before {
       content: 'FEATURED';
       position: absolute;
@@ -453,18 +655,18 @@
       font-weight: 600;
       z-index: 2;
     }
-    
+
     .news-article-image {
       height: 250px;
       background-size: cover;
       background-position: center;
       position: relative;
     }
-    
+
     .news-article-content {
       padding: 30px;
     }
-    
+
     .news-article h3 {
       color: #dc2626;
       font-size: 1.8rem;
@@ -472,20 +674,20 @@
       margin-bottom: 15px;
       line-height: 1.3;
     }
-    
+
     .news-article .date {
       color: #6c757d;
       font-size: 0.9rem;
       margin-bottom: 15px;
       font-weight: 500;
     }
-    
+
     .news-article p {
       color: #495057;
       line-height: 1.6;
       margin-bottom: 20px;
     }
-    
+
     .news-article .read-more {
       color: #dc2626;
       text-decoration: none;
@@ -494,7 +696,7 @@
       align-items: center;
       transition: color 0.3s ease;
     }
-    
+
     .news-article .read-more:hover {
       color: #b91c1c;
     }
@@ -980,83 +1182,115 @@
   <!-- News Content -->
   <section class="news-content">
     <div class="container">
-      <!-- Featured Expansion Article -->
-      <div class="row">
-        <div class="col-12">
-          <div class="news-article featured">
-            <div class="news-article-image" style="background-image: url('assets/mex-taco-expansion.webp');"></div>
-            <div class="news-article-content">
-              <h3 style="font-family: 'Shadows Into Light', cursive;">🎉 MAJOR EXPANSION ANNOUNCEMENT! 🎉</h3>
-              <div class="date"><i class="fas fa-calendar-alt"></i> December 15, 2024</div>
-              <p>We're thrilled to announce that Mex Taco House has expanded! After years of serving our community with authentic Mexican cuisine, we've made our current location larger to serve even more customers while maintaining the same quality and authentic flavors that you love.</p>
-              <p>Our expanded space now features a larger dining area, more seating capacity, and an improved kitchen layout. We're also excited to introduce some exciting new menu items that showcase our commitment to authentic Mexican flavors!</p>
-              <a href="#expansion-details" class="read-more">
-                Read More <i class="fas fa-arrow-right"></i>
-              </a>
+      <!-- Horizontal News Carousel -->
+      <div class="news-carousel-wrapper">
+        <button class="carousel-arrow prev" onclick="scrollCarousel(-1)">
+          <i class="fas fa-chevron-left"></i>
+        </button>
+
+        <div class="news-carousel" id="newsCarousel">
+          <!-- Card 1: Expansion -->
+          <div class="news-card" data-news="expansion" onclick="toggleAccordion('expansion')">
+            <div class="news-card-image" style="background-image: url('assets/mex-taco-expansion.webp');"></div>
+            <div class="news-card-overlay">
+              <span class="news-card-badge">Featured</span>
+              <h3 class="news-card-title">We've Expanded!</h3>
+              <div class="news-card-date"><i class="fas fa-calendar-alt"></i> December 15, 2024</div>
             </div>
           </div>
+
+          <!-- Card 2: Trucks & Tacos -->
+          <div class="news-card" data-news="trucks" onclick="toggleAccordion('trucks')">
+            <div class="news-card-image" style="background-image: url('assets/trucks-tacos-event-oct.jpg');"></div>
+            <div class="news-card-overlay">
+              <span class="news-card-badge" style="background: #8b5cf6;">Event</span>
+              <h3 class="news-card-title">Trucks & Tacos</h3>
+              <div class="news-card-date"><i class="fas fa-calendar-alt"></i> October 26, 2024</div>
+            </div>
+          </div>
+
+          <!-- Card 3: Holiday Closures -->
+          <div class="news-card" data-news="holiday" onclick="toggleAccordion('holiday')">
+            <div class="news-card-image" style="background-image: url('assets/merry-christmas.png'); background-size: contain; background-repeat: no-repeat; background-color: #4a5568;"></div>
+            <div class="news-card-overlay">
+              <span class="news-card-badge">Holiday Notice</span>
+              <h3 class="news-card-title">Holiday Closures</h3>
+              <div class="news-card-date"><i class="fas fa-calendar-alt"></i> December 12, 2024</div>
+            </div>
+          </div>
+
+          <!-- Card 4: Holiday Catering -->
+          <div class="news-card" data-news="catering" onclick="toggleAccordion('catering')">
+            <div class="news-card-image" style="background-image: url('assets/gallery-images/street-tacos.jpeg');"></div>
+            <div class="news-card-overlay">
+              <span class="news-card-badge" style="background: #059669;">Catering</span>
+              <h3 class="news-card-title">Holiday Catering</h3>
+              <div class="news-card-date"><i class="fas fa-calendar-alt"></i> December 12, 2024</div>
+            </div>
+          </div>
+        </div>
+
+        <button class="carousel-arrow next" onclick="scrollCarousel(1)">
+          <i class="fas fa-chevron-right"></i>
+        </button>
+      </div>
+
+      <!-- Accordion Sections -->
+      <div class="news-accordion" id="accordion-expansion">
+        <div class="news-accordion-content">
+          <h3>We've Expanded!</h3>
+          <div class="date"><i class="fas fa-calendar-alt"></i> December 15, 2024</div>
+          <p>We're thrilled to announce that Mex Taco House has expanded! After years of serving our community with authentic Mexican cuisine, we've made our current location larger to serve even more customers while maintaining the same quality and authentic flavors that you love.</p>
+          <p>Our expanded space now features a larger dining area, more seating capacity, and an improved kitchen layout. We're also excited to introduce some exciting new menu items that showcase our commitment to authentic Mexican flavors!</p>
+          <p>Join us in celebrating this exciting milestone as we now have more space to serve our community with authentic Mexican flavors. Come experience our larger dining area!</p>
+          <button class="close-btn" onclick="closeAccordion('expansion')">Close <i class="fas fa-times"></i></button>
         </div>
       </div>
 
-      <!-- Expansion Highlight Section -->
-      <div class="expansion-highlight">
-        <div class="container">
-          <h2 style="color: white; font-family: 'Shadows Into Light', cursive;">Expanded Space Now Open!</h2>
-          <p>Join us in celebrating this exciting milestone as we now have more space to serve our community with authentic Mexican flavors. Come experience our larger dining area and new menu items!</p>
-          <a href="contact.html" class="btn-expansion">Visit Us</a>
+      <div class="news-accordion" id="accordion-trucks">
+        <div class="news-accordion-content">
+          <h3>Trucks & Tacos Special Event</h3>
+          <div class="date"><i class="fas fa-calendar-alt"></i> October 26, 2024</div>
+          <p>Join us for our special "Trucks & Tacos" event on October 26th from 8am-noon! It's a "Truck or Treat" Toy Drive for Texas Children's Hospital.</p>
+          <p>There will be a costume contest for kids with giveaways and prizes! Bring the whole family for a fun-filled morning of great food, amazing trucks, and community spirit.</p>
+          <ul style="list-style: none; padding: 0; margin: 20px 0;">
+            <li style="margin-bottom: 10px;"><i class="fas fa-calendar" style="color: #8b5cf6; margin-right: 10px;"></i><strong>Date:</strong> October 26th, 8am-noon</li>
+            <li style="margin-bottom: 10px;"><i class="fas fa-gift" style="color: #8b5cf6; margin-right: 10px;"></i><strong>Toy Drive</strong> for Texas Children's Hospital</li>
+            <li style="margin-bottom: 10px;"><i class="fas fa-mask" style="color: #8b5cf6; margin-right: 10px;"></i><strong>Kids Costume Contest</strong></li>
+            <li><i class="fas fa-trophy" style="color: #8b5cf6; margin-right: 10px;"></i><strong>Giveaways & Prizes!</strong></li>
+          </ul>
+          <button class="close-btn" onclick="closeAccordion('trucks')">Close <i class="fas fa-times"></i></button>
         </div>
       </div>
 
-      <!-- Other News Articles -->
-      <div class="row">
-        <div class="col-lg-6 col-md-6">
-          <div class="news-article">
-            <div class="news-article-image" style="background-image: url('assets/trucks-tacos-event-oct.jpg'); background-position: center 30%;"></div>
-            <div class="news-article-content">
-              <h3 style="font-family: 'Shadows Into Light', cursive;">Trucks & Tacos Special Event</h3>
-              <div class="date"><i class="fas fa-calendar-alt"></i> October 26, 2024</div>
-              <p>Join us for our special "Trucks & Tacos" event on October 26th from 8am-noon! It's a "Truck or Treat" Toy Drive for Texas Children's Hospital. There will be a costume contest for kids with giveaways and prizes!</p>
-              <a href="contact.html" class="read-more">
-                Learn More <i class="fas fa-arrow-right"></i>
-              </a>
-            </div>
-          </div>
-        </div>
-        
-        <div class="col-lg-6 col-md-6">
-          <div class="news-article">
-            <div class="news-article-image" style="background-image: url('assets/gallery-images/street-tacos.jpeg');"></div>
-            <div class="news-article-content">
-              <h3 style="font-family: 'Shadows Into Light', cursive;">Holiday Catering</h3>
-              <div class="date"><i class="fas fa-calendar-alt"></i> December 12, 2024</div>
-              <p>Make your holiday gatherings special with authentic Mexican catering from Mex Taco House! We offer full-service catering for parties, corporate events, and family celebrations. Contact us today to discuss your catering needs.</p>
-              <p style="margin-top: 10px; font-weight: 600;"><i class="fas fa-phone" style="color: #dc2626; margin-right: 8px;"></i>(281) 213-2844</p>
-              <p style="font-size: 0.9rem; color: #666;"><i class="fas fa-map-marker-alt" style="color: #dc2626; margin-right: 8px;"></i>25410 Northwest Fwy, Cypress, TX</p>
-              <a href="contact.html" class="read-more">
-                Get Quote <i class="fas fa-arrow-right"></i>
-              </a>
-            </div>
-          </div>
+      <div class="news-accordion" id="accordion-holiday">
+        <div class="news-accordion-content">
+          <h3 style="color: #dc2626;">Holiday Closures</h3>
+          <div class="date"><i class="fas fa-calendar-alt"></i> December 12, 2024</div>
+          <p>We will be closed on the following days to celebrate the holidays with our families:</p>
+          <ul style="list-style: none; padding: 0; margin: 20px 0;">
+            <li style="margin-bottom: 15px; font-size: 1.1rem;"><i class="fas fa-tree" style="color: #059669; margin-right: 12px;"></i><strong>Christmas Day:</strong> December 25th, 2025 (Reopen Dec 26th)</li>
+            <li style="font-size: 1.1rem;"><i class="fas fa-glass-cheers" style="color: #d97706; margin-right: 12px;"></i><strong>New Year's Day:</strong> January 1st, 2026 (Reopen Jan 2nd)</li>
+          </ul>
+          <p style="font-style: italic; color: #dc2626; font-weight: 600; font-size: 1.2rem; margin-top: 25px;">Feliz Navidad y Prospero Ano Nuevo!</p>
+          <button class="close-btn" onclick="closeAccordion('holiday')">Close <i class="fas fa-times"></i></button>
         </div>
       </div>
 
-      <div class="row">
-        <div class="col-lg-6 col-md-6">
-          <div class="news-article">
-            <div class="news-article-image" style="background-image: url('assets/gallery-images/taco-plate-1.webp');"></div>
-            <div class="news-article-content">
-              <h3 style="font-family: 'Shadows Into Light', cursive; color: #dc2626;">Holiday Closures</h3>
-              <div class="date"><i class="fas fa-calendar-alt"></i> December 12, 2024</div>
-              <p>We will be closed on the following days to celebrate the holidays with our families:</p>
-              <ul style="list-style: none; padding: 0; margin: 15px 0;">
-                <li style="margin-bottom: 10px;"><i class="fas fa-tree" style="color: #059669; margin-right: 10px;"></i><strong>Christmas Day:</strong> December 25th, 2025 (Reopen Dec 26th)</li>
-                <li><i class="fas fa-glass-cheers" style="color: #d97706; margin-right: 10px;"></i><strong>New Year's Day:</strong> January 1st, 2026 (Reopen Jan 2nd)</li>
-              </ul>
-              <p style="font-style: italic; color: #dc2626; font-weight: 600;">Feliz Navidad y Prospero Ano Nuevo!</p>
-            </div>
+      <div class="news-accordion" id="accordion-catering">
+        <div class="news-accordion-content">
+          <h3>Holiday Catering</h3>
+          <div class="date"><i class="fas fa-calendar-alt"></i> December 12, 2024</div>
+          <p>Make your holiday gatherings special with authentic Mexican catering from Mex Taco House! We offer full-service catering for parties, corporate events, and family celebrations.</p>
+          <p>Contact us today to discuss your catering needs and let us bring the authentic flavors of Mexico to your next event!</p>
+          <div style="margin-top: 25px; padding: 20px; background: #f8f9fa; border-radius: 10px;">
+            <p style="margin-bottom: 10px; font-weight: 600;"><i class="fas fa-phone" style="color: #dc2626; margin-right: 10px;"></i>(281) 213-2844</p>
+            <p style="margin-bottom: 0;"><i class="fas fa-map-marker-alt" style="color: #dc2626; margin-right: 10px;"></i>25410 Northwest Fwy, Cypress, TX</p>
           </div>
+          <button class="close-btn" onclick="closeAccordion('catering')" style="margin-top: 25px;">Close <i class="fas fa-times"></i></button>
         </div>
       </div>
+
     </div>
   </section>
 
@@ -1564,6 +1798,97 @@
         reviewsBanner.addEventListener('mouseenter', stopRotation);
         reviewsBanner.addEventListener('mouseleave', startRotation);
       }
+    });
+
+    // ========== News Carousel & Accordion Functions ==========
+
+    // Scroll carousel left or right
+    function scrollCarousel(direction) {
+      const carousel = document.getElementById('newsCarousel');
+      const cardWidth = carousel.querySelector('.news-card').offsetWidth + 20; // card width + gap
+      carousel.scrollBy({
+        left: direction * cardWidth,
+        behavior: 'smooth'
+      });
+    }
+
+    // Toggle accordion for a news item
+    function toggleAccordion(newsId) {
+      const accordion = document.getElementById('accordion-' + newsId);
+      const allAccordions = document.querySelectorAll('.news-accordion');
+      const allCards = document.querySelectorAll('.news-card');
+
+      // If this accordion is already active, close it
+      if (accordion.classList.contains('active')) {
+        accordion.classList.remove('active');
+        // Remove active state from card
+        document.querySelector(`[data-news="${newsId}"]`).classList.remove('active');
+        return;
+      }
+
+      // Close all other accordions first
+      allAccordions.forEach(acc => acc.classList.remove('active'));
+      allCards.forEach(card => card.classList.remove('active'));
+
+      // Open this accordion
+      accordion.classList.add('active');
+
+      // Add active state to the clicked card
+      document.querySelector(`[data-news="${newsId}"]`).classList.add('active');
+
+      // Scroll to the accordion smoothly
+      setTimeout(() => {
+        accordion.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }, 100);
+    }
+
+    // Close a specific accordion
+    function closeAccordion(newsId) {
+      const accordion = document.getElementById('accordion-' + newsId);
+      accordion.classList.remove('active');
+
+      // Remove active state from card
+      const card = document.querySelector(`[data-news="${newsId}"]`);
+      if (card) card.classList.remove('active');
+
+      // Scroll back to carousel
+      document.querySelector('.news-carousel-wrapper').scrollIntoView({ behavior: 'smooth', block: 'center' });
+    }
+
+    // Enable drag scrolling for carousel
+    document.addEventListener('DOMContentLoaded', function() {
+      const carousel = document.getElementById('newsCarousel');
+      let isDown = false;
+      let startX;
+      let scrollLeft;
+
+      carousel.addEventListener('mousedown', (e) => {
+        isDown = true;
+        carousel.style.cursor = 'grabbing';
+        startX = e.pageX - carousel.offsetLeft;
+        scrollLeft = carousel.scrollLeft;
+      });
+
+      carousel.addEventListener('mouseleave', () => {
+        isDown = false;
+        carousel.style.cursor = 'grab';
+      });
+
+      carousel.addEventListener('mouseup', () => {
+        isDown = false;
+        carousel.style.cursor = 'grab';
+      });
+
+      carousel.addEventListener('mousemove', (e) => {
+        if (!isDown) return;
+        e.preventDefault();
+        const x = e.pageX - carousel.offsetLeft;
+        const walk = (x - startX) * 2;
+        carousel.scrollLeft = scrollLeft - walk;
+      });
+
+      // Set initial cursor style
+      carousel.style.cursor = 'grab';
     });
   </script>
 </body>
