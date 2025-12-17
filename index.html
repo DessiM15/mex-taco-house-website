@@ -5057,7 +5057,7 @@
   </div>
 
   <!-- We're Hiring Badge (Fixed Position) -->
-  <div id="hiringBadge" onclick="openHiringPopup()" style="position: fixed; bottom: 100px; right: 20px; background: linear-gradient(135deg, #8B0000, #dc2626); padding: 12px 18px; border-radius: 30px; cursor: pointer; z-index: 9998; box-shadow: 0 5px 20px rgba(139, 0, 0, 0.4); display: flex; align-items: center; gap: 8px; font-weight: 700; font-size: 0.9rem; transition: all 0.3s ease; animation: hiringPulse 2s infinite;">
+  <div id="hiringBadge" onclick="openHiringPopup()" style="position: fixed; bottom: 140px; right: 20px; background: linear-gradient(135deg, #8B0000, #dc2626); padding: 12px 18px; border-radius: 30px; cursor: pointer; z-index: 9998; box-shadow: 0 5px 20px rgba(139, 0, 0, 0.4); display: flex; align-items: center; gap: 8px; font-weight: 700; font-size: 0.9rem; transition: all 0.3s ease; animation: hiringPulse 2s infinite;">
     <i class="fas fa-briefcase" style="color: #ffffff !important;"></i>
     <span style="color: #ffffff !important;">We're Hiring!</span>
   </div>
@@ -5086,7 +5086,7 @@
         grid-template-columns: 1fr !important;
       }
       #hiringBadge {
-        bottom: 80px;
+        bottom: 120px;
         right: 15px;
         padding: 10px 15px;
         font-size: 0.85rem;
@@ -5122,14 +5122,7 @@
       }
     });
 
-    // Show popup once per session (resets when browser closes)
-    document.addEventListener('DOMContentLoaded', function() {
-      if (!sessionStorage.getItem('hiringPopupSeen')) {
-        setTimeout(function() {
-          openHiringPopup();
-        }, 2000); // Show after 2 seconds
-      }
-    });
+    // Popup only opens when badge is clicked (auto-popup removed)
   </script>
 
   </div><!-- /.wrapper -->
