@@ -392,12 +392,11 @@
       text-shadow: 3px 3px 6px rgba(0,0,0,0.5);
       position: relative;
       padding-bottom: 15px;
-      color: #ffffff;
+      color: #ffffff !important;
       letter-spacing: 1px;
       text-transform: uppercase;
-      opacity: 0;
-      transform: translateX(-50px);
-      transition: all 0.8s ease-out;
+      opacity: 1 !important;
+      transform: translateX(0) !important;
     }
     
     .hours-info h4.animate-in {
@@ -1050,67 +1049,11 @@
         </div>
       </div>
 
-      <!-- Contact Form -->
-      <div class="row">
-        <div class="col-lg-8 mx-auto">
-          <div class="contact-form">
-            <h3><i class="fas fa-paper-plane"></i> Send us a Message</h3>
-            <form id="contactForm">
-              <div class="row">
-                <div class="col-md-6">
-                  <div class="form-group">
-                    <label for="firstName">First Name *</label>
-                    <input type="text" id="firstName" name="firstName" required>
-                  </div>
-                </div>
-                <div class="col-md-6">
-                  <div class="form-group">
-                    <label for="lastName">Last Name *</label>
-                    <input type="text" id="lastName" name="lastName" required>
-                  </div>
-                </div>
-              </div>
-              
-              <div class="row">
-                <div class="col-md-6">
-                  <div class="form-group">
-                    <label for="email">Email Address *</label>
-                    <input type="email" id="email" name="email" required>
-                  </div>
-                </div>
-                <div class="col-md-6">
-                  <div class="form-group">
-                    <label for="phone">Phone Number</label>
-                    <input type="tel" id="phone" name="phone">
-                  </div>
-                </div>
-              </div>
-              
-              <div class="form-group">
-                <label for="subject">Subject *</label>
-                <input type="text" id="subject" name="subject" required>
-              </div>
-              
-              <div class="form-group">
-                <label for="message">Message *</label>
-                <textarea id="message" name="message" required placeholder="Tell us how we can help you..."></textarea>
-              </div>
-              
-              <div class="text-center">
-                <button type="submit" class="submit-btn">
-                  <i class="fas fa-paper-plane"></i> Send Message
-                </button>
-              </div>
-            </form>
-          </div>
-        </div>
-      </div>
-
       <!-- Business Hours -->
       <div class="row">
         <div class="col-lg-6 mx-auto">
           <div class="hours-info">
-            <h4><i class="fas fa-clock"></i> Business Hours</h4>
+            <h4 style="color: #ffffff !important; display: flex !important; visibility: visible !important;"><i class="fas fa-clock" style="color: #ffffff !important;"></i> Business Hours</h4>
             <ul class="hours-list">
               <li><span>Monday</span><span>Closed</span></li>
               <li><span>Tuesday</span><span>6:00 AM - 2:00 PM</span></li>
