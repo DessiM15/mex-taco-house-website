@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="theme-color" content="#dc2626">
+
+  <!-- SEO Meta Tags -->
+  <title>News | Mex Taco House - Latest Updates from Cypress TX</title>
+  <meta name="description" content="Latest news from Mex Taco House - restaurant expansion, events, holiday hours, and catering services in Cypress, TX.">
+  <meta name="robots" content="index, follow">
+
+  <!-- Favicon -->
+  <link href="assets/images/favicon/favicon.png" rel="icon">
+  <link rel="apple-touch-icon" href="assets/images/favicon/favicon.png">
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <!-- Mobile Site CSS -->
+  <link rel="stylesheet" href="assets/css/mobile-site.css">
+
+  <!-- News Page Styles -->
+  <style>
+    .news-badge {
+      display: inline-block;
+      padding: 4px 12px;
+      font-size: 0.75rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      border-radius: 20px;
+      background: var(--primary-red);
+      color: white;
+      margin-bottom: var(--space-sm);
+    }
+    .news-badge.event { background: #8b5cf6; }
+    .news-badge.holiday { background: #059669; }
+    .news-badge.catering { background: #d97706; }
+
+    .news-card-full {
+      background: white;
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: var(--shadow-md);
+      margin-bottom: var(--space-lg);
+    }
+
+    .news-card-full img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+    }
+
+    .news-card-full-body {
+      padding: var(--space-lg);
+    }
+
+    .news-date {
+      font-size: 0.8125rem;
+      color: var(--gray-500);
+      margin-bottom: var(--space-sm);
+    }
+
+    .news-date i {
+      margin-right: 6px;
+    }
+
+    .news-card-full h3 {
+      font-size: 1.375rem;
+      margin-bottom: var(--space-md);
+      color: var(--gray-900);
+    }
+
+    .news-card-full p {
+      color: var(--gray-600);
+      line-height: 1.7;
+      margin-bottom: var(--space-md);
+    }
+
+    .news-card-full p:last-of-type {
+      margin-bottom: 0;
+    }
+
+    .holiday-list {
+      list-style: none;
+      margin: var(--space-md) 0;
+    }
+
+    .holiday-list li {
+      padding: var(--space-sm) 0;
+      font-size: 1rem;
+      display: flex;
+      align-items: center;
+      gap: var(--space-sm);
+    }
+
+    .holiday-list i {
+      width: 24px;
+      text-align: center;
+    }
+
+    .catering-box {
+      background: var(--gray-50);
+      border-radius: 12px;
+      padding: var(--space-lg);
+      margin-top: var(--space-md);
+    }
+
+    .catering-box p {
+      display: flex;
+      align-items: center;
+      gap: var(--space-sm);
+      margin-bottom: var(--space-sm) !important;
+    }
+
+    .catering-box p:last-child {
+      margin-bottom: 0 !important;
+    }
+
+    .catering-box i {
+      color: var(--primary-red);
+      width: 20px;
+    }
+
+    .expansion-highlight {
+      background: linear-gradient(135deg, var(--primary-red), var(--primary-red-dark));
+      color: white;
+      padding: var(--space-xl);
+      border-radius: 16px;
+      text-align: center;
+      margin-bottom: var(--space-lg);
+    }
+
+    .expansion-highlight h2 {
+      color: white;
+      font-size: 2rem;
+      margin-bottom: var(--space-md);
+    }
+
+    .expansion-highlight p {
+      color: rgba(255, 255, 255, 0.9);
+      font-size: 1.125rem;
+      margin-bottom: var(--space-lg);
+    }
+  </style>
+</head>
+<body>
+  <!-- Top Navbar -->
+  <nav class="mobile-navbar">
+    <a href="m-index.html" class="sr-only">Home</a>
+    <img src="assets/max-taco-logo.png" alt="Mex Taco House" class="mobile-navbar-logo">
+    <button class="mobile-navbar-toggle" aria-label="Open menu" aria-expanded="false">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+  </nav>
+
+  <!-- Mobile Menu Overlay -->
+  <div class="mobile-menu-overlay" aria-hidden="true"></div>
+
+  <!-- Mobile Menu Panel -->
+  <nav class="mobile-menu-panel" aria-label="Mobile navigation">
+    <ul class="mobile-menu-nav">
+      <li><a href="m-index.html" class="mobile-menu-link">Home</a></li>
+      <li><a href="m-menu.html" class="mobile-menu-link">Menu</a></li>
+      <li><a href="m-news.html" class="mobile-menu-link active">News</a></li>
+      <li><a href="m-contact.html" class="mobile-menu-link">Contact</a></li>
+    </ul>
+    <div class="mobile-menu-divider"></div>
+    <div class="mobile-menu-social">
+      <a href="https://www.instagram.com/mextacohouse/" target="_blank" rel="noopener" aria-label="Instagram">
+        <i class="fab fa-instagram"></i>
+      </a>
+      <a href="https://www.facebook.com/mextacohouse" target="_blank" rel="noopener" aria-label="Facebook">
+        <i class="fab fa-facebook"></i>
+      </a>
+    </div>
+  </nav>
+
+  <!-- Page Header -->
+  <section class="hero" style="background-image: url('assets/images/backgrounds/1.jpg'); min-height: 30vh;">
+    <div class="hero-content">
+      <h1 class="hero-title">News & Updates</h1>
+      <p class="hero-subtitle">What's happening at Mex Taco House</p>
+    </div>
+  </section>
+
+  <!-- Expansion Highlight -->
+  <section class="section">
+    <div class="expansion-highlight">
+      <h2>We've Expanded!</h2>
+      <p>More space. Same great taste. Come visit our newly expanded location!</p>
+      <a href="https://maps.google.com/?q=25410+Northwest+Fwy,+Cypress,+TX+77429" target="_blank" rel="noopener" class="btn btn-white">
+        <i class="fas fa-map-marker-alt btn-icon"></i>
+        Visit Us
+      </a>
+    </div>
+  </section>
+
+  <!-- News Articles -->
+  <section class="section" style="padding-top: 0;">
+
+    <!-- Expansion News -->
+    <article class="news-card-full">
+      <img src="assets/mex-taco-expansion.webp" alt="Mex Taco House Expansion">
+      <div class="news-card-full-body">
+        <span class="news-badge">Featured</span>
+        <p class="news-date"><i class="fas fa-calendar-alt"></i> December 15, 2024</p>
+        <h3>Restaurant Expansion Complete!</h3>
+        <p>We're thrilled to announce that Mex Taco House has expanded! After years of serving our community with authentic Mexican cuisine, we've made our current location larger to serve even more customers.</p>
+        <p>Our expanded space now features a larger dining area, more seating capacity, and an improved kitchen layout. We're also excited to introduce some new menu items!</p>
+        <p>Join us in celebrating this exciting milestone as we continue to serve our community with authentic Mexican flavors.</p>
+      </div>
+    </article>
+
+    <!-- Trucks & Tacos Event -->
+    <article class="news-card-full">
+      <img src="assets/trucks-tacos-event-oct.jpg" alt="Trucks and Tacos Event">
+      <div class="news-card-full-body">
+        <span class="news-badge event">Event</span>
+        <p class="news-date"><i class="fas fa-calendar-alt"></i> October 26, 2024</p>
+        <h3>Trucks & Tacos Special Event</h3>
+        <p>Join us for our special "Trucks & Tacos" event! It's a "Truck or Treat" Toy Drive for Texas Children's Hospital.</p>
+        <p>There will be a costume contest for kids with giveaways and prizes! Bring the whole family for a fun-filled morning of great food, amazing trucks, and community spirit.</p>
+        <ul class="holiday-list">
+          <li><i class="fas fa-calendar" style="color: #8b5cf6;"></i><strong>Date:</strong> October 26th, 8am-noon</li>
+          <li><i class="fas fa-gift" style="color: #8b5cf6;"></i><strong>Toy Drive</strong> for Texas Children's Hospital</li>
+          <li><i class="fas fa-mask" style="color: #8b5cf6;"></i><strong>Kids Costume Contest</strong></li>
+          <li><i class="fas fa-trophy" style="color: #8b5cf6;"></i><strong>Giveaways & Prizes!</strong></li>
+        </ul>
+      </div>
+    </article>
+
+    <!-- Holiday Closures -->
+    <article class="news-card-full">
+      <img src="assets/merry-christmas.png" alt="Holiday Closures" style="object-fit: contain; background: #4a5568;">
+      <div class="news-card-full-body">
+        <span class="news-badge holiday">Holiday Notice</span>
+        <p class="news-date"><i class="fas fa-calendar-alt"></i> December 12, 2024</p>
+        <h3 style="color: var(--primary-red);">Holiday Closures</h3>
+        <p>We will be closed on the following days to celebrate the holidays with our families:</p>
+        <ul class="holiday-list">
+          <li><i class="fas fa-tree" style="color: #059669;"></i><strong>Christmas Day:</strong> Dec 25th (Reopen Dec 26th)</li>
+          <li><i class="fas fa-glass-cheers" style="color: #d97706;"></i><strong>New Year's Day:</strong> Jan 1st (Reopen Jan 2nd)</li>
+        </ul>
+        <p style="font-style: italic; color: var(--primary-red); font-weight: 600; text-align: center; font-size: 1.125rem;">Feliz Navidad y Prospero Ano Nuevo!</p>
+      </div>
+    </article>
+
+    <!-- Holiday Catering -->
+    <article class="news-card-full">
+      <img src="assets/gallery-images/3.jpg" alt="Holiday Catering">
+      <div class="news-card-full-body">
+        <span class="news-badge catering">Catering</span>
+        <p class="news-date"><i class="fas fa-calendar-alt"></i> December 12, 2024</p>
+        <h3>Holiday Catering Available</h3>
+        <p>Make your holiday gatherings special with authentic Mexican catering from Mex Taco House! We offer full-service catering for parties, corporate events, and family celebrations.</p>
+        <p>Contact us today to discuss your catering needs and let us bring the authentic flavors of Mexico to your next event!</p>
+        <div class="catering-box">
+          <p><i class="fas fa-phone"></i><strong>(832) 934-9860</strong></p>
+          <p><i class="fas fa-map-marker-alt"></i>25410 Northwest Fwy, Cypress, TX</p>
+        </div>
+      </div>
+    </article>
+
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <img src="assets/max-taco-logo.png" alt="Mex Taco House" class="footer-logo">
+    <p class="footer-address">
+      25410 Northwest Fwy<br>
+      Cypress, TX 77429
+    </p>
+    <p class="footer-phone">
+      <a href="tel:+18329349860">(832) 934-9860</a>
+    </p>
+    <div class="footer-social">
+      <a href="https://www.instagram.com/mextacohouse/" target="_blank" rel="noopener" aria-label="Instagram">
+        <i class="fab fa-instagram"></i>
+      </a>
+      <a href="https://www.facebook.com/mextacohouse" target="_blank" rel="noopener" aria-label="Facebook">
+        <i class="fab fa-facebook"></i>
+      </a>
+    </div>
+    <p class="footer-copyright">&copy; 2024 Mex Taco House. All rights reserved.</p>
+    <a href="news.html?desktop=true" class="footer-desktop-link">View Desktop Site</a>
+  </footer>
+
+  <!-- Bottom Navigation -->
+  <nav class="bottom-nav" aria-label="Quick actions">
+    <a href="https://maps.google.com/?q=25410+Northwest+Fwy,+Cypress,+TX+77429" target="_blank" rel="noopener" class="bottom-nav-item">
+      <i class="fas fa-map-marker-alt bottom-nav-icon"></i>
+      <span class="bottom-nav-label">Directions</span>
+    </a>
+    <a href="#" class="bottom-nav-item" data-action="order">
+      <i class="fas fa-shopping-bag bottom-nav-icon"></i>
+      <span class="bottom-nav-label">Order</span>
+    </a>
+    <a href="m-menu.html" class="bottom-nav-item">
+      <i class="fas fa-utensils bottom-nav-icon"></i>
+      <span class="bottom-nav-label">Menu</span>
+    </a>
+    <a href="#" class="bottom-nav-item" data-action="call">
+      <i class="fas fa-phone bottom-nav-icon"></i>
+      <span class="bottom-nav-label">Call</span>
+    </a>
+  </nav>
+
+  <!-- Order Dropdown -->
+  <div class="order-dropdown">
+    <p class="order-dropdown-title">Choose a delivery service</p>
+    <div class="order-dropdown-options">
+      <a href="https://www.grubhub.com/restaurant/mex-taco-house-25410-northwest-fwy-cypress/5807624" target="_blank" rel="noopener" class="order-option">
+        <div class="order-option-icon grubhub">GH</div>
+        <span class="order-option-text">Grubhub</span>
+      </a>
+      <a href="https://www.ubereats.com/store/mex-taco-house/zlftufBFXgm9JhQGyOfpvw" target="_blank" rel="noopener" class="order-option">
+        <div class="order-option-icon ubereats">UE</div>
+        <span class="order-option-text">Uber Eats</span>
+      </a>
+    </div>
+    <button class="order-dropdown-close">Cancel</button>
+  </div>
+
+  <!-- Call Popup -->
+  <div class="call-popup">
+    <div class="call-popup-content">
+      <div class="call-popup-icon">
+        <i class="fas fa-phone"></i>
+      </div>
+      <h3 class="call-popup-title">Call Mex Taco House</h3>
+      <p class="call-popup-number">(832) 934-9860</p>
+      <div class="call-popup-actions">
+        <a href="tel:+18329349860" class="btn btn-primary btn-block">
+          <i class="fas fa-phone"></i> Call Now
+        </a>
+        <button class="btn btn-outline call-popup-cancel" style="color: var(--gray-700); border-color: var(--gray-300);">Cancel</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Mobile Site JavaScript -->
+  <script src="assets/js/mobile-site.js"></script>
+</body>
+</html>

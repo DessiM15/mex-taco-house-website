@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="theme-color" content="#dc2626">
+
+  <!-- SEO Meta Tags -->
+  <title>Contact | Mex Taco House - Cypress TX Location & Hours</title>
+  <meta name="description" content="Contact Mex Taco House in Cypress, TX. Call (832) 934-9860, visit us at 25410 Northwest Fwy. Hours: Tue-Sat 6am-2pm, Sun 7am-2pm.">
+  <meta name="robots" content="index, follow">
+
+  <!-- Favicon -->
+  <link href="assets/images/favicon/favicon.png" rel="icon">
+  <link rel="apple-touch-icon" href="assets/images/favicon/favicon.png">
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <!-- Mobile Site CSS -->
+  <link rel="stylesheet" href="assets/css/mobile-site.css">
+
+  <!-- Contact Page Styles -->
+  <style>
+    .contact-quick-actions {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--space-md);
+      margin-bottom: var(--space-xl);
+    }
+
+    .contact-action {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: var(--space-lg);
+      background: white;
+      border-radius: 16px;
+      box-shadow: var(--shadow-md);
+      text-decoration: none;
+      color: var(--gray-800);
+      transition: var(--transition-fast);
+    }
+
+    .contact-action:active {
+      transform: scale(0.98);
+    }
+
+    .contact-action-icon {
+      width: 56px;
+      height: 56px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(135deg, var(--primary-red), var(--primary-red-dark));
+      color: white;
+      font-size: 1.5rem;
+      border-radius: 50%;
+      margin-bottom: var(--space-sm);
+    }
+
+    .contact-action-label {
+      font-weight: 600;
+      font-size: 0.9375rem;
+    }
+
+    .contact-action-sub {
+      font-size: 0.8125rem;
+      color: var(--gray-500);
+      margin-top: 2px;
+    }
+
+    .hours-card {
+      background: linear-gradient(135deg, var(--primary-red), var(--primary-red-dark));
+      color: white;
+      border-radius: 16px;
+      padding: var(--space-xl);
+      margin-bottom: var(--space-xl);
+    }
+
+    .hours-title {
+      display: flex;
+      align-items: center;
+      gap: var(--space-sm);
+      font-size: 1.25rem;
+      font-weight: 600;
+      margin-bottom: var(--space-lg);
+      color: white;
+    }
+
+    .hours-title i {
+      font-size: 1.25rem;
+    }
+
+    .hours-list {
+      list-style: none;
+    }
+
+    .hours-item {
+      display: flex;
+      justify-content: space-between;
+      padding: var(--space-sm) 0;
+      border-bottom: 1px solid rgba(255,255,255,0.2);
+      font-size: 0.9375rem;
+    }
+
+    .hours-item:last-child {
+      border-bottom: none;
+    }
+
+    .hours-item.closed .hours-day,
+    .hours-item.closed .hours-time {
+      color: rgba(255,255,255,0.6);
+    }
+
+    .hours-day {
+      font-weight: 500;
+    }
+
+    .hours-time {
+      color: rgba(255,255,255,0.9);
+    }
+
+    .info-cards {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-md);
+      margin-bottom: var(--space-xl);
+    }
+
+    .info-card {
+      background: white;
+      border-radius: 12px;
+      padding: var(--space-lg);
+      box-shadow: var(--shadow-sm);
+      display: flex;
+      align-items: flex-start;
+      gap: var(--space-md);
+    }
+
+    .info-card-icon {
+      width: 44px;
+      height: 44px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: var(--gray-100);
+      color: var(--primary-red);
+      font-size: 1.125rem;
+      border-radius: 10px;
+      flex-shrink: 0;
+    }
+
+    .info-card-content h4 {
+      font-size: 0.875rem;
+      font-weight: 600;
+      color: var(--gray-500);
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin-bottom: 4px;
+    }
+
+    .info-card-content p {
+      font-size: 1rem;
+      color: var(--gray-800);
+      margin: 0;
+      line-height: 1.5;
+    }
+
+    .info-card-content a {
+      color: var(--primary-red);
+      font-weight: 600;
+    }
+
+    .map-wrapper {
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: var(--shadow-md);
+      margin-bottom: var(--space-xl);
+    }
+
+    .map-wrapper iframe {
+      width: 100%;
+      height: 280px;
+      border: none;
+      display: block;
+    }
+
+    .map-wrapper a {
+      display: block;
+      padding: var(--space-md);
+      background: var(--gray-900);
+      color: white;
+      text-align: center;
+      font-weight: 600;
+      text-decoration: none;
+    }
+
+    .map-wrapper a i {
+      margin-right: var(--space-sm);
+    }
+  </style>
+</head>
+<body>
+  <!-- Top Navbar -->
+  <nav class="mobile-navbar">
+    <a href="m-index.html" class="sr-only">Home</a>
+    <img src="assets/max-taco-logo.png" alt="Mex Taco House" class="mobile-navbar-logo">
+    <button class="mobile-navbar-toggle" aria-label="Open menu" aria-expanded="false">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+  </nav>
+
+  <!-- Mobile Menu Overlay -->
+  <div class="mobile-menu-overlay" aria-hidden="true"></div>
+
+  <!-- Mobile Menu Panel -->
+  <nav class="mobile-menu-panel" aria-label="Mobile navigation">
+    <ul class="mobile-menu-nav">
+      <li><a href="m-index.html" class="mobile-menu-link">Home</a></li>
+      <li><a href="m-menu.html" class="mobile-menu-link">Menu</a></li>
+      <li><a href="m-news.html" class="mobile-menu-link">News</a></li>
+      <li><a href="m-contact.html" class="mobile-menu-link active">Contact</a></li>
+    </ul>
+    <div class="mobile-menu-divider"></div>
+    <div class="mobile-menu-social">
+      <a href="https://www.instagram.com/mextacohouse/" target="_blank" rel="noopener" aria-label="Instagram">
+        <i class="fab fa-instagram"></i>
+      </a>
+      <a href="https://www.facebook.com/mextacohouse" target="_blank" rel="noopener" aria-label="Facebook">
+        <i class="fab fa-facebook"></i>
+      </a>
+    </div>
+  </nav>
+
+  <!-- Page Header -->
+  <section class="hero" style="background-image: url('assets/images/backgrounds/1.jpg'); min-height: 25vh;">
+    <div class="hero-content">
+      <h1 class="hero-title">Contact Us</h1>
+      <p class="hero-subtitle">We'd love to hear from you</p>
+    </div>
+  </section>
+
+  <!-- Quick Actions -->
+  <section class="section">
+    <div class="contact-quick-actions">
+      <a href="tel:+18329349860" class="contact-action">
+        <div class="contact-action-icon">
+          <i class="fas fa-phone"></i>
+        </div>
+        <span class="contact-action-label">Call Us</span>
+        <span class="contact-action-sub">(832) 934-9860</span>
+      </a>
+      <a href="https://maps.google.com/?q=25410+Northwest+Fwy,+Cypress,+TX+77429" target="_blank" rel="noopener" class="contact-action">
+        <div class="contact-action-icon">
+          <i class="fas fa-map-marker-alt"></i>
+        </div>
+        <span class="contact-action-label">Get Directions</span>
+        <span class="contact-action-sub">Open in Maps</span>
+      </a>
+      <a href="mailto:Mextacohouse@gmail.com" class="contact-action">
+        <div class="contact-action-icon">
+          <i class="fas fa-envelope"></i>
+        </div>
+        <span class="contact-action-label">Email Us</span>
+        <span class="contact-action-sub">Send a Message</span>
+      </a>
+      <a href="#" class="contact-action" data-action="order">
+        <div class="contact-action-icon">
+          <i class="fas fa-shopping-bag"></i>
+        </div>
+        <span class="contact-action-label">Order Online</span>
+        <span class="contact-action-sub">Pickup or Delivery</span>
+      </a>
+    </div>
+
+    <!-- Business Hours -->
+    <div class="hours-card">
+      <h3 class="hours-title">
+        <i class="fas fa-clock"></i>
+        Business Hours
+      </h3>
+      <ul class="hours-list">
+        <li class="hours-item closed">
+          <span class="hours-day">Monday</span>
+          <span class="hours-time">Closed</span>
+        </li>
+        <li class="hours-item">
+          <span class="hours-day">Tuesday</span>
+          <span class="hours-time">6:00 AM - 2:00 PM</span>
+        </li>
+        <li class="hours-item">
+          <span class="hours-day">Wednesday</span>
+          <span class="hours-time">6:00 AM - 2:00 PM</span>
+        </li>
+        <li class="hours-item">
+          <span class="hours-day">Thursday</span>
+          <span class="hours-time">6:00 AM - 2:00 PM</span>
+        </li>
+        <li class="hours-item">
+          <span class="hours-day">Friday</span>
+          <span class="hours-time">6:00 AM - 2:00 PM</span>
+        </li>
+        <li class="hours-item">
+          <span class="hours-day">Saturday</span>
+          <span class="hours-time">6:00 AM - 2:00 PM</span>
+        </li>
+        <li class="hours-item">
+          <span class="hours-day">Sunday</span>
+          <span class="hours-time">7:00 AM - 2:00 PM</span>
+        </li>
+      </ul>
+    </div>
+
+    <!-- Info Cards -->
+    <div class="info-cards">
+      <div class="info-card">
+        <div class="info-card-icon">
+          <i class="fas fa-location-dot"></i>
+        </div>
+        <div class="info-card-content">
+          <h4>Address</h4>
+          <p>25410 Northwest Fwy<br>Cypress, TX 77429</p>
+        </div>
+      </div>
+      <div class="info-card">
+        <div class="info-card-icon">
+          <i class="fas fa-car"></i>
+        </div>
+        <div class="info-card-content">
+          <h4>Parking</h4>
+          <p>Free parking available</p>
+        </div>
+      </div>
+      <div class="info-card">
+        <div class="info-card-icon">
+          <i class="fas fa-envelope"></i>
+        </div>
+        <div class="info-card-content">
+          <h4>Email</h4>
+          <p><a href="mailto:Mextacohouse@gmail.com">Mextacohouse@gmail.com</a></p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Map -->
+    <div class="map-wrapper">
+      <iframe
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3456.7890123456789!2d-95.6882012!3d29.9652533!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8640d5b7418fd501%3A0x148309e883ded154!2sMEX%20Taco%20House!5e0!3m2!1sen!2sus!4v1234567890123!5m2!1sen!2sus"
+        allowfullscreen=""
+        loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade">
+      </iframe>
+      <a href="https://maps.google.com/?q=25410+Northwest+Fwy,+Cypress,+TX+77429" target="_blank" rel="noopener">
+        <i class="fas fa-external-link-alt"></i>
+        Open in Google Maps
+      </a>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <img src="assets/max-taco-logo.png" alt="Mex Taco House" class="footer-logo">
+    <p class="footer-address">
+      25410 Northwest Fwy<br>
+      Cypress, TX 77429
+    </p>
+    <p class="footer-phone">
+      <a href="tel:+18329349860">(832) 934-9860</a>
+    </p>
+    <div class="footer-social">
+      <a href="https://www.instagram.com/mextacohouse/" target="_blank" rel="noopener" aria-label="Instagram">
+        <i class="fab fa-instagram"></i>
+      </a>
+      <a href="https://www.facebook.com/mextacohouse" target="_blank" rel="noopener" aria-label="Facebook">
+        <i class="fab fa-facebook"></i>
+      </a>
+    </div>
+    <p class="footer-copyright">&copy; 2024 Mex Taco House. All rights reserved.</p>
+    <a href="contact.html?desktop=true" class="footer-desktop-link">View Desktop Site</a>
+  </footer>
+
+  <!-- Bottom Navigation -->
+  <nav class="bottom-nav" aria-label="Quick actions">
+    <a href="https://maps.google.com/?q=25410+Northwest+Fwy,+Cypress,+TX+77429" target="_blank" rel="noopener" class="bottom-nav-item">
+      <i class="fas fa-map-marker-alt bottom-nav-icon"></i>
+      <span class="bottom-nav-label">Directions</span>
+    </a>
+    <a href="#" class="bottom-nav-item" data-action="order">
+      <i class="fas fa-shopping-bag bottom-nav-icon"></i>
+      <span class="bottom-nav-label">Order</span>
+    </a>
+    <a href="m-menu.html" class="bottom-nav-item">
+      <i class="fas fa-utensils bottom-nav-icon"></i>
+      <span class="bottom-nav-label">Menu</span>
+    </a>
+    <a href="#" class="bottom-nav-item" data-action="call">
+      <i class="fas fa-phone bottom-nav-icon"></i>
+      <span class="bottom-nav-label">Call</span>
+    </a>
+  </nav>
+
+  <!-- Order Dropdown -->
+  <div class="order-dropdown">
+    <p class="order-dropdown-title">Choose a delivery service</p>
+    <div class="order-dropdown-options">
+      <a href="https://www.grubhub.com/restaurant/mex-taco-house-25410-northwest-fwy-cypress/5807624" target="_blank" rel="noopener" class="order-option">
+        <div class="order-option-icon grubhub">GH</div>
+        <span class="order-option-text">Grubhub</span>
+      </a>
+      <a href="https://www.ubereats.com/store/mex-taco-house/zlftufBFXgm9JhQGyOfpvw" target="_blank" rel="noopener" class="order-option">
+        <div class="order-option-icon ubereats">UE</div>
+        <span class="order-option-text">Uber Eats</span>
+      </a>
+    </div>
+    <button class="order-dropdown-close">Cancel</button>
+  </div>
+
+  <!-- Call Popup -->
+  <div class="call-popup">
+    <div class="call-popup-content">
+      <div class="call-popup-icon">
+        <i class="fas fa-phone"></i>
+      </div>
+      <h3 class="call-popup-title">Call Mex Taco House</h3>
+      <p class="call-popup-number">(832) 934-9860</p>
+      <div class="call-popup-actions">
+        <a href="tel:+18329349860" class="btn btn-primary btn-block">
+          <i class="fas fa-phone"></i> Call Now
+        </a>
+        <button class="btn btn-outline call-popup-cancel" style="color: var(--gray-700); border-color: var(--gray-300);">Cancel</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Mobile Site JavaScript -->
+  <script src="assets/js/mobile-site.js"></script>
+</body>
+</html>

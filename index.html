@@ -2,6 +2,20 @@
 <html lang="en">
 
 <head>
+  <!-- Mobile Redirect - Redirect mobile users to mobile-optimized site -->
+  <script>
+    (function() {
+      // Skip redirect if user explicitly requested desktop or already on mobile page
+      if (window.location.search.includes('desktop=true') ||
+          sessionStorage.getItem('preferDesktop') === 'true') {
+        return;
+      }
+      // Redirect mobile devices (width <= 991px) to mobile version
+      if (window.innerWidth <= 991) {
+        window.location.replace('m-index.html');
+      }
+    })();
+  </script>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes" />
   <meta name="mobile-web-app-capable" content="yes">
@@ -64,7 +78,7 @@
   <!-- Stylesheets -->
   <link rel="stylesheet" href="assets/css/libraries.css" />
   <link rel="stylesheet" href="assets/css/style.css?v=4" />
-  <link rel="stylesheet" href="assets/css/mobile-navbar.css" />
+  <link rel="stylesheet" href="assets/css/mobile-navbar.css?v=2" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
   
   <!-- Performance Optimizations -->
@@ -117,6 +131,148 @@
 
     .navbar .social__icons a:hover {
       color: #b91c1c !important;
+    }
+  </style>
+
+  <!-- CRITICAL MOBILE STYLES - Inline for guaranteed application -->
+  <style>
+    /* Mobile Bottom Navigation - MUST SHOW */
+    @media screen and (max-width: 991px) {
+      .mobile-bottom-nav {
+        display: block !important;
+        position: fixed !important;
+        bottom: 0 !important;
+        left: 0 !important;
+        right: 0 !important;
+        height: 65px !important;
+        background: linear-gradient(135deg, #dc2626 0%, #b91c1c 100%) !important;
+        box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.15) !important;
+        z-index: 9998 !important;
+        padding-bottom: env(safe-area-inset-bottom, 0) !important;
+      }
+      .mobile-bottom-nav-list {
+        display: flex !important;
+        justify-content: space-around !important;
+        align-items: center !important;
+        height: 100% !important;
+        margin: 0 !important;
+        padding: 0 10px !important;
+        list-style: none !important;
+      }
+      .mobile-bottom-nav-item {
+        flex: 1 !important;
+        display: flex !important;
+        justify-content: center !important;
+      }
+      .mobile-bottom-nav-link {
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+        color: #ffffff !important;
+        text-decoration: none !important;
+        padding: 8px 12px !important;
+      }
+      .mobile-bottom-nav-link i {
+        font-size: 1.3rem !important;
+        margin-bottom: 4px !important;
+        color: #ffffff !important;
+      }
+      .mobile-bottom-nav-link span {
+        font-size: 0.7rem !important;
+        font-weight: 600 !important;
+        text-transform: uppercase !important;
+        color: #ffffff !important;
+      }
+
+      /* Mobile Hero Actions */
+      .mobile-hero-actions {
+        display: flex !important;
+        gap: 12px !important;
+        justify-content: center !important;
+        flex-wrap: wrap !important;
+        margin-top: 25px !important;
+      }
+      .mobile-hero-btn {
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+        background: rgba(255, 255, 255, 0.95) !important;
+        color: #333 !important;
+        text-decoration: none !important;
+        padding: 15px 20px !important;
+        border-radius: 12px !important;
+        min-width: 100px !important;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2) !important;
+      }
+      .mobile-hero-btn.order-btn {
+        background: linear-gradient(135deg, #dc2626, #b91c1c) !important;
+        color: #ffffff !important;
+      }
+      .mobile-hero-btn i {
+        font-size: 1.4rem !important;
+        margin-bottom: 6px !important;
+      }
+      .mobile-hero-btn.order-btn i { color: #ffffff !important; }
+      .mobile-hero-btn span {
+        font-size: 0.85rem !important;
+        font-weight: 600 !important;
+        text-transform: uppercase !important;
+      }
+      .desktop-cta { display: none !important; }
+
+      /* Mobile Navbar */
+      .navbar {
+        position: fixed !important;
+        top: 0 !important;
+        left: 0 !important;
+        right: 0 !important;
+        height: 70px !important;
+        background: #ffffff !important;
+        z-index: 9999 !important;
+        box-shadow: 0 2px 10px rgba(0,0,0,0.1) !important;
+      }
+      .navbar .container {
+        display: flex !important;
+        justify-content: center !important;
+        align-items: center !important;
+        position: relative !important;
+      }
+      .navbar-brand {
+        position: absolute !important;
+        left: 50% !important;
+        transform: translateX(-50%) !important;
+      }
+      .navbar-brand img {
+        height: 50px !important;
+        width: auto !important;
+      }
+      .navbar-toggler {
+        position: absolute !important;
+        right: 15px !important;
+        top: 50% !important;
+        transform: translateY(-50%) !important;
+        display: flex !important;
+        width: 44px !important;
+        height: 44px !important;
+        border: none !important;
+        background: transparent !important;
+        z-index: 10000 !important;
+      }
+      .navbar-actions-wrap { display: none !important; }
+      .navbar .social__icons { display: none !important; }
+      body { padding-top: 70px !important; padding-bottom: 65px !important; }
+
+      /* Holiday popup positioning */
+      .holiday-popup-overlay {
+        z-index: 10001 !important;
+        padding: 20px !important;
+      }
+    }
+
+    /* Hide on desktop */
+    @media screen and (min-width: 992px) {
+      .mobile-bottom-nav { display: none !important; }
+      .mobile-hero-actions { display: none !important; }
     }
   </style>
 
@@ -3284,7 +3440,23 @@
                   <span class="slide__subtitle">¡Bienvenidos!</span>
                   <h1 class="slide__title">Best Mexican Restaurant in Cypress TX | Authentic Tacos & Burritos</h1>
                   <p class="slide__desc">Experience the true taste of Mexico at Cypress's premier Mexican restaurant. Fresh ingredients, traditional recipes, and authentic flavors that make us the best Mexican restaurant in Cypress, Texas!</p>
-                  <a href="menu.html" class="btn btn__primary my-1">View Our Menu</a>
+                  <a href="menu.html" class="btn btn__primary my-1 desktop-cta">View Our Menu</a>
+
+                  <!-- Mobile Hero Quick Actions -->
+                  <div class="mobile-hero-actions">
+                    <a href="menu.html" class="mobile-hero-btn">
+                      <i class="fas fa-utensils"></i>
+                      <span>View Menu</span>
+                    </a>
+                    <a href="https://www.grubhub.com/restaurant/mex-taco-house-25410-northwest-fwy-cypress/5807624" target="_blank" rel="noopener noreferrer" class="mobile-hero-btn order-btn">
+                      <i class="fas fa-shopping-bag"></i>
+                      <span>Order Now</span>
+                    </a>
+                    <a href="#" class="mobile-hero-btn" onclick="openCallPopup(); return false;">
+                      <i class="fas fa-phone"></i>
+                      <span>Call Us</span>
+                    </a>
+                  </div>
                 </div><!-- /.slide-content -->
               </div><!-- /.col-lg-12 -->
             </div><!-- /.row -->
@@ -5123,6 +5295,346 @@
     });
 
     // Popup only opens when badge is clicked (auto-popup removed)
+  </script>
+
+  <!-- Holiday Closures Popup -->
+  <div class="holiday-popup-overlay" id="holidayPopupOverlay">
+    <div class="holiday-popup">
+      <button class="holiday-popup-close" onclick="closeHolidayPopup()" aria-label="Close popup">
+        <i class="fas fa-times"></i>
+      </button>
+      <div class="holiday-popup-icon">
+        <i class="fas fa-snowflake"></i>
+      </div>
+      <h3>Holiday Hours Notice</h3>
+      <div class="holiday-popup-content">
+        <p><strong>Feliz Navidad y Próspero Año Nuevo!</strong></p>
+        <p>We will be <strong>closed</strong> on:</p>
+        <ul>
+          <li><i class="fas fa-calendar-alt"></i> December 25th (Christmas Day)</li>
+          <li><i class="fas fa-calendar-alt"></i> January 1st (New Year's Day)</li>
+        </ul>
+        <p>We will reopen on <strong>December 26th</strong> and <strong>January 2nd</strong>.</p>
+        <p class="holiday-message">Thank you for celebrating with us this year! 🎄</p>
+      </div>
+      <button class="holiday-popup-btn" onclick="closeHolidayPopup()">Got It!</button>
+    </div>
+  </div>
+
+  <style>
+    /* Holiday Closures Popup Styles */
+    .holiday-popup-overlay {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(0, 0, 0, 0.7);
+      z-index: 10001;
+      justify-content: center;
+      align-items: center;
+      padding: 20px;
+    }
+
+    .holiday-popup-overlay.active {
+      display: flex;
+    }
+
+    .holiday-popup {
+      background: #ffffff;
+      border-radius: 20px;
+      padding: 35px 30px;
+      max-width: 400px;
+      width: 100%;
+      text-align: center;
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+      position: relative;
+      animation: holidayPopupSlideIn 0.4s ease;
+    }
+
+    @keyframes holidayPopupSlideIn {
+      from {
+        opacity: 0;
+        transform: scale(0.9) translateY(-20px);
+      }
+      to {
+        opacity: 1;
+        transform: scale(1) translateY(0);
+      }
+    }
+
+    .holiday-popup-close {
+      position: absolute;
+      top: 15px;
+      right: 15px;
+      background: #f3f4f6;
+      border: none;
+      width: 35px;
+      height: 35px;
+      border-radius: 50%;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #666;
+      transition: all 0.3s ease;
+    }
+
+    .holiday-popup-close:hover {
+      background: #dc2626;
+      color: white;
+    }
+
+    .holiday-popup-icon {
+      width: 80px;
+      height: 80px;
+      background: linear-gradient(135deg, #dc2626, #065f46);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 20px;
+    }
+
+    .holiday-popup-icon i {
+      font-size: 2.2rem;
+      color: #ffffff;
+    }
+
+    .holiday-popup h3 {
+      font-size: 1.5rem;
+      color: #dc2626;
+      margin-bottom: 20px;
+      font-weight: 700;
+    }
+
+    .holiday-popup-content {
+      text-align: left;
+      margin-bottom: 25px;
+    }
+
+    .holiday-popup-content p {
+      color: #333;
+      font-size: 1rem;
+      margin-bottom: 12px;
+      line-height: 1.5;
+    }
+
+    .holiday-popup-content ul {
+      list-style: none;
+      padding: 0;
+      margin: 15px 0;
+    }
+
+    .holiday-popup-content li {
+      background: #fef2f2;
+      padding: 12px 15px;
+      margin-bottom: 8px;
+      border-radius: 8px;
+      color: #991b1b;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .holiday-popup-content li i {
+      color: #dc2626;
+    }
+
+    .holiday-popup-content .holiday-message {
+      text-align: center;
+      color: #065f46;
+      font-weight: 600;
+      margin-top: 20px;
+    }
+
+    .holiday-popup-btn {
+      background: linear-gradient(135deg, #dc2626, #b91c1c);
+      color: white;
+      border: none;
+      padding: 14px 40px;
+      border-radius: 10px;
+      font-size: 1.1rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      width: 100%;
+    }
+
+    .holiday-popup-btn:hover {
+      background: linear-gradient(135deg, #b91c1c, #991b1b);
+      transform: translateY(-2px);
+      box-shadow: 0 4px 15px rgba(220, 38, 38, 0.3);
+    }
+
+    /* Mobile adjustments */
+    @media (max-width: 480px) {
+      .holiday-popup {
+        padding: 25px 20px;
+      }
+
+      .holiday-popup h3 {
+        font-size: 1.3rem;
+      }
+
+      .holiday-popup-icon {
+        width: 65px;
+        height: 65px;
+      }
+
+      .holiday-popup-icon i {
+        font-size: 1.8rem;
+      }
+    }
+  </style>
+
+  <script>
+    // Holiday Closures Popup
+    function showHolidayPopup() {
+      document.getElementById('holidayPopupOverlay').classList.add('active');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeHolidayPopup() {
+      document.getElementById('holidayPopupOverlay').classList.remove('active');
+      document.body.style.overflow = '';
+      sessionStorage.setItem('holidayPopupSeen', 'true');
+    }
+
+    // Auto-show holiday popup once per session
+    document.addEventListener('DOMContentLoaded', function() {
+      // Check if popup has been shown this session
+      if (!sessionStorage.getItem('holidayPopupSeen')) {
+        // Show popup after a short delay (1.5 seconds)
+        setTimeout(function() {
+          showHolidayPopup();
+        }, 1500);
+      }
+    });
+
+    // Close on overlay click
+    document.getElementById('holidayPopupOverlay').addEventListener('click', function(e) {
+      if (e.target === this) {
+        closeHolidayPopup();
+      }
+    });
+
+    // Close on Escape key
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape' && document.getElementById('holidayPopupOverlay').classList.contains('active')) {
+        closeHolidayPopup();
+      }
+    });
+  </script>
+
+  <!-- Mobile Bottom Navigation Bar -->
+  <nav class="mobile-bottom-nav" aria-label="Mobile bottom navigation">
+    <ul class="mobile-bottom-nav-list">
+      <li class="mobile-bottom-nav-item">
+        <a href="https://maps.google.com/maps?q=25410+B1+Northwest+Fwy+Cypress+TX+77429" target="_blank" rel="noopener noreferrer" class="mobile-bottom-nav-link">
+          <i class="fas fa-map-marker-alt"></i>
+          <span>Directions</span>
+        </a>
+      </li>
+      <li class="mobile-bottom-nav-item">
+        <a href="https://www.grubhub.com/restaurant/mex-taco-house-25410-northwest-fwy-cypress/5807624" target="_blank" rel="noopener noreferrer" class="mobile-bottom-nav-link">
+          <i class="fas fa-shopping-bag"></i>
+          <span>Order</span>
+        </a>
+      </li>
+      <li class="mobile-bottom-nav-item">
+        <a href="menu.html" class="mobile-bottom-nav-link">
+          <i class="fas fa-utensils"></i>
+          <span>Menu</span>
+        </a>
+      </li>
+      <li class="mobile-bottom-nav-item">
+        <a href="#" class="mobile-bottom-nav-link" onclick="openCallPopup(); return false;">
+          <i class="fas fa-phone"></i>
+          <span>Call</span>
+        </a>
+      </li>
+    </ul>
+  </nav>
+
+  <!-- Call Popup Modal -->
+  <div class="call-popup-overlay" id="callPopupOverlay" onclick="closeCallPopup(event)">
+    <div class="call-popup" onclick="event.stopPropagation()">
+      <div class="call-popup-icon">
+        <i class="fas fa-phone"></i>
+      </div>
+      <h3>Call Mex Taco House</h3>
+      <p>(281) 213-2844</p>
+      <div class="call-popup-buttons">
+        <button class="call-popup-btn cancel" onclick="closeCallPopup()">Cancel</button>
+        <a href="tel:+12812132844" class="call-popup-btn call-now">
+          <i class="fas fa-phone"></i> Call Now
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Call Popup Functions
+    function openCallPopup() {
+      document.getElementById('callPopupOverlay').classList.add('active');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeCallPopup(event) {
+      if (event && event.target !== document.getElementById('callPopupOverlay')) return;
+      document.getElementById('callPopupOverlay').classList.remove('active');
+      document.body.style.overflow = '';
+    }
+
+    // Close on Escape key
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape' && document.getElementById('callPopupOverlay').classList.contains('active')) {
+        closeCallPopup();
+      }
+    });
+
+    // Mobile Navigation Toggle for Bootstrap Navbar
+    document.addEventListener('DOMContentLoaded', function() {
+      const navbarToggler = document.querySelector('.navbar-toggler');
+      const navbarCollapse = document.querySelector('.navbar-collapse');
+
+      if (navbarToggler && navbarCollapse) {
+        navbarToggler.addEventListener('click', function(e) {
+          e.preventDefault();
+          navbarToggler.classList.toggle('active');
+          navbarCollapse.classList.toggle('show');
+
+          // Prevent body scroll when menu is open
+          if (navbarCollapse.classList.contains('show')) {
+            document.body.style.overflow = 'hidden';
+          } else {
+            document.body.style.overflow = '';
+          }
+        });
+
+        // Close menu when clicking on a nav link
+        const navLinks = navbarCollapse.querySelectorAll('.nav__item-link');
+        navLinks.forEach(function(link) {
+          link.addEventListener('click', function() {
+            navbarToggler.classList.remove('active');
+            navbarCollapse.classList.remove('show');
+            document.body.style.overflow = '';
+          });
+        });
+
+        // Close menu on Escape key
+        document.addEventListener('keydown', function(e) {
+          if (e.key === 'Escape' && navbarCollapse.classList.contains('show')) {
+            navbarToggler.classList.remove('active');
+            navbarCollapse.classList.remove('show');
+            document.body.style.overflow = '';
+          }
+        });
+      }
+    });
   </script>
 
   </div><!-- /.wrapper -->
