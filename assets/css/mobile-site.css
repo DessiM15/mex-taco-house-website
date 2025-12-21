@@ -32,8 +32,8 @@
   --space-2xl: 48px;
 
   /* Typography */
-  --font-primary: 'Poppins', -apple-system, BlinkMacSystemFont, sans-serif;
-  --font-display: 'Playfair Display', Georgia, serif;
+  --font-primary: 'Rubik', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-display: 'Shadows Into Light', cursive;
 
   /* Layout */
   --marquee-height: 32px;
@@ -551,7 +551,7 @@ p {
 }
 
 .section-dark {
-  background: var(--gray-900);
+  background: var(--black);
   color: var(--white);
 }
 
@@ -897,7 +897,7 @@ p {
    FOOTER
    ======================================== */
 .footer {
-  background: var(--gray-900);
+  background: var(--black);
   color: var(--gray-300);
   padding: var(--space-xl) var(--space-md);
   padding-bottom: calc(var(--space-xl) + var(--bottom-nav-height));
@@ -1027,6 +1027,10 @@ p {
   font-weight: 700;
   font-size: 0.875rem;
   color: var(--white);
+}
+
+.order-option-icon.call {
+  background: var(--primary-red);
 }
 
 .order-option-icon.grubhub {
