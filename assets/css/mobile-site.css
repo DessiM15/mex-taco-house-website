@@ -409,13 +409,22 @@ p {
   max-width: 400px;
 }
 
-.hero-title {
+.hero-welcome {
   font-family: var(--font-display);
-  font-size: 2.5rem;
+  font-size: 2rem;
+  color: var(--white);
+  margin-bottom: var(--space-sm);
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+.hero-title {
+  font-family: var(--font-primary);
+  font-size: 1.75rem;
   font-weight: 700;
   color: var(--white);
-  margin-bottom: var(--space-md);
+  margin-bottom: var(--space-sm);
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+  line-height: 1.2;
 }
 
 .hero-subtitle {
