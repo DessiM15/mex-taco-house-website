@@ -122,11 +122,11 @@
     <h2 class="section-title">Order Online</h2>
     <p class="text-center text-gray mb-lg">Skip the wait - order ahead for pickup!</p>
     <div class="container">
-      <a href="https://www.grubhub.com/restaurant/mex-taco-house-25410-northwest-fwy-cypress/5807624" target="_blank" rel="noopener" class="order-option mb-lg" style="display: flex; max-width: 300px; margin: 0 auto var(--space-md);">
+      <a href="#" class="order-option external-order mb-lg" data-url="https://www.grubhub.com/restaurant/mex-taco-house-25410-northwest-fwy-cypress/5807624" data-name="Grubhub" style="display: flex; max-width: 300px; margin: 0 auto var(--space-md);">
         <div class="order-option-icon grubhub">GH</div>
         <span class="order-option-text">Order on Grubhub</span>
       </a>
-      <a href="https://www.ubereats.com/store/mex-taco-house/zlftufBFXgm9JhQGyOfpvw" target="_blank" rel="noopener" class="order-option" style="display: flex; max-width: 300px; margin: 0 auto;">
+      <a href="#" class="order-option external-order" data-url="https://www.ubereats.com/store/mex-taco-house/zlftufBFXgm9JhQGyOfpvw" data-name="Uber Eats" style="display: flex; max-width: 300px; margin: 0 auto;">
         <div class="order-option-icon ubereats">UE</div>
         <span class="order-option-text">Order on Uber Eats</span>
       </a>
@@ -285,16 +285,33 @@
         <div class="order-option-icon call"><i class="fas fa-phone"></i></div>
         <span class="order-option-text">Call to Order</span>
       </a>
-      <a href="https://www.grubhub.com/restaurant/mex-taco-house-25410-northwest-fwy-cypress/5807624" target="_blank" rel="noopener" class="order-option">
+      <a href="#" class="order-option external-order" data-url="https://www.grubhub.com/restaurant/mex-taco-house-25410-northwest-fwy-cypress/5807624" data-name="Grubhub">
         <div class="order-option-icon grubhub">GH</div>
         <span class="order-option-text">Grubhub</span>
       </a>
-      <a href="https://www.ubereats.com/store/mex-taco-house/zlftufBFXgm9JhQGyOfpvw" target="_blank" rel="noopener" class="order-option">
+      <a href="#" class="order-option external-order" data-url="https://www.ubereats.com/store/mex-taco-house/zlftufBFXgm9JhQGyOfpvw" data-name="Uber Eats">
         <div class="order-option-icon ubereats">UE</div>
         <span class="order-option-text">Uber Eats</span>
       </a>
     </div>
     <button class="order-dropdown-close">Cancel</button>
+  </div>
+
+  <!-- Leaving Site Modal -->
+  <div class="leaving-modal">
+    <div class="leaving-modal-content">
+      <div class="leaving-modal-icon">
+        <i class="fas fa-external-link-alt"></i>
+      </div>
+      <h3 class="leaving-modal-title">You're leaving Mex Taco House</h3>
+      <p class="leaving-modal-text">You'll be taken to <span id="leaving-destination"></span> to complete your order.</p>
+      <div class="leaving-modal-actions">
+        <a href="#" id="leaving-continue" class="btn btn-primary btn-block" target="_blank" rel="noopener">
+          <i class="fas fa-check"></i> Continue
+        </a>
+        <button class="btn btn-outline leaving-modal-cancel" style="color: var(--gray-700); border-color: var(--gray-300);">Cancel</button>
+      </div>
+    </div>
   </div>
 
   <!-- Call Popup -->
@@ -402,6 +419,61 @@
       e.preventDefault();
       document.querySelector('.order-dropdown')?.classList.add('active');
     });
+  </script>
+
+  <!-- External Order Links Handler -->
+  <script>
+    (function() {
+      const leavingModal = document.querySelector('.leaving-modal');
+      const leavingDestination = document.getElementById('leaving-destination');
+      const leavingContinue = document.getElementById('leaving-continue');
+      const leavingCancel = document.querySelector('.leaving-modal-cancel');
+      const orderDropdown = document.querySelector('.order-dropdown');
+
+      // Handle all external order links
+      document.querySelectorAll('.external-order').forEach(link => {
+        link.addEventListener('click', function(e) {
+          e.preventDefault();
+          const url = this.dataset.url;
+          const name = this.dataset.name;
+
+          // Close order dropdown if open
+          if (orderDropdown) {
+            orderDropdown.classList.remove('active');
+          }
+
+          // Update modal content
+          leavingDestination.textContent = name;
+          leavingContinue.href = url;
+
+          // Show modal
+          leavingModal.classList.add('active');
+          document.body.style.overflow = 'hidden';
+        });
+      });
+
+      // Handle continue button - close modal after click
+      leavingContinue?.addEventListener('click', function() {
+        setTimeout(() => {
+          leavingModal.classList.remove('active');
+          document.body.style.overflow = '';
+        }, 100);
+      });
+
+      // Handle cancel button
+      leavingCancel?.addEventListener('click', function() {
+        leavingModal.classList.remove('active');
+        document.body.style.overflow = '';
+      });
+
+      // Close on backdrop click
+      leavingModal?.addEventListener('click', function(e) {
+        if (e.target === leavingModal) {
+          leavingModal.classList.remove('active');
+          document.body.style.overflow = '';
+        }
+      });
+    })();
   </script>
 
   <!-- Hero Video 10-Second Loop -->
