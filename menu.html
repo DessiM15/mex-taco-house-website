@@ -594,13 +594,13 @@
       box-shadow: 0 4px 15px rgba(220, 38, 38, 0.4) !important;
     }
     
-    /* Ensure proper alignment with nav tabs - all in one row */
+    /* Ensure proper alignment with nav tabs - horizontal layout */
     .menu-tabs {
       display: flex !important;
       align-items: center !important;
       justify-content: center !important;
-      flex-wrap: nowrap !important;
-      gap: 15px !important;
+      flex-wrap: wrap !important;
+      gap: 12px !important;
     }
 
     .menu-tabs .nav__link {
@@ -2028,12 +2028,12 @@
           <div class="col-sm-12">
             <div class="menu-wrapper">
               <nav class="nav nav-tabs justify-content-center menu-tabs">
-                <a class="nav__link active" data-toggle="tab" href="#tab1">Specialty Tacos</a>
-                <a class="nav__link" data-toggle="tab" href="#tab2">Breakfast</a>
-                <a class="nav__link" data-toggle="tab" href="#tab3">Lunch</a>
-                <a class="nav__link" data-toggle="tab" href="#tab4">Combos</a>
-                <a class="nav__link" data-toggle="tab" href="#tab5">Weekend Specials</a>
-                <a class="nav__link" data-toggle="tab" href="#tab6">Drinks &amp; Sides</a>
+                <a class="nav__link active" data-toggle="tab" href="#tab1">Tacos</a>
+                <a class="nav__link" data-toggle="tab" href="#tab2">Platters</a>
+                <a class="nav__link" data-toggle="tab" href="#tab3">Combos &amp; Specials</a>
+                <a class="nav__link" data-toggle="tab" href="#tab4">Toppings &amp; Sides</a>
+                <a class="nav__link" data-toggle="tab" href="#tab5">Drinks</a>
+                <a class="nav__link" data-toggle="tab" href="#tab6"><i class="fas fa-leaf" style="color: #22c55e; margin-right: 5px;"></i>Vegan &amp; Vegetarian</a>
                 <div class="nav__order dropdown">
                   <button class="order-now-btn" type="button" id="menuOrderDropdown" data-bs-toggle="dropdown" aria-expanded="false" style="background: #ffffff !important; color: #dc2626 !important; border: 2px solid #dc2626 !important; padding: 10px 18px !important; border-radius: 6px !important; font-weight: 700 !important; display: inline-flex !important; align-items: center !important; gap: 8px !important; cursor: pointer !important;">
                     <i class="fas fa-shopping-cart" aria-hidden="true" style="color: #dc2626 !important;"></i>
@@ -2062,665 +2062,758 @@
                 </div>
               </nav>
               <div class="tab-content">
+                <!-- TAB 1: TACOS (Specialty + Breakfast + Lunch + Bean) -->
                 <div class="tab-pane fade show active" id="tab1">
                   <div class="row">
                     <div class="col-sm-12 col-md-12 col-lg-12 menu-wrapper-inner">
                       <h3 class="menu-category-title">SPECIALTY HOUSE TACOS</h3>
                       <div class="row">
                         <div class="col-sm-12 col-md-12 col-lg-4 menu-wrapper-inner">
-                      <div class="menu-item">
-                        <h4 class="menu__item-title">Taco Telge</h4>
-                        <span class="menu__item-price">3.50</span>
-                        <p class="menu__item-desc">Bacon, egg, potato, and cheese</p>
-                      </div><!-- /.menu-item -->
-                      <div class="menu-item">
-                        <h4 class="menu__item-title">Taco Houston</h4>
-                        <span class="menu__item-price">5.00</span>
-                        <p class="menu__item-desc">Steak & egg & cheese</p>
-                      </div><!-- /.menu-item -->
-                      <div class="menu-item">
-                        <h4 class="menu__item-title">Taco Mr. Veggie</h4>
-                        <span class="menu__item-price">4.25</span>
-                        <p class="menu__item-desc">Beans, grilled onions, cilantro, cheddar cheese, guacamole, lettuce, diced tomato</p>
-                      </div><!-- /.menu-item -->
-                      <div class="menu-item">
-                        <h4 class="menu__item-title">Taco Cypress</h4>
-                        <span class="menu__item-price">3.75</span>
-                        <p class="menu__item-desc">Egg, bacon, chorizo potatoes, beans and cheese</p>
-                      </div><!-- /.menu-item -->
-                      <div class="menu-item">
-                        <h4 class="menu__item-title">Taco Skinner</h4>
-                        <span class="menu__item-price">4.50</span>
-                        <p class="menu__item-desc">Potatoes chorizo, bacon strip, mozz cheese, cilantro, tomatoes, crema</p>
-                      </div><!-- /.menu-item -->
-                      <div class="menu-item">
-                        <h4 class="menu__item-title">Taco 956</h4>
-                        <span class="menu__item-price">4.50</span>
-                        <p class="menu__item-desc">Desebrada, rice, fresco cheese</p>
-                      </div><!-- /.menu-item -->
-                      <div class="menu-item">
-                        <h4 class="menu__item-title">Don Mex</h4>
-                        <span class="menu__item-price">5.50</span>
-                        <p class="menu__item-desc">Egg, bacon, sausage, ham, chorizo, potato, beans, onion, tomato, jalapeno & cheese</p>
-                      </div><!-- /.menu-item -->
-                    </div><!-- /.col-lg-4 -->
-                    <div class="col-sm-12 col-md-12 col-lg-4 menu-wrapper-inner" style="margin-top: -100px;">
-                      <div class="menu-item">
-                        <h4 class="menu__item-title">Taco Jarvis</h4>
-                        <span class="menu__item-price">5.00</span>
-                        <p class="menu__item-desc">Barbacoa, chorizo potato, mozz cheese, cilantro, tomatoes, crema</p>
-                      </div><!-- /.menu-item -->
-                      <div class="menu-item">
-                        <h4 class="menu__item-title">Taco Mexi</h4>
-                        <span class="menu__item-price">3.75</span>
-                        <p class="menu__item-desc">Potato mex style with Chap Hill sausage</p>
-                      </div><!-- /.menu-item -->
-                      <div class="menu-item">
-                        <h4 class="menu__item-title">Taco Porki</h4>
-                        <span class="menu__item-price">3.75</span>
-                        <p class="menu__item-desc">Chorizo egg, chori potato & cheese</p>
-                      </div><!-- /.menu-item -->
-                      <div class="menu-item">
-                        <h4 class="menu__item-title">Taco Tex</h4>
-                        <span class="menu__item-price">5.25</span>
-                        <p class="menu__item-desc">Beef fajita, potato chorizo, mozzarella</p>
-                      </div><!-- /.menu-item -->
-                      <div class="menu-item">
-                        <h4 class="menu__item-title">Fried Cod Fish</h4>
-                        <span class="menu__item-price">5.75</span>
-                        <p class="menu__item-desc">Red cabbage, cilantro, fresco and a lime wedge</p>
-                      </div><!-- /.menu-item -->
-                      <div class="menu-item">
-                        <h4 class="menu__item-title">Taco 290</h4>
-                        <span class="menu__item-price">5.25</span>
-                        <p class="menu__item-desc">Barbacoa w/fried egg, guac, fresco cheese cilantro & onion</p>
-                      </div><!-- /.menu-item -->
-                      <div class="menu-item">
-                        <h4 class="menu__item-title">Taco Doña</h4>
-                        <span class="menu__item-price">3.75</span>
-                        <p class="menu__item-desc">Bacon egg, papa, crema, mozz cheese</p>
-                      </div><!-- /.menu-item -->
-                    </div><!-- /.col-lg-4 -->
-                    <div class="col-sm-12 col-md-12 col-lg-4 menu-wrapper-inner" style="margin-top: -100px;">
-                      <div class="menu-item">
-                        <h4 class="menu__item-title">Grilled Shrimp</h4>
-                        <span class="menu__item-price">5.75</span>
-                        <p class="menu__item-desc">Red cabbage, cilantro, fresco and a lime wedge</p>
-                      </div><!-- /.menu-item -->
-                      <div class="menu-item">
-                        <h4 class="menu__item-title">Taco Rosehill</h4>
-                        <span class="menu__item-price">4.75</span>
-                        <p class="menu__item-desc">Chicharron, rice, fresco</p>
-                      </div><!-- /.menu-item -->
-                      <div class="menu-item">
-                        <h4 class="menu__item-title">Taco 713</h4>
-                        <span class="menu__item-price">4.75</span>
-                        <p class="menu__item-desc">Beef fajita, rice, beans, cheese</p>
-                      </div><!-- /.menu-item -->
-                      <div class="menu-item">
-                        <h4 class="menu__item-title">Migas & Egg</h4>
-                        <span class="menu__item-price">3.50</span>
-                        <p class="menu__item-desc">Cut corn tortillas and scramble eggs</p>
-                      </div><!-- /.menu-item -->
-                      <div class="menu-item">
-                        <h4 class="menu__item-title">MEX BOX</h4>
-                        <span class="menu__item-price">34.00</span>
-                        <p class="menu__item-desc">3 bacon & egg, 3 potato & egg, 3 chorizo & egg, 3 Mexican egg. With cheese 36.00</p>
-                      </div><!-- /.menu-item -->
-                    </div><!-- /.col-lg-4 -->
-                      </div><!-- /.row -->
-                    </div><!-- /.col-lg-12 menu-wrapper-inner -->
-                  </div><!-- /.row  -->
-                </div><!-- /.tab  -->
-                <div class="tab-pane fade" id="tab2">
-                  <div class="row">
+                          <div class="menu-item">
+                            <h4 class="menu__item-title">Taco Telge</h4>
+                            <span class="menu__item-price">3.50</span>
+                            <p class="menu__item-desc">Bacon, egg, potato, and cheese</p>
+                          </div>
+                          <div class="menu-item">
+                            <h4 class="menu__item-title">Taco Houston</h4>
+                            <span class="menu__item-price">5.00</span>
+                            <p class="menu__item-desc">Steak & egg & cheese</p>
+                          </div>
+                          <div class="menu-item vegan-item">
+                            <h4 class="menu__item-title"><i class="fas fa-leaf" style="color: #22c55e; margin-right: 5px;"></i>Taco Mr. Veggie</h4>
+                            <span class="menu__item-price">4.25</span>
+                            <p class="menu__item-desc">Beans, grilled onions, cilantro, cheddar cheese, guacamole, lettuce, diced tomato</p>
+                          </div>
+                          <div class="menu-item">
+                            <h4 class="menu__item-title">Taco Cypress</h4>
+                            <span class="menu__item-price">3.75</span>
+                            <p class="menu__item-desc">Egg, bacon, chorizo potatoes, beans and cheese</p>
+                          </div>
+                          <div class="menu-item">
+                            <h4 class="menu__item-title">Taco Skinner</h4>
+                            <span class="menu__item-price">4.50</span>
+                            <p class="menu__item-desc">Potatoes chorizo, bacon strip, mozz cheese, cilantro, tomatoes, crema</p>
+                          </div>
+                          <div class="menu-item">
+                            <h4 class="menu__item-title">Taco 956</h4>
+                            <span class="menu__item-price">4.50</span>
+                            <p class="menu__item-desc">Desebrada, rice, fresco cheese</p>
+                          </div>
+                          <div class="menu-item">
+                            <h4 class="menu__item-title">Don Mex</h4>
+                            <span class="menu__item-price">5.50</span>
+                            <p class="menu__item-desc">Egg, bacon, sausage, ham, chorizo, potato, beans, onion, tomato, jalapeno & cheese</p>
+                          </div>
+                        </div>
+                        <div class="col-sm-12 col-md-12 col-lg-4 menu-wrapper-inner">
+                          <div class="menu-item">
+                            <h4 class="menu__item-title">Taco Jarvis</h4>
+                            <span class="menu__item-price">5.00</span>
+                            <p class="menu__item-desc">Barbacoa, chorizo potato, mozz cheese, cilantro, tomatoes, crema</p>
+                          </div>
+                          <div class="menu-item">
+                            <h4 class="menu__item-title">Taco Mexi</h4>
+                            <span class="menu__item-price">3.75</span>
+                            <p class="menu__item-desc">Potato mex style with Chap Hill sausage</p>
+                          </div>
+                          <div class="menu-item">
+                            <h4 class="menu__item-title">Taco Porki</h4>
+                            <span class="menu__item-price">3.75</span>
+                            <p class="menu__item-desc">Chorizo egg, chori potato & cheese</p>
+                          </div>
+                          <div class="menu-item">
+                            <h4 class="menu__item-title">Taco Tex</h4>
+                            <span class="menu__item-price">5.25</span>
+                            <p class="menu__item-desc">Beef fajita, potato chorizo, mozzarella</p>
+                          </div>
+                          <div class="menu-item">
+                            <h4 class="menu__item-title">Fried Cod Fish</h4>
+                            <span class="menu__item-price">5.75</span>
+                            <p class="menu__item-desc">Red cabbage, cilantro, fresco and a lime wedge</p>
+                          </div>
+                          <div class="menu-item">
+                            <h4 class="menu__item-title">Taco 290</h4>
+                            <span class="menu__item-price">5.25</span>
+                            <p class="menu__item-desc">Barbacoa w/fried egg, guac, fresco cheese cilantro & onion</p>
+                          </div>
+                          <div class="menu-item">
+                            <h4 class="menu__item-title">Taco Doña</h4>
+                            <span class="menu__item-price">3.75</span>
+                            <p class="menu__item-desc">Bacon egg, papa, crema, mozz cheese</p>
+                          </div>
+                        </div>
+                        <div class="col-sm-12 col-md-12 col-lg-4 menu-wrapper-inner">
+                          <div class="menu-item">
+                            <h4 class="menu__item-title">Grilled Shrimp</h4>
+                            <span class="menu__item-price">5.75</span>
+                            <p class="menu__item-desc">Red cabbage, cilantro, fresco and a lime wedge</p>
+                          </div>
+                          <div class="menu-item">
+                            <h4 class="menu__item-title">Taco Rosehill</h4>
+                            <span class="menu__item-price">4.75</span>
+                            <p class="menu__item-desc">Chicharron, rice, fresco</p>
+                          </div>
+                          <div class="menu-item">
+                            <h4 class="menu__item-title">Taco 713</h4>
+                            <span class="menu__item-price">4.75</span>
+                            <p class="menu__item-desc">Beef fajita, rice, beans, cheese</p>
+                          </div>
+                          <div class="menu-item">
+                            <h4 class="menu__item-title">Migas & Egg</h4>
+                            <span class="menu__item-price">3.50</span>
+                            <p class="menu__item-desc">Cut corn tortillas and scramble eggs</p>
+                          </div>
+                          <div class="menu-item">
+                            <h4 class="menu__item-title">MEX BOX</h4>
+                            <span class="menu__item-price">34.00</span>
+                            <p class="menu__item-desc">3 bacon & egg, 3 potato & egg, 3 chorizo & egg, 3 Mexican egg. With cheese 36.00</p>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row" style="margin-top: 30px;">
                     <div class="col-sm-12 col-md-12 col-lg-6 menu-wrapper-inner">
                       <h3 class="menu-category-title">BREAKFAST TACOS</h3>
                       <div class="menu-item">
                         <h4 class="menu__item-title">Egg</h4>
                         <span class="menu__item-price">3.00</span>
-                      </div><!-- /.menu-item -->
+                      </div>
                       <div class="menu-item">
                         <h4 class="menu__item-title">Egg & Chorizo</h4>
                         <span class="menu__item-price">3.00</span>
-                      </div><!-- /.menu-item -->
+                      </div>
                       <div class="menu-item">
                         <h4 class="menu__item-title">Egg & Potato</h4>
                         <span class="menu__item-price">3.00</span>
-                      </div><!-- /.menu-item -->
+                      </div>
                       <div class="menu-item">
                         <h4 class="menu__item-title">Egg Mex Style</h4>
                         <span class="menu__item-price">3.00</span>
                         <p class="menu__item-desc">Onion, pepper, tomatoes</p>
-                      </div><!-- /.menu-item -->
+                      </div>
                       <div class="menu-item">
                         <h4 class="menu__item-title">Green Eggs (Salsa Verde)</h4>
                         <span class="menu__item-price">3.26</span>
-                      </div><!-- /.menu-item -->
+                      </div>
                       <div class="menu-item">
                         <h4 class="menu__item-title">Egg & Bacon</h4>
                         <span class="menu__item-price">3.00</span>
-                      </div><!-- /.menu-item -->
+                      </div>
                       <div class="menu-item">
                         <h4 class="menu__item-title">Egg & Jimmy Dean</h4>
                         <span class="menu__item-price">3.00</span>
-                      </div><!-- /.menu-item -->
+                      </div>
                       <div class="menu-item">
                         <h4 class="menu__item-title">Egg & Chap Hill Sausage</h4>
                         <span class="menu__item-price">3.00</span>
-                      </div><!-- /.menu-item -->
+                      </div>
                       <div class="menu-item">
                         <h4 class="menu__item-title">Egg & Ham</h4>
                         <span class="menu__item-price">3.00</span>
-                      </div><!-- /.menu-item -->
-                      <div class="menu-item">
-                        <h4 class="menu__item-title">Potato</h4>
+                      </div>
+                      <div class="menu-item vegan-item">
+                        <h4 class="menu__item-title"><i class="fas fa-leaf" style="color: #22c55e; margin-right: 5px;"></i>Potato</h4>
                         <span class="menu__item-price">3.00</span>
-                      </div><!-- /.menu-item -->
-                      <div class="menu-item">
-                        <h4 class="menu__item-title">Potato Mex Style</h4>
+                      </div>
+                      <div class="menu-item vegan-item">
+                        <h4 class="menu__item-title"><i class="fas fa-leaf" style="color: #22c55e; margin-right: 5px;"></i>Potato Mex Style</h4>
                         <span class="menu__item-price">3.25</span>
-                      </div><!-- /.menu-item -->
+                      </div>
                       <div class="menu-item">
                         <h4 class="menu__item-title">Potato & Bacon</h4>
                         <span class="menu__item-price">3.50</span>
-                      </div><!-- /.menu-item -->
+                      </div>
                       <div class="menu-item">
                         <h4 class="menu__item-title">Potato & Ham</h4>
                         <span class="menu__item-price">3.50</span>
-                      </div><!-- /.menu-item -->
+                      </div>
                       <div class="menu-item">
                         <h4 class="menu__item-title">Potato & Chorizo</h4>
                         <span class="menu__item-price">3.25</span>
-                      </div><!-- /.menu-item -->
+                      </div>
                       <div class="menu-item">
                         <h4 class="menu__item-title">Potato & Jimmy Dean</h4>
                         <span class="menu__item-price">3.75</span>
-                      </div><!-- /.menu-item -->
+                      </div>
                       <div class="menu-item">
                         <h4 class="menu__item-title">Potato & Chap Hill Sausage</h4>
                         <span class="menu__item-price">3.25</span>
-                      </div><!-- /.menu-item -->
-                    </div><!-- /.col-lg-6 -->
+                      </div>
+                    </div>
+                    <div class="col-sm-12 col-md-12 col-lg-6 menu-wrapper-inner">
+                      <h3 class="menu-category-title">LUNCH TACOS</h3>
+                      <div class="menu-item">
+                        <h4 class="menu__item-title">Beef Fajita (Steak)</h4>
+                        <span class="menu__item-price">4.50</span>
+                      </div>
+                      <div class="menu-item">
+                        <h4 class="menu__item-title">Barbacoa (Beef Cheek Meat)</h4>
+                        <span class="menu__item-price">4.50</span>
+                      </div>
+                      <div class="menu-item">
+                        <h4 class="menu__item-title">Picadillo (Ground Beef)</h4>
+                        <span class="menu__item-price">4.00</span>
+                      </div>
+                      <div class="menu-item">
+                        <h4 class="menu__item-title">Desebrada (Shredded Beef)</h4>
+                        <span class="menu__item-price">4.00</span>
+                      </div>
+                      <div class="menu-item">
+                        <h4 class="menu__item-title">Carne Guisada (Stewed Meat)</h4>
+                        <span class="menu__item-price">4.00</span>
+                      </div>
+                      <div class="menu-item">
+                        <h4 class="menu__item-title">Asado de Puerco Rojo</h4>
+                        <span class="menu__item-price">4.00</span>
+                      </div>
+                      <div class="menu-item">
+                        <h4 class="menu__item-title">Al Pastor (Split-Roasted Pork)</h4>
+                        <span class="menu__item-price">4.00</span>
+                      </div>
+                      <div class="menu-item">
+                        <h4 class="menu__item-title">Chicharron Pork (Pork Skins in Green Sauce)</h4>
+                        <span class="menu__item-price">4.50</span>
+                      </div>
+                      <div class="menu-item">
+                        <h4 class="menu__item-title">Chicken Fajita</h4>
+                        <span class="menu__item-price">4.00</span>
+                      </div>
+                      <div class="menu-item">
+                        <h4 class="menu__item-title">Green Chicken</h4>
+                        <span class="menu__item-price">4.00</span>
+                      </div>
+                      <div class="menu-item">
+                        <h4 class="menu__item-title">Chipotle Chicken</h4>
+                        <span class="menu__item-price">4.00</span>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row" style="margin-top: 30px;">
+                    <div class="col-sm-12 col-md-12 col-lg-6 menu-wrapper-inner">
+                      <h3 class="menu-category-title">BEAN TACOS</h3>
+                      <div class="menu-item vegan-item">
+                        <h4 class="menu__item-title"><i class="fas fa-leaf" style="color: #22c55e; margin-right: 5px;"></i>Beans</h4>
+                        <span class="menu__item-price">2.50</span>
+                      </div>
+                      <div class="menu-item vegan-item">
+                        <h4 class="menu__item-title"><i class="fas fa-leaf" style="color: #22c55e; margin-right: 5px;"></i>Bean & Cheese</h4>
+                        <span class="menu__item-price">2.75</span>
+                      </div>
+                      <div class="menu-item">
+                        <h4 class="menu__item-title">Bean & Chorizo</h4>
+                        <span class="menu__item-price">2.75</span>
+                      </div>
+                      <div class="menu-item vegan-item">
+                        <h4 class="menu__item-title"><i class="fas fa-leaf" style="color: #22c55e; margin-right: 5px;"></i>Bean & Rice</h4>
+                        <span class="menu__item-price">2.75</span>
+                      </div>
+                      <div class="menu-item vegan-item">
+                        <h4 class="menu__item-title"><i class="fas fa-leaf" style="color: #22c55e; margin-right: 5px;"></i>Bean & Fresco</h4>
+                        <span class="menu__item-price">3.00</span>
+                      </div>
+                    </div>
+                  </div>
+                </div><!-- /.tab1 TACOS -->
+
+                <!-- TAB 2: PLATTERS (Breakfast + Lunch) -->
+                <div class="tab-pane fade" id="tab2">
+                  <div class="row">
                     <div class="col-sm-12 col-md-12 col-lg-6 menu-wrapper-inner">
                       <h3 class="menu-category-title">BREAKFAST PLATTERS</h3>
                       <div class="menu-item">
                         <h4 class="menu__item-title">Breakfast Plate</h4>
                         <span class="menu__item-price">8.50</span>
                         <p class="menu__item-desc">Choice of 2 eggs, potatoes, beans, and 2 handmade tortillas</p>
-                      </div><!-- /.menu-item -->
+                      </div>
                       <div class="menu-item">
                         <h4 class="menu__item-title">Breakfast Torta</h4>
                         <span class="menu__item-price">9.50</span>
                         <p class="menu__item-desc">A Mexican sandwich toasted with butter, beans, lettuce, tomato, mozzarella cheese, crema, guacamole and your choice of egg</p>
-                      </div><!-- /.menu-item -->
+                      </div>
                       <div class="menu-item">
                         <h4 class="menu__item-title">Omelet Mex Style</h4>
                         <span class="menu__item-price">9.50</span>
                         <p class="menu__item-desc">Ham, onion, tomato, jalapeno and mozzarella cheese. Served with potatoes and beans</p>
-                      </div><!-- /.menu-item -->
+                      </div>
                       <div class="menu-item">
                         <h4 class="menu__item-title">Huevos Rancheros</h4>
                         <span class="menu__item-price">8.75</span>
                         <p class="menu__item-desc">2 over easy eggs topped with ranchero sauce served refried beans and potatoes (2 handmade tortillas). Add protein for upcharge</p>
-                      </div><!-- /.menu-item -->
+                      </div>
                       <div class="menu-item">
                         <h4 class="menu__item-title">Chilaquiles & Eggs</h4>
                         <span class="menu__item-price">10.00</span>
                         <p class="menu__item-desc">Corn tortilla wedges in green sauce, mozzarella and fresco cheese served with 2 eggs your choice. Served with potatoes and beans. Add protein for upcharge</p>
-                      </div><!-- /.menu-item -->
+                      </div>
                       <div class="menu-item">
                         <h4 class="menu__item-title">Mex Chilaquiles Divorciados</h4>
                         <span class="menu__item-price">13.00</span>
                         <p class="menu__item-desc">Set of cut corn tortilla wedges lightly fried and tossed in a green sauce and another set tossed in a red sauce, topped with mozzarella and fresco cheese and 2 eggs your choice. Served with Beans, potatoes and your choice of protein. Beef of Barbacoa additional .75</p>
-                      </div><!-- /.menu-item -->
+                      </div>
                       <div class="menu-item">
                         <h4 class="menu__item-title">Migas</h4>
                         <span class="menu__item-price">8.75</span>
                         <p class="menu__item-desc">Cut corn tortillas lightly fried and scrambled with egg topped with mozzarella cheese. Served with potatoes and beans</p>
-                      </div><!-- /.menu-item -->
+                      </div>
                       <div class="menu-item">
                         <h4 class="menu__item-title">Breakfast Bowl</h4>
                         <span class="menu__item-price">6.50</span>
                         <p class="menu__item-desc">8oz Bowl filled with your choice of egg and 2 add ins</p>
-                      </div><!-- /.menu-item -->
+                      </div>
                       <div class="menu-item">
                         <h4 class="menu__item-title">Ameri-Mex</h4>
                         <span class="menu__item-price">8.50</span>
                         <p class="menu__item-desc">2 pancakes, eggs, sausage patty and two strips of bacon</p>
-                      </div><!-- /.menu-item -->
+                      </div>
                       <div class="menu-item">
                         <h4 class="menu__item-title">Mex Egg Burrito</h4>
                         <span class="menu__item-price">12.00</span>
                         <p class="menu__item-desc">Choice of eggs, beans, cheddar cheese, and potato UPGRADE to chorizo and potato additional .75</p>
-                      </div><!-- /.menu-item -->
-                    </div><!-- /.col-lg-6 -->
-                  </div><!-- /.row  -->
-                  <div class="row">
-                    <div class="col-sm-12 col-md-12 col-lg-6 menu-wrapper-inner">
-                      <h3 class="menu-category-title">BEAN TACOS</h3>
-                      <div class="menu-item">
-                        <h4 class="menu__item-title">Beans</h4>
-                        <span class="menu__item-price">2.50</span>
-                      </div><!-- /.menu-item -->
-                      <div class="menu-item">
-                        <h4 class="menu__item-title">Bean & Cheese</h4>
-                        <span class="menu__item-price">2.75</span>
-                      </div><!-- /.menu-item -->
-                      <div class="menu-item">
-                        <h4 class="menu__item-title">Bean & Chorizo</h4>
-                        <span class="menu__item-price">2.75</span>
-                      </div><!-- /.menu-item -->
-                      <div class="menu-item">
-                        <h4 class="menu__item-title">Bean & Rice</h4>
-                        <span class="menu__item-price">2.75</span>
-                      </div><!-- /.menu-item -->
-                      <div class="menu-item">
-                        <h4 class="menu__item-title">Bean & Fresco</h4>
-                        <span class="menu__item-price">3.00</span>
-                      </div><!-- /.menu-item -->
-                    </div><!-- /.col-lg-6 -->
-                  </div><!-- /.row  -->
-                </div><!-- /.tab  -->
-                <div class="tab-pane fade" id="tab3">
-                  <div class="row">
-                    <div class="col-sm-12 col-md-12 col-lg-6 menu-wrapper-inner">
-                      <h3 class="menu-category-title">LUNCH TACOS</h3>
-                      <div class="menu-item">
-                        <h4 class="menu__item-title">Beef Fajita (Steak)</h4>
-                        <span class="menu__item-price">4.50</span>
-                      </div><!-- /.menu-item -->
-                      <div class="menu-item">
-                        <h4 class="menu__item-title">Barbacoa (Beef Cheek Meat)</h4>
-                        <span class="menu__item-price">4.50</span>
-                      </div><!-- /.menu-item -->
-                      <div class="menu-item">
-                        <h4 class="menu__item-title">Picadillo (Ground Beef)</h4>
-                        <span class="menu__item-price">4.00</span>
-                      </div><!-- /.menu-item -->
-                      <div class="menu-item">
-                        <h4 class="menu__item-title">Desebrada (Shredded Beef)</h4>
-                        <span class="menu__item-price">4.00</span>
-                      </div><!-- /.menu-item -->
-                      <div class="menu-item">
-                        <h4 class="menu__item-title">Carne Guisada (Stewed Meat)</h4>
-                        <span class="menu__item-price">4.00</span>
-                      </div><!-- /.menu-item -->
-                      <div class="menu-item">
-                        <h4 class="menu__item-title">Asado de Puerco Rojo</h4>
-                        <span class="menu__item-price">4.00</span>
-                      </div><!-- /.menu-item -->
-                      <div class="menu-item">
-                        <h4 class="menu__item-title">Al Pastor (Split-Roasted Pork)</h4>
-                        <span class="menu__item-price">4.00</span>
-                      </div><!-- /.menu-item -->
-                      <div class="menu-item">
-                        <h4 class="menu__item-title">Chicharron Pork (Pork Skins in Green Sauce)</h4>
-                        <span class="menu__item-price">4.50</span>
-                      </div><!-- /.menu-item -->
-                      <div class="menu-item">
-                        <h4 class="menu__item-title">Chicken Fajita</h4>
-                        <span class="menu__item-price">4.00</span>
-                      </div><!-- /.menu-item -->
-                      <div class="menu-item">
-                        <h4 class="menu__item-title">Green Chicken</h4>
-                        <span class="menu__item-price">4.00</span>
-                      </div><!-- /.menu-item -->
-                      <div class="menu-item">
-                        <h4 class="menu__item-title">Chipotle Chicken</h4>
-                        <span class="menu__item-price">4.00</span>
-                      </div><!-- /.menu-item -->
-                    </div><!-- /.col-lg-6 -->
+                      </div>
+                    </div>
                     <div class="col-sm-12 col-md-12 col-lg-6 menu-wrapper-inner">
                       <h3 class="menu-category-title">LUNCH PLATTERS</h3>
                       <div class="menu-item">
                         <h4 class="menu__item-title">Gorditas</h4>
                         <span class="menu__item-price">6.00</span>
                         <p class="menu__item-desc">A corn pita filled with cheese, beans, and your choice of meat. Served with lettuce and tomato. Beef or Barbacoa is an additional 0.75</p>
-                      </div><!-- /.menu-item -->
+                      </div>
                       <div class="menu-item">
                         <h4 class="menu__item-title">Street Tacos</h4>
                         <span class="menu__item-price">11.00</span>
                         <p class="menu__item-desc">5 mini corn tortilla tacos with your choice of chopped Al pastor (spit-roasted pork), beef fajita, or chicken fajita. Served with cilantro, raw onion, grilled onion, and lime. Beef is an additional 0.75, Barbacoa is an additional 2.00. An upgrade to quesadillas is an additional 1.50</p>
-                      </div><!-- /.menu-item -->
+                      </div>
                       <div class="menu-item">
                         <h4 class="menu__item-title">Mex Nachos</h4>
                         <span class="menu__item-price">14.00</span>
                         <p class="menu__item-desc">Beef Fajita or Chicken Fajita, beans, cheddar, queso blanco, pico de gallo, guacamole, and crema. Beef or Barbacoa is an additional 0.75</p>
-                      </div><!-- /.menu-item -->
+                      </div>
                       <div class="menu-item">
                         <h4 class="menu__item-title">Lunch Plate</h4>
                         <span class="menu__item-price">11.00</span>
                         <p class="menu__item-desc">Includes rice, beans, two homemade tortillas and choice of 2 meats. Beef or Barbacoa additional .75</p>
-                      </div><!-- /.menu-item -->
+                      </div>
                       <div class="menu-item">
                         <h4 class="menu__item-title">Tostada</h4>
                         <span class="menu__item-price">5.75</span>
                         <p class="menu__item-desc">Fried corn tortilla, topped with refried beans, meat choice, lettuce, sour cream, tomatoes, fresco cheese and guacamole. Beef or Barbacoa additional .75</p>
-                      </div><!-- /.menu-item -->
+                      </div>
                       <div class="menu-item">
                         <h4 class="menu__item-title">Mex Burrito</h4>
                         <span class="menu__item-price">14.75</span>
                         <p class="menu__item-desc">Choice of meat, beans, rice, lettuce tomato, guacamole, sour cream, mozzarella Beef or Barbacoa additional 2.00</p>
-                      </div><!-- /.menu-item -->
+                      </div>
                       <div class="menu-item">
                         <h4 class="menu__item-title">Mex Quesadilla</h4>
                         <span class="menu__item-price">8.00</span>
                         <p class="menu__item-desc">Choice of meat, served with sour cream, lettuce, tomato, guac Additional 2.00 for Beef or Barbacoa</p>
-                      </div><!-- /.menu-item -->
+                      </div>
                       <div class="menu-item">
                         <h4 class="menu__item-title">Meat Torta</h4>
                         <span class="menu__item-price">11.50</span>
                         <p class="menu__item-desc">A Mexican sandwich bread toasted with butter, beans, lettuce, tomato, mozzarella cheese, crema, guacamole and choice of meat Beef or Barbacoa additional .75</p>
-                      </div><!-- /.menu-item -->
-                    </div><!-- /.col-lg-6 -->
-                  </div><!-- /.row  -->
+                      </div>
+                    </div>
+                  </div>
+                </div><!-- /.tab2 PLATTERS -->
+
+                <!-- TAB 3: COMBOS & SPECIALS -->
+                <div class="tab-pane fade" id="tab3">
                   <div class="row">
-                    <div class="col-sm-12 col-md-12 col-lg-12 menu-wrapper-inner">
-                      <h3 class="menu-category-title">TACO TOPPINGS</h3>
-                      <p class="menu__item-desc" style="margin-bottom: 20px; font-style: italic; color: #666;">Refried beans, cilantro, onions, tomato, lettuce, fresh jalapeños complementary (upon request). *Anything on side or extra has a charge. Extra beans .25</p>
-                      <div class="row">
-                        <div class="col-sm-12 col-md-12 col-lg-6">
-                          <div class="menu-item">
-                            <h4 class="menu__item-title">Guacamole</h4>
-                            <span class="menu__item-price">0.75</span>
-                          </div><!-- /.menu-item -->
-                          <div class="menu-item">
-                            <h4 class="menu__item-title">Pickled Jalapeno</h4>
-                            <span class="menu__item-price">0.25</span>
-                          </div><!-- /.menu-item -->
-                          <div class="menu-item">
-                            <h4 class="menu__item-title">Pico De Gallo</h4>
-                            <span class="menu__item-price">0.50</span>
-                          </div><!-- /.menu-item -->
-                          <div class="menu-item">
-                            <h4 class="menu__item-title">Rice</h4>
-                            <span class="menu__item-price">0.25</span>
-                          </div><!-- /.menu-item -->
-                          <div class="menu-item">
-                            <h4 class="menu__item-title">Cheddar</h4>
-                            <span class="menu__item-price">0.35</span>
-                          </div><!-- /.menu-item -->
-                          <div class="menu-item">
-                            <h4 class="menu__item-title">Bacon Strip</h4>
-                            <span class="menu__item-price">1.25</span>
-                          </div><!-- /.menu-item -->
-                          <div class="menu-item">
-                            <h4 class="menu__item-title">Mozzarella</h4>
-                            <span class="menu__item-price">0.35</span>
-                          </div><!-- /.menu-item -->
-                          <div class="menu-item">
-                            <h4 class="menu__item-title">Egg</h4>
-                            <span class="menu__item-price">1.25</span>
-                          </div><!-- /.menu-item -->
-                          <div class="menu-item">
-                            <h4 class="menu__item-title">Fresco Cheese</h4>
-                            <span class="menu__item-price">0.50</span>
-                          </div><!-- /.menu-item -->
-                        </div><!-- /.col-lg-6 -->
-                        <div class="col-sm-12 col-md-12 col-lg-6">
-                          <div class="menu-item">
-                            <h4 class="menu__item-title">Chori Potato</h4>
-                            <span class="menu__item-price">0.50</span>
-                          </div><!-- /.menu-item -->
-                          <div class="menu-item">
-                            <h4 class="menu__item-title">Grilled Onion</h4>
-                            <span class="menu__item-price">0.50</span>
-                          </div><!-- /.menu-item -->
-                          <div class="menu-item">
-                            <h4 class="menu__item-title">Diced Potato</h4>
-                            <span class="menu__item-price">0.30</span>
-                          </div><!-- /.menu-item -->
-                          <div class="menu-item">
-                            <h4 class="menu__item-title">Grilled Diced Jalapeno</h4>
-                            <span class="menu__item-price">0.50</span>
-                          </div><!-- /.menu-item -->
-                          <div class="menu-item">
-                            <h4 class="menu__item-title">Mex-Style Potato</h4>
-                            <span class="menu__item-price">0.50</span>
-                          </div><!-- /.menu-item -->
-                          <div class="menu-item">
-                            <h4 class="menu__item-title">Jalapeno</h4>
-                            <span class="menu__item-price">0.50</span>
-                          </div><!-- /.menu-item -->
-                          <div class="menu-item">
-                            <h4 class="menu__item-title">Extra Tortilla</h4>
-                            <span class="menu__item-price">0.75</span>
-                          </div><!-- /.menu-item -->
-                          <div class="menu-item">
-                            <h4 class="menu__item-title">Creama</h4>
-                            <span class="menu__item-price">0.30</span>
-                          </div><!-- /.menu-item -->
-                          <div class="menu-item">
-                            <h4 class="menu__item-title">Extra Salsa</h4>
-                            <span class="menu__item-price">0.15</span>
-                          </div><!-- /.menu-item -->
-                        </div><!-- /.col-lg-6 -->
-                      </div><!-- /.row -->
-                    </div><!-- /.col-lg-12 -->
-                  </div><!-- /.row  -->
-                </div><!-- /.tab  -->
-                <div class="tab-pane fade" id="tab4">
-                  <div class="row">
-                    <div class="col-sm-12 col-md-12 col-lg-12 menu-wrapper-inner">
+                    <div class="col-sm-12 col-md-12 col-lg-6 menu-wrapper-inner">
                       <h3 class="menu-category-title">COMBOS</h3>
                       <p class="menu__item-desc" style="margin-bottom: 20px; font-style: italic; color: #666;">Additional 1.00 Charge for Specialty Tacos</p>
                       <div class="menu-item">
                         <h4 class="menu__item-title">Taco Plate</h4>
                         <span class="menu__item-price">12.00</span>
                         <p class="menu__item-desc">Rice, Beans and 2 tacos with your choice of corn or flour tortillas</p>
-                      </div><!-- /.menu-item -->
+                      </div>
                       <div class="menu-item">
                         <h4 class="menu__item-title">Gordita & Taco</h4>
                         <span class="menu__item-price">10.00</span>
                         <p class="menu__item-desc">Corn pita filled with mozzarella cheese and beans, With your choice of meat, paired with a meat taco</p>
-                      </div><!-- /.menu-item -->
+                      </div>
                       <div class="menu-item">
                         <h4 class="menu__item-title">Gordita Plate</h4>
                         <span class="menu__item-price">13.00</span>
                         <p class="menu__item-desc">Rice, beans, and a gordita with choice of meat</p>
-                      </div><!-- /.menu-item -->
+                      </div>
                       <div class="menu-item">
                         <h4 class="menu__item-title">Tostada & Taco</h4>
                         <span class="menu__item-price">9.50</span>
                         <p class="menu__item-desc">Fried flat corn tortilla, topped with refried beans, lettuce, tomatoes, mozzarella cheese, crema, guacamole, and your choice of meat, paired with a meat taco</p>
-                      </div><!-- /.menu-item -->
+                      </div>
                       <div class="menu-item">
                         <h4 class="menu__item-title">Torta Plate</h4>
                         <span class="menu__item-price">14.00</span>
                         <p class="menu__item-desc">Rice, beans, torta, choice of meat</p>
-                      </div><!-- /.menu-item -->
+                      </div>
                       <div class="menu-item">
                         <h4 class="menu__item-title">Quesadilla Plate</h4>
                         <span class="menu__item-price">15.00</span>
                         <p class="menu__item-desc">Rice, Beans, 2 Quesadillas with a choice of meat</p>
-                      </div><!-- /.menu-item -->
+                      </div>
                       <div class="menu-item">
                         <h4 class="menu__item-title">Quesadilla & Taco</h4>
                         <span class="menu__item-price">9.25</span>
                         <p class="menu__item-desc">Choice of meat quesadilla and choice of taco</p>
-                      </div><!-- /.menu-item -->
-                    </div><!-- /.col-lg-12 -->
-                  </div><!-- /.row  -->
-                </div><!-- /.tab  -->
-                <div class="tab-pane fade" id="tab5">
-                  <div class="row">
+                      </div>
+                    </div>
                     <div class="col-sm-12 col-md-12 col-lg-6 menu-wrapper-inner">
                       <h3 class="menu-category-title">WEEKEND CRAVINGS</h3>
                       <div class="menu-item">
                         <h4 class="menu__item-title">Menudo</h4>
                         <span class="menu__item-price">13.50</span>
                         <p class="menu__item-desc">Traditional Mexican soup made with beef tripe in a broth with red chili pepper base with hominy. Served with 2 tortillas. Cilantro, onion and diced jalapeno. Add toasted butter bread 2.00</p>
-                      </div><!-- /.menu-item -->
+                      </div>
                       <div class="menu-item">
                         <h4 class="menu__item-title">Chicken Pozole</h4>
                         <span class="menu__item-price">11.50</span>
                         <p class="menu__item-desc">Traditional Mexican hominy soup with shredded chicken in a red chile broth with hominy. Served with 2 tostadas, cabbage, radish and limes.</p>
-                      </div><!-- /.menu-item -->
-                    </div><!-- /.col-lg-6 -->
-                  </div><!-- /.row  -->
-                </div><!-- /.tab  -->
-                <div class="tab-pane fade" id="tab6">
+                      </div>
+                    </div>
+                  </div>
+                </div><!-- /.tab3 COMBOS & SPECIALS -->
+
+                <!-- TAB 4: TOPPINGS & SIDES -->
+                <div class="tab-pane fade" id="tab4">
                   <div class="row">
                     <div class="col-sm-12 col-md-12 col-lg-12 menu-wrapper-inner">
-                      <h3 class="menu-category-title">DRINKS & SIDES</h3>
+                      <h3 class="menu-category-title">TACO TOPPINGS</h3>
+                      <p class="menu__item-desc" style="margin-bottom: 20px; font-style: italic; color: #666;">Refried beans, cilantro, onions, tomato, lettuce, fresh jalapeños complementary (upon request). *Anything on side or extra has a charge. Extra beans .25</p>
+                      <div class="row">
+                        <div class="col-sm-12 col-md-12 col-lg-6">
+                          <div class="menu-item vegan-item">
+                            <h4 class="menu__item-title"><i class="fas fa-leaf" style="color: #22c55e; margin-right: 5px;"></i>Guacamole</h4>
+                            <span class="menu__item-price">0.75</span>
+                          </div>
+                          <div class="menu-item vegan-item">
+                            <h4 class="menu__item-title"><i class="fas fa-leaf" style="color: #22c55e; margin-right: 5px;"></i>Pickled Jalapeno</h4>
+                            <span class="menu__item-price">0.25</span>
+                          </div>
+                          <div class="menu-item vegan-item">
+                            <h4 class="menu__item-title"><i class="fas fa-leaf" style="color: #22c55e; margin-right: 5px;"></i>Pico De Gallo</h4>
+                            <span class="menu__item-price">0.50</span>
+                          </div>
+                          <div class="menu-item vegan-item">
+                            <h4 class="menu__item-title"><i class="fas fa-leaf" style="color: #22c55e; margin-right: 5px;"></i>Rice</h4>
+                            <span class="menu__item-price">0.25</span>
+                          </div>
+                          <div class="menu-item">
+                            <h4 class="menu__item-title">Cheddar</h4>
+                            <span class="menu__item-price">0.35</span>
+                          </div>
+                          <div class="menu-item">
+                            <h4 class="menu__item-title">Bacon Strip</h4>
+                            <span class="menu__item-price">1.25</span>
+                          </div>
+                          <div class="menu-item">
+                            <h4 class="menu__item-title">Mozzarella</h4>
+                            <span class="menu__item-price">0.35</span>
+                          </div>
+                          <div class="menu-item">
+                            <h4 class="menu__item-title">Egg</h4>
+                            <span class="menu__item-price">1.25</span>
+                          </div>
+                          <div class="menu-item">
+                            <h4 class="menu__item-title">Fresco Cheese</h4>
+                            <span class="menu__item-price">0.50</span>
+                          </div>
+                        </div>
+                        <div class="col-sm-12 col-md-12 col-lg-6">
+                          <div class="menu-item">
+                            <h4 class="menu__item-title">Chori Potato</h4>
+                            <span class="menu__item-price">0.50</span>
+                          </div>
+                          <div class="menu-item vegan-item">
+                            <h4 class="menu__item-title"><i class="fas fa-leaf" style="color: #22c55e; margin-right: 5px;"></i>Grilled Onion</h4>
+                            <span class="menu__item-price">0.50</span>
+                          </div>
+                          <div class="menu-item vegan-item">
+                            <h4 class="menu__item-title"><i class="fas fa-leaf" style="color: #22c55e; margin-right: 5px;"></i>Diced Potato</h4>
+                            <span class="menu__item-price">0.30</span>
+                          </div>
+                          <div class="menu-item vegan-item">
+                            <h4 class="menu__item-title"><i class="fas fa-leaf" style="color: #22c55e; margin-right: 5px;"></i>Grilled Diced Jalapeno</h4>
+                            <span class="menu__item-price">0.50</span>
+                          </div>
+                          <div class="menu-item vegan-item">
+                            <h4 class="menu__item-title"><i class="fas fa-leaf" style="color: #22c55e; margin-right: 5px;"></i>Mex-Style Potato</h4>
+                            <span class="menu__item-price">0.50</span>
+                          </div>
+                          <div class="menu-item vegan-item">
+                            <h4 class="menu__item-title"><i class="fas fa-leaf" style="color: #22c55e; margin-right: 5px;"></i>Jalapeno</h4>
+                            <span class="menu__item-price">0.50</span>
+                          </div>
+                          <div class="menu-item">
+                            <h4 class="menu__item-title">Extra Tortilla</h4>
+                            <span class="menu__item-price">0.75</span>
+                          </div>
+                          <div class="menu-item">
+                            <h4 class="menu__item-title">Creama</h4>
+                            <span class="menu__item-price">0.30</span>
+                          </div>
+                          <div class="menu-item vegan-item">
+                            <h4 class="menu__item-title"><i class="fas fa-leaf" style="color: #22c55e; margin-right: 5px;"></i>Extra Salsa</h4>
+                            <span class="menu__item-price">0.15</span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row" style="margin-top: 30px;">
+                    <div class="col-sm-12 col-md-12 col-lg-12 menu-wrapper-inner">
+                      <h3 class="menu-category-title">SIDES</h3>
+                      <div class="row">
+                        <div class="col-sm-12 col-md-12 col-lg-6">
+                          <div class="menu-item vegan-item">
+                            <h4 class="menu__item-title"><i class="fas fa-leaf" style="color: #22c55e; margin-right: 5px;"></i>Guacamole</h4>
+                            <span class="menu__item-price">4oz 3.75 / 8oz 5.25</span>
+                          </div>
+                          <div class="menu-item vegan-item">
+                            <h4 class="menu__item-title"><i class="fas fa-leaf" style="color: #22c55e; margin-right: 5px;"></i>Chips & Guacamole (8oz)</h4>
+                            <span class="menu__item-price">5.75</span>
+                          </div>
+                          <div class="menu-item vegan-item">
+                            <h4 class="menu__item-title"><i class="fas fa-leaf" style="color: #22c55e; margin-right: 5px;"></i>Pico De Gallo</h4>
+                            <span class="menu__item-price">2oz 0.75 / 4oz 1.25</span>
+                          </div>
+                          <div class="menu-item vegan-item">
+                            <h4 class="menu__item-title"><i class="fas fa-leaf" style="color: #22c55e; margin-right: 5px;"></i>Side of Rice (8 oz)</h4>
+                            <span class="menu__item-price">3.00</span>
+                          </div>
+                          <div class="menu-item">
+                            <h4 class="menu__item-title">Crema</h4>
+                            <span class="menu__item-price">2oz 0.75 / 4oz 1.50</span>
+                          </div>
+                          <div class="menu-item vegan-item">
+                            <h4 class="menu__item-title"><i class="fas fa-leaf" style="color: #22c55e; margin-right: 5px;"></i>Side of Beans (8oz)</h4>
+                            <span class="menu__item-price">3.00</span>
+                          </div>
+                          <div class="menu-item">
+                            <h4 class="menu__item-title">Cheddar</h4>
+                            <span class="menu__item-price">2oz 0.50 / 4oz 1.00</span>
+                          </div>
+                          <div class="menu-item vegan-item">
+                            <h4 class="menu__item-title"><i class="fas fa-leaf" style="color: #22c55e; margin-right: 5px;"></i>Side of Diced Potatoes (8oz)</h4>
+                            <span class="menu__item-price">3.25</span>
+                          </div>
+                          <div class="menu-item">
+                            <h4 class="menu__item-title">Fresco</h4>
+                            <span class="menu__item-price">2oz 1.00 / 4oz 2.00</span>
+                          </div>
+                          <div class="menu-item vegan-item">
+                            <h4 class="menu__item-title"><i class="fas fa-leaf" style="color: #22c55e; margin-right: 5px;"></i>Side of Mex Potatoes (8oz)</h4>
+                            <span class="menu__item-price">3.50</span>
+                          </div>
+                        </div>
+                        <div class="col-sm-12 col-md-12 col-lg-6">
+                          <div class="menu-item vegan-item">
+                            <h4 class="menu__item-title"><i class="fas fa-leaf" style="color: #22c55e; margin-right: 5px;"></i>Pickled Jalapeno</h4>
+                            <span class="menu__item-price">4oz 1.00</span>
+                          </div>
+                          <div class="menu-item">
+                            <h4 class="menu__item-title">Side of Chorizo Potatoes (8oz)</h4>
+                            <span class="menu__item-price">3.50</span>
+                          </div>
+                          <div class="menu-item">
+                            <h4 class="menu__item-title">Chips & Queso Blanco</h4>
+                            <span class="menu__item-price">6.00</span>
+                          </div>
+                          <div class="menu-item vegan-item">
+                            <h4 class="menu__item-title"><i class="fas fa-leaf" style="color: #22c55e; margin-right: 5px;"></i>Chile Toreado</h4>
+                            <span class="menu__item-price">0.75</span>
+                            <p class="menu__item-desc">Jalapeño or Serrano</p>
+                          </div>
+                          <div class="menu-item vegan-item">
+                            <h4 class="menu__item-title"><i class="fas fa-leaf" style="color: #22c55e; margin-right: 5px;"></i>Chips & Salsa</h4>
+                            <span class="menu__item-price">2.00</span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div><!-- /.tab4 TOPPINGS & SIDES -->
+
+                <!-- TAB 5: DRINKS -->
+                <div class="tab-pane fade" id="tab5">
+                  <div class="row">
+                    <div class="col-sm-12 col-md-12 col-lg-12 menu-wrapper-inner">
+                      <h3 class="menu-category-title">DRINKS</h3>
                       <div class="row">
                         <div class="col-sm-12 col-md-12 col-lg-6">
                           <div class="menu-item">
                             <h4 class="menu__item-title">Canned Soda</h4>
                             <span class="menu__item-price">1.50</span>
-                          </div><!-- /.menu-item -->
+                          </div>
                           <div class="menu-item">
                             <h4 class="menu__item-title">Milk, Chocolate Milk</h4>
                             <span class="menu__item-price">2.00</span>
-                          </div><!-- /.menu-item -->
+                          </div>
                           <div class="menu-item">
                             <h4 class="menu__item-title">Freshly Brewed Unsweet Tea</h4>
                             <span class="menu__item-price">2.75</span>
-                          </div><!-- /.menu-item -->
+                          </div>
                           <div class="menu-item">
                             <h4 class="menu__item-title">Gold Peak Tea</h4>
                             <span class="menu__item-price">2.75</span>
-                          </div><!-- /.menu-item -->
+                          </div>
                           <div class="menu-item">
                             <h4 class="menu__item-title">Coffee</h4>
                             <span class="menu__item-price">1.80</span>
-                          </div><!-- /.menu-item -->
+                          </div>
                           <div class="menu-item">
                             <h4 class="menu__item-title">Joe's Tea</h4>
                             <span class="menu__item-price">2.75</span>
-                          </div><!-- /.menu-item -->
+                          </div>
                           <div class="menu-item">
                             <h4 class="menu__item-title">Juice</h4>
                             <span class="menu__item-price">1.75</span>
-                          </div><!-- /.menu-item -->
+                          </div>
                           <div class="menu-item">
                             <h4 class="menu__item-title">Arizona</h4>
                             <span class="menu__item-price">2.00</span>
-                          </div><!-- /.menu-item -->
+                          </div>
                           <div class="menu-item">
                             <h4 class="menu__item-title">Tropicana Apple/Orange Juice/ Lemonade 12oz</h4>
                             <span class="menu__item-price">2.75</span>
-                          </div><!-- /.menu-item -->
+                          </div>
                           <div class="menu-item">
                             <h4 class="menu__item-title">16oz Bottled Cokes</h4>
                             <span class="menu__item-price">2.50</span>
-                          </div><!-- /.menu-item -->
-                        </div><!-- /.col-lg-6 -->
+                          </div>
+                        </div>
                         <div class="col-sm-12 col-md-12 col-lg-6">
                           <div class="menu-item">
                             <h4 class="menu__item-title">Medio Litro Coca Cola, Fresca, Sprite, Fantas, Joyas</h4>
                             <span class="menu__item-price">3.75</span>
-                          </div><!-- /.menu-item -->
+                          </div>
                           <div class="menu-item">
                             <h4 class="menu__item-title">Gatorade</h4>
                             <span class="menu__item-price">2.50</span>
-                          </div><!-- /.menu-item -->
+                          </div>
                           <div class="menu-item">
                             <h4 class="menu__item-title">Red Bull</h4>
                             <span class="menu__item-price">2.75</span>
-                          </div><!-- /.menu-item -->
+                          </div>
                           <div class="menu-item">
                             <h4 class="menu__item-title">Jarritos</h4>
                             <span class="menu__item-price">2.75</span>
-                          </div><!-- /.menu-item -->
+                          </div>
                           <div class="menu-item">
                             <h4 class="menu__item-title">Monster 16oz</h4>
                             <span class="menu__item-price">3.50</span>
-                          </div><!-- /.menu-item -->
+                          </div>
                           <div class="menu-item">
                             <h4 class="menu__item-title">Topo Chico</h4>
                             <span class="menu__item-price">3.00</span>
-                          </div><!-- /.menu-item -->
+                          </div>
                           <div class="menu-item">
                             <h4 class="menu__item-title">Celsius</h4>
                             <span class="menu__item-price">2.75</span>
-                          </div><!-- /.menu-item -->
+                          </div>
                           <div class="menu-item">
                             <h4 class="menu__item-title">Bottled Water</h4>
                             <span class="menu__item-price">1.25</span>
-                          </div><!-- /.menu-item -->
+                          </div>
                           <div class="menu-item">
                             <h4 class="menu__item-title">Agua Frescas</h4>
                             <span class="menu__item-price">24 oz 3.99 / 32 oz 4.99</span>
                             <p class="menu__item-desc">Flavors vary</p>
-                          </div><!-- /.menu-item -->
-                        </div><!-- /.col-lg-6 -->
-                      </div><!-- /.row -->
-                    </div><!-- /.col-lg-12 -->
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div><!-- /.tab5 DRINKS -->
+
+                <!-- TAB 6: VEGAN & VEGETARIAN -->
+                <div class="tab-pane fade" id="tab6">
+                  <div class="row">
                     <div class="col-sm-12 col-md-12 col-lg-12 menu-wrapper-inner">
-                      <h3 class="menu-category-title">SIDES</h3>
-                      <div class="row">
-                        <div class="col-sm-12 col-md-12 col-lg-6">
-                          <div class="menu-item">
-                            <h4 class="menu__item-title">Guacamole</h4>
-                            <span class="menu__item-price">4oz 3.75 / 8oz 5.25</span>
-                          </div><!-- /.menu-item -->
-                          <div class="menu-item">
-                            <h4 class="menu__item-title">Chips & Guacamole (8oz)</h4>
-                            <span class="menu__item-price">5.75</span>
-                          </div><!-- /.menu-item -->
-                          <div class="menu-item">
-                            <h4 class="menu__item-title">Pico De Gallo</h4>
-                            <span class="menu__item-price">2oz 0.75 / 4oz 1.25</span>
-                          </div><!-- /.menu-item -->
-                          <div class="menu-item">
-                            <h4 class="menu__item-title">Side of Rice (8 oz)</h4>
-                            <span class="menu__item-price">3.00</span>
-                          </div><!-- /.menu-item -->
-                          <div class="menu-item">
-                            <h4 class="menu__item-title">Crema</h4>
-                            <span class="menu__item-price">2oz 0.75 / 4oz 1.50</span>
-                          </div><!-- /.menu-item -->
-                          <div class="menu-item">
-                            <h4 class="menu__item-title">Side of Beans (8oz)</h4>
-                            <span class="menu__item-price">3.00</span>
-                          </div><!-- /.menu-item -->
-                          <div class="menu-item">
-                            <h4 class="menu__item-title">Cheddar</h4>
-                            <span class="menu__item-price">2oz 0.50 / 4oz 1.00</span>
-                          </div><!-- /.menu-item -->
-                          <div class="menu-item">
-                            <h4 class="menu__item-title">Side of Diced Potatoes (8oz)</h4>
-                            <span class="menu__item-price">3.25</span>
-                          </div><!-- /.menu-item -->
-                          <div class="menu-item">
-                            <h4 class="menu__item-title">Fresco</h4>
-                            <span class="menu__item-price">2oz 1.00 / 4oz 2.00</span>
-                          </div><!-- /.menu-item -->
-                          <div class="menu-item">
-                            <h4 class="menu__item-title">Side of Mex Potatoes (8oz)</h4>
-                            <span class="menu__item-price">3.50</span>
-                          </div><!-- /.menu-item -->
-                        </div><!-- /.col-lg-6 -->
-                        <div class="col-sm-12 col-md-12 col-lg-6">
-                          <div class="menu-item">
-                            <h4 class="menu__item-title">Pickled Jalapeno</h4>
-                            <span class="menu__item-price">4oz 1.00</span>
-                          </div><!-- /.menu-item -->
-                          <div class="menu-item">
-                            <h4 class="menu__item-title">Side of Chorizo Potatoes (8oz)</h4>
-                            <span class="menu__item-price">3.50</span>
-                          </div><!-- /.menu-item -->
-                          <div class="menu-item">
-                            <h4 class="menu__item-title">Chips & Queso Blanco</h4>
-                            <span class="menu__item-price">6.00</span>
-                          </div><!-- /.menu-item -->
-                          <div class="menu-item">
-                            <h4 class="menu__item-title">Chile Toreado</h4>
-                            <span class="menu__item-price">0.75</span>
-                            <p class="menu__item-desc">Jalapeño or Serrano</p>
-                          </div><!-- /.menu-item -->
-                          <div class="menu-item">
-                            <h4 class="menu__item-title">Chips & Salsa</h4>
-                            <span class="menu__item-price">2.00</span>
-                            <p class="menu__item-desc">Jalapeño or Serrano</p>
-                          </div><!-- /.menu-item -->
-                        </div><!-- /.col-lg-6 -->
-                      </div><!-- /.row -->
-                    </div><!-- /.col-lg-12 -->
-                  </div><!-- /.row  -->
-                </div><!-- /.tab  -->
+                      <div style="background: linear-gradient(135deg, rgba(34, 197, 94, 0.1), rgba(22, 163, 74, 0.05)); border-radius: 12px; padding: 20px; margin-bottom: 30px; text-align: center;">
+                        <h3 style="color: #22c55e; margin-bottom: 10px;"><i class="fas fa-leaf" style="margin-right: 10px;"></i>Plant-Based Options</h3>
+                        <p style="color: #666; margin: 0;">Delicious vegetarian and vegan-friendly items. Look for the <i class="fas fa-leaf" style="color: #22c55e;"></i> icon throughout our menu!</p>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-sm-12 col-md-12 col-lg-6 menu-wrapper-inner">
+                      <h3 class="menu-category-title"><i class="fas fa-leaf" style="color: #22c55e; margin-right: 10px;"></i>VEGETARIAN TACOS</h3>
+                      <div class="menu-item">
+                        <h4 class="menu__item-title"><i class="fas fa-leaf" style="color: #22c55e; margin-right: 5px;"></i>Taco Mr. Veggie</h4>
+                        <span class="menu__item-price">4.25</span>
+                        <p class="menu__item-desc">Beans, grilled onions, cilantro, cheddar cheese, guacamole, lettuce, diced tomato</p>
+                      </div>
+                      <div class="menu-item">
+                        <h4 class="menu__item-title"><i class="fas fa-leaf" style="color: #22c55e; margin-right: 5px;"></i>Potato</h4>
+                        <span class="menu__item-price">3.00</span>
+                      </div>
+                      <div class="menu-item">
+                        <h4 class="menu__item-title"><i class="fas fa-leaf" style="color: #22c55e; margin-right: 5px;"></i>Potato Mex Style</h4>
+                        <span class="menu__item-price">3.25</span>
+                      </div>
+                      <div class="menu-item">
+                        <h4 class="menu__item-title"><i class="fas fa-leaf" style="color: #22c55e; margin-right: 5px;"></i>Beans</h4>
+                        <span class="menu__item-price">2.50</span>
+                      </div>
+                      <div class="menu-item">
+                        <h4 class="menu__item-title"><i class="fas fa-leaf" style="color: #22c55e; margin-right: 5px;"></i>Bean & Cheese</h4>
+                        <span class="menu__item-price">2.75</span>
+                      </div>
+                      <div class="menu-item">
+                        <h4 class="menu__item-title"><i class="fas fa-leaf" style="color: #22c55e; margin-right: 5px;"></i>Bean & Rice</h4>
+                        <span class="menu__item-price">2.75</span>
+                      </div>
+                      <div class="menu-item">
+                        <h4 class="menu__item-title"><i class="fas fa-leaf" style="color: #22c55e; margin-right: 5px;"></i>Bean & Fresco</h4>
+                        <span class="menu__item-price">3.00</span>
+                      </div>
+                    </div>
+                    <div class="col-sm-12 col-md-12 col-lg-6 menu-wrapper-inner">
+                      <h3 class="menu-category-title"><i class="fas fa-leaf" style="color: #22c55e; margin-right: 10px;"></i>VEGAN SIDES & EXTRAS</h3>
+                      <div class="menu-item">
+                        <h4 class="menu__item-title"><i class="fas fa-leaf" style="color: #22c55e; margin-right: 5px;"></i>Guacamole</h4>
+                        <span class="menu__item-price">4oz 3.75 / 8oz 5.25</span>
+                      </div>
+                      <div class="menu-item">
+                        <h4 class="menu__item-title"><i class="fas fa-leaf" style="color: #22c55e; margin-right: 5px;"></i>Chips & Guacamole (8oz)</h4>
+                        <span class="menu__item-price">5.75</span>
+                      </div>
+                      <div class="menu-item">
+                        <h4 class="menu__item-title"><i class="fas fa-leaf" style="color: #22c55e; margin-right: 5px;"></i>Pico De Gallo</h4>
+                        <span class="menu__item-price">2oz 0.75 / 4oz 1.25</span>
+                      </div>
+                      <div class="menu-item">
+                        <h4 class="menu__item-title"><i class="fas fa-leaf" style="color: #22c55e; margin-right: 5px;"></i>Side of Rice (8 oz)</h4>
+                        <span class="menu__item-price">3.00</span>
+                      </div>
+                      <div class="menu-item">
+                        <h4 class="menu__item-title"><i class="fas fa-leaf" style="color: #22c55e; margin-right: 5px;"></i>Side of Beans (8oz)</h4>
+                        <span class="menu__item-price">3.00</span>
+                      </div>
+                      <div class="menu-item">
+                        <h4 class="menu__item-title"><i class="fas fa-leaf" style="color: #22c55e; margin-right: 5px;"></i>Side of Diced Potatoes (8oz)</h4>
+                        <span class="menu__item-price">3.25</span>
+                      </div>
+                      <div class="menu-item">
+                        <h4 class="menu__item-title"><i class="fas fa-leaf" style="color: #22c55e; margin-right: 5px;"></i>Side of Mex Potatoes (8oz)</h4>
+                        <span class="menu__item-price">3.50</span>
+                      </div>
+                      <div class="menu-item">
+                        <h4 class="menu__item-title"><i class="fas fa-leaf" style="color: #22c55e; margin-right: 5px;"></i>Chips & Salsa</h4>
+                        <span class="menu__item-price">2.00</span>
+                      </div>
+                      <div class="menu-item">
+                        <h4 class="menu__item-title"><i class="fas fa-leaf" style="color: #22c55e; margin-right: 5px;"></i>Chile Toreado</h4>
+                        <span class="menu__item-price">0.75</span>
+                        <p class="menu__item-desc">Jalapeño or Serrano</p>
+                      </div>
+                    </div>
+                  </div>
+                </div><!-- /.tab6 VEGAN -->
+
               </div><!-- /.tab-content  -->
             </div><!-- /.menu-wrapper  -->
           </div><!-- /.col-lg-12 -->
