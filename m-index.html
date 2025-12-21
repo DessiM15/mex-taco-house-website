@@ -287,6 +287,31 @@
     </div>
   </div>
 
+  <!-- Trucks & Coffee Event Popup -->
+  <div class="event-popup">
+    <div class="event-popup-content">
+      <button class="event-popup-x" aria-label="Close">&times;</button>
+      <img src="assets/trucks-in-coffee-Dec.jpeg" alt="Trucks & Coffee - End of Year Bash" class="event-popup-image">
+      <div class="event-popup-details">
+        <h3 class="event-popup-title">Trucks & Coffee</h3>
+        <p class="event-popup-subtitle">End of Year Bash</p>
+        <p class="event-popup-info">
+          <i class="fas fa-calendar-alt" style="color: #dc2626; margin-right: 5px;"></i>
+          <strong>Sunday, December 28th</strong><br>
+          <i class="fas fa-clock" style="color: #dc2626; margin-right: 5px;"></i>
+          8AM - 12PM<br>
+          <i class="fas fa-coffee" style="color: #dc2626; margin-right: 5px;"></i>
+          <strong>FREE COFFEE!</strong>
+        </p>
+        <p class="event-popup-location">
+          <i class="fas fa-map-marker-alt" style="color: #dc2626; margin-right: 5px;"></i>
+          25410 Northwest Freeway<br>Cypress, TX 77429
+        </p>
+      </div>
+      <button class="btn btn-primary btn-block event-popup-close">Got it!</button>
+    </div>
+  </div>
+
   <!-- Holiday Popup -->
   <div class="holiday-popup">
     <div class="holiday-popup-content">
@@ -306,6 +331,43 @@
 
   <!-- Mobile Site JavaScript -->
   <script src="assets/js/mobile-site.js"></script>
+
+  <!-- Event Popup Handler -->
+  <script>
+    (function() {
+      const eventPopup = document.querySelector('.event-popup');
+      const holidayPopup = document.querySelector('.holiday-popup');
+
+      if (eventPopup) {
+        // Show event popup after 2 seconds
+        setTimeout(() => {
+          eventPopup.classList.add('active');
+          document.body.style.overflow = 'hidden';
+        }, 2000);
+
+        // Close buttons for event popup
+        const eventCloseBtn = eventPopup.querySelector('.event-popup-close');
+        const eventCloseX = eventPopup.querySelector('.event-popup-x');
+
+        function closeEvent() {
+          eventPopup.classList.remove('active');
+
+          // Show holiday popup after short delay
+          if (holidayPopup) {
+            setTimeout(() => {
+              holidayPopup.classList.add('active');
+              document.body.style.overflow = 'hidden';
+            }, 500);
+          } else {
+            document.body.style.overflow = '';
+          }
+        }
+
+        if (eventCloseBtn) eventCloseBtn.addEventListener('click', closeEvent);
+        if (eventCloseX) eventCloseX.addEventListener('click', closeEvent);
+      }
+    })();
+  </script>
 
   <!-- Hero Order Button Handler -->
   <script>

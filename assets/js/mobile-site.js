@@ -35,7 +35,7 @@
   function init() {
     cacheElements();
     bindEvents();
-    checkHolidayPopup();
+    checkPopups();
     setActiveNavLink();
   }
 
@@ -48,6 +48,7 @@
     elements.orderDropdown = document.querySelector('.order-dropdown');
     elements.callPopup = document.querySelector('.call-popup');
     elements.holidayPopup = document.querySelector('.holiday-popup');
+    elements.eventPopup = document.querySelector('.event-popup');
   }
 
   // ========================================
@@ -129,6 +130,16 @@
       holidayCloseX.addEventListener('click', closeHolidayPopup);
     }
 
+    // Event popup close (both X button and Got it button)
+    const eventCloseBtn = document.querySelector('.event-popup-close');
+    const eventCloseX = document.querySelector('.event-popup-x');
+    if (eventCloseBtn) {
+      eventCloseBtn.addEventListener('click', closeEventPopup);
+    }
+    if (eventCloseX) {
+      eventCloseX.addEventListener('click', closeEventPopup);
+    }
+
     // Menu accordions
     document.querySelectorAll('.menu-category-header').forEach(header => {
       header.addEventListener('click', () => {
@@ -143,6 +154,9 @@
         if (state.menuOpen) closeMenu();
         if (state.orderDropdownOpen) closeOrderDropdown();
         if (state.callPopupOpen) closeCallPopup();
+        if (elements.eventPopup?.classList.contains('active')) {
+          closeEventPopup();
+        }
         if (elements.holidayPopup?.classList.contains('active')) {
           closeHolidayPopup();
         }
@@ -206,22 +220,30 @@
   }
 
   // ========================================
-  // Holiday Popup Functions
+  // Popup Functions (Event & Holiday)
   // ========================================
-  function checkHolidayPopup() {
-    // Only show once per session
-    if (elements.holidayPopup && !sessionStorage.getItem('holidayPopupShown')) {
+  function checkPopups() {
+    // Popups are handled by inline script in m-index.html
+    // This function is kept for compatibility but does nothing
+  }
+
+  function closeEventPopup() {
+    elements.eventPopup?.classList.remove('active');
+
+    // After closing event popup, show holiday popup
+    if (elements.holidayPopup) {
       setTimeout(() => {
         elements.holidayPopup.classList.add('active');
         document.body.style.overflow = 'hidden';
-      }, 2000);
+      }, 500);
+    } else {
+      document.body.style.overflow = '';
     }
   }
 
   function closeHolidayPopup() {
     elements.holidayPopup?.classList.remove('active');
     document.body.style.overflow = '';
-    sessionStorage.setItem('holidayPopupShown', 'true');
   }
 
   // ========================================
