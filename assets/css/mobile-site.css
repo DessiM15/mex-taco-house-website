@@ -36,6 +36,7 @@
   --font-display: 'Playfair Display', Georgia, serif;
 
   /* Layout */
+  --marquee-height: 32px;
   --navbar-height: 60px;
   --bottom-nav-height: 65px;
   --safe-area-bottom: env(safe-area-inset-bottom, 0px);
@@ -75,7 +76,7 @@ body {
   background-color: var(--white);
   min-height: 100vh;
   overflow-x: hidden;
-  padding-top: var(--navbar-height);
+  padding-top: calc(var(--marquee-height) + var(--navbar-height));
   padding-bottom: calc(var(--bottom-nav-height) + var(--safe-area-bottom));
 }
 
@@ -83,6 +84,57 @@ img {
   max-width: 100%;
   height: auto;
   display: block;
+}
+
+/* ========================================
+   MARQUEE BANNER
+   ======================================== */
+.marquee-banner {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: var(--marquee-height);
+  background: var(--black);
+  overflow: hidden;
+  z-index: 1001;
+  display: flex;
+  align-items: center;
+}
+
+.marquee-content {
+  display: flex;
+  animation: marquee-scroll 25s linear infinite;
+  white-space: nowrap;
+}
+
+.marquee-item {
+  color: var(--white);
+  font-size: 0.8rem;
+  font-weight: 500;
+  padding: 0 15px;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.marquee-item i {
+  color: var(--primary-red);
+}
+
+.marquee-separator {
+  color: var(--primary-red);
+  padding: 0 10px;
+  font-size: 0.7rem;
+}
+
+@keyframes marquee-scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
 }
 
 a {
@@ -132,7 +184,7 @@ p {
    ======================================== */
 .mobile-navbar {
   position: fixed;
-  top: 0;
+  top: var(--marquee-height);
   left: 0;
   right: 0;
   height: var(--navbar-height);
