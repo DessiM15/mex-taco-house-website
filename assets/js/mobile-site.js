@@ -119,10 +119,14 @@
       });
     }
 
-    // Holiday popup close
+    // Holiday popup close (both X button and Got it button)
     const holidayCloseBtn = document.querySelector('.holiday-popup-close');
+    const holidayCloseX = document.querySelector('.holiday-popup-x');
     if (holidayCloseBtn) {
       holidayCloseBtn.addEventListener('click', closeHolidayPopup);
+    }
+    if (holidayCloseX) {
+      holidayCloseX.addEventListener('click', closeHolidayPopup);
     }
 
     // Menu accordions
