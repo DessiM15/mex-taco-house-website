@@ -1357,7 +1357,7 @@
         <div class="container">
         <div class="row align-items-center">
           <div class="col-md-6">
-            <p style="color: #999; font-size: 0.9rem; margin: 0;">&copy; 2024 Mex Taco House. All Rights Reserved.</p>
+            <p style="color: #999; font-size: 0.9rem; margin: 0;">&copy; <span class="current-year">2024</span> Mex Taco House. All Rights Reserved.</p>
               </div>
           <div class="col-md-6" style="text-align: right;">
             <div style="display: flex; justify-content: flex-end; gap: 20px; align-items: center;">
@@ -1599,6 +1599,11 @@
         });
       }
     });
+  </script>
+
+  <!-- Dynamic Copyright Year -->
+  <script>
+    document.querySelectorAll('.current-year').forEach(el => el.textContent = new Date().getFullYear());
   </script>
 </body>
 </html>

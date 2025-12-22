@@ -3491,7 +3491,7 @@
               </div>
               <h3 class="order-card__title" style="color: #ffffff !important; font-size: 1.6rem; font-weight: 700; margin-bottom: 15px;">Call to Place Order, Pick Up In Store</h3>
               <p class="order-card__desc" style="color: #ffffff !important; font-size: 1rem; margin-bottom: 25px; line-height: 1.6;">Skip the wait! Call ahead and pick up your fresh, hot food when you arrive.</p>
-              <a href="tel:+18329349860" class="order-btn" style="display: inline-block; background: #ffffff; color: #dc2626; padding: 18px 50px; border-radius: 8px; text-decoration: none; font-weight: 700; font-size: 1.1rem; transition: all 0.3s ease; box-shadow: 0 4px 15px rgba(0,0,0,0.2);">
+              <a href="tel:+12812132844" class="order-btn" style="display: inline-block; background: #ffffff; color: #dc2626; padding: 18px 50px; border-radius: 8px; text-decoration: none; font-weight: 700; font-size: 1.1rem; transition: all 0.3s ease; box-shadow: 0 4px 15px rgba(0,0,0,0.2);">
                 <i class="fas fa-phone" style="margin-right: 8px;"></i> Call Now
               </a>
             </div>
@@ -4432,7 +4432,7 @@
           <div class="container">
           <div class="row align-items-center">
             <div class="col-md-6">
-              <p style="color: #999; font-size: 0.9rem; margin: 0;">&copy; 2024 Mex Taco House. All Rights Reserved.</p>
+              <p style="color: #999; font-size: 0.9rem; margin: 0;">&copy; <span class="current-year">2024</span> Mex Taco House. All Rights Reserved.</p>
                 </div>
             <div class="col-md-6" style="text-align: right;">
               <div style="display: flex; justify-content: flex-end; gap: 20px; align-items: center;">
@@ -5635,6 +5635,11 @@
         });
       }
     });
+  </script>
+
+  <!-- Dynamic Copyright Year -->
+  <script>
+    document.querySelectorAll('.current-year').forEach(el => el.textContent = new Date().getFullYear());
   </script>
 
   </div><!-- /.wrapper -->

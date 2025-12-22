@@ -790,7 +790,7 @@
       Cypress, TX 77429
     </p>
     <p class="footer-phone">
-      <a href="tel:+18329349860">(832) 934-9860</a>
+      <a href="tel:+12812132844">(281) 213-2844</a>
     </p>
     <div class="footer-hours">
       <p class="footer-hours-title"><i class="fas fa-clock"></i> Business Hours</p>
@@ -806,7 +806,7 @@
         <i class="fab fa-facebook"></i>
       </a>
     </div>
-    <p class="footer-copyright">&copy; 2024 Mex Taco House. All rights reserved.</p>
+    <p class="footer-copyright">&copy; <span class="current-year">2024</span> Mex Taco House. All rights reserved.</p>
     <a href="menu.html?desktop=true" class="footer-desktop-link">View Desktop Site</a>
   </footer>
 
@@ -853,9 +853,9 @@
         <i class="fas fa-phone"></i>
       </div>
       <h3 class="call-popup-title">Call Mex Taco House</h3>
-      <p class="call-popup-number">(832) 934-9860</p>
+      <p class="call-popup-number">(281) 213-2844</p>
       <div class="call-popup-actions">
-        <a href="tel:+18329349860" class="btn btn-primary btn-block">
+        <a href="tel:+12812132844" class="btn btn-primary btn-block">
           <i class="fas fa-phone"></i> Call Now
         </a>
         <button class="btn btn-outline call-popup-cancel" style="color: var(--gray-700); border-color: var(--gray-300);">Cancel</button>
@@ -865,6 +865,11 @@
 
   <!-- Mobile Site JavaScript -->
   <script src="assets/js/mobile-site.js"></script>
+
+  <!-- Dynamic Copyright Year -->
+  <script>
+    document.querySelectorAll('.current-year').forEach(el => el.textContent = new Date().getFullYear());
+  </script>
 
   <!-- Order CTA Button Handler -->
   <script>
