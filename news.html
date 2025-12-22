@@ -1605,92 +1605,71 @@
     document.addEventListener('DOMContentLoaded', function() {
       const orderDropdown = document.getElementById('orderDropdown');
       const dropdownMenu = document.getElementById('orderDropdownMenu');
-      
+      let isDropdownOpen = false;
+
       if (orderDropdown && dropdownMenu) {
-        // Force white background and black text styles
+        // Hide dropdown initially
+        dropdownMenu.style.display = 'none';
+
+        // Show dropdown on click
+        orderDropdown.addEventListener('click', function(e) {
+          e.preventDefault();
+          e.stopPropagation();
+
+          // Toggle dropdown visibility
+          if (dropdownMenu.style.display === 'block') {
+            dropdownMenu.style.display = 'none';
+            isDropdownOpen = false;
+          } else {
+            dropdownMenu.style.display = 'block';
+            isDropdownOpen = true;
+          }
+        });
+
+        // Hide dropdown when clicking outside
+        document.addEventListener('click', function(e) {
+          if (!orderDropdown.contains(e.target) && !dropdownMenu.contains(e.target)) {
+            dropdownMenu.style.display = 'none';
+            isDropdownOpen = false;
+          }
+        });
+
+        // Add hover effects to dropdown items
+        const dropdownItems = dropdownMenu.querySelectorAll('a');
+        dropdownItems.forEach(function(item) {
+          item.addEventListener('mouseenter', function() {
+            this.style.backgroundColor = '#f8f9fa';
+            this.style.color = '#dc2626';
+          });
+          item.addEventListener('mouseleave', function() {
+            this.style.backgroundColor = 'transparent';
+            this.style.color = '#333';
+          });
+        });
+
+        // Keep the old styling function but don't reset display
         function applyDropdownStyles() {
-          console.log('Applying dropdown styles...');
-          
-          // Apply styles to dropdown menu
-          dropdownMenu.style.cssText = `
-            background: white !important;
-            background-color: white !important;
-            border: 1px solid #ddd !important;
-            border-radius: 8px !important;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.15) !important;
-            min-width: 200px !important;
-            z-index: 1000 !important;
-            padding: 10px 0 !important;
-            margin-top: 5px !important;
-            position: absolute !important;
-            top: 100% !important;
-            left: 0 !important;
-            display: none;
-          `;
-          
-          // Apply styles to all links
+          // Only apply styles, don't change display state
           const dropdownLinks = dropdownMenu.querySelectorAll('a');
           dropdownLinks.forEach((link, index) => {
-            console.log(`Styling link ${index + 1}`);
-            link.style.cssText = `
-              color: #333 !important;
-              background: white !important;
-              background-color: white !important;
-              display: block !important;
-              padding: 12px 20px !important;
-              text-decoration: none !important;
-              transition: all 0.3s ease !important;
-              font-weight: 600 !important;
-              ${index === 0 ? 'border-bottom: 1px solid #f0f0f0 !important;' : ''}
-            `;
+            if (!isDropdownOpen) return;
+            link.style.color = '#333';
+            link.style.background = 'white';
+            link.style.padding = '12px 20px';
+            link.style.textDecoration = 'none';
+            link.style.fontWeight = '600';
           });
-          
+
           // Apply styles to all spans (except the icon spans)
           const dropdownSpans = dropdownMenu.querySelectorAll('span');
           dropdownSpans.forEach((span, index) => {
             // Skip the icon spans (GH, UE) which should stay white
             if (!span.textContent.includes('GH') && !span.textContent.includes('UE')) {
-              console.log(`Styling span ${index + 1}: ${span.textContent}`);
-              span.style.cssText = `
-                font-weight: 600 !important;
-                color: #333 !important;
-              `;
+              span.style.fontWeight = '600';
+              span.style.color = '#333';
             }
           });
         }
-        
-        // Toggle dropdown visibility
-        function toggleDropdown() {
-          const isVisible = dropdownMenu.style.display === 'block';
-          dropdownMenu.style.display = isVisible ? 'none' : 'block';
-          
-          if (!isVisible) {
-            // Apply styles when showing dropdown
-            setTimeout(applyDropdownStyles, 10);
-          }
-        }
-        
-        // Event listeners
-        orderDropdown.addEventListener('click', function(e) {
-          e.preventDefault();
-          e.stopPropagation();
-          console.log('Dropdown clicked');
-          toggleDropdown();
-        });
-        
-        // Close dropdown when clicking outside
-        document.addEventListener('click', function(e) {
-          if (!orderDropdown.contains(e.target) && !dropdownMenu.contains(e.target)) {
-            dropdownMenu.style.display = 'none';
-          }
-        });
-        
-        // Apply styles on page load
-        console.log('Page loaded, applying initial styles');
-        applyDropdownStyles();
-        
-        // Apply styles periodically to ensure they stick
-        setInterval(applyDropdownStyles, 1000);
       } else {
         console.error('Dropdown elements not found');
       }
