@@ -1186,7 +1186,7 @@
               <button class="navbar__action-btn navbar__action-btn-reserve btn btn__primary" type="button" id="orderDropdown" style="border: none; background: #dc2626; color: white; padding: 12px 15px; border-radius: 5px; font-weight: 600; cursor: pointer; transition: all 0.3s ease; text-align: center; display: flex; align-items: center; justify-content: center; width: auto;">
                 Order Now
               </button>
-              <ul class="dropdown-menu" aria-labelledby="orderDropdown" style="background: white !important; background-color: white !important; border: 1px solid #ddd !important; border-radius: 8px !important; box-shadow: 0 4px 12px rgba(0,0,0,0.15) !important; min-width: 200px !important; z-index: 1000 !important; padding: 10px 0 !important; margin-top: 5px !important; position: absolute !important; top: 100% !important; left: 0 !important;">
+              <ul class="dropdown-menu" id="orderDropdownMenu" aria-labelledby="orderDropdown" style="display: none; background: white !important; background-color: white !important; border: 1px solid #ddd !important; border-radius: 8px !important; box-shadow: 0 4px 12px rgba(0,0,0,0.15) !important; min-width: 200px !important; z-index: 1000 !important; padding: 10px 0 !important; margin-top: 5px !important; position: absolute !important; top: 100% !important; left: 0 !important;">
                 <li style="list-style: none !important; margin: 0 !important; padding: 0 !important;">
                   <a href="https://www.grubhub.com/restaurant/mex-taco-house-25410-northwest-fwy-cypress/5807624" target="_blank" rel="noopener noreferrer" style="color: #333 !important; background: white !important; background-color: white !important; display: block !important; padding: 12px 20px !important; text-decoration: none !important; transition: all 0.3s ease !important; border-bottom: 1px solid #f0f0f0 !important; font-weight: 600 !important;">
                     <div style="display: flex; align-items: center; gap: 10px;">
@@ -1604,7 +1604,7 @@
     // Order Now Dropdown Functionality - Enhanced Version
     document.addEventListener('DOMContentLoaded', function() {
       const orderDropdown = document.getElementById('orderDropdown');
-      const dropdownMenu = document.querySelector('.dropdown-menu');
+      const dropdownMenu = document.getElementById('orderDropdownMenu');
       
       if (orderDropdown && dropdownMenu) {
         // Force white background and black text styles

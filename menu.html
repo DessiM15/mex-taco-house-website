@@ -1893,7 +1893,7 @@
                 <button class="navbar__action-btn navbar__action-btn-reserve btn btn__primary" type="button" id="orderDropdown" data-bs-toggle="dropdown" aria-expanded="false" style="border: none; background: #dc2626; color: white; padding: 10px 14px; border-radius: 5px; font-weight: 600; cursor: pointer; transition: all 0.3s ease; text-align: center; display: flex; align-items: center; justify-content: center; width: auto;">
                   Order Now
                 </button>
-                <ul class="dropdown-menu" aria-labelledby="orderDropdown" style="position: absolute; top: 100%; left: 0; background: white; border: 1px solid #ddd; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.15); min-width: 200px; z-index: 1000; padding: 10px 0; margin-top: 5px;">
+                <ul class="dropdown-menu" id="orderDropdownMenu" aria-labelledby="orderDropdown" style="display: none; position: absolute; top: 100%; left: 0; background: white; border: 1px solid #ddd; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.15); min-width: 200px; z-index: 1000; padding: 10px 0; margin-top: 5px;">
                   <li style="list-style: none; margin: 0;">
                     <a href="https://www.grubhub.com/restaurant/mex-taco-house-25410-northwest-fwy-cypress/5807624" target="_blank" rel="noopener noreferrer" style="display: block; padding: 12px 20px; color: #333; text-decoration: none; transition: all 0.3s ease; border-bottom: 1px solid #f0f0f0;">
                       <div style="display: flex; align-items: center; gap: 10px;">
@@ -3262,38 +3262,45 @@
         
         // Order Now Dropdown Functionality
         const orderDropdown = document.getElementById('orderDropdown');
-        const dropdownMenu = orderDropdown ? orderDropdown.parentElement.querySelector('.dropdown-menu') : null;
- 
-         if (orderDropdown && dropdownMenu) {
-           // Show dropdown on click
-           orderDropdown.addEventListener('click', function(e) {
-             e.preventDefault();
-             e.stopPropagation();
-             
-             // Toggle dropdown visibility
-             dropdownMenu.classList.toggle('show');
-           });
-           
-           // Hide dropdown when clicking outside
-           document.addEventListener('click', function(e) {
-             if (!orderDropdown.contains(e.target) && !dropdownMenu.contains(e.target)) {
-               dropdownMenu.classList.remove('show');
-             }
-           });
-           
-           // Add hover effects to dropdown items
-           const dropdownItems = dropdownMenu.querySelectorAll('a');
-           dropdownItems.forEach(function(item) {
-             item.addEventListener('mouseenter', function() {
-               this.style.backgroundColor = '#f8f9fa';
-               this.style.color = '#dc2626';
-             });
-             item.addEventListener('mouseleave', function() {
-               this.style.backgroundColor = 'transparent';
-               this.style.color = '#333';
-             });
-           });
-         }
+        const dropdownMenu = document.getElementById('orderDropdownMenu');
+
+        if (orderDropdown && dropdownMenu) {
+          // Ensure dropdown is hidden initially
+          dropdownMenu.style.display = 'none';
+
+          // Show dropdown on click
+          orderDropdown.addEventListener('click', function(e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            // Toggle dropdown visibility
+            if (dropdownMenu.style.display === 'block') {
+              dropdownMenu.style.display = 'none';
+            } else {
+              dropdownMenu.style.display = 'block';
+            }
+          });
+
+          // Hide dropdown when clicking outside
+          document.addEventListener('click', function(e) {
+            if (!orderDropdown.contains(e.target) && !dropdownMenu.contains(e.target)) {
+              dropdownMenu.style.display = 'none';
+            }
+          });
+
+          // Add hover effects to dropdown items
+          const dropdownItems = dropdownMenu.querySelectorAll('a');
+          dropdownItems.forEach(function(item) {
+            item.addEventListener('mouseenter', function() {
+              this.style.backgroundColor = '#f8f9fa';
+              this.style.color = '#dc2626';
+            });
+            item.addEventListener('mouseleave', function() {
+              this.style.backgroundColor = 'transparent';
+              this.style.color = '#333';
+            });
+          });
+        }
         
         // Menu Order Now Dropdown Functionality (next to categories)
         const menuOrderDropdown = document.getElementById('menuOrderDropdown');

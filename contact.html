@@ -987,7 +987,7 @@
             <button class="navbar__action-btn navbar__action-btn-reserve btn btn__primary" type="button" id="orderDropdown" data-bs-toggle="dropdown" aria-expanded="false" style="border: none; background: #dc2626; color: white; padding: 12px 15px; border-radius: 5px; font-weight: 600; cursor: pointer; transition: all 0.3s ease; text-align: center; display: flex; align-items: center; justify-content: center; width: auto;">
               Order Now
             </button>
-            <ul class="dropdown-menu" aria-labelledby="orderDropdown">
+            <ul class="dropdown-menu" id="orderDropdownMenu" aria-labelledby="orderDropdown" style="display: none;">
               <li>
                 <a href="https://www.grubhub.com/restaurant/mex-taco-house-25410-northwest-fwy-cypress/5807624" target="_blank" rel="noopener noreferrer">
                   <div style="display: flex; align-items: center; gap: 10px;">
@@ -1396,14 +1396,17 @@
     
     // Order Now Dropdown Functionality
     const orderDropdown = document.getElementById('orderDropdown');
-    const dropdownMenu = document.querySelector('.dropdown-menu');
-    
+    const dropdownMenu = document.getElementById('orderDropdownMenu');
+
     if (orderDropdown && dropdownMenu) {
+      // Ensure dropdown is hidden initially
+      dropdownMenu.style.display = 'none';
+
       // Show dropdown on click
       orderDropdown.addEventListener('click', function(e) {
         e.preventDefault();
         e.stopPropagation();
-        
+
         // Toggle dropdown visibility
         if (dropdownMenu.style.display === 'block') {
           dropdownMenu.style.display = 'none';
@@ -1411,15 +1414,26 @@
           dropdownMenu.style.display = 'block';
         }
       });
-      
+
       // Hide dropdown when clicking outside
       document.addEventListener('click', function(e) {
         if (!orderDropdown.contains(e.target) && !dropdownMenu.contains(e.target)) {
           dropdownMenu.style.display = 'none';
         }
       });
-      
-      // Hover effects are now handled by CSS
+
+      // Add hover effects to dropdown items
+      const dropdownItems = dropdownMenu.querySelectorAll('a');
+      dropdownItems.forEach(function(item) {
+        item.addEventListener('mouseenter', function() {
+          this.style.backgroundColor = '#f8f9fa';
+          this.style.color = '#dc2626';
+        });
+        item.addEventListener('mouseleave', function() {
+          this.style.backgroundColor = 'transparent';
+          this.style.color = '#333';
+        });
+      });
     }
     
     // Business Hours Animation
