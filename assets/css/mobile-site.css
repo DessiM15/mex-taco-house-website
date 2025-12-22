@@ -268,7 +268,7 @@ p {
   z-index: 999;
   overflow-y: auto;
   padding: var(--space-xl) var(--space-lg);
-  padding-top: calc(var(--navbar-height) + var(--space-lg));
+  padding-top: calc(var(--marquee-height) + var(--navbar-height) + var(--space-xl));
 }
 
 .mobile-menu-panel.active {
@@ -353,7 +353,7 @@ p {
   justify-content: center;
   background: var(--gray-100);
   border-radius: 50%;
-  color: var(--gray-700);
+  color: var(--primary-red);
   font-size: 1.25rem;
   transition: var(--transition-fast);
 }
