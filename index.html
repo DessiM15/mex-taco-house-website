@@ -5191,7 +5191,14 @@
       }
     });
 
-    // Popup only opens when badge is clicked (auto-popup removed)
+    // Auto-show hiring popup once per session
+    document.addEventListener('DOMContentLoaded', function() {
+      if (!sessionStorage.getItem('hiringPopupSeen')) {
+        setTimeout(function() {
+          openHiringPopup();
+        }, 2000);
+      }
+    });
   </script>
 
 

@@ -36,14 +36,10 @@
 </head>
 <body>
   <!-- Scrolling Marquee Banner -->
-  <div class="marquee-banner">
+  <div class="marquee-banner" onclick="window.location.href='m-contact.html'" style="cursor: pointer;">
     <div class="marquee-content">
       <span class="marquee-item">
-        <i class="fas fa-truck-pickup"></i> TRUCKS & COFFEE - Sun Dec 28th 8AM-12PM - FREE COFFEE!
-      </span>
-      <span class="marquee-separator">★</span>
-      <span class="marquee-item">
-        <i class="fas fa-tree"></i> CLOSED Dec 25th (Christmas) & Jan 1st (New Year's Day)
+        <i class="fas fa-briefcase"></i> NOW HIRING - Join Our Team!
       </span>
       <span class="marquee-separator">★</span>
       <span class="marquee-item">
@@ -51,11 +47,7 @@
       </span>
       <span class="marquee-separator">★</span>
       <span class="marquee-item">
-        <i class="fas fa-truck-pickup"></i> TRUCKS & COFFEE - Sun Dec 28th 8AM-12PM - FREE COFFEE!
-      </span>
-      <span class="marquee-separator">★</span>
-      <span class="marquee-item">
-        <i class="fas fa-tree"></i> CLOSED Dec 25th (Christmas) & Jan 1st (New Year's Day)
+        <i class="fas fa-briefcase"></i> NOW HIRING - Join Our Team!
       </span>
       <span class="marquee-separator">★</span>
       <span class="marquee-item">
@@ -353,47 +345,97 @@
     </div>
   </div>
 
-  <!-- Trucks & Coffee Event Popup -->
-  <div class="event-popup">
-    <div class="event-popup-content">
-      <button class="event-popup-x" aria-label="Close">&times;</button>
-      <img src="assets/trucks-in-coffee-Dec.jpeg" alt="Trucks & Coffee - End of Year Bash" class="event-popup-image">
-      <div class="event-popup-details">
-        <h3 class="event-popup-title">Trucks & Coffee</h3>
-        <p class="event-popup-subtitle">End of Year Bash</p>
-        <p class="event-popup-info">
-          <i class="fas fa-calendar-alt" style="color: #dc2626; margin-right: 5px;"></i>
-          <strong>Sunday, December 28th</strong><br>
-          <i class="fas fa-clock" style="color: #dc2626; margin-right: 5px;"></i>
-          8AM - 12PM<br>
-          <i class="fas fa-coffee" style="color: #dc2626; margin-right: 5px;"></i>
-          <strong>FREE COFFEE!</strong>
-        </p>
-        <p class="event-popup-location">
-          <i class="fas fa-map-marker-alt" style="color: #dc2626; margin-right: 5px;"></i>
-          25410 Northwest Freeway<br>Cypress, TX 77429
-        </p>
+  <!-- Now Hiring Popup -->
+  <div class="hiring-popup" id="hiringPopup">
+    <div class="hiring-popup-content">
+      <button class="hiring-popup-x" aria-label="Close">&times;</button>
+      <div class="hiring-popup-icon">
+        <i class="fas fa-briefcase"></i>
       </div>
-      <button class="btn btn-primary btn-block event-popup-close">Got it!</button>
+      <h3 class="hiring-popup-title">We're Hiring!</h3>
+      <p class="hiring-popup-text">
+        Join the Mex Taco House family! We're looking for friendly, hardworking team members.
+      </p>
+      <a href="m-contact.html" class="btn btn-primary btn-block">Apply Now</a>
     </div>
   </div>
 
-  <!-- Holiday Popup -->
-  <div class="holiday-popup">
-    <div class="holiday-popup-content">
-      <button class="holiday-popup-x" aria-label="Close">&times;</button>
-      <img src="assets/merry-christmas.png" alt="Happy Holidays" class="holiday-popup-image">
-      <h3 class="holiday-popup-title">Holiday Closures</h3>
-      <p class="holiday-popup-text">
-        <strong style="color: #dc2626;">Closed December 25th</strong><br>
-        <span style="font-size: 0.95rem;">for Christmas</span><br><br>
-        <strong style="color: #dc2626;">Closed January 1st</strong><br>
-        <span style="font-size: 0.95rem;">for New Year's Day</span>
-      </p>
-      <p style="font-size: 0.85rem; color: #666; margin-top: 10px;">We wish you a happy holiday season!</p>
-      <button class="btn btn-primary btn-block holiday-popup-close">Got it!</button>
-    </div>
-  </div>
+  <style>
+    .hiring-popup {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(0, 0, 0, 0.7);
+      z-index: 10000;
+      justify-content: center;
+      align-items: center;
+      padding: 20px;
+    }
+    .hiring-popup.active {
+      display: flex;
+    }
+    .hiring-popup-content {
+      background: white;
+      border-radius: 20px;
+      padding: 30px 25px;
+      max-width: 350px;
+      width: 100%;
+      text-align: center;
+      position: relative;
+      animation: popupSlideIn 0.3s ease;
+    }
+    @keyframes popupSlideIn {
+      from { opacity: 0; transform: scale(0.9) translateY(-20px); }
+      to { opacity: 1; transform: scale(1) translateY(0); }
+    }
+    .hiring-popup-x {
+      position: absolute;
+      top: 12px;
+      right: 12px;
+      background: #f3f4f6;
+      border: none;
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      font-size: 1.5rem;
+      line-height: 1;
+      cursor: pointer;
+      color: #666;
+    }
+    .hiring-popup-x:hover {
+      background: #dc2626;
+      color: white;
+    }
+    .hiring-popup-icon {
+      width: 70px;
+      height: 70px;
+      background: linear-gradient(135deg, #dc2626, #b91c1c);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 15px;
+    }
+    .hiring-popup-icon i {
+      font-size: 1.8rem;
+      color: white;
+    }
+    .hiring-popup-title {
+      font-family: 'Shadows Into Light', cursive;
+      font-size: 1.8rem;
+      color: #dc2626;
+      margin-bottom: 15px;
+    }
+    .hiring-popup-text {
+      color: #555;
+      font-size: 1rem;
+      line-height: 1.5;
+      margin-bottom: 20px;
+    }
+  </style>
 
   <!-- Mobile Site JavaScript -->
   <script src="assets/js/mobile-site.js"></script>
@@ -403,39 +445,33 @@
     document.querySelectorAll('.current-year').forEach(el => el.textContent = new Date().getFullYear());
   </script>
 
-  <!-- Event Popup Handler -->
+  <!-- Now Hiring Popup Handler -->
   <script>
     (function() {
-      const eventPopup = document.querySelector('.event-popup');
-      const holidayPopup = document.querySelector('.holiday-popup');
+      const hiringPopup = document.getElementById('hiringPopup');
 
-      if (eventPopup) {
-        // Show event popup after 2 seconds
+      if (hiringPopup && !sessionStorage.getItem('hiringPopupSeen')) {
+        // Show popup after 2 seconds
         setTimeout(() => {
-          eventPopup.classList.add('active');
+          hiringPopup.classList.add('active');
           document.body.style.overflow = 'hidden';
         }, 2000);
 
-        // Close buttons for event popup
-        const eventCloseBtn = eventPopup.querySelector('.event-popup-close');
-        const eventCloseX = eventPopup.querySelector('.event-popup-x');
+        // Close button
+        const closeX = hiringPopup.querySelector('.hiring-popup-x');
 
-        function closeEvent() {
-          eventPopup.classList.remove('active');
-
-          // Show holiday popup after short delay
-          if (holidayPopup) {
-            setTimeout(() => {
-              holidayPopup.classList.add('active');
-              document.body.style.overflow = 'hidden';
-            }, 500);
-          } else {
-            document.body.style.overflow = '';
-          }
+        function closePopup() {
+          hiringPopup.classList.remove('active');
+          document.body.style.overflow = '';
+          sessionStorage.setItem('hiringPopupSeen', 'true');
         }
 
-        if (eventCloseBtn) eventCloseBtn.addEventListener('click', closeEvent);
-        if (eventCloseX) eventCloseX.addEventListener('click', closeEvent);
+        if (closeX) closeX.addEventListener('click', closePopup);
+
+        // Close on overlay click
+        hiringPopup.addEventListener('click', function(e) {
+          if (e.target === hiringPopup) closePopup();
+        });
       }
     })();
   </script>
