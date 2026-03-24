@@ -36,10 +36,10 @@
 </head>
 <body>
   <!-- Scrolling Marquee Banner -->
-  <div class="marquee-banner" onclick="window.location.href='m-contact.html'" style="cursor: pointer;">
+  <div class="marquee-banner" onclick="window.open('https://docs.google.com/forms/d/e/1FAIpQLSf240-Tqxmv9kXYkDcP7WQgIZr1-GQlvCQJGy1CJLzzyi-hKg/viewform', '_blank')" style="cursor: pointer;">
     <div class="marquee-content">
       <span class="marquee-item">
-        <i class="fas fa-briefcase"></i> NOW HIRING - Join Our Team!
+        <i class="fas fa-trophy"></i> 6th Annual Trucks &amp; Coffee Charity Show - March 29th, 8AM-4PM - Register Now!
       </span>
       <span class="marquee-separator">★</span>
       <span class="marquee-item">
@@ -47,7 +47,7 @@
       </span>
       <span class="marquee-separator">★</span>
       <span class="marquee-item">
-        <i class="fas fa-briefcase"></i> NOW HIRING - Join Our Team!
+        <i class="fas fa-trophy"></i> 6th Annual Trucks &amp; Coffee Charity Show - March 29th, 8AM-4PM - Register Now!
       </span>
       <span class="marquee-separator">★</span>
       <span class="marquee-item">
@@ -118,10 +118,10 @@
     </div>
   </section>
 
-  <!-- Now Hiring Banner -->
-  <a href="m-contact.html" class="now-hiring-banner">
-    <i class="fas fa-briefcase"></i>
-    <span><strong>NOW HIRING!</strong> Join our team - Apply today!</span>
+  <!-- Charity Event Banner -->
+  <a href="https://docs.google.com/forms/d/e/1FAIpQLSf240-Tqxmv9kXYkDcP7WQgIZr1-GQlvCQJGy1CJLzzyi-hKg/viewform" target="_blank" rel="noopener" class="now-hiring-banner" style="background: linear-gradient(135deg, #dc2626, #b91c1c);">
+    <i class="fas fa-trophy"></i>
+    <span><strong>Trucks &amp; Coffee Charity Show!</strong> March 29th - Register Now!</span>
     <i class="fas fa-chevron-right"></i>
   </a>
 
@@ -360,6 +360,16 @@
     </div>
   </div>
 
+  <!-- Charity Event Popup -->
+  <div class="event-popup" id="eventPopup">
+    <div class="event-popup-content">
+      <button class="event-popup-x" aria-label="Close">&times;</button>
+      <a href="https://docs.google.com/forms/d/e/1FAIpQLSf240-Tqxmv9kXYkDcP7WQgIZr1-GQlvCQJGy1CJLzzyi-hKg/viewform" target="_blank" rel="noopener">
+        <img src="assets/2026-annual-charity-event.png" alt="6th Annual Trucks &amp; Coffee Charity Show - March 29th" style="width: 100%; height: auto; border-radius: 15px;">
+      </a>
+    </div>
+  </div>
+
   <style>
     .hiring-popup {
       display: none;
@@ -386,10 +396,6 @@
       text-align: center;
       position: relative;
       animation: popupSlideIn 0.3s ease;
-    }
-    @keyframes popupSlideIn {
-      from { opacity: 0; transform: scale(0.9) translateY(-20px); }
-      to { opacity: 1; transform: scale(1) translateY(0); }
     }
     .hiring-popup-x {
       position: absolute;
@@ -435,6 +441,55 @@
       line-height: 1.5;
       margin-bottom: 20px;
     }
+    .event-popup {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(0, 0, 0, 0.7);
+      z-index: 10000;
+      justify-content: center;
+      align-items: center;
+      padding: 20px;
+    }
+    .event-popup.active {
+      display: flex;
+    }
+    .event-popup-content {
+      position: relative;
+      max-width: 340px;
+      width: 100%;
+      animation: popupSlideIn 0.3s ease;
+    }
+    @keyframes popupSlideIn {
+      from { opacity: 0; transform: scale(0.9) translateY(-20px); }
+      to { opacity: 1; transform: scale(1) translateY(0); }
+    }
+    .event-popup-x {
+      position: absolute;
+      top: -12px;
+      right: -12px;
+      background: white;
+      border: 3px solid #dc2626;
+      color: #dc2626;
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      font-size: 1.5rem;
+      line-height: 1;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 10;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+    }
+    .event-popup-x:hover {
+      background: #dc2626;
+      color: white;
+    }
   </style>
 
   <!-- Mobile Site JavaScript -->
@@ -445,34 +500,68 @@
     document.querySelectorAll('.current-year').forEach(el => el.textContent = new Date().getFullYear());
   </script>
 
-  <!-- Now Hiring Popup Handler -->
+  <!-- Popup Handlers -->
   <script>
     (function() {
+      const eventPopup = document.getElementById('eventPopup');
       const hiringPopup = document.getElementById('hiringPopup');
 
-      if (hiringPopup && !sessionStorage.getItem('hiringPopupSeen')) {
-        // Show popup after 2 seconds
+      // Show event popup first (time-sensitive), then hiring popup if event already seen
+      if (eventPopup && !sessionStorage.getItem('eventPopupSeen')) {
+        setTimeout(() => {
+          eventPopup.classList.add('active');
+          document.body.style.overflow = 'hidden';
+        }, 2000);
+      } else if (hiringPopup && !sessionStorage.getItem('hiringPopupSeen')) {
         setTimeout(() => {
           hiringPopup.classList.add('active');
           document.body.style.overflow = 'hidden';
         }, 2000);
+      }
 
-        // Close button
-        const closeX = hiringPopup.querySelector('.hiring-popup-x');
+      // Event popup close
+      function closeEventPopup() {
+        if (eventPopup) {
+          eventPopup.classList.remove('active');
+          document.body.style.overflow = '';
+          sessionStorage.setItem('eventPopupSeen', 'true');
+        }
+      }
 
-        function closePopup() {
+      const eventCloseX = eventPopup ? eventPopup.querySelector('.event-popup-x') : null;
+      if (eventCloseX) eventCloseX.addEventListener('click', closeEventPopup);
+
+      if (eventPopup) {
+        eventPopup.addEventListener('click', function(e) {
+          if (e.target === eventPopup) closeEventPopup();
+        });
+      }
+
+      // Hiring popup close
+      function closeHiringPopup() {
+        if (hiringPopup) {
           hiringPopup.classList.remove('active');
           document.body.style.overflow = '';
           sessionStorage.setItem('hiringPopupSeen', 'true');
         }
+      }
 
-        if (closeX) closeX.addEventListener('click', closePopup);
+      const hiringCloseX = hiringPopup ? hiringPopup.querySelector('.hiring-popup-x') : null;
+      if (hiringCloseX) hiringCloseX.addEventListener('click', closeHiringPopup);
 
-        // Close on overlay click
+      if (hiringPopup) {
         hiringPopup.addEventListener('click', function(e) {
-          if (e.target === hiringPopup) closePopup();
+          if (e.target === hiringPopup) closeHiringPopup();
         });
       }
+
+      // Escape key closes whichever is active
+      document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape') {
+          if (eventPopup && eventPopup.classList.contains('active')) closeEventPopup();
+          if (hiringPopup && hiringPopup.classList.contains('active')) closeHiringPopup();
+        }
+      });
     })();
   </script>
 

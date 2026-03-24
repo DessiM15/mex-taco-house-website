@@ -612,6 +612,22 @@
 
     .news-accordion-content {
       padding-top: 20px;
+      display: flex;
+      align-items: flex-start;
+      gap: 30px;
+    }
+
+    .news-accordion-thumb {
+      width: 180px;
+      min-width: 180px;
+      height: auto;
+      border-radius: 12px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    }
+
+    .news-accordion-text {
+      flex: 1;
+      min-width: 0;
     }
 
     .news-accordion h3 {
@@ -672,6 +688,15 @@
 
       .carousel-arrow {
         display: none;
+      }
+
+      .news-accordion-content {
+        flex-direction: column;
+      }
+
+      .news-accordion-thumb {
+        width: 120px;
+        min-width: 120px;
       }
     }
 
@@ -1100,6 +1125,31 @@
 </head>
 
 <body>
+  <!-- Scrolling Marquee Banner (Desktop) -->
+  <div id="desktopMarquee" onclick="window.open('https://docs.google.com/forms/d/e/1FAIpQLSf240-Tqxmv9kXYkDcP7WQgIZr1-GQlvCQJGy1CJLzzyi-hKg/viewform', '_blank')" style="display: none; background: linear-gradient(135deg, #dc2626, #b91c1c); color: white; height: 36px; overflow: hidden; cursor: pointer; position: fixed; top: 0; left: 0; right: 0; z-index: 10001; box-shadow: 0 2px 8px rgba(0,0,0,0.2);">
+    <div style="display: flex; align-items: center; height: 100%; white-space: nowrap; animation: desktopMarqueeScroll 25s linear infinite;">
+      <span style="padding: 0 40px; font-size: 0.85rem; font-weight: 600;"><i class="fas fa-trophy"></i> 6th Annual Trucks &amp; Coffee Charity Show - March 29th, 8AM-4PM - Register Now!</span>
+      <span style="padding: 0 10px; color: rgba(255,255,255,0.7);">★</span>
+      <span style="padding: 0 40px; font-size: 0.85rem; font-weight: 600;"><i class="fas fa-briefcase"></i> NOW HIRING - Join Our Team!</span>
+      <span style="padding: 0 10px; color: rgba(255,255,255,0.7);">★</span>
+      <span style="padding: 0 40px; font-size: 0.85rem; font-weight: 600;"><i class="fas fa-trophy"></i> 6th Annual Trucks &amp; Coffee Charity Show - March 29th, 8AM-4PM - Register Now!</span>
+      <span style="padding: 0 10px; color: rgba(255,255,255,0.7);">★</span>
+      <span style="padding: 0 40px; font-size: 0.85rem; font-weight: 600;"><i class="fas fa-briefcase"></i> NOW HIRING - Join Our Team!</span>
+      <span style="padding: 0 10px; color: rgba(255,255,255,0.7);">★</span>
+    </div>
+  </div>
+  <style>
+    @keyframes desktopMarqueeScroll {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+    @media (min-width: 992px) {
+      #desktopMarquee { display: block !important; }
+      .navbar.sticky-navbar { top: 36px !important; }
+      body { padding-top: 36px; }
+    }
+  </style>
+
   <!-- Mobile Navigation -->
   <div class="mobile-navbar-container" role="navigation" aria-label="Mobile Navigation">
     <a href="index.html" class="mobile-navbar-logo-link">
@@ -1242,13 +1292,13 @@
         </button>
 
         <div class="news-carousel" id="newsCarousel">
-          <!-- Card 1: Trucks & Coffee -->
+          <!-- Card 1: Trucks & Coffee Charity Show -->
           <div class="news-card" data-news="trucks" onclick="toggleAccordion('trucks')">
-            <div class="news-card-image" style="background-image: url('assets/trucks-in-coffee-Dec.jpeg');"></div>
+            <div class="news-card-image" style="background-image: url('assets/2026-annual-charity-event.png');"></div>
             <div class="news-card-overlay">
               <span class="news-card-badge" style="background: #dc2626;">Event</span>
-              <h3 class="news-card-title">Trucks & Coffee</h3>
-              <div class="news-card-date"><i class="fas fa-calendar-alt"></i> December 28, 2024</div>
+              <h3 class="news-card-title">Trucks &amp; Coffee Charity Show</h3>
+              <div class="news-card-date"><i class="fas fa-calendar-alt"></i> March 29, 2026</div>
             </div>
           </div>
 
@@ -1281,48 +1331,59 @@
       <!-- Accordion Sections -->
       <div class="news-accordion" id="accordion-expansion">
         <div class="news-accordion-content">
-          <h3>We've Expanded!</h3>
-          <div class="date"><i class="fas fa-calendar-alt"></i> December 15, 2024</div>
-          <p>We're thrilled to announce that Mex Taco House has expanded! After years of serving our community with authentic Mexican cuisine, we've made our current location larger to serve even more customers while maintaining the same quality and authentic flavors that you love.</p>
-          <p>Our expanded space now features a larger dining area, more seating capacity, and an improved kitchen layout. We're also excited to introduce some exciting new menu items that showcase our commitment to authentic Mexican flavors!</p>
-          <p>Join us in celebrating this exciting milestone as we now have more space to serve our community with authentic Mexican flavors. Come experience our larger dining area!</p>
-          <button class="close-btn" onclick="closeAccordion('expansion')">Close <i class="fas fa-times"></i></button>
+          <img src="assets/mex-taco-expansion.webp" alt="Mex Taco House Expansion" class="news-accordion-thumb">
+          <div class="news-accordion-text">
+            <h3>We've Expanded!</h3>
+            <div class="date"><i class="fas fa-calendar-alt"></i> December 15, 2024</div>
+            <p>We're thrilled to announce that Mex Taco House has expanded! After years of serving our community with authentic Mexican cuisine, we've made our current location larger to serve even more customers while maintaining the same quality and authentic flavors that you love.</p>
+            <p>Our expanded space now features a larger dining area, more seating capacity, and an improved kitchen layout. We're also excited to introduce some exciting new menu items that showcase our commitment to authentic Mexican flavors!</p>
+            <p>Join us in celebrating this exciting milestone as we now have more space to serve our community with authentic Mexican flavors. Come experience our larger dining area!</p>
+            <button class="close-btn" onclick="closeAccordion('expansion')">Close <i class="fas fa-times"></i></button>
+          </div>
         </div>
       </div>
 
       <div class="news-accordion" id="accordion-trucks">
         <div class="news-accordion-content">
-          <h3>Trucks & Coffee - End of Year Bash!</h3>
-          <div class="date"><i class="fas fa-calendar-alt"></i> December 28, 2024</div>
-          <p>Join us for the Trucks & Coffee End of Year Bash! Come celebrate with great food, amazing trucks, and FREE COFFEE while supplies last!</p>
-          <p>Bring the whole family for a fun-filled morning to close out the year in style.</p>
-          <ul style="list-style: none; padding: 0; margin: 20px 0;">
-            <li style="margin-bottom: 10px;"><i class="fas fa-calendar" style="color: #dc2626; margin-right: 10px;"></i><strong>Date:</strong> Sunday, December 28th</li>
-            <li style="margin-bottom: 10px;"><i class="fas fa-clock" style="color: #dc2626; margin-right: 10px;"></i><strong>Time:</strong> 8AM - 12PM</li>
-            <li style="margin-bottom: 10px;"><i class="fas fa-coffee" style="color: #dc2626; margin-right: 10px;"></i><strong>FREE COFFEE!</strong> (while supplies last)</li>
-            <li><i class="fas fa-map-marker-alt" style="color: #dc2626; margin-right: 10px;"></i><strong>Location:</strong> 25410 Northwest Freeway, Cypress, TX 77429</li>
-          </ul>
-          <button class="close-btn" onclick="closeAccordion('trucks')">Close <i class="fas fa-times"></i></button>
+          <img src="assets/2026-annual-charity-event.png" alt="6th Annual Trucks &amp; Coffee Charity Show" class="news-accordion-thumb">
+          <div class="news-accordion-text">
+            <h3>6th Annual Trucks &amp; Coffee Charity Show!</h3>
+            <div class="date"><i class="fas fa-calendar-alt"></i> March 29, 2026</div>
+            <p>Join us for the 6th Annual Trucks &amp; Coffee Charity Show! A day packed with amazing trucks, great food, DJ, giveaways, awards and more. All proceeds benefit local charities!</p>
+            <p>Spectators are FREE! Vehicle pre-registration is just $35.</p>
+            <ul style="list-style: none; padding: 0; margin: 20px 0;">
+              <li style="margin-bottom: 10px;"><i class="fas fa-calendar" style="color: #dc2626; margin-right: 10px;"></i><strong>Date:</strong> Saturday, March 29th</li>
+              <li style="margin-bottom: 10px;"><i class="fas fa-clock" style="color: #dc2626; margin-right: 10px;"></i><strong>Time:</strong> 8AM - 4PM</li>
+              <li style="margin-bottom: 10px;"><i class="fas fa-map-marker-alt" style="color: #dc2626; margin-right: 10px;"></i><strong>Location:</strong> Bear Creek Rodeo Arena Parking Lot, 3230 Hwy 6, Houston, TX 77084</li>
+              <li style="margin-bottom: 10px;"><i class="fas fa-ticket-alt" style="color: #dc2626; margin-right: 10px;"></i><strong>Registration:</strong> $35 pre-registration</li>
+              <li><i class="fas fa-users" style="color: #dc2626; margin-right: 10px;"></i><strong>Spectators:</strong> FREE</li>
+            </ul>
+            <a href="https://docs.google.com/forms/d/e/1FAIpQLSf240-Tqxmv9kXYkDcP7WQgIZr1-GQlvCQJGy1CJLzzyi-hKg/viewform" target="_blank" rel="noopener" style="display: inline-block; background: linear-gradient(135deg, #dc2626, #b91c1c); color: white; padding: 12px 25px; border-radius: 8px; text-decoration: none; font-weight: 600; margin-top: 10px; transition: all 0.3s ease;"><i class="fas fa-trophy" style="margin-right: 8px;"></i>Register Now</a>
+            <button class="close-btn" onclick="closeAccordion('trucks')" style="margin-top: 15px;">Close <i class="fas fa-times"></i></button>
+          </div>
         </div>
       </div>
 
       <div class="news-accordion" id="accordion-catering">
         <div class="news-accordion-content">
-          <h3>Catering Services</h3>
-          <div class="date"><i class="fas fa-utensils"></i> Available for All Events</div>
-          <p>Let Mex Taco House cater your next event! We offer authentic Mexican catering for all occasions:</p>
-          <ul style="list-style: none; padding: 0; margin: 20px 0;">
-            <li style="margin-bottom: 10px;"><i class="fas fa-birthday-cake" style="color: #dc2626; margin-right: 10px;"></i>Birthday Parties</li>
-            <li style="margin-bottom: 10px;"><i class="fas fa-briefcase" style="color: #dc2626; margin-right: 10px;"></i>Corporate Events</li>
-            <li style="margin-bottom: 10px;"><i class="fas fa-users" style="color: #dc2626; margin-right: 10px;"></i>Family Gatherings</li>
-            <li style="margin-bottom: 10px;"><i class="fas fa-glass-cheers" style="color: #dc2626; margin-right: 10px;"></i>Special Celebrations</li>
-          </ul>
-          <p>Contact us today to discuss your catering needs and let us bring the authentic flavors of Mexico to your next event!</p>
-          <div style="margin-top: 25px; padding: 20px; background: #f8f9fa; border-radius: 10px;">
-            <p style="margin-bottom: 10px; font-weight: 600;"><i class="fas fa-phone" style="color: #dc2626; margin-right: 10px;"></i>(281) 213-2844</p>
-            <p style="margin-bottom: 0;"><i class="fas fa-map-marker-alt" style="color: #dc2626; margin-right: 10px;"></i>25410 Northwest Fwy, Cypress, TX</p>
+          <img src="assets/gallery-images/street-tacos.jpeg" alt="Catering Services" class="news-accordion-thumb">
+          <div class="news-accordion-text">
+            <h3>Catering Services</h3>
+            <div class="date"><i class="fas fa-utensils"></i> Available for All Events</div>
+            <p>Let Mex Taco House cater your next event! We offer authentic Mexican catering for all occasions:</p>
+            <ul style="list-style: none; padding: 0; margin: 20px 0;">
+              <li style="margin-bottom: 10px;"><i class="fas fa-birthday-cake" style="color: #dc2626; margin-right: 10px;"></i>Birthday Parties</li>
+              <li style="margin-bottom: 10px;"><i class="fas fa-briefcase" style="color: #dc2626; margin-right: 10px;"></i>Corporate Events</li>
+              <li style="margin-bottom: 10px;"><i class="fas fa-users" style="color: #dc2626; margin-right: 10px;"></i>Family Gatherings</li>
+              <li style="margin-bottom: 10px;"><i class="fas fa-glass-cheers" style="color: #dc2626; margin-right: 10px;"></i>Special Celebrations</li>
+            </ul>
+            <p>Contact us today to discuss your catering needs and let us bring the authentic flavors of Mexico to your next event!</p>
+            <div style="margin-top: 25px; padding: 20px; background: #f8f9fa; border-radius: 10px;">
+              <p style="margin-bottom: 10px; font-weight: 600;"><i class="fas fa-phone" style="color: #dc2626; margin-right: 10px;"></i>(281) 213-2844</p>
+              <p style="margin-bottom: 0;"><i class="fas fa-map-marker-alt" style="color: #dc2626; margin-right: 10px;"></i>25410 Northwest Fwy, Cypress, TX</p>
+            </div>
+            <button class="close-btn" onclick="closeAccordion('catering')" style="margin-top: 25px;">Close <i class="fas fa-times"></i></button>
           </div>
-          <button class="close-btn" onclick="closeAccordion('catering')" style="margin-top: 25px;">Close <i class="fas fa-times"></i></button>
         </div>
       </div>
 
@@ -2001,6 +2062,76 @@
         });
       }
     });
+  </script>
+
+  <!-- Charity Event Popup -->
+  <div id="eventPopupOverlay" style="display: none; position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: rgba(0,0,0,0.7); z-index: 100000; justify-content: center; align-items: center; padding: 20px;">
+    <div id="eventPopup" style="position: relative; max-width: 420px; width: 100%; max-height: 90vh;">
+      <button onclick="closeEventPopup()" style="position: absolute; top: -15px; right: -15px; background: white; border: 3px solid #dc2626; color: #dc2626; width: 40px; height: 40px; border-radius: 50%; cursor: pointer; font-size: 1.5rem; font-weight: bold; display: flex; align-items: center; justify-content: center; transition: all 0.3s ease; z-index: 10; box-shadow: 0 4px 15px rgba(0,0,0,0.3);" onmouseover="this.style.background='#f5f5f5'" onmouseout="this.style.background='white'">&times;</button>
+      <a href="https://docs.google.com/forms/d/e/1FAIpQLSf240-Tqxmv9kXYkDcP7WQgIZr1-GQlvCQJGy1CJLzzyi-hKg/viewform" target="_blank" rel="noopener" style="display: block; cursor: pointer;">
+        <img src="assets/2026-annual-charity-event.png" alt="6th Annual Trucks &amp; Coffee Charity Show - March 29th" style="width: 100%; height: auto; border-radius: 15px; box-shadow: 0 25px 50px rgba(0,0,0,0.4); transition: transform 0.2s ease;" onmouseover="this.style.transform='scale(1.02)'" onmouseout="this.style.transform='scale(1)'">
+      </a>
+    </div>
+  </div>
+
+  <!-- Charity Event Badge (Fixed Position) -->
+  <div id="eventBadge" onclick="openEventPopup()" style="position: fixed; bottom: 140px; right: 20px; background: linear-gradient(135deg, #dc2626, #b91c1c); padding: 12px 18px; border-radius: 30px; cursor: pointer; z-index: 9998; box-shadow: 0 5px 20px rgba(220, 38, 38, 0.4); display: flex; align-items: center; gap: 8px; font-weight: 700; font-size: 0.9rem; transition: all 0.3s ease; animation: eventPulse 2s infinite;">
+    <i class="fas fa-trophy" style="color: #ffffff !important;"></i>
+    <span style="color: #ffffff !important;">Charity Event!</span>
+  </div>
+
+  <style>
+    @keyframes eventPulse {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.05); }
+    }
+    #eventBadge:hover {
+      transform: scale(1.1) !important;
+      box-shadow: 0 8px 25px rgba(220, 38, 38, 0.5);
+    }
+    @media (max-width: 768px) {
+      #eventPopup {
+        margin: 10px;
+        max-width: calc(100% - 20px);
+      }
+      #eventBadge {
+        bottom: 120px;
+        right: 15px;
+        padding: 10px 15px;
+        font-size: 0.85rem;
+      }
+    }
+  </style>
+
+  <script>
+    function openEventPopup() {
+      document.getElementById('eventPopupOverlay').style.display = 'flex';
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeEventPopup() {
+      document.getElementById('eventPopupOverlay').style.display = 'none';
+      document.body.style.overflow = '';
+      sessionStorage.setItem('eventPopupSeen', 'true');
+    }
+
+    document.getElementById('eventPopupOverlay').addEventListener('click', function(e) {
+      if (e.target === this) {
+        closeEventPopup();
+      }
+    });
+
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape' && document.getElementById('eventPopupOverlay').style.display === 'flex') {
+        closeEventPopup();
+      }
+    });
+
+    if (!sessionStorage.getItem('eventPopupSeen')) {
+      setTimeout(function() {
+        openEventPopup();
+      }, 2000);
+    }
   </script>
 
   <!-- Dynamic Copyright Year -->
