@@ -901,13 +901,13 @@
   <!-- Scrolling Marquee Banner (Desktop) -->
   <div id="desktopMarquee" onclick="window.open('https://docs.google.com/forms/d/e/1FAIpQLSf240-Tqxmv9kXYkDcP7WQgIZr1-GQlvCQJGy1CJLzzyi-hKg/viewform', '_blank')" style="display: none; background: linear-gradient(135deg, #dc2626, #b91c1c); color: white; height: 36px; overflow: hidden; cursor: pointer; position: fixed; top: 0; left: 0; right: 0; z-index: 10001; box-shadow: 0 2px 8px rgba(0,0,0,0.2);">
     <div style="display: flex; align-items: center; height: 100%; white-space: nowrap; animation: desktopMarqueeScroll 25s linear infinite;">
-      <span style="padding: 0 40px; font-size: 0.85rem; font-weight: 600;"><i class="fas fa-trophy"></i> 6th Annual Trucks &amp; Coffee Charity Show - March 29th, 8AM-4PM - Register Now!</span>
+      <span style="padding: 0 40px; font-size: 0.85rem; font-weight: 600; color: white;"><i class="fas fa-trophy"></i> 6th Annual Trucks &amp; Coffee Charity Show - March 29th, 8AM-4PM - Register Now!</span>
       <span style="padding: 0 10px; color: rgba(255,255,255,0.7);">★</span>
-      <span style="padding: 0 40px; font-size: 0.85rem; font-weight: 600;"><i class="fas fa-briefcase"></i> NOW HIRING - Join Our Team!</span>
+      <span style="padding: 0 40px; font-size: 0.85rem; font-weight: 600; color: white;"><i class="fas fa-briefcase"></i> NOW HIRING - Join Our Team!</span>
       <span style="padding: 0 10px; color: rgba(255,255,255,0.7);">★</span>
-      <span style="padding: 0 40px; font-size: 0.85rem; font-weight: 600;"><i class="fas fa-trophy"></i> 6th Annual Trucks &amp; Coffee Charity Show - March 29th, 8AM-4PM - Register Now!</span>
+      <span style="padding: 0 40px; font-size: 0.85rem; font-weight: 600; color: white;"><i class="fas fa-trophy"></i> 6th Annual Trucks &amp; Coffee Charity Show - March 29th, 8AM-4PM - Register Now!</span>
       <span style="padding: 0 10px; color: rgba(255,255,255,0.7);">★</span>
-      <span style="padding: 0 40px; font-size: 0.85rem; font-weight: 600;"><i class="fas fa-briefcase"></i> NOW HIRING - Join Our Team!</span>
+      <span style="padding: 0 40px; font-size: 0.85rem; font-weight: 600; color: white;"><i class="fas fa-briefcase"></i> NOW HIRING - Join Our Team!</span>
       <span style="padding: 0 10px; color: rgba(255,255,255,0.7);">★</span>
     </div>
   </div>
@@ -915,6 +915,12 @@
     @keyframes desktopMarqueeScroll {
       0% { transform: translateX(0); }
       100% { transform: translateX(-50%); }
+    }
+    #desktopMarquee, #desktopMarquee span, #desktopMarquee i {
+      color: white !important;
+    }
+    #desktopMarquee .marquee-separator, #desktopMarquee span[style*="rgba"] {
+      color: rgba(255,255,255,0.7) !important;
     }
     @media (min-width: 992px) {
       #desktopMarquee { display: block !important; }
@@ -1656,7 +1662,7 @@
   </div>
 
   <!-- Charity Event Badge (Fixed Position) -->
-  <div id="eventBadge" onclick="openEventPopup()" style="position: fixed; bottom: 140px; right: 20px; background: linear-gradient(135deg, #dc2626, #b91c1c); padding: 12px 18px; border-radius: 30px; cursor: pointer; z-index: 9998; box-shadow: 0 5px 20px rgba(220, 38, 38, 0.4); display: flex; align-items: center; gap: 8px; font-weight: 700; font-size: 0.9rem; transition: all 0.3s ease; animation: eventPulse 2s infinite;">
+  <div id="eventBadge" onclick="openEventPopup()" style="position: fixed; bottom: 190px; right: 20px; background: linear-gradient(135deg, #dc2626, #b91c1c); padding: 12px 18px; border-radius: 30px; cursor: pointer; z-index: 9998; box-shadow: 0 5px 20px rgba(220, 38, 38, 0.4); display: flex; align-items: center; gap: 8px; font-weight: 700; font-size: 0.9rem; transition: all 0.3s ease; animation: eventPulse 2s infinite;">
     <i class="fas fa-trophy" style="color: #ffffff !important;"></i>
     <span style="color: #ffffff !important;">Charity Event!</span>
   </div>

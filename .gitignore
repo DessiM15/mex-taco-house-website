@@ -1,0 +1,13 @@
+# OS files
+.DS_Store
+Thumbs.db
+
+# Template source files (not needed for live site)
+template-babette/
+assets/Carousel Slideshow v2 AE/
+assets/mex-taco-hero-video_files/
+
+# Old/unused files
+AnnouncementsCarousel.css
+AnnouncementsCarousel.jsx
+admin-news.html
