@@ -376,6 +376,21 @@
     </div>
   </div>
 
+  <!-- Now Hiring Popup -->
+  <div class="hiring-popup" id="hiringPopup">
+    <div class="hiring-popup-content">
+      <button class="hiring-popup-x" aria-label="Close">&times;</button>
+      <div class="hiring-popup-icon">
+        <i class="fas fa-briefcase"></i>
+      </div>
+      <h3 class="hiring-popup-title">We're Hiring!</h3>
+      <p class="hiring-popup-text">
+        Join the Mex Taco House family! We're looking for friendly, hardworking team members.
+      </p>
+      <a href="m-contact.html" class="btn btn-primary btn-block">Apply Now</a>
+    </div>
+  </div>
+
   <!-- Charity Event Popup -->
   <div class="event-popup" id="eventPopup">
     <div class="event-popup-content">
@@ -387,7 +402,7 @@
   </div>
 
   <style>
-    .event-popup {
+    .hiring-popup {
       display: none;
       position: fixed;
       top: 0;
@@ -400,6 +415,76 @@
       align-items: center;
       padding: 20px;
     }
+    .hiring-popup.active {
+      display: flex;
+    }
+    .hiring-popup-content {
+      background: white;
+      border-radius: 20px;
+      padding: 30px 25px;
+      max-width: 350px;
+      width: 100%;
+      text-align: center;
+      position: relative;
+      animation: popupSlideIn 0.3s ease;
+    }
+    .hiring-popup-x {
+      position: absolute;
+      top: 12px;
+      right: 12px;
+      background: #f3f4f6;
+      border: none;
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      font-size: 1.5rem;
+      line-height: 1;
+      cursor: pointer;
+      color: #666;
+    }
+    .hiring-popup-x:hover {
+      background: #dc2626;
+      color: white;
+    }
+    .hiring-popup-icon {
+      width: 70px;
+      height: 70px;
+      background: linear-gradient(135deg, #dc2626, #b91c1c);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 15px;
+    }
+    .hiring-popup-icon i {
+      font-size: 1.8rem;
+      color: white;
+    }
+    .hiring-popup-title {
+      font-family: 'Shadows Into Light', cursive;
+      font-size: 1.8rem;
+      color: #dc2626;
+      margin-bottom: 15px;
+    }
+    .hiring-popup-text {
+      color: #555;
+      font-size: 1rem;
+      line-height: 1.5;
+      margin-bottom: 20px;
+    }
+    .event-popup {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(0, 0, 0, 0.7);
+      z-index: 10000;
+      justify-content: center;
+      align-items: center;
+      padding: 30px;
+    }
     .event-popup.active {
       display: flex;
     }
@@ -408,6 +493,7 @@
       max-width: 340px;
       width: 100%;
       animation: popupSlideIn 0.3s ease;
+      overflow: visible;
     }
     @keyframes popupSlideIn {
       from { opacity: 0; transform: scale(0.9) translateY(-20px); }
@@ -415,15 +501,15 @@
     }
     .event-popup-x {
       position: absolute;
-      top: -12px;
-      right: -12px;
+      top: -16px;
+      right: -16px;
       background: white;
       border: 3px solid #dc2626;
       color: #dc2626;
-      width: 36px;
-      height: 36px;
+      width: 40px;
+      height: 40px;
       border-radius: 50%;
-      font-size: 1.5rem;
+      font-size: 1.6rem;
       line-height: 1;
       cursor: pointer;
       display: flex;
@@ -446,28 +532,47 @@
     document.querySelectorAll('.current-year').forEach(el => el.textContent = new Date().getFullYear());
   </script>
 
-  <!-- Charity Event Popup Handler -->
+  <!-- Popup Handlers -->
   <script>
     (function() {
       const eventPopup = document.getElementById('eventPopup');
+      const hiringPopup = document.getElementById('hiringPopup');
 
+      // Show event popup first (time-sensitive), then hiring popup after it's dismissed
       if (eventPopup && !sessionStorage.getItem('eventPopupSeen')) {
         setTimeout(() => {
           eventPopup.classList.add('active');
           document.body.style.overflow = 'hidden';
         }, 2000);
+      } else if (hiringPopup && !sessionStorage.getItem('hiringPopupSeen')) {
+        setTimeout(() => {
+          hiringPopup.classList.add('active');
+          document.body.style.overflow = 'hidden';
+        }, 2000);
       }
 
+      // Show hiring popup after event popup is closed
+      function showHiringAfterEvent() {
+        if (hiringPopup && !sessionStorage.getItem('hiringPopupSeen')) {
+          setTimeout(() => {
+            hiringPopup.classList.add('active');
+            document.body.style.overflow = 'hidden';
+          }, 500);
+        }
+      }
+
+      // Event popup close
       function closeEventPopup() {
         if (eventPopup) {
           eventPopup.classList.remove('active');
           document.body.style.overflow = '';
           sessionStorage.setItem('eventPopupSeen', 'true');
+          showHiringAfterEvent();
         }
       }
 
-      const closeX = eventPopup ? eventPopup.querySelector('.event-popup-x') : null;
-      if (closeX) closeX.addEventListener('click', closeEventPopup);
+      const eventCloseX = eventPopup ? eventPopup.querySelector('.event-popup-x') : null;
+      if (eventCloseX) eventCloseX.addEventListener('click', closeEventPopup);
 
       if (eventPopup) {
         eventPopup.addEventListener('click', function(e) {
@@ -475,9 +580,29 @@
         });
       }
 
+      // Hiring popup close
+      function closeHiringPopup() {
+        if (hiringPopup) {
+          hiringPopup.classList.remove('active');
+          document.body.style.overflow = '';
+          sessionStorage.setItem('hiringPopupSeen', 'true');
+        }
+      }
+
+      const hiringCloseX = hiringPopup ? hiringPopup.querySelector('.hiring-popup-x') : null;
+      if (hiringCloseX) hiringCloseX.addEventListener('click', closeHiringPopup);
+
+      if (hiringPopup) {
+        hiringPopup.addEventListener('click', function(e) {
+          if (e.target === hiringPopup) closeHiringPopup();
+        });
+      }
+
+      // Escape key closes whichever is active
       document.addEventListener('keydown', function(e) {
-        if (e.key === 'Escape' && eventPopup && eventPopup.classList.contains('active')) {
-          closeEventPopup();
+        if (e.key === 'Escape') {
+          if (eventPopup && eventPopup.classList.contains('active')) closeEventPopup();
+          if (hiringPopup && hiringPopup.classList.contains('active')) closeHiringPopup();
         }
       });
     })();
