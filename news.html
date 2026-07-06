@@ -213,7 +213,6 @@
         display: none !important;
       }
     }
-
     /* Navbar Text Color Consistency */
     .navbar-nav .nav__item-link {
       color: #000000 !important;
@@ -288,7 +287,6 @@
     .navbar-actions {
       gap: 25px !important;
     }
-    
     /* Order Now Dropdown Styling - White Background with Black Text */
     /* Override main CSS with higher specificity */
     .navbar .dropdown-menu,
@@ -1126,13 +1124,13 @@
 
 <body>
   <!-- Scrolling Marquee Banner (Desktop) -->
-  <div id="desktopMarquee" onclick="window.open('https://docs.google.com/forms/d/e/1FAIpQLSf240-Tqxmv9kXYkDcP7WQgIZr1-GQlvCQJGy1CJLzzyi-hKg/viewform', '_blank')" style="display: none; background: linear-gradient(135deg, #dc2626, #b91c1c); color: white; height: 36px; overflow: hidden; cursor: pointer; position: fixed; top: 0; left: 0; right: 0; z-index: 10001; box-shadow: 0 2px 8px rgba(0,0,0,0.2);">
+  <div id="desktopMarquee" onclick="window.location.href='contact.html'" style="display: none; background: linear-gradient(135deg, #dc2626, #b91c1c); color: white; height: 36px; overflow: hidden; cursor: pointer; position: fixed; top: 0; left: 0; right: 0; z-index: 10001; box-shadow: 0 2px 8px rgba(0,0,0,0.2);">
     <div style="display: flex; align-items: center; height: 100%; white-space: nowrap; animation: desktopMarqueeScroll 25s linear infinite;">
-      <span style="padding: 0 40px; font-size: 0.85rem; font-weight: 600; color: white;"><i class="fas fa-trophy"></i> 6th Annual Trucks &amp; Coffee Charity Show - March 29th, 8AM-4PM - Register Now!</span>
+      <span style="padding: 0 40px; font-size: 0.85rem; font-weight: 600; color: white;"><i class="fas fa-briefcase"></i> NOW HIRING - Join Our Team!</span>
       <span style="padding: 0 10px; color: rgba(255,255,255,0.7);">★</span>
       <span style="padding: 0 40px; font-size: 0.85rem; font-weight: 600; color: white;"><i class="fas fa-briefcase"></i> NOW HIRING - Join Our Team!</span>
       <span style="padding: 0 10px; color: rgba(255,255,255,0.7);">★</span>
-      <span style="padding: 0 40px; font-size: 0.85rem; font-weight: 600; color: white;"><i class="fas fa-trophy"></i> 6th Annual Trucks &amp; Coffee Charity Show - March 29th, 8AM-4PM - Register Now!</span>
+      <span style="padding: 0 40px; font-size: 0.85rem; font-weight: 600; color: white;"><i class="fas fa-briefcase"></i> NOW HIRING - Join Our Team!</span>
       <span style="padding: 0 10px; color: rgba(255,255,255,0.7);">★</span>
       <span style="padding: 0 40px; font-size: 0.85rem; font-weight: 600; color: white;"><i class="fas fa-briefcase"></i> NOW HIRING - Join Our Team!</span>
       <span style="padding: 0 10px; color: rgba(255,255,255,0.7);">★</span>
@@ -2070,22 +2068,6 @@
     });
   </script>
 
-  <!-- Charity Event Popup -->
-  <div id="eventPopupOverlay" style="display: none; position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: rgba(0,0,0,0.7); z-index: 100000; justify-content: center; align-items: center; padding: 30px;">
-    <div id="eventPopup" style="position: relative; max-width: 420px; width: 100%; max-height: 90vh;">
-      <button onclick="closeEventPopup()" style="position: absolute; top: -15px; right: -15px; background: white; border: 3px solid #dc2626; color: #dc2626; width: 40px; height: 40px; border-radius: 50%; cursor: pointer; font-size: 1.5rem; font-weight: bold; display: flex; align-items: center; justify-content: center; transition: all 0.3s ease; z-index: 10; box-shadow: 0 4px 15px rgba(0,0,0,0.3);" onmouseover="this.style.background='#f5f5f5'" onmouseout="this.style.background='white'">&times;</button>
-      <a href="https://docs.google.com/forms/d/e/1FAIpQLSf240-Tqxmv9kXYkDcP7WQgIZr1-GQlvCQJGy1CJLzzyi-hKg/viewform" target="_blank" rel="noopener" style="display: block; cursor: pointer;">
-        <img src="assets/2026-annual-charity-event.png" alt="6th Annual Trucks &amp; Coffee Charity Show - March 29th" style="width: 100%; height: auto; border-radius: 15px; box-shadow: 0 25px 50px rgba(0,0,0,0.4); transition: transform 0.2s ease;" onmouseover="this.style.transform='scale(1.02)'" onmouseout="this.style.transform='scale(1)'">
-      </a>
-    </div>
-  </div>
-
-  <!-- Charity Event Badge (Fixed Position) -->
-  <div id="eventBadge" onclick="openEventPopup()" style="position: fixed; bottom: 190px; right: 20px; background: linear-gradient(135deg, #dc2626, #b91c1c); padding: 12px 18px; border-radius: 30px; cursor: pointer; z-index: 9998; box-shadow: 0 5px 20px rgba(220, 38, 38, 0.4); display: flex; align-items: center; gap: 8px; font-weight: 700; font-size: 0.9rem; transition: all 0.3s ease; animation: eventPulse 2s infinite;">
-    <i class="fas fa-trophy" style="color: #ffffff !important;"></i>
-    <span style="color: #ffffff !important;">Charity Event!</span>
-  </div>
-
   <!-- We're Hiring Badge (Fixed Position) -->
   <div id="hiringBadge" onclick="openHiringPopup()" style="position: fixed; bottom: 130px; right: 20px; background: linear-gradient(135deg, #8B0000, #dc2626); padding: 12px 18px; border-radius: 30px; cursor: pointer; z-index: 9998; box-shadow: 0 5px 20px rgba(139, 0, 0, 0.4); display: flex; align-items: center; gap: 8px; font-weight: 700; font-size: 0.9rem; transition: all 0.3s ease;">
     <i class="fas fa-briefcase" style="color: #ffffff !important;"></i>
@@ -2103,29 +2085,11 @@
   </div>
 
   <style>
-    @keyframes eventPulse {
-      0%, 100% { transform: scale(1); }
-      50% { transform: scale(1.05); }
-    }
-    #eventBadge:hover {
-      transform: scale(1.1) !important;
-      box-shadow: 0 8px 25px rgba(220, 38, 38, 0.5);
-    }
     #hiringBadge:hover {
       transform: scale(1.1) !important;
       box-shadow: 0 8px 25px rgba(139, 0, 0, 0.5);
     }
     @media (max-width: 768px) {
-      #eventPopup {
-        margin: 10px;
-        max-width: calc(100% - 20px);
-      }
-      #eventBadge {
-        bottom: 170px;
-        right: 15px;
-        padding: 10px 15px;
-        font-size: 0.85rem;
-      }
       #hiringBadge {
         bottom: 120px;
         right: 15px;
@@ -2136,22 +2100,6 @@
   </style>
 
   <script>
-    // Charity Event Popup Functions
-    function openEventPopup() {
-      document.getElementById('eventPopupOverlay').style.display = 'flex';
-      document.body.style.overflow = 'hidden';
-    }
-
-    function closeEventPopup() {
-      document.getElementById('eventPopupOverlay').style.display = 'none';
-      document.body.style.overflow = '';
-      sessionStorage.setItem('eventPopupSeen', 'true');
-      // Show hiring popup after event popup is closed
-      if (!sessionStorage.getItem('hiringPopupSeen')) {
-        setTimeout(function() { openHiringPopup(); }, 500);
-      }
-    }
-
     // Now Hiring Popup Functions
     function openHiringPopup() {
       document.getElementById('hiringPopupOverlay').style.display = 'flex';
@@ -2165,9 +2113,6 @@
     }
 
     // Close on overlay click
-    document.getElementById('eventPopupOverlay').addEventListener('click', function(e) {
-      if (e.target === this) closeEventPopup();
-    });
     document.getElementById('hiringPopupOverlay').addEventListener('click', function(e) {
       if (e.target === this) closeHiringPopup();
     });
@@ -2175,15 +2120,12 @@
     // Close on Escape key
     document.addEventListener('keydown', function(e) {
       if (e.key === 'Escape') {
-        if (document.getElementById('eventPopupOverlay').style.display === 'flex') closeEventPopup();
         if (document.getElementById('hiringPopupOverlay').style.display === 'flex') closeHiringPopup();
       }
     });
 
-    // Auto-show: event popup first, hiring popup if event already seen
-    if (!sessionStorage.getItem('eventPopupSeen')) {
-      setTimeout(function() { openEventPopup(); }, 2000);
-    } else if (!sessionStorage.getItem('hiringPopupSeen')) {
+    // Auto-show hiring popup on first visit
+    if (!sessionStorage.getItem('hiringPopupSeen')) {
       setTimeout(function() { openHiringPopup(); }, 2000);
     }
   </script>
