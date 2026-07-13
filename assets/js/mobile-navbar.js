@@ -116,10 +116,10 @@ class MobileNavbar {
             </button>
             <div class="mobile-order-dropdown-menu">
               <div class="mobile-order-dropdown-item">
-                <a href="https://www.grubhub.com/restaurant/mex-taco-house-25410-northwest-fwy-cypress/5807624" 
+                <a href="https://www.doordash.com/store/47354283?utm_source=mx_share&aw=TWLbHsQyds3WnFXc" 
                    target="_blank" rel="noopener noreferrer" class="mobile-order-dropdown-link">
-                  <div class="mobile-order-dropdown-icon grubhub">GH</div>
-                  <span class="mobile-order-dropdown-text">Grubhub</span>
+                  <div class="mobile-order-dropdown-icon doordash">DD</div>
+                  <span class="mobile-order-dropdown-text">DoorDash</span>
                 </a>
               </div>
               <div class="mobile-order-dropdown-item">

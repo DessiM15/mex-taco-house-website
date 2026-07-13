@@ -1137,8 +1137,8 @@ p {
   background: var(--primary-red);
 }
 
-.order-option-icon.grubhub {
-  background: #f63440;
+.order-option-icon.doordash {
+  background: #EB1700;
 }
 
 .order-option-icon.ubereats {
