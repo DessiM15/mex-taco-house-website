@@ -164,10 +164,10 @@
 </head>
 <body>
   <!-- Scrolling Marquee Banner -->
-  <div class="marquee-banner" onclick="window.location.href='contact.html'" style="cursor: pointer;">
+  <div class="marquee-banner" onclick="window.open('https://maps.google.com/maps?q=25410+Northwest+Fwy+Cypress+TX+77429', '_blank', 'noopener')" style="cursor: pointer;">
     <div class="marquee-content">
       <span class="marquee-item">
-        <i class="fas fa-briefcase"></i> NOW HIRING - Join Our Team!
+        <i class="fas fa-truck"></i> TRUCKS &amp; COFFEE - This Sunday, Sept 27 - 8AM to Noon - FREE Coffee!
       </span>
       <span class="marquee-separator">★</span>
       <span class="marquee-item">
@@ -175,7 +175,7 @@
       </span>
       <span class="marquee-separator">★</span>
       <span class="marquee-item">
-        <i class="fas fa-briefcase"></i> NOW HIRING - Join Our Team!
+        <i class="fas fa-truck"></i> TRUCKS &amp; COFFEE - This Sunday, Sept 27 - 8AM to Noon - FREE Coffee!
       </span>
       <span class="marquee-separator">★</span>
       <span class="marquee-item">
@@ -242,24 +242,25 @@
   <!-- News Articles -->
   <section class="section" style="padding-top: 0;">
 
-    <!-- Trucks & Coffee Charity Show -->
+    <!-- Trucks & Coffee at Mex Taco House -->
     <article class="news-card-full">
-      <img src="assets/2026-annual-charity-event.png" alt="6th Annual Trucks &amp; Coffee Charity Show">
+      <img src="assets/trucks-coffee-sept-2026.jpg" alt="Trucks &amp; Coffee HOU TX at Mex Taco House - Sunday September 27, 8AM to Noon - Free Coffee - All Classics Welcomed">
       <div class="news-card-full-body">
         <span class="news-badge event">Event</span>
-        <p class="news-date"><i class="fas fa-calendar-alt"></i> March 29, 2026</p>
-        <h3>6th Annual Trucks &amp; Coffee Charity Show!</h3>
-        <p>Join us for the 6th Annual Trucks &amp; Coffee Charity Show! A day packed with amazing trucks, great food, DJ, giveaways, awards and more. All proceeds benefit local charities!</p>
-        <p>Spectators are FREE! Vehicle pre-registration is just $35.</p>
+        <p class="news-date"><i class="fas fa-calendar-alt"></i> Sunday, September 27, 2026</p>
+        <h3>Trucks &amp; Coffee at Mex Taco House!</h3>
+        <p>Trucks &amp; Coffee HOU TX is rolling into Mex Taco House this Sunday! Bring out your classic truck or car, meet fellow enthusiasts, and start your morning with a hot cup of coffee on us. All classics are welcomed and everyone is invited.</p>
+        <p>FREE coffee for everyone. Grab breakfast tacos while you check out the trucks!</p>
         <ul class="holiday-list">
-          <li><i class="fas fa-calendar" style="color: #dc2626;"></i><strong>Date:</strong> Saturday, March 29th</li>
-          <li><i class="fas fa-clock" style="color: #dc2626;"></i><strong>Time:</strong> 8AM - 4PM</li>
-          <li><i class="fas fa-map-marker-alt" style="color: #dc2626;"></i><strong>Location:</strong> Bear Creek Rodeo Arena Parking Lot, 3230 Hwy 6, Houston, TX 77084</li>
-          <li><i class="fas fa-ticket-alt" style="color: #dc2626;"></i><strong>Registration:</strong> $35 pre-registration</li>
-          <li><i class="fas fa-users" style="color: #dc2626;"></i><strong>Spectators:</strong> FREE</li>
+          <li><i class="fas fa-calendar" style="color: #dc2626;"></i><strong>Date:</strong> Sunday, September 27, 2026</li>
+          <li><i class="fas fa-clock" style="color: #dc2626;"></i><strong>Time:</strong> 8AM - Noon</li>
+          <li><i class="fas fa-map-marker-alt" style="color: #dc2626;"></i><strong>Location:</strong> Mex Taco House, 25410 Northwest Freeway, Cypress, TX 77429</li>
+          <li><i class="fas fa-coffee" style="color: #dc2626;"></i><strong>Coffee:</strong> FREE</li>
+          <li><i class="fas fa-truck" style="color: #dc2626;"></i><strong>Who:</strong> All classics welcomed</li>
         </ul>
-        <a href="https://docs.google.com/forms/d/e/1FAIpQLSf240-Tqxmv9kXYkDcP7WQgIZr1-GQlvCQJGy1CJLzzyi-hKg/viewform" target="_blank" rel="noopener" class="btn btn-primary" style="margin-top: var(--space-md);">
-          <i class="fas fa-trophy btn-icon"></i> Register Now
+        <p style="font-size: 0.85rem; color: #6b7280;">Presented with Gas Pedal Project, La Vida Clasica and T&amp;C HQ.</p>
+        <a href="https://maps.google.com/maps?q=25410+Northwest+Fwy+Cypress+TX+77429" target="_blank" rel="noopener" class="btn btn-primary" style="margin-top: var(--space-md);">
+          <i class="fas fa-map-marker-alt btn-icon"></i> Get Directions
         </a>
       </div>
     </article>
@@ -320,6 +321,7 @@
       </a>
     </div>
     <p class="footer-copyright">&copy; <span class="current-year">2024</span> Mex Taco House. All rights reserved.</p>
+    <p class="footer-copyright" style="margin-top: 4px;">Website designed by <a href="https://www.smartscaleagent.com/portfolio" target="_blank" rel="noopener" style="color: #bbb; text-decoration: underline;">Smart Scale, LLC</a></p>
     <a href="news.html?desktop=true" class="footer-desktop-link">View Desktop Site</a>
   </footer>
 
@@ -375,6 +377,151 @@
       </div>
     </div>
   </div>
+
+  <!-- Trucks & Coffee Event Badge - reopens the event popup -->
+  <button type="button" class="event-badge" id="eventBadge" aria-label="Open Trucks &amp; Coffee event details">
+    <i class="fas fa-truck"></i> Trucks &amp; Coffee &middot; Sun 9/27
+  </button>
+
+  <!-- Trucks & Coffee Event Popup (Sunday, September 27, 2026) -->
+  <div class="event-popup" id="eventPopup" role="dialog" aria-modal="true" aria-label="Trucks &amp; Coffee event">
+    <div class="event-popup-content">
+      <button class="event-popup-x" aria-label="Close">&times;</button>
+      <img src="assets/trucks-coffee-sept-2026.jpg" alt="Trucks &amp; Coffee HOU TX at Mex Taco House - Sunday September 27, 8AM to Noon - Free Coffee - All Classics Welcomed">
+      <div class="event-popup-body">
+        <p class="event-popup-when">Sunday, September 27 &middot; 8AM &ndash; Noon</p>
+        <p class="event-popup-text">FREE coffee &middot; All classics welcomed<br>25410 Northwest Fwy, Cypress, TX 77429</p>
+        <a href="https://maps.google.com/maps?q=25410+Northwest+Fwy+Cypress+TX+77429" target="_blank" rel="noopener" class="btn btn-primary btn-block"><i class="fas fa-map-marker-alt btn-icon"></i> Get Directions</a>
+      </div>
+    </div>
+  </div>
+
+  <style>
+    .event-badge {
+      position: fixed;
+      right: 12px;
+      bottom: calc(var(--bottom-nav-height) + var(--safe-area-bottom) + 12px);
+      z-index: 997;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: linear-gradient(135deg, #1f2937, #111827);
+      color: #fff;
+      border: 2px solid #dc2626;
+      border-radius: 30px;
+      padding: 9px 14px;
+      font-size: 0.8rem;
+      font-weight: 700;
+      box-shadow: 0 5px 20px rgba(0, 0, 0, 0.4);
+      cursor: pointer;
+      font-family: inherit;
+    }
+    .event-badge i { color: #fff; }
+    .event-popup {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(0, 0, 0, 0.8);
+      z-index: 10001;
+      justify-content: center;
+      align-items: center;
+      padding: 16px;
+    }
+    .event-popup.active {
+      display: flex;
+    }
+    .event-popup-content {
+      position: relative;
+      width: 100%;
+      max-width: 380px;
+      max-height: 92vh;
+      background: #fff;
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 25px 50px rgba(0, 0, 0, 0.5);
+      animation: popupSlideIn 0.3s ease;
+    }
+    .event-popup-content img {
+      display: block;
+      width: 100%;
+      height: auto;
+      max-height: 58vh;
+      object-fit: contain;
+      background: #7a7a7a;
+    }
+    .event-popup-x {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      z-index: 2;
+      background: #fff;
+      border: 2px solid #dc2626;
+      color: #dc2626;
+      width: 34px;
+      height: 34px;
+      border-radius: 50%;
+      font-size: 1.5rem;
+      line-height: 1;
+      cursor: pointer;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    }
+    .event-popup-body {
+      padding: 14px 16px 18px;
+      text-align: center;
+    }
+    .event-popup-when {
+      margin: 0 0 6px;
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: #111827;
+    }
+    .event-popup-text {
+      margin: 0 0 14px;
+      font-size: 0.9rem;
+      line-height: 1.5;
+      color: #4b5563;
+    }
+  </style>
+
+  <script>
+    // Trucks & Coffee event popup: auto-opens once per browser session (2s delay).
+    // The event badge stays on screen so visitors can reopen it anytime.
+    // To retire the event: delete the badge, popup, style and this script block.
+    (function() {
+      var popup = document.getElementById('eventPopup');
+      var badge = document.getElementById('eventBadge');
+      if (!popup) return;
+
+      function openEventPopup() {
+        popup.classList.add('active');
+        document.body.style.overflow = 'hidden';
+      }
+      function closeEventPopup() {
+        popup.classList.remove('active');
+        document.body.style.overflow = '';
+      }
+
+      if (badge) badge.addEventListener('click', openEventPopup);
+      var x = popup.querySelector('.event-popup-x');
+      if (x) x.addEventListener('click', closeEventPopup);
+      popup.addEventListener('click', function(e) {
+        if (e.target === popup) closeEventPopup();
+      });
+      document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape' && popup.classList.contains('active')) closeEventPopup();
+      });
+
+      var shown = false;
+      try { shown = sessionStorage.getItem('trucksCoffeeSept2026Shown') === '1'; } catch (e) {}
+      if (!shown) {
+        try { sessionStorage.setItem('trucksCoffeeSept2026Shown', '1'); } catch (e) {}
+        setTimeout(openEventPopup, 2000);
+      }
+    })();
+  </script>
 
   <!-- Now Hiring Popup -->
   <div class="hiring-popup" id="hiringPopup">
@@ -463,55 +610,9 @@
       line-height: 1.5;
       margin-bottom: 20px;
     }
-    .event-popup {
-      display: none;
-      position: fixed;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      background: rgba(0, 0, 0, 0.7);
-      z-index: 10000;
-      justify-content: center;
-      align-items: center;
-      padding: 30px;
-    }
-    .event-popup.active {
-      display: flex;
-    }
-    .event-popup-content {
-      position: relative;
-      max-width: 340px;
-      width: 100%;
-      animation: popupSlideIn 0.3s ease;
-      overflow: visible;
-    }
     @keyframes popupSlideIn {
       from { opacity: 0; transform: scale(0.9) translateY(-20px); }
       to { opacity: 1; transform: scale(1) translateY(0); }
-    }
-    .event-popup-x {
-      position: absolute;
-      top: -16px;
-      right: -16px;
-      background: white;
-      border: 3px solid #dc2626;
-      color: #dc2626;
-      width: 40px;
-      height: 40px;
-      border-radius: 50%;
-      font-size: 1.6rem;
-      line-height: 1;
-      cursor: pointer;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      z-index: 10;
-      box-shadow: 0 4px 15px rgba(0,0,0,0.3);
-    }
-    .event-popup-x:hover {
-      background: #dc2626;
-      color: white;
     }
   </style>
 
@@ -526,75 +627,43 @@
   <!-- Popup Handlers -->
   <script>
     (function() {
-      const eventPopup = document.getElementById('eventPopup');
       const hiringPopup = document.getElementById('hiringPopup');
+      if (!hiringPopup) return;
 
-      // Show event popup first (time-sensitive), then hiring popup after it's dismissed
-      if (eventPopup && !sessionStorage.getItem('eventPopupSeen')) {
-        setTimeout(() => {
-          eventPopup.classList.add('active');
-          document.body.style.overflow = 'hidden';
-        }, 2000);
-      } else if (hiringPopup && !sessionStorage.getItem('hiringPopupSeen')) {
-        setTimeout(() => {
-          hiringPopup.classList.add('active');
-          document.body.style.overflow = 'hidden';
-        }, 2000);
+      // Auto-show the hiring popup at most once every 7 days per device.
+      // The timestamp is recorded when the popup is shown.
+      var HIRING_POPUP_INTERVAL_MS = 7 * 24 * 60 * 60 * 1000; // 7 days
+
+      function showHiringPopup() {
+        hiringPopup.classList.add('active');
+        document.body.style.overflow = 'hidden';
+        try { localStorage.setItem('hiringPopupLastSeen', String(Date.now())); } catch (e) {}
       }
 
-      // Show hiring popup after event popup is closed
-      function showHiringAfterEvent() {
-        if (hiringPopup && !sessionStorage.getItem('hiringPopupSeen')) {
-          setTimeout(() => {
-            hiringPopup.classList.add('active');
-            document.body.style.overflow = 'hidden';
-          }, 500);
-        }
-      }
-
-      // Event popup close
-      function closeEventPopup() {
-        if (eventPopup) {
-          eventPopup.classList.remove('active');
-          document.body.style.overflow = '';
-          sessionStorage.setItem('eventPopupSeen', 'true');
-          showHiringAfterEvent();
-        }
-      }
-
-      const eventCloseX = eventPopup ? eventPopup.querySelector('.event-popup-x') : null;
-      if (eventCloseX) eventCloseX.addEventListener('click', closeEventPopup);
-
-      if (eventPopup) {
-        eventPopup.addEventListener('click', function(e) {
-          if (e.target === eventPopup) closeEventPopup();
-        });
-      }
-
-      // Hiring popup close
       function closeHiringPopup() {
-        if (hiringPopup) {
-          hiringPopup.classList.remove('active');
-          document.body.style.overflow = '';
-          sessionStorage.setItem('hiringPopupSeen', 'true');
-        }
+        hiringPopup.classList.remove('active');
+        document.body.style.overflow = '';
       }
 
-      const hiringCloseX = hiringPopup ? hiringPopup.querySelector('.hiring-popup-x') : null;
+      // While the Trucks & Coffee event popup is on the page it takes priority:
+      // the hiring popup does not auto-open. Remove the event popup markup
+      // after the event and hiring auto-open resumes.
+      var eventPopupActive = !!document.getElementById('eventPopup');
+      var hiringLastSeen = parseInt(localStorage.getItem('hiringPopupLastSeen') || '0', 10);
+      if (!eventPopupActive && (!hiringLastSeen || (Date.now() - hiringLastSeen) > HIRING_POPUP_INTERVAL_MS)) {
+        setTimeout(showHiringPopup, 2000);
+      }
+
+      const hiringCloseX = hiringPopup.querySelector('.hiring-popup-x');
       if (hiringCloseX) hiringCloseX.addEventListener('click', closeHiringPopup);
 
-      if (hiringPopup) {
-        hiringPopup.addEventListener('click', function(e) {
-          if (e.target === hiringPopup) closeHiringPopup();
-        });
-      }
+      hiringPopup.addEventListener('click', function(e) {
+        if (e.target === hiringPopup) closeHiringPopup();
+      });
 
-      // Escape key closes whichever is active
+      // Escape key closes the popup if active
       document.addEventListener('keydown', function(e) {
-        if (e.key === 'Escape') {
-          if (eventPopup && eventPopup.classList.contains('active')) closeEventPopup();
-          if (hiringPopup && hiringPopup.classList.contains('active')) closeHiringPopup();
-        }
+        if (e.key === 'Escape' && hiringPopup.classList.contains('active')) closeHiringPopup();
       });
     })();
   </script>
