@@ -726,7 +726,8 @@
   color: #ffffff;
 }
 
-.call-popup h3 {
+.call-popup h3,
+.call-popup h2 {
   font-size: 1.3rem;
   color: #333;
   margin-bottom: 10px;
@@ -1545,7 +1546,9 @@
     padding: 0 20px !important;
   }
 
-  .footer h5 {
+  .footer h5,
+
+  .footer .footer-col-title {
     font-size: 1.2rem !important;
     margin-bottom: 15px !important;
   }
@@ -1617,7 +1620,9 @@
     padding: 0 15px !important;
   }
 
-  .footer h5 {
+  .footer h5,
+
+  .footer .footer-col-title {
     font-size: 1.1rem !important;
   }
 

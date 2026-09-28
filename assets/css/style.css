@@ -53,7 +53,7 @@ body {
   font-family: "Rubik", sans-serif;
   font-size: 15px;
   font-weight: 400;
-  color: #9b9b9b;
+  color: #666666;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -114,9 +114,7 @@ li {
   padding-top: 0;
 }
 
-*,
-:active,
-:focus {
+*:focus:not(:focus-visible) {
   outline: none;
 }
 
@@ -131,11 +129,11 @@ button {
 }
 
 button,
-button:focus,
+button:focus:not(:focus-visible),
 .btn.focus,
-.btn:focus,
+.btn:focus:not(:focus-visible),
 .form-control,
-.form-control:focus {
+.form-control:focus:not(:focus-visible) {
   outline: none;
   background-color: transparent;
   -webkit-box-shadow: none;
@@ -959,7 +957,7 @@ select {
 }
 
 .color-body {
-  color: #9b9b9b !important;
+  color: #666666 !important;
 }
 
 /* backgrounds */
@@ -1433,7 +1431,7 @@ h6 {
   transition: all 0.3s ease-in-out;
 }
 
-.btn:focus,
+.btn:focus:not(:focus-visible),
 .btn.active,
 .btn:active {
   -webkit-box-shadow: none;
@@ -1737,7 +1735,7 @@ h6 {
   padding: 0 15px;
   font-size: 14px;
   width: 100%;
-  color: #9b9b9b;
+  color: #666666;
 }
 
 .form-control:focus {
@@ -1746,19 +1744,19 @@ h6 {
 }
 
 .form-control::-webkit-input-placeholder {
-  color: #9b9b9b;
+  color: #666666;
 }
 
 .form-control:-moz-placeholder {
-  color: #9b9b9b;
+  color: #666666;
 }
 
 .form-control::-moz-placeholder {
-  color: #9b9b9b;
+  color: #666666;
 }
 
 .form-control:-ms-input-placeholder {
-  color: #9b9b9b;
+  color: #666666;
 }
 
 textarea.form-control {
@@ -1910,7 +1908,7 @@ textarea.form-control {
   background-color: transparent;
   border: 1px solid #eeeeee;
   border-radius: 2px;
-  color: #9b9b9b;
+  color: #666666;
   text-align: center;
   -webkit-transition: all 0.3s linear;
   transition: all 0.3s linear;
@@ -2196,7 +2194,7 @@ textarea.form-control {
 }
 
 .navbar .dropdown-menu .nav__item .nav__item-link {
-  color: #9b9b9b;
+  color: #666666;
   text-transform: capitalize;
   font-weight: 400;
   line-height: 40px;
@@ -3579,7 +3577,7 @@ textarea.form-control {
   width: 50px;
   height: 50px;
   line-height: 50px;
-  color: #999999;
+  color: #666666;
   font-size: 0;
   font-weight: 400;
   text-align: center;
@@ -5410,7 +5408,7 @@ textarea.form-control {
   position: absolute;
   top: 0;
   right: 0;
-  color: #9b9b9b;
+  color: #666666;
 }
 
 .product-item .product__cat a:last-child {
@@ -5533,7 +5531,7 @@ textarea.form-control {
   width: 60px;
   height: 50px;
   margin: 0;
-  color: #9b9b9b;
+  color: #666666;
   font-weight: 600;
   padding-right: 10px;
 }
@@ -5549,12 +5547,12 @@ textarea.form-control {
 
 .product-single .quantity__input-wrap .increase-qty {
   top: 7px;
-  border-bottom-color: #9b9b9b;
+  border-bottom-color: #666666;
 }
 
 .product-single .quantity__input-wrap .decrease-qty {
   bottom: 7px;
-  border-top-color: #9b9b9b;
+  border-top-color: #666666;
 }
 
 .product__meta-title {
@@ -5575,7 +5573,7 @@ textarea.form-control {
   position: absolute;
   top: -2px;
   right: -2px;
-  color: #9b9b9b;
+  color: #666666;
 }
 
 .product__meta-cat a:last-child,
@@ -5701,7 +5699,7 @@ textarea.form-control {
   height: 30px;
   border: 1px solid #eeeeee;
   min-width: 128px;
-  color: #9b9b9b;
+  color: #666666;
   font-size: 13px;
   -webkit-appearance: none;
   -moz-appearance: none;
@@ -5745,7 +5743,7 @@ textarea.form-control {
   display: inline-block;
   text-align: center;
   font-size: 14px;
-  color: #9b9b9b;
+  color: #666666;
   margin-right: 8px;
 }
 
@@ -5960,7 +5958,7 @@ textarea.form-control {
 }
 
 .cart__total-amount ul li span:last-of-type {
-  color: #9b9b9b;
+  color: #666666;
 }
 
 .cart__shiping .form-control {
@@ -6249,7 +6247,7 @@ textarea.form-control {
 .widget-tags ul li a {
   display: block;
   font-size: 14px;
-  color: #9b9b9b;
+  color: #666666;
   line-height: 1;
   text-transform: capitalize;
   padding: 7px 9px;
@@ -6414,7 +6412,7 @@ textarea.form-control {
 }
 
 .widget-filter label {
-  color: #9b9b9b;
+  color: #666666;
   font-size: 15px;
   margin-right: 5px;
   margin-bottom: 0;
@@ -6472,7 +6470,7 @@ textarea.form-control {
 }
 
 .menu-item .menu__item-price {
-  color: #c7a254;
+  color: #92680c;
   font-size: 14px;
   font-weight: 500;
 }

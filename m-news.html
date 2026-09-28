@@ -43,8 +43,8 @@
       margin-bottom: var(--space-sm);
     }
     .news-badge.event { background: #dc2626; }
-    .news-badge.holiday { background: #059669; }
-    .news-badge.catering { background: #d97706; }
+    .news-badge.holiday { background: #047857; }
+    .news-badge.catering { background: #b45309; }
 
     .news-card-full {
       background: white;
@@ -161,36 +161,41 @@
       margin-bottom: var(--space-lg);
     }
   </style>
+  <link rel="stylesheet" href="assets/css/a11y.css">
 </head>
 <body>
+  <a href="#main-content" class="skip-link">Skip to main content</a>
   <!-- Scrolling Marquee Banner -->
-  <div class="marquee-banner" onclick="window.open('https://maps.google.com/maps?q=25410+Northwest+Fwy+Cypress+TX+77429', '_blank', 'noopener')" style="cursor: pointer;">
+  <div class="marquee-banner" role="region" aria-label="Announcements">
+    <a class="marquee-link" href="https://maps.google.com/maps?q=25410+Northwest+Fwy+Cypress+TX+77429" target="_blank" rel="noopener">
     <div class="marquee-content">
-      <span class="marquee-item">
-        <i class="fas fa-truck"></i> TRUCKS &amp; COFFEE - This Sunday, Sept 27 - 8AM to Noon - FREE Coffee!
+      <span aria-hidden="true" class="marquee-item">
+        <i class="fas fa-truck" aria-hidden="true"></i> TRUCKS &amp; COFFEE - This Sunday, Sept 27 - 8AM to Noon - FREE Coffee!
       </span>
-      <span class="marquee-separator">★</span>
-      <span class="marquee-item">
-        <i class="fas fa-briefcase"></i> NOW HIRING - Join Our Team!
+      <span aria-hidden="true" class="marquee-separator">★</span>
+      <span aria-hidden="true" class="marquee-item">
+        <i class="fas fa-briefcase" aria-hidden="true"></i> NOW HIRING - Join Our Team!
       </span>
-      <span class="marquee-separator">★</span>
+      <span aria-hidden="true" class="marquee-separator">★</span>
       <span class="marquee-item">
-        <i class="fas fa-truck"></i> TRUCKS &amp; COFFEE - This Sunday, Sept 27 - 8AM to Noon - FREE Coffee!
+        <i class="fas fa-truck" aria-hidden="true"></i> TRUCKS &amp; COFFEE - This Sunday, Sept 27 - 8AM to Noon - FREE Coffee!
       </span>
-      <span class="marquee-separator">★</span>
+      <span aria-hidden="true" class="marquee-separator">★</span>
       <span class="marquee-item">
-        <i class="fas fa-briefcase"></i> NOW HIRING - Join Our Team!
+        <i class="fas fa-briefcase" aria-hidden="true"></i> NOW HIRING - Join Our Team!
       </span>
-      <span class="marquee-separator">★</span>
+      <span aria-hidden="true" class="marquee-separator">★</span>
     </div>
+    <span class="sr-only"> (opens in new tab)</span></a>
+    <button type="button" class="a11y-pause-btn a11y-marquee-pause" data-marquee-toggle aria-pressed="false" aria-label="Pause scrolling announcement"><i class="fas fa-pause" aria-hidden="true"></i></button>
   </div>
 
   <!-- Top Navbar -->
-  <nav class="mobile-navbar">
+  <nav class="mobile-navbar" aria-label="Site header">
     <a href="m-index.html" class="mobile-navbar-logo-link">
       <img src="assets/max-taco-logo.png" alt="Mex Taco House" class="mobile-navbar-logo">
     </a>
-    <button class="mobile-navbar-toggle" aria-label="Open menu" aria-expanded="false">
+    <button type="button" class="mobile-navbar-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="mobileMenuPanel">
       <span></span>
       <span></span>
       <span></span>
@@ -201,7 +206,7 @@
   <div class="mobile-menu-overlay" aria-hidden="true"></div>
 
   <!-- Mobile Menu Panel -->
-  <nav class="mobile-menu-panel" aria-label="Mobile navigation">
+  <nav class="mobile-menu-panel" id="mobileMenuPanel" aria-label="Mobile navigation">
     <ul class="mobile-menu-nav">
       <li><a href="m-index.html" class="mobile-menu-link">Home</a></li>
       <li><a href="m-menu.html" class="mobile-menu-link">Menu</a></li>
@@ -210,14 +215,15 @@
     </ul>
     <div class="mobile-menu-divider"></div>
     <div class="mobile-menu-social">
-      <a href="https://www.instagram.com/mextacohouse/" target="_blank" rel="noopener" aria-label="Instagram">
-        <i class="fab fa-instagram"></i>
+      <a href="https://www.instagram.com/mextacohouse/" target="_blank" rel="noopener" aria-label="Mex Taco House on Instagram (opens in new tab)">
+        <i class="fab fa-instagram" aria-hidden="true"></i>
       </a>
-      <a href="https://www.facebook.com/mextacohouse" target="_blank" rel="noopener" aria-label="Facebook">
-        <i class="fab fa-facebook"></i>
+      <a href="https://www.facebook.com/mextacohouse" target="_blank" rel="noopener" aria-label="Mex Taco House on Facebook (opens in new tab)">
+        <i class="fab fa-facebook" aria-hidden="true"></i>
       </a>
     </div>
   </nav>
+  <main id="main-content" tabindex="-1">
 
   <!-- Page Header -->
   <section class="hero" style="background-image: url('assets/images/backgrounds/1.jpg'); min-height: 30vh;">
@@ -233,9 +239,9 @@
       <h2>We've Expanded!</h2>
       <p>More space. Same great taste. Come visit our newly expanded location!</p>
       <a href="https://maps.google.com/?q=25410+Northwest+Fwy,+Cypress,+TX+77429" target="_blank" rel="noopener" class="btn btn-white">
-        <i class="fas fa-map-marker-alt btn-icon"></i>
+        <i class="fas fa-map-marker-alt btn-icon" aria-hidden="true"></i>
         Visit Us
-      </a>
+      <span class="sr-only"> (opens in new tab)</span></a>
     </div>
   </section>
 
@@ -247,21 +253,21 @@
       <img src="assets/trucks-coffee-sept-2026.jpg" alt="Trucks &amp; Coffee HOU TX at Mex Taco House - Sunday September 27, 8AM to Noon - Free Coffee - All Classics Welcomed">
       <div class="news-card-full-body">
         <span class="news-badge event">Event</span>
-        <p class="news-date"><i class="fas fa-calendar-alt"></i> Sunday, September 27, 2026</p>
+        <p class="news-date"><i class="fas fa-calendar-alt" aria-hidden="true"></i> Sunday, September 27, 2026</p>
         <h3>Trucks &amp; Coffee at Mex Taco House!</h3>
         <p>Trucks &amp; Coffee HOU TX is rolling into Mex Taco House this Sunday! Bring out your classic truck or car, meet fellow enthusiasts, and start your morning with a hot cup of coffee on us. All classics are welcomed and everyone is invited.</p>
         <p>FREE coffee for everyone. Grab breakfast tacos while you check out the trucks!</p>
         <ul class="holiday-list">
-          <li><i class="fas fa-calendar" style="color: #dc2626;"></i><strong>Date:</strong> Sunday, September 27, 2026</li>
-          <li><i class="fas fa-clock" style="color: #dc2626;"></i><strong>Time:</strong> 8AM - Noon</li>
-          <li><i class="fas fa-map-marker-alt" style="color: #dc2626;"></i><strong>Location:</strong> Mex Taco House, 25410 Northwest Freeway, Cypress, TX 77429</li>
-          <li><i class="fas fa-coffee" style="color: #dc2626;"></i><strong>Coffee:</strong> FREE</li>
-          <li><i class="fas fa-truck" style="color: #dc2626;"></i><strong>Who:</strong> All classics welcomed</li>
+          <li><i class="fas fa-calendar" style="color: #dc2626;" aria-hidden="true"></i><strong>Date:</strong> Sunday, September 27, 2026</li>
+          <li><i class="fas fa-clock" style="color: #dc2626;" aria-hidden="true"></i><strong>Time:</strong> 8AM - Noon</li>
+          <li><i class="fas fa-map-marker-alt" style="color: #dc2626;" aria-hidden="true"></i><strong>Location:</strong> Mex Taco House, 25410 Northwest Freeway, Cypress, TX 77429</li>
+          <li><i class="fas fa-coffee" style="color: #dc2626;" aria-hidden="true"></i><strong>Coffee:</strong> FREE</li>
+          <li><i class="fas fa-truck" style="color: #dc2626;" aria-hidden="true"></i><strong>Who:</strong> All classics welcomed</li>
         </ul>
         <p style="font-size: 0.85rem; color: #6b7280;">Presented with Gas Pedal Project, La Vida Clasica and T&amp;C HQ.</p>
         <a href="https://maps.google.com/maps?q=25410+Northwest+Fwy+Cypress+TX+77429" target="_blank" rel="noopener" class="btn btn-primary" style="margin-top: var(--space-md);">
-          <i class="fas fa-map-marker-alt btn-icon"></i> Get Directions
-        </a>
+          <i class="fas fa-map-marker-alt btn-icon" aria-hidden="true"></i> Get Directions
+        <span class="sr-only"> (opens in new tab)</span></a>
       </div>
     </article>
 
@@ -270,7 +276,7 @@
       <img src="assets/mex-taco-expansion.webp" alt="Mex Taco House Expansion">
       <div class="news-card-full-body">
         <span class="news-badge">Featured</span>
-        <p class="news-date"><i class="fas fa-calendar-alt"></i> December 15, 2024</p>
+        <p class="news-date"><i class="fas fa-calendar-alt" aria-hidden="true"></i> December 15, 2024</p>
         <h3>Restaurant Expansion Complete!</h3>
         <p>We're thrilled to announce that Mex Taco House has expanded! After years of serving our community with authentic Mexican cuisine, we've made our current location larger to serve even more customers.</p>
         <p>Our expanded space now features a larger dining area, more seating capacity, and an improved kitchen layout. We're also excited to introduce some new menu items!</p>
@@ -280,16 +286,16 @@
 
     <!-- Catering -->
     <article class="news-card-full">
-      <img src="assets/gallery-images/street-tacos.jpeg" alt="Catering Services">
+      <img src="assets/gallery-images/street-tacos.jpeg" alt="Platter of street tacos with onion and cilantro, available for catering">
       <div class="news-card-full-body">
         <span class="news-badge catering">Catering</span>
-        <p class="news-date"><i class="fas fa-utensils"></i> Available for All Events</p>
+        <p class="news-date"><i class="fas fa-utensils" aria-hidden="true"></i> Available for All Events</p>
         <h3>Catering Services</h3>
         <p>Let Mex Taco House cater your next event! We offer authentic Mexican catering for birthday parties, corporate events, family gatherings, and special celebrations.</p>
         <p>Contact us today to discuss your catering needs and let us bring the authentic flavors of Mexico to your next event!</p>
         <div class="catering-box">
-          <p><i class="fas fa-phone"></i><strong>(281) 213-2844</strong></p>
-          <p><i class="fas fa-map-marker-alt"></i>25410 Northwest Fwy, Cypress, TX</p>
+          <p><i class="fas fa-phone" aria-hidden="true"></i><strong>(281) 213-2844</strong></p>
+          <p><i class="fas fa-map-marker-alt" aria-hidden="true"></i>25410 Northwest Fwy, Cypress, TX</p>
         </div>
       </div>
     </article>
@@ -297,6 +303,8 @@
   </section>
 
   <!-- Footer -->
+  </main>
+
   <footer class="footer">
     <img src="assets/max-taco-logo.png" alt="Mex Taco House" class="footer-logo">
     <p class="footer-address">
@@ -307,40 +315,41 @@
       <a href="tel:+12812132844">(281) 213-2844</a>
     </p>
     <div class="footer-hours">
-      <p class="footer-hours-title"><i class="fas fa-clock"></i> Business Hours</p>
+      <p class="footer-hours-title"><i class="fas fa-clock" aria-hidden="true"></i> Business Hours</p>
       <p class="footer-hours-item"><span>Mon:</span> <span class="closed">Closed</span></p>
       <p class="footer-hours-item"><span>Tue - Sat:</span> 6:00 AM - 2:00 PM</p>
       <p class="footer-hours-item"><span>Sun:</span> 7:00 AM - 2:00 PM</p>
     </div>
     <div class="footer-social">
-      <a href="https://www.instagram.com/mextacohouse/" target="_blank" rel="noopener" aria-label="Instagram">
-        <i class="fab fa-instagram"></i>
+      <a href="https://www.instagram.com/mextacohouse/" target="_blank" rel="noopener" aria-label="Mex Taco House on Instagram (opens in new tab)">
+        <i class="fab fa-instagram" aria-hidden="true"></i>
       </a>
-      <a href="https://www.facebook.com/mextacohouse" target="_blank" rel="noopener" aria-label="Facebook">
-        <i class="fab fa-facebook"></i>
+      <a href="https://www.facebook.com/mextacohouse" target="_blank" rel="noopener" aria-label="Mex Taco House on Facebook (opens in new tab)">
+        <i class="fab fa-facebook" aria-hidden="true"></i>
       </a>
     </div>
     <p class="footer-copyright">&copy; <span class="current-year">2024</span> Mex Taco House. All rights reserved.</p>
-    <p class="footer-copyright" style="margin-top: 4px;">Website designed by <a href="https://www.smartscaleagent.com/portfolio" target="_blank" rel="noopener" style="color: #bbb; text-decoration: underline;">Smart Scale, LLC</a></p>
+    <p class="footer-copyright" style="margin-top: 4px;">Website designed by <a href="https://www.smartscaleagent.com/portfolio" target="_blank" rel="noopener" style="color: #bbb; text-decoration: underline;">Smart Scale, LLC<span class="sr-only"> (opens in new tab)</span></a></p>
+    <a href="accessibility.html" class="footer-desktop-link" style="margin-right: 14px;">Accessibility</a>
     <a href="news.html?desktop=true" class="footer-desktop-link">View Desktop Site</a>
   </footer>
 
   <!-- Bottom Navigation -->
   <nav class="bottom-nav" aria-label="Quick actions">
     <a href="https://maps.google.com/?q=25410+Northwest+Fwy,+Cypress,+TX+77429" target="_blank" rel="noopener" class="bottom-nav-item">
-      <i class="fas fa-map-marker-alt bottom-nav-icon"></i>
+      <i class="fas fa-map-marker-alt bottom-nav-icon" aria-hidden="true"></i>
       <span class="bottom-nav-label">Directions</span>
-    </a>
+    <span class="sr-only"> (opens in new tab)</span></a>
     <a href="#" class="bottom-nav-item" data-action="order">
-      <i class="fas fa-shopping-bag bottom-nav-icon"></i>
+      <i class="fas fa-shopping-bag bottom-nav-icon" aria-hidden="true"></i>
       <span class="bottom-nav-label">Order</span>
     </a>
     <a href="m-menu.html" class="bottom-nav-item">
-      <i class="fas fa-utensils bottom-nav-icon"></i>
+      <i class="fas fa-utensils bottom-nav-icon" aria-hidden="true"></i>
       <span class="bottom-nav-label">Menu</span>
     </a>
     <a href="#" class="bottom-nav-item" data-action="call">
-      <i class="fas fa-phone bottom-nav-icon"></i>
+      <i class="fas fa-phone bottom-nav-icon" aria-hidden="true"></i>
       <span class="bottom-nav-label">Call</span>
     </a>
   </nav>
@@ -352,11 +361,11 @@
       <a href="https://www.doordash.com/store/47354283?utm_source=mx_share&aw=TWLbHsQyds3WnFXc" target="_blank" rel="noopener" class="order-option">
         <div class="order-option-icon doordash">DD</div>
         <span class="order-option-text">DoorDash</span>
-      </a>
+      <span class="sr-only"> (opens in new tab)</span></a>
       <a href="https://www.ubereats.com/store/mex-taco-house/zlftufBFXgm9JhQGyOfpvw" target="_blank" rel="noopener" class="order-option">
         <div class="order-option-icon ubereats">UE</div>
         <span class="order-option-text">Uber Eats</span>
-      </a>
+      <span class="sr-only"> (opens in new tab)</span></a>
     </div>
     <button class="order-dropdown-close">Cancel</button>
   </div>
@@ -365,13 +374,13 @@
   <div class="call-popup">
     <div class="call-popup-content">
       <div class="call-popup-icon">
-        <i class="fas fa-phone"></i>
+        <i class="fas fa-phone" aria-hidden="true"></i>
       </div>
-      <h3 class="call-popup-title">Call Mex Taco House</h3>
+      <h2 class="call-popup-title">Call Mex Taco House</h2>
       <p class="call-popup-number">(281) 213-2844</p>
       <div class="call-popup-actions">
         <a href="tel:+12812132844" class="btn btn-primary btn-block">
-          <i class="fas fa-phone"></i> Call Now
+          <i class="fas fa-phone" aria-hidden="true"></i> Call Now
         </a>
         <button class="btn btn-outline call-popup-cancel" style="color: var(--gray-700); border-color: var(--gray-300);">Cancel</button>
       </div>
@@ -380,7 +389,7 @@
 
   <!-- Trucks & Coffee Event Badge - reopens the event popup -->
   <button type="button" class="event-badge" id="eventBadge" aria-label="Open Trucks &amp; Coffee event details">
-    <i class="fas fa-truck"></i> Trucks &amp; Coffee &middot; Sun 9/27
+    <i class="fas fa-truck" aria-hidden="true"></i> Trucks &amp; Coffee &middot; Sun 9/27
   </button>
 
   <!-- Trucks & Coffee Event Popup (Sunday, September 27, 2026) -->
@@ -391,7 +400,7 @@
       <div class="event-popup-body">
         <p class="event-popup-when">Sunday, September 27 &middot; 8AM &ndash; Noon</p>
         <p class="event-popup-text">FREE coffee &middot; All classics welcomed<br>25410 Northwest Fwy, Cypress, TX 77429</p>
-        <a href="https://maps.google.com/maps?q=25410+Northwest+Fwy+Cypress+TX+77429" target="_blank" rel="noopener" class="btn btn-primary btn-block"><i class="fas fa-map-marker-alt btn-icon"></i> Get Directions</a>
+        <a href="https://maps.google.com/maps?q=25410+Northwest+Fwy+Cypress+TX+77429" target="_blank" rel="noopener" class="btn btn-primary btn-block"><i class="fas fa-map-marker-alt btn-icon" aria-hidden="true"></i> Get Directions<span class="sr-only"> (opens in new tab)</span></a>
       </div>
     </div>
   </div>
@@ -528,9 +537,9 @@
     <div class="hiring-popup-content">
       <button class="hiring-popup-x" aria-label="Close">&times;</button>
       <div class="hiring-popup-icon">
-        <i class="fas fa-briefcase"></i>
+        <i class="fas fa-briefcase" aria-hidden="true"></i>
       </div>
-      <h3 class="hiring-popup-title">We're Hiring!</h3>
+      <h2 class="hiring-popup-title">We're Hiring!</h2>
       <p class="hiring-popup-text">
         Join the Mex Taco House family! We're looking for friendly, hardworking team members.
       </p>
@@ -667,5 +676,6 @@
       });
     })();
   </script>
+  <script src="assets/js/a11y.js"></script>
 </body>
 </html>

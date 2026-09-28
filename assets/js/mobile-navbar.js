@@ -413,6 +413,7 @@ class MobileNavbar {
   }
 
   setupAccessibility() {
+    if (document.querySelector('.skip-link')) { return; }
     // Add skip link
     const skipLink = document.createElement('a');
     skipLink.href = '#main-content';

@@ -174,6 +174,7 @@
   function openMenu() {
     state.menuOpen = true;
     elements.menuToggle?.classList.add('active');
+    elements.menuToggle?.setAttribute('aria-expanded', 'true');
     elements.menuPanel?.classList.add('active');
     elements.menuOverlay?.classList.add('active');
     document.body.style.overflow = 'hidden';
@@ -182,6 +183,7 @@
   function closeMenu() {
     state.menuOpen = false;
     elements.menuToggle?.classList.remove('active');
+    elements.menuToggle?.setAttribute('aria-expanded', 'false');
     elements.menuPanel?.classList.remove('active');
     elements.menuOverlay?.classList.remove('active');
     document.body.style.overflow = '';
